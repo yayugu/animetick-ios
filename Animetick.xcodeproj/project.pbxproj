@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E244C9661780353200F1D203 /* ATLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E244C9641780353200F1D203 /* ATLoginViewController.m */; };
+		E244C9671780353200F1D203 /* ATLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E244C9651780353200F1D203 /* ATLoginViewController.xib */; };
+		E244C96E1780524700F1D203 /* ATWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = E244C96D1780524700F1D203 /* ATWebView.m */; };
 		E26BED82177081A80087E0E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26BED81177081A80087E0E4 /* UIKit.framework */; };
 		E26BED84177081A80087E0E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26BED83177081A80087E0E4 /* Foundation.framework */; };
 		E26BED86177081A80087E0E4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26BED85177081A80087E0E4 /* CoreGraphics.framework */; };
@@ -34,6 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E244C9631780353200F1D203 /* ATLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLoginViewController.h; sourceTree = "<group>"; };
+		E244C9641780353200F1D203 /* ATLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLoginViewController.m; sourceTree = "<group>"; };
+		E244C9651780353200F1D203 /* ATLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATLoginViewController.xib; sourceTree = "<group>"; };
+		E244C96C1780524700F1D203 /* ATWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATWebView.h; path = View/ATWebView.h; sourceTree = "<group>"; };
+		E244C96D1780524700F1D203 /* ATWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATWebView.m; path = View/ATWebView.m; sourceTree = "<group>"; };
 		E26BED7E177081A80087E0E4 /* Animetick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Animetick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E26BED81177081A80087E0E4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E26BED83177081A80087E0E4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -42,8 +50,8 @@
 		E26BED8B177081A80087E0E4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E26BED8D177081A80087E0E4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E26BED8F177081A80087E0E4 /* Animetick-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Animetick-Prefix.pch"; sourceTree = "<group>"; };
-		E26BED90177081A80087E0E4 /* AnimetickAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimetickAppDelegate.h; sourceTree = "<group>"; };
-		E26BED91177081A80087E0E4 /* AnimetickAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimetickAppDelegate.m; sourceTree = "<group>"; };
+		E26BED90177081A80087E0E4 /* AnimetickAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AnimetickAppDelegate.h; path = ViewController/AnimetickAppDelegate.h; sourceTree = "<group>"; };
+		E26BED91177081A80087E0E4 /* AnimetickAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AnimetickAppDelegate.m; path = ViewController/AnimetickAppDelegate.m; sourceTree = "<group>"; };
 		E26BED9E177081A80087E0E4 /* AnimetickTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimetickTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E26BED9F177081A80087E0E4 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		E26BEDA7177081A80087E0E4 /* AnimetickTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AnimetickTests-Info.plist"; sourceTree = "<group>"; };
@@ -79,6 +87,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E244C9621780323800F1D203 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E26BED90177081A80087E0E4 /* AnimetickAppDelegate.h */,
+				E26BED91177081A80087E0E4 /* AnimetickAppDelegate.m */,
+				E244C9631780353200F1D203 /* ATLoginViewController.h */,
+				E244C9641780353200F1D203 /* ATLoginViewController.m */,
+				E244C9651780353200F1D203 /* ATLoginViewController.xib */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		E244C968178051E000F1D203 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E244C96C1780524700F1D203 /* ATWebView.h */,
+				E244C96D1780524700F1D203 /* ATWebView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		E26BED75177081A80087E0E4 = {
 			isa = PBXGroup;
 			children = (
@@ -112,8 +141,8 @@
 		E26BED87177081A80087E0E4 /* Animetick */ = {
 			isa = PBXGroup;
 			children = (
-				E26BED90177081A80087E0E4 /* AnimetickAppDelegate.h */,
-				E26BED91177081A80087E0E4 /* AnimetickAppDelegate.m */,
+				E244C968178051E000F1D203 /* View */,
+				E244C9621780323800F1D203 /* ViewController */,
 				E26BED88177081A80087E0E4 /* Supporting Files */,
 			);
 			path = Animetick;
@@ -228,6 +257,7 @@
 				E26BEDBB17708FDD0087E0E4 /* Default-568h@2x.png in Resources */,
 				E26BEDBC17708FDD0087E0E4 /* Default.png in Resources */,
 				E26BEDBD17708FDD0087E0E4 /* Default@2x.png in Resources */,
+				E244C9671780353200F1D203 /* ATLoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +294,8 @@
 			files = (
 				E26BED8E177081A80087E0E4 /* main.m in Sources */,
 				E26BED92177081A80087E0E4 /* AnimetickAppDelegate.m in Sources */,
+				E244C9661780353200F1D203 /* ATLoginViewController.m in Sources */,
+				E244C96E1780524700F1D203 /* ATWebView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +472,7 @@
 				E26BEDB2177081A80087E0E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E26BEDB3177081A80087E0E4 /* Build configuration list for PBXNativeTarget "AnimetickTests" */ = {
 			isa = XCConfigurationList;
@@ -448,6 +481,7 @@
 				E26BEDB5177081A80087E0E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

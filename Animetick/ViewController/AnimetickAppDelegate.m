@@ -7,6 +7,7 @@
 //
 
 #import "AnimetickAppDelegate.h"
+#import "ATLoginViewController.h"
 
 @implementation AnimetickAppDelegate
 
@@ -15,7 +16,14 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    UIViewController *loginViewController = [[ATLoginViewController alloc] init];
+    self.window.rootViewController = loginViewController;
+    
     [self.window makeKeyAndVisible];
+    
+    
+    
     return YES;
 }
 
