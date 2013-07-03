@@ -6,10 +6,10 @@
 //  Copyright (c) 2013年 Kazuki Akamine. All rights reserved.
 //
 
-#import "AnimetickAppDelegate.h"
+#import "ATAppDelegate.h"
 #import "ATLoginViewController.h"
 
-@implementation AnimetickAppDelegate
+@implementation ATAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

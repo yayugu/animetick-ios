@@ -15,7 +15,7 @@
 		E26BED86177081A80087E0E4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26BED85177081A80087E0E4 /* CoreGraphics.framework */; };
 		E26BED8C177081A80087E0E4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E26BED8A177081A80087E0E4 /* InfoPlist.strings */; };
 		E26BED8E177081A80087E0E4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E26BED8D177081A80087E0E4 /* main.m */; };
-		E26BED92177081A80087E0E4 /* AnimetickAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E26BED91177081A80087E0E4 /* AnimetickAppDelegate.m */; };
+		E26BED92177081A80087E0E4 /* ATAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E26BED91177081A80087E0E4 /* ATAppDelegate.m */; };
 		E26BEDA0177081A80087E0E4 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26BED9F177081A80087E0E4 /* SenTestingKit.framework */; };
 		E26BEDA1177081A80087E0E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26BED81177081A80087E0E4 /* UIKit.framework */; };
 		E26BEDA2177081A80087E0E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26BED83177081A80087E0E4 /* Foundation.framework */; };
@@ -50,8 +50,8 @@
 		E26BED8B177081A80087E0E4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E26BED8D177081A80087E0E4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E26BED8F177081A80087E0E4 /* Animetick-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Animetick-Prefix.pch"; sourceTree = "<group>"; };
-		E26BED90177081A80087E0E4 /* AnimetickAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AnimetickAppDelegate.h; path = ViewController/AnimetickAppDelegate.h; sourceTree = "<group>"; };
-		E26BED91177081A80087E0E4 /* AnimetickAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AnimetickAppDelegate.m; path = ViewController/AnimetickAppDelegate.m; sourceTree = "<group>"; };
+		E26BED90177081A80087E0E4 /* ATAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ATAppDelegate.h; path = ViewController/ATAppDelegate.h; sourceTree = "<group>"; };
+		E26BED91177081A80087E0E4 /* ATAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ATAppDelegate.m; path = ViewController/ATAppDelegate.m; sourceTree = "<group>"; };
 		E26BED9E177081A80087E0E4 /* AnimetickTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimetickTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E26BED9F177081A80087E0E4 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		E26BEDA7177081A80087E0E4 /* AnimetickTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AnimetickTests-Info.plist"; sourceTree = "<group>"; };
@@ -90,8 +90,8 @@
 		E244C9621780323800F1D203 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				E26BED90177081A80087E0E4 /* AnimetickAppDelegate.h */,
-				E26BED91177081A80087E0E4 /* AnimetickAppDelegate.m */,
+				E26BED90177081A80087E0E4 /* ATAppDelegate.h */,
+				E26BED91177081A80087E0E4 /* ATAppDelegate.m */,
 				E244C9631780353200F1D203 /* ATLoginViewController.h */,
 				E244C9641780353200F1D203 /* ATLoginViewController.m */,
 				E244C9651780353200F1D203 /* ATLoginViewController.xib */,
@@ -293,7 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E26BED8E177081A80087E0E4 /* main.m in Sources */,
-				E26BED92177081A80087E0E4 /* AnimetickAppDelegate.m in Sources */,
+				E26BED92177081A80087E0E4 /* ATAppDelegate.m in Sources */,
 				E244C9661780353200F1D203 /* ATLoginViewController.m in Sources */,
 				E244C96E1780524700F1D203 /* ATWebView.m in Sources */,
 			);

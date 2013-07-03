@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AnimetickAppDelegate : UIResponder <UIApplicationDelegate>
+@interface ATAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
