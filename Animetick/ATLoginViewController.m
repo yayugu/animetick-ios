@@ -33,9 +33,7 @@
     [self.webView loadRequest:request];
     NSLog(@"here");
     
-    [self connectionSample];
-
-    
+    //[self connectionSample];
 }
 
 - (void)connectionSample
@@ -60,7 +58,7 @@
     NSData *jsonData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     NSArray *result = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:nil];
-    NSLog(result);
+    NSLog(@"%@", result);
 }
 
 
@@ -82,7 +80,7 @@
         && [[[request URL] host] isEqualToString:@"login_session"]) {
         NSString *session
           = [webView stringByEvaluatingJavaScriptFromString:@"animetick.app.getSesssionForNativeApp();"];
-        NSLog(session);
+        NSLog(@"%@", session);
     }
     
     return YES;
