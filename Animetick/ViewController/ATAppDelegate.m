@@ -1,5 +1,5 @@
 //
-//  AnimetickAppDelegate.m
+//  ATAppDelegate.m
 //  Animetick
 //
 //  Created by Kazuki Akamine on 2013/06/18.
@@ -8,6 +8,9 @@
 
 #import "ATAppDelegate.h"
 #import "ATLoginViewController.h"
+#import "FMDatabase.h"
+#import "ATDatabase.h"
+#define DBFILE @"animetick.db"
 
 @implementation ATAppDelegate
 
@@ -17,12 +20,16 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
-    UIViewController *loginViewController = [[ATLoginViewController alloc] init];
-    self.window.rootViewController = loginViewController;
-    
-    [self.window makeKeyAndVisible];
-    
-    
+    NSString *session_id = self.getSessionId;
+    if (session_id == NULL)
+    {
+        NSLog(@"session_id: not found.");
+        UIViewController *loginViewController = [[ATLoginViewController alloc] init];
+        self.window.rootViewController = loginViewController;
+        [self.window makeKeyAndVisible];
+    } else {
+        NSLog(@"session_id: %@", session_id);
+    }
     
     return YES;
 }
@@ -52,6 +59,23 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (NSString *)getSessionId
+{
+    ATDatabase *atdb = ATDatabase.instance;
+    FMDatabase *db = atdb.getDatabase;
+    if (db == NULL) {
+        return NULL;
+    }
+    NSString *sql = @"SELECT value FROM properties WHERE key = 'session_id'";
+    FMResultSet *results = [db executeQuery:sql];
+    NSString *session_id = NULL;
+    if ([results next])
+    {
+        session_id = [results stringForColumnIndex:0];
+    }
+    return session_id;
 }
 
 @end

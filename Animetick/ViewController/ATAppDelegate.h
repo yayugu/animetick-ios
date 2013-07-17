@@ -1,5 +1,5 @@
 //
-//  AnimetickAppDelegate.h
+//  ATAppDelegate.h
 //  Animetick
 //
 //  Created by Kazuki Akamine on 2013/06/18.

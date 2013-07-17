@@ -21,6 +21,10 @@
 		E244C982179574BC00F1D203 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E244C979179574BC00F1D203 /* FMResultSet.m */; };
 		E244C983179574BC00F1D203 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E244C979179574BC00F1D203 /* FMResultSet.m */; };
 		E244C985179577E300F1D203 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E244C984179577E300F1D203 /* libsqlite3.0.dylib */; };
+		E244C9871795A7A100F1D203 /* animetick.db in Resources */ = {isa = PBXBuildFile; fileRef = E244C9861795A7A100F1D203 /* animetick.db */; };
+		E244C9881795A7A100F1D203 /* animetick.db in Resources */ = {isa = PBXBuildFile; fileRef = E244C9861795A7A100F1D203 /* animetick.db */; };
+		E244C98B1795B4E400F1D203 /* ATDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E244C98A1795B4E400F1D203 /* ATDatabase.m */; };
+		E244C98C1795B4E400F1D203 /* ATDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E244C98A1795B4E400F1D203 /* ATDatabase.m */; };
 		E26BED82177081A80087E0E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26BED81177081A80087E0E4 /* UIKit.framework */; };
 		E26BED84177081A80087E0E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26BED83177081A80087E0E4 /* Foundation.framework */; };
 		E26BED86177081A80087E0E4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26BED85177081A80087E0E4 /* CoreGraphics.framework */; };
@@ -64,6 +68,9 @@
 		E244C978179574BC00F1D203 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		E244C979179574BC00F1D203 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		E244C984179577E300F1D203 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		E244C9861795A7A100F1D203 /* animetick.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = animetick.db; sourceTree = "<group>"; };
+		E244C9891795B4E400F1D203 /* ATDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDatabase.h; sourceTree = "<group>"; };
+		E244C98A1795B4E400F1D203 /* ATDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDatabase.m; sourceTree = "<group>"; };
 		E26BED7E177081A80087E0E4 /* Animetick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Animetick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E26BED81177081A80087E0E4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E26BED83177081A80087E0E4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -144,6 +151,8 @@
 				E244C977179574BC00F1D203 /* FMDatabaseQueue.m */,
 				E244C978179574BC00F1D203 /* FMResultSet.h */,
 				E244C979179574BC00F1D203 /* FMResultSet.m */,
+				E244C9891795B4E400F1D203 /* ATDatabase.h */,
+				E244C98A1795B4E400F1D203 /* ATDatabase.m */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -151,7 +160,6 @@
 		E26BED75177081A80087E0E4 = {
 			isa = PBXGroup;
 			children = (
-				E244C984179577E300F1D203 /* libsqlite3.0.dylib */,
 				E26BED87177081A80087E0E4 /* Animetick */,
 				E26BEDA5177081A80087E0E4 /* AnimetickTests */,
 				E26BED80177081A80087E0E4 /* Frameworks */,
@@ -171,6 +179,7 @@
 		E26BED80177081A80087E0E4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E244C984179577E300F1D203 /* libsqlite3.0.dylib */,
 				E26BED81177081A80087E0E4 /* UIKit.framework */,
 				E26BED83177081A80087E0E4 /* Foundation.framework */,
 				E26BED85177081A80087E0E4 /* CoreGraphics.framework */,
@@ -182,6 +191,7 @@
 		E26BED87177081A80087E0E4 /* Animetick */ = {
 			isa = PBXGroup;
 			children = (
+				E244C9861795A7A100F1D203 /* animetick.db */,
 				E244C96F1795749000F1D203 /* Library */,
 				E244C968178051E000F1D203 /* View */,
 				E244C9621780323800F1D203 /* ViewController */,
@@ -300,6 +310,7 @@
 				E26BEDBC17708FDD0087E0E4 /* Default.png in Resources */,
 				E26BEDBD17708FDD0087E0E4 /* Default@2x.png in Resources */,
 				E244C9671780353200F1D203 /* ATLoginViewController.xib in Resources */,
+				E244C9871795A7A100F1D203 /* animetick.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E26BEDAA177081A80087E0E4 /* InfoPlist.strings in Resources */,
+				E244C9881795A7A100F1D203 /* animetick.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +355,7 @@
 				E244C97E179574BC00F1D203 /* FMDatabasePool.m in Sources */,
 				E244C980179574BC00F1D203 /* FMDatabaseQueue.m in Sources */,
 				E244C982179574BC00F1D203 /* FMResultSet.m in Sources */,
+				E244C98B1795B4E400F1D203 /* ATDatabase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +369,7 @@
 				E244C97F179574BC00F1D203 /* FMDatabasePool.m in Sources */,
 				E244C981179574BC00F1D203 /* FMDatabaseQueue.m in Sources */,
 				E244C983179574BC00F1D203 /* FMResultSet.m in Sources */,
+				E244C98C1795B4E400F1D203 /* ATDatabase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
