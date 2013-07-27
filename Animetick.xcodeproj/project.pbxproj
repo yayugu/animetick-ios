@@ -10,6 +10,10 @@
 		3AEED8AA17A40B72009F1182 /* ATAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEED8A917A40B72009F1182 /* ATAuth.m */; };
 		3AEED8AE17A41C63009F1182 /* ATRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEED8AC17A41C63009F1182 /* ATRootViewController.m */; };
 		3AEED8AF17A41C63009F1182 /* ATRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AEED8AD17A41C63009F1182 /* ATRootViewController.xib */; };
+		3AEED8B317A42C1A009F1182 /* ATTicketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEED8B117A42C1A009F1182 /* ATTicketViewController.m */; };
+		3AEED8B417A42C1A009F1182 /* ATTicketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AEED8B217A42C1A009F1182 /* ATTicketViewController.xib */; };
+		3AEED8B717A43832009F1182 /* ATTicket.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEED8B617A43832009F1182 /* ATTicket.m */; };
+		3AEED8BA17A441E2009F1182 /* ATTicketList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEED8B917A441E2009F1182 /* ATTicketList.m */; };
 		E244C9661780353200F1D203 /* ATLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E244C9641780353200F1D203 /* ATLoginViewController.m */; };
 		E244C9671780353200F1D203 /* ATLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E244C9651780353200F1D203 /* ATLoginViewController.xib */; };
 		E244C96E1780524700F1D203 /* ATWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = E244C96D1780524700F1D203 /* ATWebView.m */; };
@@ -60,6 +64,13 @@
 		3AEED8AB17A41C63009F1182 /* ATRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATRootViewController.h; path = ViewController/ATRootViewController.h; sourceTree = "<group>"; };
 		3AEED8AC17A41C63009F1182 /* ATRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATRootViewController.m; path = ViewController/ATRootViewController.m; sourceTree = "<group>"; };
 		3AEED8AD17A41C63009F1182 /* ATRootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ATRootViewController.xib; path = ViewController/ATRootViewController.xib; sourceTree = "<group>"; };
+		3AEED8B017A42C1A009F1182 /* ATTicketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATTicketViewController.h; path = ViewController/ATTicketViewController.h; sourceTree = "<group>"; };
+		3AEED8B117A42C1A009F1182 /* ATTicketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATTicketViewController.m; path = ViewController/ATTicketViewController.m; sourceTree = "<group>"; };
+		3AEED8B217A42C1A009F1182 /* ATTicketViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ATTicketViewController.xib; path = ViewController/ATTicketViewController.xib; sourceTree = "<group>"; };
+		3AEED8B517A43832009F1182 /* ATTicket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATTicket.h; path = Model/ATTicket.h; sourceTree = "<group>"; };
+		3AEED8B617A43832009F1182 /* ATTicket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATTicket.m; path = Model/ATTicket.m; sourceTree = "<group>"; };
+		3AEED8B817A441E2009F1182 /* ATTicketList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATTicketList.h; path = Model/ATTicketList.h; sourceTree = "<group>"; };
+		3AEED8B917A441E2009F1182 /* ATTicketList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATTicketList.m; path = Model/ATTicketList.m; sourceTree = "<group>"; };
 		E244C9631780353200F1D203 /* ATLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLoginViewController.h; sourceTree = "<group>"; };
 		E244C9641780353200F1D203 /* ATLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLoginViewController.m; sourceTree = "<group>"; };
 		E244C9651780353200F1D203 /* ATLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATLoginViewController.xib; sourceTree = "<group>"; };
@@ -130,6 +141,10 @@
 			children = (
 				3AEED8A817A40B72009F1182 /* ATAuth.h */,
 				3AEED8A917A40B72009F1182 /* ATAuth.m */,
+				3AEED8B517A43832009F1182 /* ATTicket.h */,
+				3AEED8B617A43832009F1182 /* ATTicket.m */,
+				3AEED8B817A441E2009F1182 /* ATTicketList.h */,
+				3AEED8B917A441E2009F1182 /* ATTicketList.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -145,6 +160,9 @@
 				3AEED8AB17A41C63009F1182 /* ATRootViewController.h */,
 				3AEED8AC17A41C63009F1182 /* ATRootViewController.m */,
 				3AEED8AD17A41C63009F1182 /* ATRootViewController.xib */,
+				3AEED8B017A42C1A009F1182 /* ATTicketViewController.h */,
+				3AEED8B117A42C1A009F1182 /* ATTicketViewController.m */,
+				3AEED8B217A42C1A009F1182 /* ATTicketViewController.xib */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -333,6 +351,7 @@
 				E244C9671780353200F1D203 /* ATLoginViewController.xib in Resources */,
 				E244C9871795A7A100F1D203 /* animetick.db in Resources */,
 				3AEED8AF17A41C63009F1182 /* ATRootViewController.xib in Resources */,
+				3AEED8B417A42C1A009F1182 /* ATTicketViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +399,9 @@
 				E244C98B1795B4E400F1D203 /* ATDatabase.m in Sources */,
 				3AEED8AA17A40B72009F1182 /* ATAuth.m in Sources */,
 				3AEED8AE17A41C63009F1182 /* ATRootViewController.m in Sources */,
+				3AEED8B317A42C1A009F1182 /* ATTicketViewController.m in Sources */,
+				3AEED8B717A43832009F1182 /* ATTicket.m in Sources */,
+				3AEED8BA17A441E2009F1182 /* ATTicketList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

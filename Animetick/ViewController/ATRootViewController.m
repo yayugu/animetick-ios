@@ -9,6 +9,7 @@
 #import "ATRootViewController.h"
 
 #import "ATLoginViewController.h"
+#import "ATTicketViewController.h"
 #import "ATAuth.h"
 
 @interface ATRootViewController ()
@@ -39,6 +40,8 @@
         
         [self.navigationController presentViewController:loginViewController animated:YES completion:nil];
     } else {
+        ATTicketViewController *ticketViewController = [[ATTicketViewController alloc] initWithNibName:nil bundle:nil];
+        [self.navigationController pushViewController:ticketViewController animated:NO];
         NSLog(@"session_id: %@", self.auth.sessionId);
     }
 }
