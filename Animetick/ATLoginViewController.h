@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class ATAuth;
 
 @interface ATLoginViewController : UIViewController
+
+@property (nonatomic, strong) ATAuth *auth;
 
 @end

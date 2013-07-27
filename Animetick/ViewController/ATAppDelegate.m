@@ -10,7 +10,12 @@
 #import "ATLoginViewController.h"
 #import "FMDatabase.h"
 #import "ATDatabase.h"
+#import "ATAuth.h"
 #define DBFILE @"animetick.db"
+
+@interface ATAppDelegate()
+@property ATAuth *auth;
+@end
 
 @implementation ATAppDelegate
 
@@ -20,6 +25,20 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
+    self.auth = [[ATAuth alloc] init];
+    
+    if (self.auth.sessionId == nil) {
+        NSLog(@"session_id: not found.");
+        ATLoginViewController *loginViewController = [[ATLoginViewController alloc] init];
+        loginViewController.auth = self.auth;
+        
+        self.window.rootViewController = loginViewController;
+        [self.window makeKeyAndVisible];
+    } else {
+        NSLog(@"session_id: %@", self.auth.sessionId);
+    }
+
+    /*
     NSString *session_id = self.getSessionId;
     if (session_id == NULL)
     {
@@ -30,6 +49,7 @@
     } else {
         NSLog(@"session_id: %@", session_id);
     }
+     */
     
     return YES;
 }
