@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3AEED8AA17A40B72009F1182 /* ATAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEED8A917A40B72009F1182 /* ATAuth.m */; };
 		E244C9661780353200F1D203 /* ATLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E244C9641780353200F1D203 /* ATLoginViewController.m */; };
 		E244C9671780353200F1D203 /* ATLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E244C9651780353200F1D203 /* ATLoginViewController.xib */; };
 		E244C96E1780524700F1D203 /* ATWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = E244C96D1780524700F1D203 /* ATWebView.m */; };
@@ -52,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3AEED8A817A40B72009F1182 /* ATAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATAuth.h; path = Model/ATAuth.h; sourceTree = "<group>"; };
+		3AEED8A917A40B72009F1182 /* ATAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATAuth.m; path = Model/ATAuth.m; sourceTree = "<group>"; };
 		E244C9631780353200F1D203 /* ATLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLoginViewController.h; sourceTree = "<group>"; };
 		E244C9641780353200F1D203 /* ATLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLoginViewController.m; sourceTree = "<group>"; };
 		E244C9651780353200F1D203 /* ATLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATLoginViewController.xib; sourceTree = "<group>"; };
@@ -117,6 +120,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3AEED8A417A40A6D009F1182 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3AEED8A817A40B72009F1182 /* ATAuth.h */,
+				3AEED8A917A40B72009F1182 /* ATAuth.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		E244C9621780323800F1D203 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +203,7 @@
 		E26BED87177081A80087E0E4 /* Animetick */ = {
 			isa = PBXGroup;
 			children = (
+				3AEED8A417A40A6D009F1182 /* Model */,
 				E244C9861795A7A100F1D203 /* animetick.db */,
 				E244C96F1795749000F1D203 /* Library */,
 				E244C968178051E000F1D203 /* View */,
@@ -278,7 +291,7 @@
 		E26BED76177081A80087E0E4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = Animetick;
+				CLASSPREFIX = AT;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Kazuki Akamine";
 			};
@@ -356,6 +369,7 @@
 				E244C980179574BC00F1D203 /* FMDatabaseQueue.m in Sources */,
 				E244C982179574BC00F1D203 /* FMResultSet.m in Sources */,
 				E244C98B1795B4E400F1D203 /* ATDatabase.m in Sources */,
+				3AEED8AA17A40B72009F1182 /* ATAuth.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

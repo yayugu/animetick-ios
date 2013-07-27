@@ -7,6 +7,7 @@
 //
 
 #import "ATLoginViewController.h"
+#import "ATAuth.h"
 
 @interface ATLoginViewController () <UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
@@ -80,6 +81,7 @@
         && [[[request URL] host] isEqualToString:@"login_session"]) {
         NSString *session
           = [webView stringByEvaluatingJavaScriptFromString:@"animetick.app.getSesssionForNativeApp();"];
+        self.auth.sessionId = session;
         NSLog(@"%@", session);
     }
     
