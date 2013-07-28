@@ -34,6 +34,10 @@
 		E244C9881795A7A100F1D203 /* animetick.db in Resources */ = {isa = PBXBuildFile; fileRef = E244C9861795A7A100F1D203 /* animetick.db */; };
 		E244C98B1795B4E400F1D203 /* ATDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E244C98A1795B4E400F1D203 /* ATDatabase.m */; };
 		E244C98C1795B4E400F1D203 /* ATDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E244C98A1795B4E400F1D203 /* ATDatabase.m */; };
+		E24A662C17A53AB6004176FD /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E24A662B17A53AB6004176FD /* Icon.png */; };
+		E24A662E17A53ADF004176FD /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E24A662D17A53ADF004176FD /* Icon@2x.png */; };
+		E24A663017A53AEF004176FD /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = E24A662F17A53AEF004176FD /* Icon-72.png */; };
+		E24A663217A53AF8004176FD /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E24A663117A53AF8004176FD /* Icon-72@2x.png */; };
 		E26BED82177081A80087E0E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26BED81177081A80087E0E4 /* UIKit.framework */; };
 		E26BED84177081A80087E0E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26BED83177081A80087E0E4 /* Foundation.framework */; };
 		E26BED86177081A80087E0E4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26BED85177081A80087E0E4 /* CoreGraphics.framework */; };
@@ -96,6 +100,10 @@
 		E244C9861795A7A100F1D203 /* animetick.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = animetick.db; sourceTree = "<group>"; };
 		E244C9891795B4E400F1D203 /* ATDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDatabase.h; sourceTree = "<group>"; };
 		E244C98A1795B4E400F1D203 /* ATDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDatabase.m; sourceTree = "<group>"; };
+		E24A662B17A53AB6004176FD /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		E24A662D17A53ADF004176FD /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		E24A662F17A53AEF004176FD /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		E24A663117A53AF8004176FD /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
 		E26BED7E177081A80087E0E4 /* Animetick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Animetick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E26BED81177081A80087E0E4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E26BED83177081A80087E0E4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -207,6 +215,10 @@
 		E26BED75177081A80087E0E4 = {
 			isa = PBXGroup;
 			children = (
+				E24A663117A53AF8004176FD /* Icon-72@2x.png */,
+				E24A662F17A53AEF004176FD /* Icon-72.png */,
+				E24A662D17A53ADF004176FD /* Icon@2x.png */,
+				E24A662B17A53AB6004176FD /* Icon.png */,
 				E26BED87177081A80087E0E4 /* Animetick */,
 				E26BEDA5177081A80087E0E4 /* AnimetickTests */,
 				E26BED80177081A80087E0E4 /* Frameworks */,
@@ -365,6 +377,10 @@
 				E244C9871795A7A100F1D203 /* animetick.db in Resources */,
 				3AEED8AF17A41C63009F1182 /* ATRootViewController.xib in Resources */,
 				3AEED8B417A42C1A009F1182 /* ATTicketViewController.xib in Resources */,
+				E24A662C17A53AB6004176FD /* Icon.png in Resources */,
+				E24A662E17A53ADF004176FD /* Icon@2x.png in Resources */,
+				E24A663017A53AEF004176FD /* Icon-72.png in Resources */,
+				E24A663217A53AF8004176FD /* Icon-72@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
