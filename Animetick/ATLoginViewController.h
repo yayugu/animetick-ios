@@ -6,11 +6,10 @@
 //  Copyright (c) 2013年 Kazuki Akamine. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 @class ATAuth;
 
 @interface ATLoginViewController : UIViewController
 
-@property (nonatomic, strong) ATAuth *auth;
+@property (nonatomic, weak) ATAuth *auth;
 
 @end

@@ -7,7 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		115F827C60F94EA499E3C1F7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFCD5A7D8710465FA58C06A3 /* libPods.a */; };
 		3AEED8AA17A40B72009F1182 /* ATAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEED8A917A40B72009F1182 /* ATAuth.m */; };
+		3AEED8AE17A41C63009F1182 /* ATRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEED8AC17A41C63009F1182 /* ATRootViewController.m */; };
+		3AEED8AF17A41C63009F1182 /* ATRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AEED8AD17A41C63009F1182 /* ATRootViewController.xib */; };
+		3AEED8B317A42C1A009F1182 /* ATTicketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEED8B117A42C1A009F1182 /* ATTicketViewController.m */; };
+		3AEED8B417A42C1A009F1182 /* ATTicketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AEED8B217A42C1A009F1182 /* ATTicketViewController.xib */; };
+		3AEED8B717A43832009F1182 /* ATTicket.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEED8B617A43832009F1182 /* ATTicket.m */; };
+		3AEED8BA17A441E2009F1182 /* ATTicketList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEED8B917A441E2009F1182 /* ATTicketList.m */; };
+		3AEED8BD17A4E703009F1182 /* ATURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEED8BC17A4E703009F1182 /* ATURLConnection.m */; };
 		E244C9661780353200F1D203 /* ATLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E244C9641780353200F1D203 /* ATLoginViewController.m */; };
 		E244C9671780353200F1D203 /* ATLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E244C9651780353200F1D203 /* ATLoginViewController.xib */; };
 		E244C96E1780524700F1D203 /* ATWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = E244C96D1780524700F1D203 /* ATWebView.m */; };
@@ -53,8 +61,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		171813F272F244428CECCC7C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		3AEED8A817A40B72009F1182 /* ATAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATAuth.h; path = Model/ATAuth.h; sourceTree = "<group>"; };
 		3AEED8A917A40B72009F1182 /* ATAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATAuth.m; path = Model/ATAuth.m; sourceTree = "<group>"; };
+		3AEED8AB17A41C63009F1182 /* ATRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATRootViewController.h; path = ViewController/ATRootViewController.h; sourceTree = "<group>"; };
+		3AEED8AC17A41C63009F1182 /* ATRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATRootViewController.m; path = ViewController/ATRootViewController.m; sourceTree = "<group>"; };
+		3AEED8AD17A41C63009F1182 /* ATRootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ATRootViewController.xib; path = ViewController/ATRootViewController.xib; sourceTree = "<group>"; };
+		3AEED8B017A42C1A009F1182 /* ATTicketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATTicketViewController.h; path = ViewController/ATTicketViewController.h; sourceTree = "<group>"; };
+		3AEED8B117A42C1A009F1182 /* ATTicketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATTicketViewController.m; path = ViewController/ATTicketViewController.m; sourceTree = "<group>"; };
+		3AEED8B217A42C1A009F1182 /* ATTicketViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ATTicketViewController.xib; path = ViewController/ATTicketViewController.xib; sourceTree = "<group>"; };
+		3AEED8B517A43832009F1182 /* ATTicket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATTicket.h; path = Model/ATTicket.h; sourceTree = "<group>"; };
+		3AEED8B617A43832009F1182 /* ATTicket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATTicket.m; path = Model/ATTicket.m; sourceTree = "<group>"; };
+		3AEED8B817A441E2009F1182 /* ATTicketList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATTicketList.h; path = Model/ATTicketList.h; sourceTree = "<group>"; };
+		3AEED8B917A441E2009F1182 /* ATTicketList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATTicketList.m; path = Model/ATTicketList.m; sourceTree = "<group>"; };
+		3AEED8BB17A4E703009F1182 /* ATURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATURLConnection.h; path = Model/ATURLConnection.h; sourceTree = "<group>"; };
+		3AEED8BC17A4E703009F1182 /* ATURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATURLConnection.m; path = Model/ATURLConnection.m; sourceTree = "<group>"; };
+		CFCD5A7D8710465FA58C06A3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E244C9631780353200F1D203 /* ATLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLoginViewController.h; sourceTree = "<group>"; };
 		E244C9641780353200F1D203 /* ATLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLoginViewController.m; sourceTree = "<group>"; };
 		E244C9651780353200F1D203 /* ATLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATLoginViewController.xib; sourceTree = "<group>"; };
@@ -104,6 +126,7 @@
 				E26BED82177081A80087E0E4 /* UIKit.framework in Frameworks */,
 				E26BED84177081A80087E0E4 /* Foundation.framework in Frameworks */,
 				E26BED86177081A80087E0E4 /* CoreGraphics.framework in Frameworks */,
+				115F827C60F94EA499E3C1F7 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +148,12 @@
 			children = (
 				3AEED8A817A40B72009F1182 /* ATAuth.h */,
 				3AEED8A917A40B72009F1182 /* ATAuth.m */,
+				3AEED8B517A43832009F1182 /* ATTicket.h */,
+				3AEED8B617A43832009F1182 /* ATTicket.m */,
+				3AEED8B817A441E2009F1182 /* ATTicketList.h */,
+				3AEED8B917A441E2009F1182 /* ATTicketList.m */,
+				3AEED8BB17A4E703009F1182 /* ATURLConnection.h */,
+				3AEED8BC17A4E703009F1182 /* ATURLConnection.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -137,6 +166,12 @@
 				E244C9631780353200F1D203 /* ATLoginViewController.h */,
 				E244C9641780353200F1D203 /* ATLoginViewController.m */,
 				E244C9651780353200F1D203 /* ATLoginViewController.xib */,
+				3AEED8AB17A41C63009F1182 /* ATRootViewController.h */,
+				3AEED8AC17A41C63009F1182 /* ATRootViewController.m */,
+				3AEED8AD17A41C63009F1182 /* ATRootViewController.xib */,
+				3AEED8B017A42C1A009F1182 /* ATTicketViewController.h */,
+				3AEED8B117A42C1A009F1182 /* ATTicketViewController.m */,
+				3AEED8B217A42C1A009F1182 /* ATTicketViewController.xib */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -176,6 +211,7 @@
 				E26BEDA5177081A80087E0E4 /* AnimetickTests */,
 				E26BED80177081A80087E0E4 /* Frameworks */,
 				E26BED7F177081A80087E0E4 /* Products */,
+				171813F272F244428CECCC7C /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -196,6 +232,7 @@
 				E26BED83177081A80087E0E4 /* Foundation.framework */,
 				E26BED85177081A80087E0E4 /* CoreGraphics.framework */,
 				E26BED9F177081A80087E0E4 /* SenTestingKit.framework */,
+				CFCD5A7D8710465FA58C06A3 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -253,9 +290,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E26BEDB0177081A80087E0E4 /* Build configuration list for PBXNativeTarget "Animetick" */;
 			buildPhases = (
+				AF2A74979C924443AA623345 /* Check Pods Manifest.lock */,
 				E26BED7A177081A80087E0E4 /* Sources */,
 				E26BED7B177081A80087E0E4 /* Frameworks */,
 				E26BED7C177081A80087E0E4 /* Resources */,
+				0A44074006B24E178613047E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -324,6 +363,8 @@
 				E26BEDBD17708FDD0087E0E4 /* Default@2x.png in Resources */,
 				E244C9671780353200F1D203 /* ATLoginViewController.xib in Resources */,
 				E244C9871795A7A100F1D203 /* animetick.db in Resources */,
+				3AEED8AF17A41C63009F1182 /* ATRootViewController.xib in Resources */,
+				3AEED8B417A42C1A009F1182 /* ATTicketViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +380,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0A44074006B24E178613047E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF2A74979C924443AA623345 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		E26BED9C177081A80087E0E4 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -370,6 +441,11 @@
 				E244C982179574BC00F1D203 /* FMResultSet.m in Sources */,
 				E244C98B1795B4E400F1D203 /* ATDatabase.m in Sources */,
 				3AEED8AA17A40B72009F1182 /* ATAuth.m in Sources */,
+				3AEED8AE17A41C63009F1182 /* ATRootViewController.m in Sources */,
+				3AEED8B317A42C1A009F1182 /* ATTicketViewController.m in Sources */,
+				3AEED8B717A43832009F1182 /* ATTicket.m in Sources */,
+				3AEED8BA17A441E2009F1182 /* ATTicketList.m in Sources */,
+				3AEED8BD17A4E703009F1182 /* ATURLConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +553,7 @@
 		};
 		E26BEDB1177081A80087E0E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 171813F272F244428CECCC7C /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Animetick/Animetick-Prefix.pch";
@@ -489,6 +566,7 @@
 		};
 		E26BEDB2177081A80087E0E4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 171813F272F244428CECCC7C /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Animetick/Animetick-Prefix.pch";
