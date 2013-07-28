@@ -6,8 +6,6 @@
 //  Copyright (c) 2013年 Kazuki Akamine. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface ATTicketViewController : UITableViewController
 
 @end

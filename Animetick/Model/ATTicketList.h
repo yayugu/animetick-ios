@@ -6,13 +6,22 @@
 //  Copyright (c) 2013年 Kazuki Akamine. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "ATTicket.h"
+
+@protocol ATTicketListDelegate
+
+- (void)ticketListDidUpdated;
+
+@end
 
 @interface ATTicketList : NSObject
 
+- (id)initWithDelegate:(id<ATTicketListDelegate>)delegate;
 - (ATTicket*)ticketAtIndex:(int)index;
 - (int)count;
 - (void)loadMore;
 
 @end
+
+
+

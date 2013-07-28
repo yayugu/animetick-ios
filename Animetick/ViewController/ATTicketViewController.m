@@ -7,8 +7,11 @@
 //
 
 #import "ATTicketViewController.h"
+#import "ATTicketList.h"
 
-@interface ATTicketViewController ()
+@interface ATTicketViewController () <ATTicketListDelegate>
+
+@property (nonatomic, strong) ATTicketList *ticketList;
 
 @end
 
@@ -26,6 +29,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.ticketList = [[ATTicketList alloc] initWithDelegate:self];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -44,16 +49,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return self.ticketList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -64,7 +65,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    // Configure the cell...
+    int index = indexPath.row;
+    cell.textLabel.text = [self.ticketList ticketAtIndex:index].title;
     
     return cell;
 }
@@ -119,6 +121,16 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+}
+
+#pragma mark - Ticket list delegate
+
+- (void)ticketListDidUpdated
+{
+    NSLog(@"%d", self.ticketList.count);
+    NSLog(@"%@", [self.ticketList ticketAtIndex:0]);
+    
+    [self.tableView reloadData];
 }
 
 @end

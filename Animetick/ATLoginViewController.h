@@ -6,7 +6,6 @@
 //  Copyright (c) 2013年 Kazuki Akamine. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 @class ATAuth;
 
 @interface ATLoginViewController : UIViewController

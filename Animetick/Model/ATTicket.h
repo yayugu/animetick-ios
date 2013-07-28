@@ -6,8 +6,6 @@
 //  Copyright (c) 2013年 Kazuki Akamine. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @interface ATTicket : NSObject
 
 @property (nonatomic) int titleId;
@@ -19,5 +17,7 @@
 @property (nonatomic, strong) NSArray *flags;
 @property (nonatomic, strong) NSString *chName;
 @property (nonatomic) int chNumber;
+
+- (id)initWithDictionary:(NSDictionary*)dictionary;
 
 @end
