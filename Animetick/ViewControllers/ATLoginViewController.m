@@ -83,6 +83,7 @@
           = [webView stringByEvaluatingJavaScriptFromString:@"animetick.app.getSesssionForNativeApp();"];
         APPDELEGATE.auth.sessionId = session;
         NSLog(@"%@", session);
+        [self dismissViewControllerAnimated:YES completion:nil];
     }
     
     return YES;

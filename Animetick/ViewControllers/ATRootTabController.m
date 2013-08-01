@@ -42,14 +42,11 @@
         NSLog(@"session_id: not found.");
         ATLoginViewController *loginViewController = [[ATLoginViewController alloc] init];
         
-        [self presentViewController:loginViewController animated:YES completion:nil];
+        [self presentViewController:loginViewController animated:YES completion:^{
+            [self presentTabs];
+        }];
     } else {
-        ATTicketViewController *ticketViewController = [[ATTicketViewController alloc] init];
-        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:ticketViewController];
-        NSArray *tabs = @[navigationController];
-        [self setViewControllers:tabs animated:NO];
-        
-        NSLog(@"session_id: %@", APPDELEGATE.auth.sessionId);
+        [self presentTabs];
     }
 }
 
@@ -57,6 +54,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)presentTabs
+{
+    ATTicketViewController *ticketViewController = [[ATTicketViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:ticketViewController];
+    NSArray *tabs = @[navigationController];
+    [self setViewControllers:tabs animated:NO];
+    
+    NSLog(@"session_id: %@", APPDELEGATE.auth.sessionId);
 }
 
 @end
