@@ -6,8 +6,11 @@
 //  Copyright (c) 2013年 Kazuki Akamine. All rights reserved.
 //
 
+@class ATAuth;
+
 @interface ATAppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, strong) UIWindow *window;
+@property (nonatomic, strong) ATAuth *auth;
 
 @end

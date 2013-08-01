@@ -81,7 +81,7 @@
         && [[[request URL] host] isEqualToString:@"login_session"]) {
         NSString *session
           = [webView stringByEvaluatingJavaScriptFromString:@"animetick.app.getSesssionForNativeApp();"];
-        self.auth.sessionId = session;
+        APPDELEGATE.auth.sessionId = session;
         NSLog(@"%@", session);
     }
     

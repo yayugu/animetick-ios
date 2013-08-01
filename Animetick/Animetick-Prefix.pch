@@ -12,3 +12,7 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+
+#import "ATAppDelegate.h"
+#define APPDELEGATE ((ATAppDelegate *)[[UIApplication sharedApplication] delegate])

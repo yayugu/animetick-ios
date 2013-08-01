@@ -10,6 +10,4 @@
 
 @interface ATLoginViewController : UIViewController
 
-@property (nonatomic, weak) ATAuth *auth;
-
 @end

@@ -198,11 +198,11 @@
 		47F9F53517AA35D4007C8A8D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				47F9F53617AA35D4007C8A8D /* ATAppDelegate.h */,
+				47F9F53717AA35D4007C8A8D /* ATAppDelegate.m */,
 				47F9F54717AA360F007C8A8D /* ATLoginViewController.h */,
 				47F9F54817AA360F007C8A8D /* ATLoginViewController.m */,
 				47F9F54917AA360F007C8A8D /* ATLoginViewController.xib */,
-				47F9F53617AA35D4007C8A8D /* ATAppDelegate.h */,
-				47F9F53717AA35D4007C8A8D /* ATAppDelegate.m */,
 				47F9F53817AA35D4007C8A8D /* ATRootViewController.h */,
 				47F9F53917AA35D4007C8A8D /* ATRootViewController.m */,
 				47F9F53A17AA35D4007C8A8D /* ATRootViewController.xib */,

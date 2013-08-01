@@ -9,6 +9,7 @@
 #import "ATAppDelegate.h"
 
 #import "ATRootViewController.h"
+#import "ATAuth.h"
 #import "FMDatabase.h"
 #import "ATDatabase.h"
 #define DBFILE @"animetick.db"
@@ -17,6 +18,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    self.auth = [[ATAuth alloc] init];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
@@ -54,23 +57,6 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-
-- (NSString *)getSessionId
-{
-    ATDatabase *atdb = ATDatabase.instance;
-    FMDatabase *db = atdb.getDatabase;
-    if (db == NULL) {
-        return NULL;
-    }
-    NSString *sql = @"SELECT value FROM properties WHERE key = 'session_id'";
-    FMResultSet *results = [db executeQuery:sql];
-    NSString *session_id = NULL;
-    if ([results next])
-    {
-        session_id = [results stringForColumnIndex:0];
-    }
-    return session_id;
 }
 
 @end

@@ -14,8 +14,6 @@
 
 @interface ATRootViewController ()
 
-@property ATAuth *auth;
-
 @end
 
 @implementation ATRootViewController
@@ -24,7 +22,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.auth = [[ATAuth alloc] init];
     }
     return self;
 }
@@ -33,16 +30,15 @@
 {
     [super viewDidLoad];
     
-    if (self.auth.sessionId == nil) {
+    if (APPDELEGATE.auth.sessionId == nil) {
         NSLog(@"session_id: not found.");
         ATLoginViewController *loginViewController = [[ATLoginViewController alloc] init];
-        loginViewController.auth = self.auth;
         
         [self.navigationController presentViewController:loginViewController animated:YES completion:nil];
     } else {
         ATTicketViewController *ticketViewController = [[ATTicketViewController alloc] initWithNibName:nil bundle:nil];
         [self.navigationController pushViewController:ticketViewController animated:NO];
-        NSLog(@"session_id: %@", self.auth.sessionId);
+        NSLog(@"session_id: %@", APPDELEGATE.auth.sessionId);
     }
 }
 
