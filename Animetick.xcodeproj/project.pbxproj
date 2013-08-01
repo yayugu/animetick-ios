@@ -24,14 +24,13 @@
 		47F9F53317AA35C9007C8A8D /* ATTicketList.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F9F52E17AA35C9007C8A8D /* ATTicketList.m */; };
 		47F9F53417AA35C9007C8A8D /* ATURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F9F53017AA35C9007C8A8D /* ATURLConnection.m */; };
 		47F9F53E17AA35D4007C8A8D /* ATAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F9F53717AA35D4007C8A8D /* ATAppDelegate.m */; };
-		47F9F53F17AA35D4007C8A8D /* ATRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F9F53917AA35D4007C8A8D /* ATRootViewController.m */; };
-		47F9F54017AA35D4007C8A8D /* ATRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47F9F53A17AA35D4007C8A8D /* ATRootViewController.xib */; };
 		47F9F54117AA35D4007C8A8D /* ATTicketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F9F53C17AA35D4007C8A8D /* ATTicketViewController.m */; };
 		47F9F54217AA35D4007C8A8D /* ATTicketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47F9F53D17AA35D4007C8A8D /* ATTicketViewController.xib */; };
 		47F9F54617AA35E2007C8A8D /* ATWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F9F54517AA35E2007C8A8D /* ATWebView.m */; };
 		47F9F54A17AA360F007C8A8D /* ATLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F9F54817AA360F007C8A8D /* ATLoginViewController.m */; };
 		47F9F54B17AA360F007C8A8D /* ATLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47F9F54917AA360F007C8A8D /* ATLoginViewController.xib */; };
 		47F9F54F17AA364F007C8A8D /* NSDate+ATAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F9F54E17AA364F007C8A8D /* NSDate+ATAdditions.m */; };
+		47F9F55217AA42A4007C8A8D /* ATRootTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F9F55117AA42A4007C8A8D /* ATRootTabController.m */; };
 		E244C97A179574BC00F1D203 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E244C971179574BC00F1D203 /* FMDatabase.m */; };
 		E244C97B179574BC00F1D203 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E244C971179574BC00F1D203 /* FMDatabase.m */; };
 		E244C97C179574BC00F1D203 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E244C973179574BC00F1D203 /* FMDatabaseAdditions.m */; };
@@ -92,9 +91,6 @@
 		47F9F53017AA35C9007C8A8D /* ATURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATURLConnection.m; sourceTree = "<group>"; };
 		47F9F53617AA35D4007C8A8D /* ATAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAppDelegate.h; sourceTree = "<group>"; };
 		47F9F53717AA35D4007C8A8D /* ATAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAppDelegate.m; sourceTree = "<group>"; };
-		47F9F53817AA35D4007C8A8D /* ATRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATRootViewController.h; sourceTree = "<group>"; };
-		47F9F53917AA35D4007C8A8D /* ATRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATRootViewController.m; sourceTree = "<group>"; };
-		47F9F53A17AA35D4007C8A8D /* ATRootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATRootViewController.xib; sourceTree = "<group>"; };
 		47F9F53B17AA35D4007C8A8D /* ATTicketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATTicketViewController.h; sourceTree = "<group>"; };
 		47F9F53C17AA35D4007C8A8D /* ATTicketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATTicketViewController.m; sourceTree = "<group>"; };
 		47F9F53D17AA35D4007C8A8D /* ATTicketViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATTicketViewController.xib; sourceTree = "<group>"; };
@@ -105,6 +101,8 @@
 		47F9F54917AA360F007C8A8D /* ATLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATLoginViewController.xib; sourceTree = "<group>"; };
 		47F9F54D17AA364F007C8A8D /* NSDate+ATAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+ATAdditions.h"; sourceTree = "<group>"; };
 		47F9F54E17AA364F007C8A8D /* NSDate+ATAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+ATAdditions.m"; sourceTree = "<group>"; };
+		47F9F55017AA42A4007C8A8D /* ATRootTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATRootTabController.h; sourceTree = "<group>"; };
+		47F9F55117AA42A4007C8A8D /* ATRootTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATRootTabController.m; sourceTree = "<group>"; };
 		CFCD5A7D8710465FA58C06A3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E244C970179574BC00F1D203 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		E244C971179574BC00F1D203 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
@@ -203,12 +201,11 @@
 				47F9F54717AA360F007C8A8D /* ATLoginViewController.h */,
 				47F9F54817AA360F007C8A8D /* ATLoginViewController.m */,
 				47F9F54917AA360F007C8A8D /* ATLoginViewController.xib */,
-				47F9F53817AA35D4007C8A8D /* ATRootViewController.h */,
-				47F9F53917AA35D4007C8A8D /* ATRootViewController.m */,
-				47F9F53A17AA35D4007C8A8D /* ATRootViewController.xib */,
 				47F9F53B17AA35D4007C8A8D /* ATTicketViewController.h */,
 				47F9F53C17AA35D4007C8A8D /* ATTicketViewController.m */,
 				47F9F53D17AA35D4007C8A8D /* ATTicketViewController.xib */,
+				47F9F55017AA42A4007C8A8D /* ATRootTabController.h */,
+				47F9F55117AA42A4007C8A8D /* ATRootTabController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -402,7 +399,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47F9F54017AA35D4007C8A8D /* ATRootViewController.xib in Resources */,
 				47F9F52617AA2FA0007C8A8D /* Icon.png in Resources */,
 				47F9F52017AA2FA0007C8A8D /* Default-Portrait@2x~ipad.png in Resources */,
 				47F9F54B17AA360F007C8A8D /* ATLoginViewController.xib in Resources */,
@@ -493,9 +489,9 @@
 				E244C97A179574BC00F1D203 /* FMDatabase.m in Sources */,
 				E244C97C179574BC00F1D203 /* FMDatabaseAdditions.m in Sources */,
 				E244C97E179574BC00F1D203 /* FMDatabasePool.m in Sources */,
+				47F9F55217AA42A4007C8A8D /* ATRootTabController.m in Sources */,
 				47F9F54A17AA360F007C8A8D /* ATLoginViewController.m in Sources */,
 				47F9F54F17AA364F007C8A8D /* NSDate+ATAdditions.m in Sources */,
-				47F9F53F17AA35D4007C8A8D /* ATRootViewController.m in Sources */,
 				47F9F53117AA35C9007C8A8D /* ATAuth.m in Sources */,
 				E244C980179574BC00F1D203 /* FMDatabaseQueue.m in Sources */,
 				E244C982179574BC00F1D203 /* FMResultSet.m in Sources */,

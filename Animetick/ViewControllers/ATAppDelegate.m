@@ -8,7 +8,7 @@
 
 #import "ATAppDelegate.h"
 
-#import "ATRootViewController.h"
+#import "ATRootTabController.h"
 #import "ATAuth.h"
 #import "FMDatabase.h"
 #import "ATDatabase.h"
@@ -24,9 +24,11 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
-    UIViewController *rootViewController = [[ATRootViewController alloc] initWithNibName:nil bundle:nil];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
-    self.window.rootViewController = navigationController;
+    //UIViewController *rootViewController = [[ATRootViewController alloc] initWithNibName:nil bundle:nil];
+    //
+    //self.window.rootViewController = navigationController;
+    
+    self.window.rootViewController = [[ATRootTabController alloc] init];
     [self.window makeKeyAndVisible];
     
     return YES;
