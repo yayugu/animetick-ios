@@ -16,6 +16,7 @@
 		3AEED8B717A43832009F1182 /* ATTicket.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEED8B617A43832009F1182 /* ATTicket.m */; };
 		3AEED8BA17A441E2009F1182 /* ATTicketList.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEED8B917A441E2009F1182 /* ATTicketList.m */; };
 		3AEED8BD17A4E703009F1182 /* ATURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEED8BC17A4E703009F1182 /* ATURLConnection.m */; };
+		47F9F50F17A918DD007C8A8D /* NSDate+ATAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F9F50E17A918DD007C8A8D /* NSDate+ATAdditions.m */; };
 		E244C9661780353200F1D203 /* ATLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E244C9641780353200F1D203 /* ATLoginViewController.m */; };
 		E244C9671780353200F1D203 /* ATLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E244C9651780353200F1D203 /* ATLoginViewController.xib */; };
 		E244C96E1780524700F1D203 /* ATWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = E244C96D1780524700F1D203 /* ATWebView.m */; };
@@ -87,6 +88,8 @@
 		3AEED8B917A441E2009F1182 /* ATTicketList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATTicketList.m; path = Model/ATTicketList.m; sourceTree = "<group>"; };
 		3AEED8BB17A4E703009F1182 /* ATURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATURLConnection.h; path = Model/ATURLConnection.h; sourceTree = "<group>"; };
 		3AEED8BC17A4E703009F1182 /* ATURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATURLConnection.m; path = Model/ATURLConnection.m; sourceTree = "<group>"; };
+		47F9F50D17A918DD007C8A8D /* NSDate+ATAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+ATAdditions.h"; path = "Category/NSDate+ATAdditions.h"; sourceTree = "<group>"; };
+		47F9F50E17A918DD007C8A8D /* NSDate+ATAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+ATAdditions.m"; path = "Category/NSDate+ATAdditions.m"; sourceTree = "<group>"; };
 		CFCD5A7D8710465FA58C06A3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E244C9631780353200F1D203 /* ATLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLoginViewController.h; sourceTree = "<group>"; };
 		E244C9641780353200F1D203 /* ATLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLoginViewController.m; sourceTree = "<group>"; };
@@ -178,6 +181,15 @@
 				3AEED8BC17A4E703009F1182 /* ATURLConnection.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		47F9F50C17A91845007C8A8D /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				47F9F50D17A918DD007C8A8D /* NSDate+ATAdditions.h */,
+				47F9F50E17A918DD007C8A8D /* NSDate+ATAdditions.m */,
+			);
+			name = Category;
 			sourceTree = "<group>";
 		};
 		E244C9621780323800F1D203 /* ViewController */ = {
@@ -273,6 +285,7 @@
 		E26BED87177081A80087E0E4 /* Animetick */ = {
 			isa = PBXGroup;
 			children = (
+				47F9F50C17A91845007C8A8D /* Category */,
 				3AEED8A417A40A6D009F1182 /* Model */,
 				E244C9861795A7A100F1D203 /* animetick.db */,
 				E244C96F1795749000F1D203 /* Library */,
@@ -474,6 +487,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47F9F50F17A918DD007C8A8D /* NSDate+ATAdditions.m in Sources */,
 				E26BED8E177081A80087E0E4 /* main.m in Sources */,
 				E26BED92177081A80087E0E4 /* ATAppDelegate.m in Sources */,
 				E244C9661780353200F1D203 /* ATLoginViewController.m in Sources */,

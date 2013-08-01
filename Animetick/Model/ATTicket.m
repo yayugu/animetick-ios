@@ -7,6 +7,7 @@
 //
 
 #import "ATTicket.h"
+#import "NSDate+ATAdditions.h"
 
 @implementation ATTicket
 
@@ -26,7 +27,7 @@
     self.title = dic[@"title"];
     self.iconPath = dic[@"icon_path"];
     self.subTitle = dic[@"sub_title"];
-    //self.startAt =
+    self.startAt = [NSDate dateWithATDateFormatString:dic[@"start_at"]];
     self.chName = dic[@"ch_name"];
     self.chNumber = [(NSNumber*)dic[@"chNumber"] intValue];
 }
