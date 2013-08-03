@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		115F827C60F94EA499E3C1F7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFCD5A7D8710465FA58C06A3 /* libPods.a */; };
+		3AE3DD4A17AD7F86005C8688 /* ATUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3DD4917AD7F86005C8688 /* ATUtils.m */; };
 		47F9F51D17AA2FA0007C8A8D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47F9F51217AA2FA0007C8A8D /* Default-568h@2x.png */; };
 		47F9F51E17AA2FA0007C8A8D /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 47F9F51317AA2FA0007C8A8D /* Default-Landscape@2x~ipad.png */; };
 		47F9F51F17AA2FA0007C8A8D /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 47F9F51417AA2FA0007C8A8D /* Default-Landscape~ipad.png */; };
@@ -70,6 +71,8 @@
 
 /* Begin PBXFileReference section */
 		171813F272F244428CECCC7C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		3AE3DD4817AD7F59005C8688 /* ATUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATUtils.h; sourceTree = "<group>"; };
+		3AE3DD4917AD7F86005C8688 /* ATUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATUtils.m; sourceTree = "<group>"; };
 		47F9F51217AA2FA0007C8A8D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		47F9F51317AA2FA0007C8A8D /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		47F9F51417AA2FA0007C8A8D /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
@@ -160,6 +163,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3AE3DD4717AD7F13005C8688 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				3AE3DD4817AD7F59005C8688 /* ATUtils.h */,
+				3AE3DD4917AD7F86005C8688 /* ATUtils.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		47F9F51117AA2FA0007C8A8D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +295,7 @@
 		E26BED87177081A80087E0E4 /* Animetick */ = {
 			isa = PBXGroup;
 			children = (
+				3AE3DD4717AD7F13005C8688 /* Utils */,
 				47F9F54C17AA364F007C8A8D /* Categories */,
 				47F9F52817AA35C9007C8A8D /* Models */,
 				47F9F54317AA35E2007C8A8D /* Views */,
@@ -488,6 +501,7 @@
 				47F9F53317AA35C9007C8A8D /* ATTicketList.m in Sources */,
 				E244C97A179574BC00F1D203 /* FMDatabase.m in Sources */,
 				E244C97C179574BC00F1D203 /* FMDatabaseAdditions.m in Sources */,
+				3AE3DD4A17AD7F86005C8688 /* ATUtils.m in Sources */,
 				E244C97E179574BC00F1D203 /* FMDatabasePool.m in Sources */,
 				47F9F55217AA42A4007C8A8D /* ATRootTabController.m in Sources */,
 				47F9F54A17AA360F007C8A8D /* ATLoginViewController.m in Sources */,

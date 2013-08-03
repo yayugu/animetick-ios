@@ -22,14 +22,17 @@
 
 - (void)assignValuesWithDictionary:(NSDictionary*)dic
 {
-    self.titleId = [(NSNumber*)dic[@"title_id"] intValue];
-    self.count = [(NSNumber*)dic[@"count"] intValue];
-    self.title = dic[@"title"];
-    self.iconPath = dic[@"icon_path"];
-    self.subTitle = dic[@"sub_title"];
-    self.startAt = [NSDate dateWithATDateFormatString:dic[@"start_at"]];
-    self.chName = dic[@"ch_name"];
-    self.chNumber = [(NSNumber*)dic[@"chNumber"] intValue];
+    self.titleId = [(NSNumber*)NSNullToNil(dic[@"title_id"]) intValue];
+    self.count = [(NSNumber*)NSNullToNil(dic[@"count"]) intValue];
+    self.title = NSNullToNil(dic[@"title"]);
+    self.iconPath = NSNullToNil(dic[@"icon_path"]);
+    self.subTitle = NSNullToNil(dic[@"sub_title"]);
+    
+    NSString *startAt = NSNullToNil(dic[@"start_at"]);
+    self.startAt = startAt ? [NSDate dateWithATDateFormatString:startAt] : nil;
+    
+    self.chName = NSNullToNil(dic[@"ch_name"]);
+    self.chNumber = [(NSNumber*)NSNullToNil(dic[@"chNumber"]) intValue];
 }
 
 @end
