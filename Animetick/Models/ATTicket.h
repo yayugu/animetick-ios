@@ -19,5 +19,6 @@
 @property (nonatomic) int chNumber;
 
 - (id)initWithDictionary:(NSDictionary*)dictionary;
+- (NSURL*)iconURL;
 
 @end

@@ -8,6 +8,8 @@
 
 #import "ATTicketViewController.h"
 #import "ATTicketList.h"
+#import "ATTicketCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface ATTicketViewController () <ATTicketListDelegate>
 
@@ -21,7 +23,6 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -31,12 +32,7 @@
     [super viewDidLoad];
     
     self.ticketList = [[ATTicketList alloc] initWithDelegate:self];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self.tableView registerNib:[UINib nibWithNibName:@"ATTicketCell" bundle:nil] forCellReuseIdentifier:@"ATTicketCell"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,14 +55,17 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"ATTicketCell";
+    ATTicketCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[ATTicketCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ATTicketCell"];
     }
     
     int index = indexPath.row;
-    cell.textLabel.text = [self.ticketList ticketAtIndex:index].title;
+    ATTicket *ticket = [self.ticketList ticketAtIndex:index];
+    [cell.icon setImageWithURL:ticket.iconURL];
+    cell.title.text = ticket.title;
+    cell.subTitle.text = ticket.subTitle;
     
     return cell;
 }

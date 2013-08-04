@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		115F827C60F94EA499E3C1F7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFCD5A7D8710465FA58C06A3 /* libPods.a */; };
+		3A07B97917AE130F0043D16E /* ATTicketCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A07B97817AE130F0043D16E /* ATTicketCell.xib */; };
 		3AE3DD4A17AD7F86005C8688 /* ATUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3DD4917AD7F86005C8688 /* ATUtils.m */; };
+		3AEF8DDE17AE0B8F00007E9C /* ATTicketCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEF8DDD17AE0B8F00007E9C /* ATTicketCell.m */; };
 		47F9F51D17AA2FA0007C8A8D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47F9F51217AA2FA0007C8A8D /* Default-568h@2x.png */; };
 		47F9F51E17AA2FA0007C8A8D /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 47F9F51317AA2FA0007C8A8D /* Default-Landscape@2x~ipad.png */; };
 		47F9F51F17AA2FA0007C8A8D /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 47F9F51417AA2FA0007C8A8D /* Default-Landscape~ipad.png */; };
@@ -71,8 +73,12 @@
 
 /* Begin PBXFileReference section */
 		171813F272F244428CECCC7C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		3A07B97817AE130F0043D16E /* ATTicketCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATTicketCell.xib; sourceTree = "<group>"; };
 		3AE3DD4817AD7F59005C8688 /* ATUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATUtils.h; sourceTree = "<group>"; };
 		3AE3DD4917AD7F86005C8688 /* ATUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATUtils.m; sourceTree = "<group>"; };
+		3AEF8DDC17AE0B8F00007E9C /* ATTicketCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATTicketCell.h; sourceTree = "<group>"; };
+		3AEF8DDD17AE0B8F00007E9C /* ATTicketCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATTicketCell.m; sourceTree = "<group>"; };
+		3AFCE85D17AE291100346247 /* ATSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATSettings.h; sourceTree = "<group>"; };
 		47F9F51217AA2FA0007C8A8D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		47F9F51317AA2FA0007C8A8D /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		47F9F51417AA2FA0007C8A8D /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
@@ -168,6 +174,7 @@
 			children = (
 				3AE3DD4817AD7F59005C8688 /* ATUtils.h */,
 				3AE3DD4917AD7F86005C8688 /* ATUtils.m */,
+				3AFCE85D17AE291100346247 /* ATSettings.h */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -227,6 +234,9 @@
 			children = (
 				47F9F54417AA35E2007C8A8D /* ATWebView.h */,
 				47F9F54517AA35E2007C8A8D /* ATWebView.m */,
+				3AEF8DDC17AE0B8F00007E9C /* ATTicketCell.h */,
+				3AEF8DDD17AE0B8F00007E9C /* ATTicketCell.m */,
+				3A07B97817AE130F0043D16E /* ATTicketCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -427,6 +437,7 @@
 				47F9F52717AA2FA0007C8A8D /* Icon@2x.png in Resources */,
 				47F9F52417AA2FA0007C8A8D /* Icon-72.png in Resources */,
 				47F9F52117AA2FA0007C8A8D /* Default-Portrait~ipad.png in Resources */,
+				3A07B97917AE130F0043D16E /* ATTicketCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +519,7 @@
 				47F9F54F17AA364F007C8A8D /* NSDate+ATAdditions.m in Sources */,
 				47F9F53117AA35C9007C8A8D /* ATAuth.m in Sources */,
 				E244C980179574BC00F1D203 /* FMDatabaseQueue.m in Sources */,
+				3AEF8DDE17AE0B8F00007E9C /* ATTicketCell.m in Sources */,
 				E244C982179574BC00F1D203 /* FMResultSet.m in Sources */,
 				E244C98B1795B4E400F1D203 /* ATDatabase.m in Sources */,
 			);

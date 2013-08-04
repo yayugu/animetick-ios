@@ -35,4 +35,9 @@
     self.chNumber = [(NSNumber*)NSNullToNil(dic[@"chNumber"]) intValue];
 }
 
+- (NSURL*)iconURL
+{
+    return [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", kAnimetickURLString, self.iconPath]];
+}
+
 @end

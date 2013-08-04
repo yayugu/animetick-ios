@@ -24,7 +24,7 @@
 
 + (NSURL*)URLfromSubURL:(NSString*)subURL
 {
-    NSString *fullPath = [@"http://kazz187:h8xelpr1@dev.animetick.net" stringByAppendingString:subURL];
+    NSString *fullPath = [kAnimetickURLString stringByAppendingString:subURL];
     return [NSURL URLWithString:fullPath];
 }
 

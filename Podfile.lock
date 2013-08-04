@@ -1,10 +1,27 @@
 PODS:
+  - libwebp (0.3.0-rc7):
+    - libwebp/dec
+    - libwebp/dsp
+    - libwebp/utils
+    - libwebp/webp
+  - libwebp/dec (0.3.0-rc7)
+  - libwebp/dsp (0.3.0-rc7)
+  - libwebp/utils (0.3.0-rc7)
+  - libwebp/webp (0.3.0-rc7)
   - Reachability (3.1.1)
+  - SDWebImage (3.3):
+    - libwebp
+    - SDWebImage/MapKit
+  - SDWebImage/MapKit (3.3):
+    - libwebp
 
 DEPENDENCIES:
   - Reachability
+  - SDWebImage
 
 SPEC CHECKSUMS:
+  libwebp: 40517fa1fd3716eded73b4696c45fc0b66e4b414
   Reachability: 2be6bc2fd2bd31d97f5db33e75e4b29c79e95883
+  SDWebImage: 79a8bac9ccf85b269100b294f7b43684dab8bf8a
 
 COCOAPODS: 0.22.3
