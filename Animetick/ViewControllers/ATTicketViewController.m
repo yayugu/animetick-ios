@@ -33,6 +33,10 @@
     
     self.ticketList = [[ATTicketList alloc] initWithDelegate:self];
     [self.tableView registerNib:[UINib nibWithNibName:@"ATTicketCell" bundle:nil] forCellReuseIdentifier:@"ATTicketCell"];
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self
+                            action:@selector(pullToRefresh)
+                  forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)didReceiveMemoryWarning
@@ -127,9 +131,17 @@
 - (void)ticketListDidUpdated
 {
     NSLog(@"%d", self.ticketList.count);
-    NSLog(@"%@", [self.ticketList ticketAtIndex:0]);
     
     [self.tableView reloadData];
+    [self.refreshControl endRefreshing];
+}
+
+#pragma mark - Refresh controll
+
+- (void)pullToRefresh
+{
+    if (!self.refreshControl.refreshing) return;
+    [self.ticketList reload];
 }
 
 @end

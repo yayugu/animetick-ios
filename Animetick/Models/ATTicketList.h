@@ -20,6 +20,7 @@
 - (ATTicket*)ticketAtIndex:(int)index;
 - (int)count;
 - (void)loadMore;
+- (void)reload;
 
 @end
 

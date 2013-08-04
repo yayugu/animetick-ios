@@ -44,6 +44,11 @@
     
 }
 
+- (void)reload
+{
+    [self requestPageIndex:0];
+}
+
 - (void)requestPageIndex:(int)index
 {
     NSString *subUrl = [NSString stringWithFormat:@"/ticket/list/%d.json", index];
