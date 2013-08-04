@@ -6,4 +6,4 @@
 //  Copyright (c) 2013年 Kazuki Akamine. All rights reserved.
 //
 
-static const NSString *kAnimetickURLString = @"http://kazz187:h8xelpr1@dev.animetick.net";
+static NSString *const ATAnimetickURLString = @"http://kazz187:h8xelpr1@dev.animetick.net";

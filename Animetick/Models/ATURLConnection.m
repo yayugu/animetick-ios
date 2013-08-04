@@ -24,7 +24,7 @@
 
 + (NSURL*)URLfromSubURL:(NSString*)subURL
 {
-    NSString *fullPath = [kAnimetickURLString stringByAppendingString:subURL];
+    NSString *fullPath = [ATAnimetickURLString stringByAppendingString:subURL];
     return [NSURL URLWithString:fullPath];
 }
 

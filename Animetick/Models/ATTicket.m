@@ -37,7 +37,7 @@
 
 - (NSURL*)iconURL
 {
-    return [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", kAnimetickURLString, self.iconPath]];
+    return [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", ATAnimetickURLString, self.iconPath]];
 }
 
 - (NSString*)channelText
