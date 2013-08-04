@@ -63,13 +63,7 @@
     if (cell == nil) {
         cell = [[ATTicketCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ATTicketCell"];
     }
-    
-    int index = indexPath.row;
-    ATTicket *ticket = [self.ticketList ticketAtIndex:index];
-    [cell.icon setImageWithURL:ticket.iconURL];
-    cell.title.text = ticket.title;
-    cell.subTitle.text = ticket.subTitle;
-    
+    [self assignCell:cell ValuesWithIndexPath:indexPath];
     return cell;
 }
 
@@ -102,6 +96,19 @@
 {
     if (!self.refreshControl.refreshing) return;
     [self.ticketList reload];
+}
+
+#pragma mark - Internals
+
+- (void)assignCell:(ATTicketCell*)cell ValuesWithIndexPath:(NSIndexPath*)indexPath
+{
+    int index = indexPath.row;
+    ATTicket *ticket = [self.ticketList ticketAtIndex:index];
+    [cell.icon setImageWithURL:ticket.iconURL];
+    cell.title.text = ticket.title;
+    cell.subTitle.text = ticket.subTitle;
+    cell.startAt.text = ticket.startAtText;
+    cell.channel.text = ticket.channelText;
 }
 
 @end

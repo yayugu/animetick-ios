@@ -20,5 +20,8 @@
 
 - (id)initWithDictionary:(NSDictionary*)dictionary;
 - (NSURL*)iconURL;
+- (NSString*)channelText;
+- (NSString*)startAtText;
+
 
 @end

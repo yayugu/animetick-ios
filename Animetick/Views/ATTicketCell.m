@@ -7,16 +7,14 @@
 //
 
 #import "ATTicketCell.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation ATTicketCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (void)awakeFromNib
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
-    }
-    return self;
+    [self.icon layer].borderColor = [[UIColor lightGrayColor] CGColor];
+    [self.icon layer].borderWidth = 1.0;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

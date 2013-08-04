@@ -40,4 +40,25 @@
     return [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", kAnimetickURLString, self.iconPath]];
 }
 
+- (NSString*)channelText
+{
+    return
+        (self.chName && self.chNumber)
+            ? [NSString stringWithFormat:@"%@ / %dch", self.chName, self.chNumber]
+        :(self.chName)
+            ? self.chName
+            : @"";
+}
+
+- (NSString*)startAtText
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.locale = [NSLocale currentLocale];
+    formatter.dateFormat = @"MM/dd HH:mm〜";
+    return
+        self.startAt
+            ? [formatter stringFromDate:self.startAt]
+            : @"";
+}
+
 @end

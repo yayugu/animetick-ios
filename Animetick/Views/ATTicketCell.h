@@ -11,5 +11,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *icon;
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UILabel *subTitle;
+@property (weak, nonatomic) IBOutlet UILabel *channel;
+@property (weak, nonatomic) IBOutlet UILabel *startAt;
+@property (weak, nonatomic) IBOutlet UIButton *watchButton;
 
 @end
