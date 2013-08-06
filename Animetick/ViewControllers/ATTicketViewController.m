@@ -9,6 +9,7 @@
 #import "ATTicketViewController.h"
 #import "ATTicketList.h"
 #import "ATTicketCell.h"
+#import "ATCheckbox.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @interface ATTicketViewController () <ATTicketListDelegate>
@@ -105,6 +106,14 @@
     [self.ticketList reload];
 }
 
+#pragma mark - Watch button
+
+- (void)watchButtonDidTap:(ATCheckbox*)checkbox
+{
+    checkbox.checked = !checkbox.checked;
+    NSLog(@"check box tapped: %d", checkbox.tag);
+}
+
 #pragma mark - Internals
 
 - (void)assignCell:(ATTicketCell*)cell ValuesWithIndexPath:(NSIndexPath*)indexPath
@@ -116,6 +125,13 @@
     cell.subTitle.text = ticket.subTitle;
     cell.startAt.text = ticket.startAtText;
     cell.channel.text = ticket.channelText;
+    
+    ((ATCheckbox*)cell.watchButton).checked = NO;
+    cell.watchButton.tag = index;
+    
+    if (cell.watchButton.allTargets.count == 0) {
+        [cell.watchButton addTarget:self action:@selector(watchButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
+    }
 }
 
 @end

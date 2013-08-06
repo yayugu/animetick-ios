@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		115F827C60F94EA499E3C1F7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFCD5A7D8710465FA58C06A3 /* libPods.a */; };
 		3A07B97917AE130F0043D16E /* ATTicketCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A07B97817AE130F0043D16E /* ATTicketCell.xib */; };
+		3A27F4AC17B1331A00A7D2CF /* ATCheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A27F4AB17B1331A00A7D2CF /* ATCheckbox.m */; };
 		3AE3DD4A17AD7F86005C8688 /* ATUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3DD4917AD7F86005C8688 /* ATUtils.m */; };
 		3AEF8DDE17AE0B8F00007E9C /* ATTicketCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEF8DDD17AE0B8F00007E9C /* ATTicketCell.m */; };
 		47F9F51D17AA2FA0007C8A8D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47F9F51217AA2FA0007C8A8D /* Default-568h@2x.png */; };
@@ -74,6 +75,8 @@
 /* Begin PBXFileReference section */
 		171813F272F244428CECCC7C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		3A07B97817AE130F0043D16E /* ATTicketCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATTicketCell.xib; sourceTree = "<group>"; };
+		3A27F4AA17B1331A00A7D2CF /* ATCheckbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATCheckbox.h; sourceTree = "<group>"; };
+		3A27F4AB17B1331A00A7D2CF /* ATCheckbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATCheckbox.m; sourceTree = "<group>"; };
 		3AE3DD4817AD7F59005C8688 /* ATUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATUtils.h; sourceTree = "<group>"; };
 		3AE3DD4917AD7F86005C8688 /* ATUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATUtils.m; sourceTree = "<group>"; };
 		3AEF8DDC17AE0B8F00007E9C /* ATTicketCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATTicketCell.h; sourceTree = "<group>"; };
@@ -237,6 +240,8 @@
 				3AEF8DDC17AE0B8F00007E9C /* ATTicketCell.h */,
 				3AEF8DDD17AE0B8F00007E9C /* ATTicketCell.m */,
 				3A07B97817AE130F0043D16E /* ATTicketCell.xib */,
+				3A27F4AA17B1331A00A7D2CF /* ATCheckbox.h */,
+				3A27F4AB17B1331A00A7D2CF /* ATCheckbox.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -522,6 +527,7 @@
 				3AEF8DDE17AE0B8F00007E9C /* ATTicketCell.m in Sources */,
 				E244C982179574BC00F1D203 /* FMResultSet.m in Sources */,
 				E244C98B1795B4E400F1D203 /* ATDatabase.m in Sources */,
+				3A27F4AC17B1331A00A7D2CF /* ATCheckbox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
