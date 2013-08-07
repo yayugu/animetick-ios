@@ -6,7 +6,7 @@
 //  Copyright (c) 2013年 Kazuki Akamine. All rights reserved.
 //
 
-@interface ATCheckbox : UIButton
+@interface ATCheckbox : UIControl
 
 @property (nonatomic) BOOL checked;
 
