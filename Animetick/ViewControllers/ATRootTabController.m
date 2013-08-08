@@ -58,8 +58,6 @@
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:ticketViewController];
     NSArray *tabs = @[navigationController];
     [self setViewControllers:tabs animated:NO];
-    
-    NSLog(@"session_id: %@", [ATServiceLocator sharedLocator].auth.sessionId);
 }
 
 @end

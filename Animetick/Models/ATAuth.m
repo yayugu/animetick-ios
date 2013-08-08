@@ -19,16 +19,12 @@
     return self;
 }
 
-- (void)setSessionId:(NSString *)sessionId
+- (void)setSessionId:(NSString*)sessionId csrfToken:(NSString*)csrfToken
 {
-    _sessionId = sessionId;
-    [self savePlist];
-}
-
-- (void)savePlist
-{
-    NSDictionary *dic = @{@"sessionId": self.sessionId};
+    NSDictionary *dic = @{@"sessionId": sessionId,
+                          @"csrfToken": csrfToken};
     [dic writeToFile:[self plistPath] atomically:YES];
+    [self loadPlist];
 }
 
 - (void)loadPlist
@@ -36,8 +32,10 @@
     NSDictionary *dic = [[NSDictionary alloc] initWithContentsOfFile:[self plistPath]];
     if (dic) {
         _sessionId = dic[@"sessionId"];
+        _csrfToken = dic[@"csrfToken"];
     } else {
         _sessionId = nil;
+        _csrfToken = nil;
     }
 }
 

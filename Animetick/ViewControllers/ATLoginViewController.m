@@ -46,10 +46,12 @@
     // example: animetick://login_session/
     if ([[[request URL] scheme] isEqualToString:@"animetick"]
         && [[[request URL] host] isEqualToString:@"login_session"]) {
-        NSString *session
+        NSString *sessionId
           = [webView stringByEvaluatingJavaScriptFromString:@"animetick.app.getSesssionForNativeApp();"];
-        [ATServiceLocator sharedLocator].auth.sessionId = session;
-        NSLog(@"%@", session);
+        NSString *csrfToken
+          = [webView stringByEvaluatingJavaScriptFromString:@"animetick.app.getCSRFTokenForNativeApp();"];
+        [[ATServiceLocator sharedLocator].auth setSessionId:sessionId
+                                                  csrfToken:csrfToken];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
     
