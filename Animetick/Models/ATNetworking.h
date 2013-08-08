@@ -6,9 +6,7 @@
 //  Copyright (c) 2013年 Kazuki Akamine. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
-@interface ATURLConnection : NSURLConnection
+@interface ATNetworking
 
 + (void)sendRequestWithSubURL:(NSString*)subURL
                    completion:(void (^)(NSURLResponse *response, NSData *data, NSError *error))completion;

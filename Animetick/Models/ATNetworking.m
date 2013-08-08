@@ -6,10 +6,10 @@
 //  Copyright (c) 2013年 Kazuki Akamine. All rights reserved.
 //
 
-#import "ATURLConnection.h"
+#import "ATNetworking.h"
 #import "ATAuth.h"
 
-@implementation ATURLConnection
+@implementation ATNetworking
 
 + (void)sendRequestWithSubURL:(NSString*)subURL
                    completion:(void (^)(NSURLResponse *response, NSData *data, NSError *error))completion
@@ -17,9 +17,9 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[self URLfromSubURL:subURL]];
     [request setAllHTTPHeaderFields:[self header]];
     
-    [self sendAsynchronousRequest:request
-                            queue:[NSOperationQueue mainQueue]
-                completionHandler:completion];
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:completion];
 }
 
 + (NSURL*)URLfromSubURL:(NSString*)subURL
@@ -35,7 +35,7 @@
     
     // NSHTTPCookieを作成し、それを配列形式として、
     // requestHeaderFieldsWithCookiesを使って、HTTPヘッダへ設定する
-    NSString *sessionId = APPDELEGATE.auth.sessionId;
+    NSString *sessionId = [ATServiceLocator sharedLocator].auth.sessionId;
     NSDictionary *cookieProperties = @{NSHTTPCookieName: @"_animetick_session",
                                        NSHTTPCookieValue: sessionId,
                                        NSHTTPCookieDomain: @"dev.animetick.net",

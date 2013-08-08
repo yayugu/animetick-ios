@@ -7,7 +7,7 @@
 //
 
 #import "ATTicketList.h"
-#import "ATURLConnection.h"
+#import "ATNetworking.h"
 
 @interface ATTicketList()
 
@@ -52,7 +52,7 @@
 - (void)requestPageIndex:(int)index
 {
     NSString *subUrl = [NSString stringWithFormat:@"/ticket/list/%d.json", index];
-    [ATURLConnection
+    [ATNetworking
      sendRequestWithSubURL:subUrl
      completion:^(NSURLResponse *response, NSData *data, NSError *error) {
          NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data

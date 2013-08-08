@@ -14,8 +14,6 @@
 
     #import "ATSettings.h"
     #import "ATUtils.h"
-
-    #import "ATAppDelegate.h"
-    #define APPDELEGATE ((ATAppDelegate *)[[UIApplication sharedApplication] delegate])
+    #import "ATServiceLocator.h"
 #endif
 

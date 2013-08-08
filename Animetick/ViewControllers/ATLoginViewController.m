@@ -48,7 +48,7 @@
         && [[[request URL] host] isEqualToString:@"login_session"]) {
         NSString *session
           = [webView stringByEvaluatingJavaScriptFromString:@"animetick.app.getSesssionForNativeApp();"];
-        APPDELEGATE.auth.sessionId = session;
+        [ATServiceLocator sharedLocator].auth.sessionId = session;
         NSLog(@"%@", session);
         [self dismissViewControllerAnimated:YES completion:nil];
     }

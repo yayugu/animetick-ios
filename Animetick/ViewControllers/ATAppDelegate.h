@@ -11,6 +11,5 @@
 @interface ATAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (nonatomic, strong) UIWindow *window;
-@property (nonatomic, strong) ATAuth *auth;
 
 @end

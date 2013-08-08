@@ -1,0 +1,23 @@
+//
+//  ATServiceLocator.m
+//  Animetick
+//
+//  Created by Yuya Yaguchi on 8/8/13.
+//  Copyright (c) 2013 Kazuki Akamine. All rights reserved.
+//
+
+#import "ATServiceLocator.h"
+
+@implementation ATServiceLocator
+
++ (id)sharedLocator
+{
+    static dispatch_once_t once;
+    static id sharedInstance;
+    dispatch_once(&once, ^{
+        sharedInstance = [[self alloc] init];
+    });
+    return sharedInstance;
+}
+
+@end

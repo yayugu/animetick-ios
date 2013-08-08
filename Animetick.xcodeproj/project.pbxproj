@@ -12,6 +12,7 @@
 		3A27F4AC17B1331A00A7D2CF /* ATCheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A27F4AB17B1331A00A7D2CF /* ATCheckbox.m */; };
 		3AE3DD4A17AD7F86005C8688 /* ATUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3DD4917AD7F86005C8688 /* ATUtils.m */; };
 		3AEF8DDE17AE0B8F00007E9C /* ATTicketCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEF8DDD17AE0B8F00007E9C /* ATTicketCell.m */; };
+		47D67CDB17B35F72001A0043 /* ATServiceLocator.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D67CDA17B35F72001A0043 /* ATServiceLocator.m */; };
 		47F9F51D17AA2FA0007C8A8D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47F9F51217AA2FA0007C8A8D /* Default-568h@2x.png */; };
 		47F9F51E17AA2FA0007C8A8D /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 47F9F51317AA2FA0007C8A8D /* Default-Landscape@2x~ipad.png */; };
 		47F9F51F17AA2FA0007C8A8D /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 47F9F51417AA2FA0007C8A8D /* Default-Landscape~ipad.png */; };
@@ -26,7 +27,7 @@
 		47F9F53117AA35C9007C8A8D /* ATAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F9F52A17AA35C9007C8A8D /* ATAuth.m */; };
 		47F9F53217AA35C9007C8A8D /* ATTicket.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F9F52C17AA35C9007C8A8D /* ATTicket.m */; };
 		47F9F53317AA35C9007C8A8D /* ATTicketList.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F9F52E17AA35C9007C8A8D /* ATTicketList.m */; };
-		47F9F53417AA35C9007C8A8D /* ATURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F9F53017AA35C9007C8A8D /* ATURLConnection.m */; };
+		47F9F53417AA35C9007C8A8D /* ATNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F9F53017AA35C9007C8A8D /* ATNetworking.m */; };
 		47F9F53E17AA35D4007C8A8D /* ATAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F9F53717AA35D4007C8A8D /* ATAppDelegate.m */; };
 		47F9F54117AA35D4007C8A8D /* ATTicketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F9F53C17AA35D4007C8A8D /* ATTicketViewController.m */; };
 		47F9F54217AA35D4007C8A8D /* ATTicketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47F9F53D17AA35D4007C8A8D /* ATTicketViewController.xib */; };
@@ -82,6 +83,8 @@
 		3AEF8DDC17AE0B8F00007E9C /* ATTicketCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATTicketCell.h; sourceTree = "<group>"; };
 		3AEF8DDD17AE0B8F00007E9C /* ATTicketCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATTicketCell.m; sourceTree = "<group>"; };
 		3AFCE85D17AE291100346247 /* ATSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATSettings.h; sourceTree = "<group>"; };
+		47D67CD917B35F72001A0043 /* ATServiceLocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATServiceLocator.h; sourceTree = "<group>"; };
+		47D67CDA17B35F72001A0043 /* ATServiceLocator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATServiceLocator.m; sourceTree = "<group>"; };
 		47F9F51217AA2FA0007C8A8D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		47F9F51317AA2FA0007C8A8D /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		47F9F51417AA2FA0007C8A8D /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
@@ -99,8 +102,8 @@
 		47F9F52C17AA35C9007C8A8D /* ATTicket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATTicket.m; sourceTree = "<group>"; };
 		47F9F52D17AA35C9007C8A8D /* ATTicketList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATTicketList.h; sourceTree = "<group>"; };
 		47F9F52E17AA35C9007C8A8D /* ATTicketList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATTicketList.m; sourceTree = "<group>"; };
-		47F9F52F17AA35C9007C8A8D /* ATURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATURLConnection.h; sourceTree = "<group>"; };
-		47F9F53017AA35C9007C8A8D /* ATURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATURLConnection.m; sourceTree = "<group>"; };
+		47F9F52F17AA35C9007C8A8D /* ATNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATNetworking.h; sourceTree = "<group>"; };
+		47F9F53017AA35C9007C8A8D /* ATNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATNetworking.m; sourceTree = "<group>"; };
 		47F9F53617AA35D4007C8A8D /* ATAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAppDelegate.h; sourceTree = "<group>"; };
 		47F9F53717AA35D4007C8A8D /* ATAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAppDelegate.m; sourceTree = "<group>"; };
 		47F9F53B17AA35D4007C8A8D /* ATTicketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATTicketViewController.h; sourceTree = "<group>"; };
@@ -209,8 +212,10 @@
 				47F9F52C17AA35C9007C8A8D /* ATTicket.m */,
 				47F9F52D17AA35C9007C8A8D /* ATTicketList.h */,
 				47F9F52E17AA35C9007C8A8D /* ATTicketList.m */,
-				47F9F52F17AA35C9007C8A8D /* ATURLConnection.h */,
-				47F9F53017AA35C9007C8A8D /* ATURLConnection.m */,
+				47F9F52F17AA35C9007C8A8D /* ATNetworking.h */,
+				47F9F53017AA35C9007C8A8D /* ATNetworking.m */,
+				47D67CD917B35F72001A0043 /* ATServiceLocator.h */,
+				47D67CDA17B35F72001A0043 /* ATServiceLocator.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -509,7 +514,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				47F9F53E17AA35D4007C8A8D /* ATAppDelegate.m in Sources */,
-				47F9F53417AA35C9007C8A8D /* ATURLConnection.m in Sources */,
+				47F9F53417AA35C9007C8A8D /* ATNetworking.m in Sources */,
+				47D67CDB17B35F72001A0043 /* ATServiceLocator.m in Sources */,
 				47F9F54117AA35D4007C8A8D /* ATTicketViewController.m in Sources */,
 				E26BED8E177081A80087E0E4 /* main.m in Sources */,
 				47F9F54617AA35E2007C8A8D /* ATWebView.m in Sources */,

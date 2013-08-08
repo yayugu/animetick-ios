@@ -34,7 +34,7 @@
 {
     [super viewDidAppear:animated];
     
-    if (APPDELEGATE.auth.sessionId == nil) {
+    if ([ATServiceLocator sharedLocator].auth.sessionId == nil) {
         NSLog(@"session_id: not found.");
         ATLoginViewController *loginViewController = [[ATLoginViewController alloc] init];
         
@@ -59,7 +59,7 @@
     NSArray *tabs = @[navigationController];
     [self setViewControllers:tabs animated:NO];
     
-    NSLog(@"session_id: %@", APPDELEGATE.auth.sessionId);
+    NSLog(@"session_id: %@", [ATServiceLocator sharedLocator].auth.sessionId);
 }
 
 @end
