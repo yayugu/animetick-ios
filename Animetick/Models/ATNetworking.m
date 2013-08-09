@@ -12,7 +12,7 @@
 @implementation ATNetworking
 
 + (void)sendRequestWithSubURL:(NSString*)subURL
-                   completion:(void (^)(NSURLResponse *response, NSData *data, NSError *error))completion
+                   completion:(ATRequestCompletion)completion
 {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[self URLfromSubURL:subURL]];
     [request setAllHTTPHeaderFields:[self header]];
@@ -20,6 +20,26 @@
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:completion];
+}
+
++ (void)sendJSONRequestWithSubURL:(NSString *)subURL
+                       completion:(ATJSONRequestCompletion)completion
+{
+    ATRequestCompletion wrapCompletion = ^(NSURLResponse *response, NSData *data, NSError *error) {
+        if (error) {
+            completion(nil, error);
+            return;
+        }
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data
+                                                            options:NSJSONReadingAllowFragments
+                                                              error:&error];
+        if (error) {
+            completion(nil, error);
+            return;
+        }
+        completion(dic, error);
+    };
+    [self sendRequestWithSubURL:subURL completion:wrapCompletion];
 }
 
 + (NSURL*)URLfromSubURL:(NSString*)subURL

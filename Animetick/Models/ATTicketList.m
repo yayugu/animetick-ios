@@ -7,7 +7,7 @@
 //
 
 #import "ATTicketList.h"
-#import "ATNetworking.h"
+#import "ATAPI.h"
 
 @interface ATTicketList()
 
@@ -51,17 +51,14 @@
 
 - (void)requestPageIndex:(int)index
 {
-    NSString *subUrl = [NSString stringWithFormat:@"/ticket/list/%d.json", index];
-    [ATNetworking
-     sendRequestWithSubURL:subUrl
-     completion:^(NSURLResponse *response, NSData *data, NSError *error) {
-         NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data
-                                                                options:NSJSONReadingAllowFragments
-                                                                  error:nil];
+    [ATAPI
+     getTicketListWithPage:index
+     completion:^(NSDictionary *dic, NSError *error) {
          if (error) {
              // do something
+             NSLog(@"%@", error);
          } else {
-             NSArray *tickets = result[@"list"];
+             NSArray *tickets = dic[@"list"];
              for (NSDictionary *ticket in tickets) {
                  ATTicket *ticketObj = [[ATTicket alloc] initWithDictionary:ticket];
                  [self.tickets addObject:ticketObj];

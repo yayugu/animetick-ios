@@ -6,9 +6,13 @@
 //  Copyright (c) 2013年 Kazuki Akamine. All rights reserved.
 //
 
-@interface ATNetworking
+typedef void (^ATRequestCompletion)(NSURLResponse *response, NSData *data, NSError *error);
+typedef void (^ATJSONRequestCompletion)(NSDictionary *dictionary, NSError *error);
+
+@interface ATNetworking : NSObject
 
 + (void)sendRequestWithSubURL:(NSString*)subURL
-                   completion:(void (^)(NSURLResponse *response, NSData *data, NSError *error))completion;
-
+                   completion:(ATRequestCompletion)completion;
++ (void)sendJSONRequestWithSubURL:(NSString *)subURL
+                       completion:(ATJSONRequestCompletion)completion;
 @end
