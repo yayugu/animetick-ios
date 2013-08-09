@@ -32,7 +32,6 @@
 		47F9F53E17AA35D4007C8A8D /* ATAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F9F53717AA35D4007C8A8D /* ATAppDelegate.m */; };
 		47F9F54117AA35D4007C8A8D /* ATTicketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F9F53C17AA35D4007C8A8D /* ATTicketViewController.m */; };
 		47F9F54217AA35D4007C8A8D /* ATTicketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47F9F53D17AA35D4007C8A8D /* ATTicketViewController.xib */; };
-		47F9F54617AA35E2007C8A8D /* ATWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F9F54517AA35E2007C8A8D /* ATWebView.m */; };
 		47F9F54A17AA360F007C8A8D /* ATLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F9F54817AA360F007C8A8D /* ATLoginViewController.m */; };
 		47F9F54B17AA360F007C8A8D /* ATLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47F9F54917AA360F007C8A8D /* ATLoginViewController.xib */; };
 		47F9F54F17AA364F007C8A8D /* NSDate+ATAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F9F54E17AA364F007C8A8D /* NSDate+ATAdditions.m */; };
@@ -98,8 +97,6 @@
 		47F9F53B17AA35D4007C8A8D /* ATTicketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATTicketViewController.h; sourceTree = "<group>"; };
 		47F9F53C17AA35D4007C8A8D /* ATTicketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATTicketViewController.m; sourceTree = "<group>"; };
 		47F9F53D17AA35D4007C8A8D /* ATTicketViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATTicketViewController.xib; sourceTree = "<group>"; };
-		47F9F54417AA35E2007C8A8D /* ATWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATWebView.h; sourceTree = "<group>"; };
-		47F9F54517AA35E2007C8A8D /* ATWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATWebView.m; sourceTree = "<group>"; };
 		47F9F54717AA360F007C8A8D /* ATLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLoginViewController.h; sourceTree = "<group>"; };
 		47F9F54817AA360F007C8A8D /* ATLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLoginViewController.m; sourceTree = "<group>"; };
 		47F9F54917AA360F007C8A8D /* ATLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATLoginViewController.xib; sourceTree = "<group>"; };
@@ -218,8 +215,6 @@
 		47F9F54317AA35E2007C8A8D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				47F9F54417AA35E2007C8A8D /* ATWebView.h */,
-				47F9F54517AA35E2007C8A8D /* ATWebView.m */,
 				3AEF8DDC17AE0B8F00007E9C /* ATTicketCell.h */,
 				3AEF8DDD17AE0B8F00007E9C /* ATTicketCell.m */,
 				3A07B97817AE130F0043D16E /* ATTicketCell.xib */,
@@ -473,7 +468,6 @@
 				47D67CDB17B35F72001A0043 /* ATServiceLocator.m in Sources */,
 				47F9F54117AA35D4007C8A8D /* ATTicketViewController.m in Sources */,
 				E26BED8E177081A80087E0E4 /* main.m in Sources */,
-				47F9F54617AA35E2007C8A8D /* ATWebView.m in Sources */,
 				47F9F53217AA35C9007C8A8D /* ATTicket.m in Sources */,
 				47F9F53317AA35C9007C8A8D /* ATTicketList.m in Sources */,
 				3AE3DD4A17AD7F86005C8688 /* ATUtils.m in Sources */,
