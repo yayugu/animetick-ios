@@ -10,9 +10,6 @@
 
 #import "ATRootTabController.h"
 #import "ATAuth.h"
-#import "FMDatabase.h"
-#import "ATDatabase.h"
-#define DBFILE @"animetick.db"
 
 @implementation ATAppDelegate
 
