@@ -12,10 +12,12 @@
 @implementation ATNetworking
 
 + (void)sendRequestWithSubURL:(NSString*)subURL
+                       method:(ATRequestMethod)method
                    completion:(ATRequestCompletion)completion
 {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[self URLfromSubURL:subURL]];
     [request setAllHTTPHeaderFields:[self header]];
+    [request setHTTPMethod:(method == POST ? @"POST" : @"GET")];
     
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:[NSOperationQueue mainQueue]
@@ -23,6 +25,7 @@
 }
 
 + (void)sendJSONRequestWithSubURL:(NSString *)subURL
+                           method:(ATRequestMethod)method
                        completion:(ATJSONRequestCompletion)completion
 {
     ATRequestCompletion wrapCompletion = ^(NSURLResponse *response, NSData *data, NSError *error) {
@@ -34,12 +37,12 @@
                                                             options:NSJSONReadingAllowFragments
                                                               error:&error];
         if (error) {
-            completion(nil, error);
+            completion(dic, error);
             return;
         }
         completion(dic, error);
     };
-    [self sendRequestWithSubURL:subURL completion:wrapCompletion];
+    [self sendRequestWithSubURL:subURL method:method completion:wrapCompletion];
 }
 
 + (NSURL*)URLfromSubURL:(NSString*)subURL
@@ -54,7 +57,7 @@
     NSString *csrfToken = [ATServiceLocator sharedLocator].auth.csrfToken;
     NSDictionary *cookieProperties = @{NSHTTPCookieName: @"_animetick_session",
                                        NSHTTPCookieValue: sessionId,
-                                       NSHTTPCookieDomain: @"dev.animetick.net",
+                                       NSHTTPCookieDomain: ATAnimetickDomain,
                                        NSHTTPCookiePath: @"\\",
                                        NSHTTPCookieExpires: @0};
     NSHTTPCookie *cookie = [[NSHTTPCookie alloc] initWithProperties:cookieProperties];

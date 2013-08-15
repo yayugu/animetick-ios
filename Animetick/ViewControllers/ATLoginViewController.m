@@ -29,7 +29,8 @@
 {
     [super viewDidLoad];
     
-    NSURL *url = [NSURL URLWithString:@"http://kazz187:h8xelpr1@dev.animetick.net/app/login"];
+    NSString *urlString = [NSString stringWithFormat:@"%@%@", ATAnimetickURLString, @"/app/login"];
+    NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:request];
 }

@@ -8,6 +8,7 @@
 
 #import "ATTicket.h"
 #import "NSDate+ATAdditions.h"
+#import "ATAPI.h"
 
 @implementation ATTicket
 
@@ -33,6 +34,9 @@
     
     self.chName = NSNullToNil(dic[@"ch_name"]);
     self.chNumber = [(NSNumber*)NSNullToNil(dic[@"chNumber"]) intValue];
+    
+    NSNumber *watched = NSNullToNil(dic[@"watched"]);
+    self.watched = watched ? [watched boolValue] : NO;
 }
 
 - (NSURL*)iconURL
@@ -59,6 +63,14 @@
         self.startAt
             ? [formatter stringFromDate:self.startAt]
             : @"";
+}
+
+- (void)watch
+{
+    [ATAPI postTicketWatchWithTitleId:self.titleId episodeCount:self.count completion:^(NSDictionary *dictionary, NSError *error) {
+        NSLog(@"%@", dictionary);
+        NSLog(@"%@", error);
+    }];
 }
 
 @end

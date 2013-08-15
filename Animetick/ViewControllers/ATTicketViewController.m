@@ -110,6 +110,8 @@
 
 - (void)watchButtonDidTap:(ATCheckbox*)checkbox
 {
+    ATTicket *ticket = [self.ticketList ticketAtIndex:checkbox.tag];
+    [ticket watch];
     checkbox.checked = !checkbox.checked;
     NSLog(@"check box tapped: %d", checkbox.tag);
 }
@@ -126,7 +128,7 @@
     cell.startAt.text = ticket.startAtText;
     cell.channel.text = ticket.channelText;
     
-    ((ATCheckbox*)cell.watchButton).checked = NO;
+    ((ATCheckbox*)cell.watchButton).checked = ticket.watched;
     cell.watchButton.tag = index;
     
     if (cell.watchButton.allTargets.count == 0) {

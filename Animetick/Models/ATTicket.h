@@ -17,11 +17,13 @@
 @property (nonatomic, strong) NSArray *flags;
 @property (nonatomic, strong) NSString *chName;
 @property (nonatomic) int chNumber;
+@property (nonatomic) BOOL watched;
 
 - (id)initWithDictionary:(NSDictionary*)dictionary;
 - (NSURL*)iconURL;
 - (NSString*)channelText;
 - (NSString*)startAtText;
+- (void)watch;
 
 
 @end

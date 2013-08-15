@@ -16,7 +16,7 @@ static NSString *const ATAPIFormatTicketWatch = @"/ticket/%d/%d/watch.json";
 + (void)getTicketListWithPage:(int)page completion:(ATJSONRequestCompletion)completion
 {
     NSString *subURL = [NSString stringWithFormat:ATAPIFormatTicketList, page];
-    [ATNetworking sendJSONRequestWithSubURL:subURL completion:completion];
+    [ATNetworking sendJSONRequestWithSubURL:subURL method:GET completion:completion];
 }
 
 + (void)postTicketWatchWithTitleId:(int)titleId
@@ -24,7 +24,7 @@ static NSString *const ATAPIFormatTicketWatch = @"/ticket/%d/%d/watch.json";
                         completion:(ATJSONRequestCompletion)completion
 {
     NSString *subURL = [NSString stringWithFormat:ATAPIFormatTicketWatch, titleId, episodeCount];
-    [ATNetworking sendJSONRequestWithSubURL:subURL completion:completion];
+    [ATNetworking sendJSONRequestWithSubURL:subURL method:POST completion:completion];
 }
 
 @end
