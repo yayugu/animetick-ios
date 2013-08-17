@@ -20,7 +20,17 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        self.checkLabel = [[UILabel alloc] initWithFrame:self.frame];
+        self.translatesAutoresizingMaskIntoConstraints = NO;
+        self.backgroundColor = [UIColor blackColor];
+        
+        CGRect frame = {
+            .origin.x = 0,
+            .origin.y = 0,
+            .size = self.frame.size
+        };
+        self.checkLabel = [[UILabel alloc] initWithFrame:frame];
+        self.checkLabel.backgroundColor = [UIColor clearColor];
+        self.checkLabel.textColor = [UIColor whiteColor];
         [self addSubview:self.checkLabel];
     }
     return self;
@@ -31,9 +41,9 @@
     _checked = checked;
     
     if (checked) {
-        self.checkLabel.text = @"✔";
+        self.checkLabel.text = @"watched";
     } else {
-        self.checkLabel.text = @"";
+        self.checkLabel.text = @"watch";
     }
 }
 
