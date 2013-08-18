@@ -16,6 +16,8 @@
 
 @interface ATTicketList : NSObject
 
+@property (nonatomic) BOOL lastFlag;
+
 - (id)initWithDelegate:(id<ATTicketListDelegate>)delegate;
 - (ATTicket*)ticketAtIndex:(int)index;
 - (int)count;

@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) NSMutableArray *tickets;
 @property (nonatomic, weak) id<ATTicketListDelegate> delegate;
+@property (nonatomic) int loadedPageIndex;
 
 @end
 
@@ -24,7 +25,8 @@
     if (self) {
         self.tickets = [NSMutableArray array];
         self.delegate = delegate;
-        [self requestPageIndex:0];
+        self.loadedPageIndex = -1;
+        [self requestPage];
     }
     return self;
 }
@@ -46,23 +48,26 @@
 
 - (void)reload
 {
-    [self requestPageIndex:0];
+    self.loadedPageIndex = -1;
+    [self requestPage];
 }
 
-- (void)requestPageIndex:(int)index
+- (void)requestPage
 {
     [ATAPI
-     getTicketListWithPage:index
+     getTicketListWithPage:self.loadedPageIndex + 1
      completion:^(NSDictionary *dic, NSError *error) {
          if (error) {
              // do something
              NSLog(@"%@", error);
          } else {
+             self.loadedPageIndex++;
              NSArray *tickets = dic[@"list"];
              for (NSDictionary *ticket in tickets) {
                  ATTicket *ticketObj = [[ATTicket alloc] initWithDictionary:ticket];
                  [self.tickets addObject:ticketObj];
              }
+             self.lastFlag = [(NSNumber*)NSNullToNil(dic[@"last_flag"]) boolValue];
              [self.delegate ticketListDidUpdated];
          }
      }];
