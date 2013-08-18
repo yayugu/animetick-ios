@@ -21,6 +21,7 @@
 
 - (id)initWithDictionary:(NSDictionary*)dictionary;
 - (NSURL*)iconURL;
+- (NSString*)episondeNumberWithSubTitle;
 - (NSString*)channelText;
 - (NSString*)startAtText;
 - (void)watch;

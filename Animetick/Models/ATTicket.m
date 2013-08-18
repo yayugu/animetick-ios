@@ -44,6 +44,11 @@
     return [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", ATAnimetickURLString, self.iconPath]];
 }
 
+- (NSString*)episondeNumberWithSubTitle
+{
+    return [NSString stringWithFormat:@"#%d %@", self.count, self.subTitle];
+}
+
 - (NSString*)channelText
 {
     return

@@ -147,7 +147,7 @@
     ATTicket *ticket = [self.ticketList ticketAtIndex:index];
     [cell.icon setImageWithURL:ticket.iconURL];
     cell.title.text = ticket.title;
-    cell.subTitle.text = ticket.subTitle;
+    cell.subTitle.text = ticket.episondeNumberWithSubTitle;
     cell.startAt.text = ticket.startAtText;
     cell.channel.text = ticket.channelText;
     
