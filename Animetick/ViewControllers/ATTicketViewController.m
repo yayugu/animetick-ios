@@ -111,7 +111,11 @@
 - (void)watchButtonDidTap:(ATCheckbox*)checkbox
 {
     ATTicket *ticket = [self.ticketList ticketAtIndex:checkbox.tag];
-    [ticket watch];
+    if (checkbox.checked) {
+        [ticket unwatch];
+    } else {
+        [ticket watch];
+    }
     checkbox.checked = !checkbox.checked;
     NSLog(@"check box tapped: %d", checkbox.tag);
 }

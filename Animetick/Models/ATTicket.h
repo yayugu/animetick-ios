@@ -24,6 +24,6 @@
 - (NSString*)channelText;
 - (NSString*)startAtText;
 - (void)watch;
-
+- (void)unwatch;
 
 @end

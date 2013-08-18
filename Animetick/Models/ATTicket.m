@@ -73,4 +73,12 @@
     }];
 }
 
+- (void)unwatch
+{
+    [ATAPI postTicketUnwatchWithTitleId:self.titleId episodeCount:self.count completion:^(NSDictionary *dictionary, NSError *error) {
+        NSLog(@"%@", dictionary);
+        NSLog(@"%@", error);
+    }];
+}
+
 @end

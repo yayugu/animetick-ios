@@ -14,5 +14,8 @@
 + (void)postTicketWatchWithTitleId:(int)titleId
                       episodeCount:(int)episodeCount
                         completion:(ATJSONRequestCompletion)completion;
++ (void)postTicketUnwatchWithTitleId:(int)titleId
+                        episodeCount:(int)episodeCount
+                          completion:(ATJSONRequestCompletion)completion;
 
 @end
