@@ -15,6 +15,7 @@
 @interface ATTicketViewController () <ATTicketListDelegate>
 
 @property (nonatomic, strong) ATTicketList *ticketList;
+@property (nonatomic, strong) UIActivityIndicatorView *indicator;
 
 @end
 
@@ -38,6 +39,11 @@
     [self.refreshControl addTarget:self
                             action:@selector(pullToRefresh)
                   forControlEvents:UIControlEventValueChanged];
+    
+    self.indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.indicator setColor:[UIColor darkGrayColor]];
+    [self.indicator setHidesWhenStopped:YES];
+    [self.indicator stopAnimating];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -88,17 +94,19 @@
      */
 }
 
-#pragma mark - Ticket list delegate
+#pragma mark - Scroll view delegate
 
-- (void)ticketListDidUpdated
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    NSLog(@"%d", self.ticketList.count);
-    
-    [self.tableView reloadData];
-    [self.refreshControl endRefreshing];
+    CGFloat contentOffsetWidthWindow = self.tableView.contentOffset.y + self.tableView.bounds.size.height;
+    BOOL leachToBottom = contentOffsetWidthWindow >= self.tableView.contentSize.height;
+    if (leachToBottom && ![self.indicator isAnimating] && !self.ticketList.lastFlag) {
+        [self.ticketList loadMore];
+        [self startIndicator];
+    }
 }
 
-#pragma mark - Refresh controll
+#pragma mark - Refresh control
 
 - (void)pullToRefresh
 {
@@ -118,6 +126,17 @@
     }
     button.checked = !button.checked;
     NSLog(@"watch button tapped: %d", button.tag);
+}
+
+#pragma mark - Ticket list delegate
+
+- (void)ticketListDidUpdated
+{
+    NSLog(@"%d", self.ticketList.count);
+    
+    [self.tableView reloadData];
+    [self.refreshControl endRefreshing];
+    [self endIndicator];
 }
 
 #pragma mark - Internals
@@ -140,6 +159,22 @@
                              action:@selector(onTicketWatchButtonLongPress:)
                    forControlEvents:ATTicketWatchButtonEventLongPress];
     }
+}
+
+- (void)startIndicator
+{
+    [self.indicator startAnimating];
+    CGRect footerFrame = self.tableView.tableFooterView.frame;
+    footerFrame.size.height += 10.0f;
+    [self.indicator setFrame:footerFrame];
+    [self.tableView setTableFooterView:self.indicator];
+}
+
+- (void)endIndicator
+{
+    [self.indicator stopAnimating];
+    [self.indicator removeFromSuperview];
+    [self.tableView setTableFooterView:nil];
 }
 
 @end

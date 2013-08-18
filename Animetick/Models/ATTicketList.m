@@ -43,7 +43,7 @@
 
 - (void)loadMore
 {
-    
+    [self requestPage];
 }
 
 - (void)reload
