@@ -6,16 +6,16 @@
 //  Copyright (c) 2013年 Kazuki Akamine. All rights reserved.
 //
 
-#import "ATCheckbox.h"
+#import "ATTicketWatchButton.h"
 #import <CoreGraphics/CoreGraphics.h>
 
-@interface ATCheckbox ()
+@interface ATTicketWatchButton ()
 
 @property (nonatomic, strong) UILabel *checkLabel;
 
 @end
 
-@implementation ATCheckbox
+@implementation ATTicketWatchButton
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -43,6 +43,11 @@
         };
         self.checkLabel.bounds = bounds;
         [self addSubview:self.checkLabel];
+        
+        self.longPressGestureRecognizer =
+          [[UILongPressGestureRecognizer alloc] initWithTarget:self
+                                                        action:@selector(onLongPressGesture:)];
+        [self addGestureRecognizer:self.longPressGestureRecognizer];
     }
     return self;
 }
@@ -58,13 +63,16 @@
     }
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+- (void)onLongPressGesture:(UILongPressGestureRecognizer*)recognizer
 {
-    // Drawing code
+    switch (recognizer.state) {
+        // 長押し認識
+        case UIGestureRecognizerStateBegan:
+            [self sendActionsForControlEvents:ATTicketWatchButtonEventLongPress];
+            break;
+        default:
+            break;
+    }
 }
-*/
 
 @end

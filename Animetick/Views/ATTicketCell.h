@@ -6,7 +6,7 @@
 //  Copyright (c) 2013年 Kazuki Akamine. All rights reserved.
 //
 
-@class ATCheckbox;
+@class ATTicketWatchButton;
 
 @interface ATTicketCell : UITableViewCell
 
@@ -15,6 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *subTitle;
 @property (weak, nonatomic) IBOutlet UILabel *channel;
 @property (weak, nonatomic) IBOutlet UILabel *startAt;
-@property (weak, nonatomic) IBOutlet ATCheckbox *watchButton;
+@property (weak, nonatomic) IBOutlet ATTicketWatchButton *watchButton;
 
 @end

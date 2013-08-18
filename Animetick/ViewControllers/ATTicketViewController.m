@@ -9,7 +9,7 @@
 #import "ATTicketViewController.h"
 #import "ATTicketList.h"
 #import "ATTicketCell.h"
-#import "ATCheckbox.h"
+#import "ATTicketWatchButton.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @interface ATTicketViewController () <ATTicketListDelegate>
@@ -108,16 +108,16 @@
 
 #pragma mark - Watch button
 
-- (void)watchButtonDidTap:(ATCheckbox*)checkbox
+- (void)onTicketWatchButtonLongPress:(ATTicketWatchButton*)button
 {
-    ATTicket *ticket = [self.ticketList ticketAtIndex:checkbox.tag];
-    if (checkbox.checked) {
+    ATTicket *ticket = [self.ticketList ticketAtIndex:button.tag];
+    if (button.checked) {
         [ticket unwatch];
     } else {
         [ticket watch];
     }
-    checkbox.checked = !checkbox.checked;
-    NSLog(@"check box tapped: %d", checkbox.tag);
+    button.checked = !button.checked;
+    NSLog(@"watch button tapped: %d", button.tag);
 }
 
 #pragma mark - Internals
@@ -132,11 +132,13 @@
     cell.startAt.text = ticket.startAtText;
     cell.channel.text = ticket.channelText;
     
-    ((ATCheckbox*)cell.watchButton).checked = ticket.watched;
+    ((ATTicketWatchButton*)cell.watchButton).checked = ticket.watched;
     cell.watchButton.tag = index;
     
     if (cell.watchButton.allTargets.count == 0) {
-        [cell.watchButton addTarget:self action:@selector(watchButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.watchButton addTarget:self
+                             action:@selector(onTicketWatchButtonLongPress:)
+                   forControlEvents:ATTicketWatchButtonEventLongPress];
     }
 }
 

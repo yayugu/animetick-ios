@@ -82,7 +82,7 @@
                             <constraint firstItem="26" firstAttribute="top" secondItem="7Rw-wt-QTG" secondAttribute="top" constant="20" id="yeA-fM-J4n"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="72m-rK-ouz" userLabel="checkbox" customClass="ATCheckbox">
+                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="72m-rK-ouz" userLabel="checkbox" customClass="ATTicketWatchButton">
                         <rect key="frame" x="276" y="0.0" width="44" height="73"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
