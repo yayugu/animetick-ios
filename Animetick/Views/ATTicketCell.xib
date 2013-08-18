@@ -23,7 +23,7 @@
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Rw-wt-QTG" userLabel="text_info_container">
-                        <rect key="frame" x="66" y="0.0" width="202" height="55"/>
+                        <rect key="frame" x="66" y="0.0" width="202" height="73"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" ambiguous="YES" text="ふたりはミルキィホームズ #4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15" userLabel="title">
@@ -94,7 +94,7 @@
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="72m-rK-ouz" secondAttribute="bottom" id="4QF-g5-gbJ"/>
                     <constraint firstAttribute="trailing" secondItem="72m-rK-ouz" secondAttribute="trailing" id="8fh-TK-TOu"/>
-                    <constraint firstAttribute="bottom" secondItem="7Rw-wt-QTG" secondAttribute="bottom" constant="18" id="JtT-zx-lLy"/>
+                    <constraint firstAttribute="bottom" secondItem="7Rw-wt-QTG" secondAttribute="bottom" id="JtT-zx-lLy"/>
                     <constraint firstAttribute="centerY" secondItem="3" secondAttribute="centerY" id="UR0-mp-Tim"/>
                     <constraint firstItem="72m-rK-ouz" firstAttribute="leading" secondItem="7Rw-wt-QTG" secondAttribute="trailing" constant="8" symbolic="YES" id="Vkn-Ea-y5I"/>
                     <constraint firstItem="72m-rK-ouz" firstAttribute="top" secondItem="1sw-Kg-ezp" secondAttribute="top" id="Xnc-nr-JKi"/>
