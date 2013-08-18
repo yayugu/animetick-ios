@@ -7,6 +7,7 @@
 //
 
 #import "ATCheckbox.h"
+#import <CoreGraphics/CoreGraphics.h>
 
 @interface ATCheckbox ()
 
@@ -31,6 +32,16 @@
         self.checkLabel = [[UILabel alloc] initWithFrame:frame];
         self.checkLabel.backgroundColor = [UIColor clearColor];
         self.checkLabel.textColor = [UIColor whiteColor];
+        
+        // 90度
+        self.checkLabel.transform = CGAffineTransformMakeRotation(M_PI / 2);
+        CGRect bounds = {
+            .origin.x = 0,
+            .origin.y = 0,
+            .size.width = self.frame.size.height,
+            .size.height = self.frame.size.width
+        };
+        self.checkLabel.bounds = bounds;
         [self addSubview:self.checkLabel];
     }
     return self;
