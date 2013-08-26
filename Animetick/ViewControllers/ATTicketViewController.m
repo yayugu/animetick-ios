@@ -44,6 +44,8 @@
     [self.indicator setColor:[UIColor darkGrayColor]];
     [self.indicator setHidesWhenStopped:YES];
     [self.indicator stopAnimating];
+    
+    self.navigationController.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemRecents tag:0];
 }
 
 - (void)viewWillAppear:(BOOL)animated
