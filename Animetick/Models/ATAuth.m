@@ -27,6 +27,14 @@
     [self loadPlist];
 }
 
+- (void)clear
+{
+    _sessionId = nil;
+    _csrfToken = nil;
+    NSFileManager *manager = [[NSFileManager alloc] init];
+    [manager removeItemAtPath:[self plistPath] error:nil];
+}
+
 - (void)loadPlist
 {
     NSDictionary *dic = [[NSDictionary alloc] initWithContentsOfFile:[self plistPath]];

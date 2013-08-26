@@ -10,3 +10,5 @@
 //static NSString *const ATAnimetickURLString = @"http://animetick.net";
 static NSString *const ATAnimetickURLString = @"http://localhost:3000";
 static NSString *const ATAnimetickDomain = @"http://localhost";
+
+static NSString *const ATDidReceiveUnauthorizedError = @"ATDidReceiveUnauthorizedError";

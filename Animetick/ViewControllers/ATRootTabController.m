@@ -28,6 +28,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didReceiveUnauthorizedError:)
+                                                 name:ATDidReceiveUnauthorizedError
+                                               object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -58,6 +62,13 @@
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:ticketViewController];
     NSArray *tabs = @[navigationController];
     [self setViewControllers:tabs animated:NO];
+}
+
+- (void)didReceiveUnauthorizedError:(NSNotification*)notification
+{
+    [[ATServiceLocator sharedLocator].auth clear];
+    ATLoginViewController *loginViewController = [[ATLoginViewController alloc] init];
+    [self presentViewController:loginViewController animated:YES completion:nil];
 }
 
 @end
