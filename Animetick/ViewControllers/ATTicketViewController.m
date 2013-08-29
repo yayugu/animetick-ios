@@ -132,11 +132,25 @@
 
 #pragma mark - Ticket list delegate
 
-- (void)ticketListDidUpdated
+- (void)ticketListDidLoad
+{
+    NSLog(@"%d", self.ticketList.count);
+    [self.tableView reloadData];
+    [self.refreshControl endRefreshing];
+    [self endIndicator];
+}
+
+- (void)ticketListMoreDidLoad
 {
     NSLog(@"%d", self.ticketList.count);
     
-    [self.tableView reloadData];
+    NSMutableArray *indexPaths = [NSMutableArray array];
+    int i = [self.tableView numberOfRowsInSection:0];
+    for (; i < self.ticketList.count; i++) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+        [indexPaths addObject:indexPath];
+    }
+    [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.refreshControl endRefreshing];
     [self endIndicator];
 }

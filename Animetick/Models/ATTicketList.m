@@ -68,7 +68,11 @@
                  [self.tickets addObject:ticketObj];
              }
              self.lastFlag = [(NSNumber*)NSNullToNil(dic[@"last_flag"]) boolValue];
-             [self.delegate ticketListDidUpdated];
+             if (self.loadedPageIndex == 0) {
+                 [self.delegate ticketListDidLoad];
+             } else {
+                 [self.delegate ticketListMoreDidLoad];
+             }
          }
      }];
 }

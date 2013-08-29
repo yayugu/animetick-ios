@@ -10,7 +10,8 @@
 
 @protocol ATTicketListDelegate
 
-- (void)ticketListDidUpdated;
+- (void)ticketListDidLoad;
+- (void)ticketListMoreDidLoad;
 
 @end
 
