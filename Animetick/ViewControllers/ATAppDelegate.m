@@ -19,6 +19,10 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
+    self.window.tintColor = [UIColor colorWithRed:255.0f / 255.0f
+                                            green:80.0f / 255.0f
+                                             blue:15.0f / 255.0f
+                                            alpha:1.0f];
     self.window.rootViewController = [[ATRootTabController alloc] init];
     [self.window makeKeyAndVisible];
     
