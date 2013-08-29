@@ -29,6 +29,8 @@
 {
     [super viewDidLoad];
     
+    self.navigationItem.title = @"ログイン";
+    
     NSString *urlString = [NSString stringWithFormat:@"%@%@", ATAnimetickURLString, @"/app/login"];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];

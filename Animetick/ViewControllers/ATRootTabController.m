@@ -40,9 +40,7 @@
     
     if ([ATServiceLocator sharedLocator].auth.sessionId == nil) {
         NSLog(@"session_id: not found.");
-        ATLoginViewController *loginViewController = [[ATLoginViewController alloc] init];
-        
-        [self presentViewController:loginViewController animated:YES completion:^{
+        [self presentLoginViewControllerWithCompletion:^{
             [self presentTabs];
         }];
     } else {
@@ -67,8 +65,15 @@
 - (void)didReceiveUnauthorizedError:(NSNotification*)notification
 {
     [[ATServiceLocator sharedLocator].auth clear];
+    
+    [self presentLoginViewControllerWithCompletion:nil];
+}
+
+- (void)presentLoginViewControllerWithCompletion:(void (^)(void))completion
+{
     ATLoginViewController *loginViewController = [[ATLoginViewController alloc] init];
-    [self presentViewController:loginViewController animated:YES completion:nil];
+    UINavigationController *navigationContoller = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+    [self presentViewController:navigationContoller animated:YES completion:completion];
 }
 
 @end
