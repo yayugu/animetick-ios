@@ -126,7 +126,7 @@
     } else {
         [ticket watch];
     }
-    button.checked = !button.checked;
+    [button setChecked:!button.checked animated:YES];
     NSLog(@"watch button tapped: %d", button.tag);
 }
 

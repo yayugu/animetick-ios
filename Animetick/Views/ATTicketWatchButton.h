@@ -15,4 +15,6 @@ static const NSUInteger ATTicketWatchButtonEventLongPress = 0x01000000;
 @property (nonatomic) BOOL checked;
 @property (nonatomic, strong) UILongPressGestureRecognizer *longPressGestureRecognizer;
 
+- (void)setChecked:(BOOL)checked animated:(BOOL)animated;
+
 @end

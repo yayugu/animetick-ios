@@ -10,6 +10,7 @@
 		115F827C60F94EA499E3C1F7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFCD5A7D8710465FA58C06A3 /* libPods.a */; };
 		3A07B97917AE130F0043D16E /* ATTicketCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A07B97817AE130F0043D16E /* ATTicketCell.xib */; };
 		3A27F4AC17B1331A00A7D2CF /* ATTicketWatchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A27F4AB17B1331A00A7D2CF /* ATTicketWatchButton.m */; };
+		3A30709617CFA2AD000FD6F6 /* ATTicketWatchAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A30709517CFA2AD000FD6F6 /* ATTicketWatchAnimationView.m */; };
 		3A447F4F17B514E000C38BD0 /* ATAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A447F4E17B514E000C38BD0 /* ATAPI.m */; };
 		3AE3DD4A17AD7F86005C8688 /* ATUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE3DD4917AD7F86005C8688 /* ATUtils.m */; };
 		3AEF8DDE17AE0B8F00007E9C /* ATTicketCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEF8DDD17AE0B8F00007E9C /* ATTicketCell.m */; };
@@ -64,6 +65,8 @@
 		3A07B97817AE130F0043D16E /* ATTicketCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATTicketCell.xib; sourceTree = "<group>"; };
 		3A27F4AA17B1331A00A7D2CF /* ATTicketWatchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATTicketWatchButton.h; sourceTree = "<group>"; };
 		3A27F4AB17B1331A00A7D2CF /* ATTicketWatchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATTicketWatchButton.m; sourceTree = "<group>"; };
+		3A30709417CFA2AD000FD6F6 /* ATTicketWatchAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATTicketWatchAnimationView.h; sourceTree = "<group>"; };
+		3A30709517CFA2AD000FD6F6 /* ATTicketWatchAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATTicketWatchAnimationView.m; sourceTree = "<group>"; };
 		3A447F4D17B514E000C38BD0 /* ATAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAPI.h; sourceTree = "<group>"; };
 		3A447F4E17B514E000C38BD0 /* ATAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAPI.m; sourceTree = "<group>"; };
 		3AE3DD4817AD7F59005C8688 /* ATUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATUtils.h; sourceTree = "<group>"; };
@@ -220,6 +223,8 @@
 				3A07B97817AE130F0043D16E /* ATTicketCell.xib */,
 				3A27F4AA17B1331A00A7D2CF /* ATTicketWatchButton.h */,
 				3A27F4AB17B1331A00A7D2CF /* ATTicketWatchButton.m */,
+				3A30709417CFA2AD000FD6F6 /* ATTicketWatchAnimationView.h */,
+				3A30709517CFA2AD000FD6F6 /* ATTicketWatchAnimationView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -465,6 +470,7 @@
 			files = (
 				47F9F53E17AA35D4007C8A8D /* ATAppDelegate.m in Sources */,
 				47F9F53417AA35C9007C8A8D /* ATNetworking.m in Sources */,
+				3A30709617CFA2AD000FD6F6 /* ATTicketWatchAnimationView.m in Sources */,
 				47D67CDB17B35F72001A0043 /* ATServiceLocator.m in Sources */,
 				47F9F54117AA35D4007C8A8D /* ATTicketViewController.m in Sources */,
 				E26BED8E177081A80087E0E4 /* main.m in Sources */,

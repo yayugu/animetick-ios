@@ -7,6 +7,7 @@
 //
 
 #import "ATTicketWatchButton.h"
+#import "ATTicketWatchAnimationView.h"
 #import <CoreGraphics/CoreGraphics.h>
 
 @interface ATTicketWatchButton ()
@@ -61,6 +62,16 @@
     } else {
         self.checkLabel.text = @"watch";
     }
+}
+
+- (void)setChecked:(BOOL)checked animated:(BOOL)animated
+{
+    [self setChecked:checked];
+    
+    UIView *rootView = [UIApplication sharedApplication].delegate.window.rootViewController.view;
+    ATTicketWatchAnimationView *animationView = [[ATTicketWatchAnimationView alloc] initWithFrame:rootView.bounds];
+    [rootView addSubview:animationView];
+    [animationView animateTo:self];
 }
 
 - (void)onLongPressGesture:(UILongPressGestureRecognizer*)recognizer
