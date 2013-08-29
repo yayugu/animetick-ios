@@ -51,7 +51,8 @@
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *directory = [paths objectAtIndex:0];
-    NSString *filePath = [directory stringByAppendingPathComponent:@"at_auth.plist"];
+    NSString *fileName = [NSString stringWithFormat:@"at_auth_%d.plist", AT_SERVER_NUMBER];
+    NSString *filePath = [directory stringByAppendingPathComponent:fileName];
     return filePath;
 }
 
