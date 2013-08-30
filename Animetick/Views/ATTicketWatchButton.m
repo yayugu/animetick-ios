@@ -13,6 +13,7 @@
 @interface ATTicketWatchButton ()
 
 @property (nonatomic, strong) UILabel *checkLabel;
+@property (nonatomic, strong) UILongPressGestureRecognizer *longPressGestureRecognizer;
 
 @end
 
@@ -48,6 +49,7 @@
         self.longPressGestureRecognizer =
           [[UILongPressGestureRecognizer alloc] initWithTarget:self
                                                         action:@selector(onLongPressGesture:)];
+        self.longPressGestureRecognizer.minimumPressDuration = 0.2;
         [self addGestureRecognizer:self.longPressGestureRecognizer];
     }
     return self;
