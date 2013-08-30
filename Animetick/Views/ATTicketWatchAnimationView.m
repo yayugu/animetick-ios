@@ -35,7 +35,7 @@
     
     CGPoint origin = [self originFromRootViewToView:view];
     [UIView
-     animateWithDuration:0.5
+     animateWithDuration:0.2
      delay:0
      options:UIViewAnimationOptionCurveEaseOut
      animations:^{
@@ -55,6 +55,10 @@
     UIView *rootView = [UIApplication sharedApplication].delegate.window.rootViewController.view;
     CGFloat originX = 0;
     CGFloat originY = 0;
+
+    // status barの分下にずらす。もう少しマシなやり方がないものか
+    originY += [UIApplication sharedApplication].statusBarFrame.size.height;
+    
     while (true) {
         if (view == rootView) {
             return CGPointMake(originX, originY);
