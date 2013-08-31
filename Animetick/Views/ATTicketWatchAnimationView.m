@@ -28,48 +28,28 @@
     return self;
 }
 
-- (void)animateTo:(UIView*)view
+- (void)animate
 {
-    UIView *rootView = [UIApplication sharedApplication].delegate.window.rootViewController.view;
-    [rootView addSubview:self];
-    
-    CGPoint origin = [self originFromRootViewToView:view];
+    self.animationView.frame = (CGRect){
+        .origin = {
+            .x = self.frame.origin.x - 100,
+            .y = self.frame.origin.y - 100
+        },
+        .size = {
+            .width = self.frame.size.width + 200,
+            .height = self.frame.size.height + 200
+        }
+    };
     [UIView
      animateWithDuration:0.2
      delay:0
      options:UIViewAnimationOptionCurveEaseOut
      animations:^{
-         CGRect frame = {
-             .origin = origin,
-             .size = view.bounds.size
-         };
-         self.animationView.frame = frame;
+         self.animationView.frame = self.frame;
      }
      completion:^(BOOL finished) {
          [self removeFromSuperview];
      }];
-}
-
-- (CGPoint)originFromRootViewToView:(UIView*)view
-{
-    UIView *rootView = [UIApplication sharedApplication].delegate.window.rootViewController.view;
-    CGFloat originX = 0;
-    CGFloat originY = 0;
-
-    // status barの分下にずらす。もう少しマシなやり方がないものか
-    originY += [UIApplication sharedApplication].statusBarFrame.size.height;
-    
-    while (true) {
-        if (view == rootView) {
-            return CGPointMake(originX, originY);
-        }
-        if (!view) {
-            return CGPointZero;
-        }
-        originX += view.frame.origin.x;
-        originY += view.frame.origin.y;
-        view = view.superview;
-    }
 }
 
 @end

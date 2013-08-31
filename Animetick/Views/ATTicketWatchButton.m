@@ -70,10 +70,9 @@
 {
     [self setChecked:checked];
     
-    UIView *rootView = [UIApplication sharedApplication].delegate.window.rootViewController.view;
-    ATTicketWatchAnimationView *animationView = [[ATTicketWatchAnimationView alloc] initWithFrame:rootView.bounds];
-    [rootView addSubview:animationView];
-    [animationView animateTo:self];
+    ATTicketWatchAnimationView *animationView = [[ATTicketWatchAnimationView alloc] initWithFrame:self.bounds];
+    [self addSubview:animationView];
+    [animationView animate];
 }
 
 - (void)onLongPressGesture:(UILongPressGestureRecognizer*)recognizer

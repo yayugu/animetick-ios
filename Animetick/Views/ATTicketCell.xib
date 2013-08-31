@@ -106,7 +106,7 @@
             <connections>
                 <outlet property="channel" destination="41" id="73"/>
                 <outlet property="icon" destination="3" id="25"/>
-                <outlet property="startAt" destination="48" id="74"/>
+                <outlet property="startAt" destination="48" id="yJE-9m-7nD"/>
                 <outlet property="subTitle" destination="26" id="34"/>
                 <outlet property="title" destination="15" id="24"/>
                 <outlet property="watchButton" destination="72m-rK-ouz" id="eiO-BE-3KO"/>

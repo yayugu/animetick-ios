@@ -8,6 +8,6 @@
 
 @interface ATTicketWatchAnimationView : UIView
 
-- (void)animateTo:(UIView*)view;
+- (void)animate;
 
 @end
