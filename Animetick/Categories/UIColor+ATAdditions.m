@@ -28,4 +28,9 @@
     return [UIColor colorWithHex:0xFF500FFF];
 }
 
++ (UIColor*)atWatchedCellColor
+{
+    return [UIColor colorWithHex:0xFFA05FFF];
+}
+
 @end

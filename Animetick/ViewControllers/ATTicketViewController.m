@@ -9,7 +9,6 @@
 #import "ATTicketViewController.h"
 #import "ATTicketList.h"
 #import "ATTicketCell.h"
-#import "ATTicketWatchButton.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @interface ATTicketViewController () <ATTicketListDelegate>
@@ -87,13 +86,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    ATTicket *ticket = [self.ticketList ticketAtIndex:indexPath.row];
+    if (ticket.watched) {
+        [ticket unwatch];
+    } else {
+        [ticket watch];
+    }
+    ((ATTicketCell*)[self.tableView cellForRowAtIndexPath:indexPath]).watched = ticket.watched;
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - Scroll view delegate
@@ -114,20 +114,6 @@
 {
     if (!self.refreshControl.refreshing) return;
     [self.ticketList reload];
-}
-
-#pragma mark - Watch button
-
-- (void)onTicketWatchButtonLongPress:(ATTicketWatchButton*)button
-{
-    ATTicket *ticket = [self.ticketList ticketAtIndex:button.tag];
-    if (button.checked) {
-        [ticket unwatch];
-    } else {
-        [ticket watch];
-    }
-    [button setChecked:!button.checked animated:YES];
-    NSLog(@"watch button tapped: %d", button.tag);
 }
 
 #pragma mark - Ticket list delegate
@@ -166,15 +152,7 @@
     cell.subTitle.text = ticket.episondeNumberWithSubTitle;
     cell.startAt.text = ticket.startAtText;
     cell.channel.text = ticket.channelText;
-    
-    ((ATTicketWatchButton*)cell.watchButton).checked = ticket.watched;
-    cell.watchButton.tag = index;
-    
-    if (cell.watchButton.allTargets.count == 0) {
-        [cell.watchButton addTarget:self
-                             action:@selector(onTicketWatchButtonLongPress:)
-                   forControlEvents:ATTicketWatchButtonEventLongPress];
-    }
+    cell.watched = ticket.watched;
 }
 
 - (void)startIndicator

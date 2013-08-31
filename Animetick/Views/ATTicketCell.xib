@@ -23,11 +23,11 @@
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Rw-wt-QTG" userLabel="text_info_container">
-                        <rect key="frame" x="73" y="0.0" width="195" height="73"/>
+                        <rect key="frame" x="73" y="0.0" width="237" height="73"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ふたりはミルキィホームズ #4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15" userLabel="title">
-                                <rect key="frame" x="0.0" y="10" width="195" height="16"/>
+                                <rect key="frame" x="0.0" y="10" width="237" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="kE9-P9-hqd"/>
@@ -37,7 +37,7 @@
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="まけないきもち " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26" userLabel="subTitle">
-                                <rect key="frame" x="0.0" y="20" width="195" height="20"/>
+                                <rect key="frame" x="0.0" y="20" width="237" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="80"/>
@@ -57,7 +57,7 @@
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="01/01 23:30〜" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48" userLabel="startAt">
-                                <rect key="frame" x="0.0" y="30" width="195" height="20"/>
+                                <rect key="frame" x="0.0" y="30" width="237" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="85j-QD-kht"/>
@@ -67,7 +67,6 @@
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="15" firstAttribute="leading" secondItem="7Rw-wt-QTG" secondAttribute="leading" id="3Ve-oJ-8zU"/>
                             <constraint firstItem="48" firstAttribute="top" secondItem="7Rw-wt-QTG" secondAttribute="top" constant="30" id="6pV-0R-nv0"/>
@@ -82,22 +81,11 @@
                             <constraint firstItem="26" firstAttribute="top" secondItem="7Rw-wt-QTG" secondAttribute="top" constant="20" id="yeA-fM-J4n"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="72m-rK-ouz" userLabel="checkbox" customClass="ATTicketWatchButton">
-                        <rect key="frame" x="276" y="0.0" width="44" height="73"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="44" id="izK-FL-6bD"/>
-                        </constraints>
-                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="72m-rK-ouz" secondAttribute="bottom" id="4QF-g5-gbJ"/>
-                    <constraint firstAttribute="trailing" secondItem="72m-rK-ouz" secondAttribute="trailing" id="8fh-TK-TOu"/>
                     <constraint firstAttribute="bottom" secondItem="7Rw-wt-QTG" secondAttribute="bottom" id="JtT-zx-lLy"/>
+                    <constraint firstAttribute="trailing" secondItem="7Rw-wt-QTG" secondAttribute="trailing" constant="10" id="Tdo-8R-mR2"/>
                     <constraint firstAttribute="centerY" secondItem="3" secondAttribute="centerY" id="UR0-mp-Tim"/>
-                    <constraint firstItem="72m-rK-ouz" firstAttribute="leading" secondItem="7Rw-wt-QTG" secondAttribute="trailing" constant="8" symbolic="YES" id="Vkn-Ea-y5I"/>
-                    <constraint firstItem="72m-rK-ouz" firstAttribute="top" secondItem="1sw-Kg-ezp" secondAttribute="top" id="Xnc-nr-JKi"/>
                     <constraint firstItem="3" firstAttribute="leading" secondItem="1sw-Kg-ezp" secondAttribute="leading" constant="15" id="ehi-uy-sqK"/>
                     <constraint firstItem="7Rw-wt-QTG" firstAttribute="leading" secondItem="3" secondAttribute="trailing" constant="8" symbolic="YES" id="q78-ky-Hcv"/>
                     <constraint firstItem="7Rw-wt-QTG" firstAttribute="top" secondItem="1sw-Kg-ezp" secondAttribute="top" id="r3b-a6-1M0"/>
@@ -109,7 +97,6 @@
                 <outlet property="startAt" destination="48" id="yJE-9m-7nD"/>
                 <outlet property="subTitle" destination="26" id="34"/>
                 <outlet property="title" destination="15" id="24"/>
-                <outlet property="watchButton" destination="72m-rK-ouz" id="eiO-BE-3KO"/>
             </connections>
         </tableViewCell>
     </objects>

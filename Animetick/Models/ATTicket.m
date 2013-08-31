@@ -72,6 +72,7 @@
 
 - (void)watch
 {
+    self.watched = YES;
     [ATAPI postTicketWatchWithTitleId:self.titleId episodeCount:self.count completion:^(NSDictionary *dictionary, NSError *error) {
         NSLog(@"%@", dictionary);
         NSLog(@"%@", error);
@@ -80,6 +81,7 @@
 
 - (void)unwatch
 {
+    self.watched = NO;
     [ATAPI postTicketUnwatchWithTitleId:self.titleId episodeCount:self.count completion:^(NSDictionary *dictionary, NSError *error) {
         NSLog(@"%@", dictionary);
         NSLog(@"%@", error);

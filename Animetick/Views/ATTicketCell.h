@@ -15,6 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *subTitle;
 @property (weak, nonatomic) IBOutlet UILabel *channel;
 @property (weak, nonatomic) IBOutlet UILabel *startAt;
-@property (weak, nonatomic) IBOutlet ATTicketWatchButton *watchButton;
+@property (nonatomic) BOOL watched;
 
 @end

@@ -12,5 +12,6 @@
 
 + (UIColor*)colorWithHex:(UInt32)hexadecimal;
 + (UIColor*)atTintColor;
++ (UIColor*)atWatchedCellColor;
 
 @end
