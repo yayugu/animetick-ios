@@ -8,6 +8,7 @@
 
 #import "ATTicketWatchButton.h"
 #import "ATTicketWatchAnimationView.h"
+#import "UIColor+ATAdditions.h"
 #import <CoreGraphics/CoreGraphics.h>
 
 @interface ATTicketWatchButton ()
@@ -24,7 +25,7 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         self.translatesAutoresizingMaskIntoConstraints = NO;
-        self.backgroundColor = [UIColor blackColor];
+        self.backgroundColor = [UIColor grayColor];
         
         CGRect frame = {
             .origin.x = 0,
@@ -34,6 +35,8 @@
         self.checkLabel = [[UILabel alloc] initWithFrame:frame];
         self.checkLabel.backgroundColor = [UIColor clearColor];
         self.checkLabel.textColor = [UIColor whiteColor];
+        self.checkLabel.textAlignment = NSTextAlignmentCenter;
+        self.checkLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:19];
         
         // 90度
         self.checkLabel.transform = CGAffineTransformMakeRotation(M_PI / 2);
@@ -60,9 +63,11 @@
     _checked = checked;
     
     if (checked) {
-        self.checkLabel.text = @"watched";
+        self.checkLabel.text = @"Watched";
+        self.backgroundColor = [UIColor atTintColor];
     } else {
-        self.checkLabel.text = @"watch";
+        self.backgroundColor = [UIColor grayColor];
+        self.checkLabel.text = @"Watch";
     }
 }
 
