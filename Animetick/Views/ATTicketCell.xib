@@ -23,21 +23,21 @@
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Rw-wt-QTG" userLabel="text_info_container">
-                        <rect key="frame" x="73" y="0.0" width="237" height="73"/>
+                        <rect key="frame" x="73" y="0.0" width="232" height="73"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ふたりはミルキィホームズ #4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15" userLabel="title">
-                                <rect key="frame" x="0.0" y="10" width="237" height="16"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ふたりはミルキィホームズ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15" userLabel="title">
+                                <rect key="frame" x="0.0" y="14" width="232" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="kE9-P9-hqd"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="まけないきもち " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26" userLabel="subTitle">
-                                <rect key="frame" x="0.0" y="20" width="237" height="20"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="#4 まけないきもち " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26" userLabel="subTitle">
+                                <rect key="frame" x="0.0" y="28" width="232" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="80"/>
@@ -46,8 +46,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Channel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="41" userLabel="channel">
-                                <rect key="frame" x="0.0" y="40" width="43" height="20"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Channel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="41" userLabel="channel">
+                                <rect key="frame" x="0.0" y="43" width="43" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="85"/>
@@ -56,8 +56,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="01/01 23:30〜" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48" userLabel="startAt">
-                                <rect key="frame" x="0.0" y="30" width="237" height="20"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="01/01 23:30〜" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48" userLabel="startAt">
+                                <rect key="frame" x="48" y="43" width="184" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="85j-QD-kht"/>
@@ -69,22 +69,23 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="15" firstAttribute="leading" secondItem="7Rw-wt-QTG" secondAttribute="leading" id="3Ve-oJ-8zU"/>
-                            <constraint firstItem="48" firstAttribute="top" secondItem="7Rw-wt-QTG" secondAttribute="top" constant="30" id="6pV-0R-nv0"/>
-                            <constraint firstItem="48" firstAttribute="leading" secondItem="7Rw-wt-QTG" secondAttribute="leading" id="IPe-bN-qhv"/>
+                            <constraint firstAttribute="trailing" secondItem="48" secondAttribute="trailing" id="5Jt-N1-S2D"/>
+                            <constraint firstItem="48" firstAttribute="top" secondItem="7Rw-wt-QTG" secondAttribute="top" constant="43" id="6pV-0R-nv0"/>
+                            <constraint firstItem="41" firstAttribute="leading" secondItem="7Rw-wt-QTG" secondAttribute="leading" id="E0a-cK-9It"/>
                             <constraint firstAttribute="trailing" secondItem="15" secondAttribute="trailing" id="VPh-XC-LsO"/>
                             <constraint firstAttribute="trailing" secondItem="48" secondAttribute="trailing" id="ZtS-zZ-9mO"/>
-                            <constraint firstItem="15" firstAttribute="top" secondItem="7Rw-wt-QTG" secondAttribute="top" constant="10" id="ezx-lu-qZm"/>
-                            <constraint firstItem="41" firstAttribute="top" secondItem="7Rw-wt-QTG" secondAttribute="top" constant="40" id="hXK-bX-QVF"/>
+                            <constraint firstItem="15" firstAttribute="top" secondItem="7Rw-wt-QTG" secondAttribute="top" constant="14" id="ezx-lu-qZm"/>
+                            <constraint firstItem="41" firstAttribute="top" secondItem="7Rw-wt-QTG" secondAttribute="top" constant="43" id="hXK-bX-QVF"/>
                             <constraint firstItem="26" firstAttribute="leading" secondItem="7Rw-wt-QTG" secondAttribute="leading" id="nGC-ID-NOx"/>
+                            <constraint firstItem="48" firstAttribute="leading" secondItem="41" secondAttribute="trailing" constant="5" id="q1b-dh-Dwk"/>
                             <constraint firstAttribute="trailing" secondItem="26" secondAttribute="trailing" id="rgd-Le-uWw"/>
-                            <constraint firstItem="41" firstAttribute="leading" secondItem="7Rw-wt-QTG" secondAttribute="leading" id="u5y-lW-nXC"/>
-                            <constraint firstItem="26" firstAttribute="top" secondItem="7Rw-wt-QTG" secondAttribute="top" constant="20" id="yeA-fM-J4n"/>
+                            <constraint firstItem="26" firstAttribute="top" secondItem="7Rw-wt-QTG" secondAttribute="top" constant="28" id="yeA-fM-J4n"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="7Rw-wt-QTG" secondAttribute="bottom" id="JtT-zx-lLy"/>
-                    <constraint firstAttribute="trailing" secondItem="7Rw-wt-QTG" secondAttribute="trailing" constant="10" id="Tdo-8R-mR2"/>
+                    <constraint firstAttribute="trailing" secondItem="7Rw-wt-QTG" secondAttribute="trailing" constant="15" id="Tdo-8R-mR2"/>
                     <constraint firstAttribute="centerY" secondItem="3" secondAttribute="centerY" id="UR0-mp-Tim"/>
                     <constraint firstItem="3" firstAttribute="leading" secondItem="1sw-Kg-ezp" secondAttribute="leading" constant="15" id="ehi-uy-sqK"/>
                     <constraint firstItem="7Rw-wt-QTG" firstAttribute="leading" secondItem="3" secondAttribute="trailing" constant="8" symbolic="YES" id="q78-ky-Hcv"/>
