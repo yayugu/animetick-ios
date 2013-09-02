@@ -9,7 +9,6 @@
 #import "ATTicketViewController.h"
 #import "ATTicketList.h"
 #import "ATTicketCell.h"
-#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface ATTicketViewController () <ATTicketListDelegate>
 
@@ -92,7 +91,10 @@
     } else {
         [ticket watch];
     }
+    
+    // TODO: これ非常にダサい。KVOにしたい
     ((ATTicketCell*)[self.tableView cellForRowAtIndexPath:indexPath]).watched = ticket.watched;
+
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -147,12 +149,7 @@
 {
     int index = indexPath.row;
     ATTicket *ticket = [self.ticketList ticketAtIndex:index];
-    [cell.icon setImageWithURL:ticket.iconURL];
-    cell.title.text = ticket.title;
-    cell.subTitle.text = ticket.episondeNumberWithSubTitle;
-    cell.startAt.text = ticket.startAtText;
-    cell.channel.text = ticket.channelText;
-    cell.watched = ticket.watched;
+    cell.ticket = ticket;
 }
 
 - (void)startIndicator

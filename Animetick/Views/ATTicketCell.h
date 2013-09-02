@@ -6,10 +6,11 @@
 //  Copyright (c) 2013年 Kazuki Akamine. All rights reserved.
 //
 
-@class ATTicketWatchButton;
+@class ATTicket;
 
 @interface ATTicketCell : UITableViewCell
 
+@property (weak, nonatomic) ATTicket *ticket;
 @property (weak, nonatomic) IBOutlet UIImageView *icon;
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UILabel *subTitle;

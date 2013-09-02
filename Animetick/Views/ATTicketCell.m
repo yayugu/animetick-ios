@@ -8,7 +8,9 @@
 
 #import "ATTicketCell.h"
 #import "UIColor+ATAdditions.h"
+#import "ATTicket.h"
 #import <QuartzCore/QuartzCore.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation ATTicketCell
 
@@ -20,6 +22,17 @@
     UIView *selectedBackgroundView = [[UIView alloc] init];
     selectedBackgroundView.backgroundColor = [UIColor atTintColor];
     self.selectedBackgroundView = selectedBackgroundView;
+}
+
+- (void)setTicket:(ATTicket *)ticket
+{
+    _ticket = ticket;
+    [self.icon setImageWithURL:ticket.iconURL];
+    self.title.text = ticket.title;
+    self.subTitle.text = ticket.episondeNumberWithSubTitle;
+    self.startAt.text = ticket.startAtText;
+    self.channel.text = ticket.channelText;
+    self.watched = ticket.watched;
 }
 
 - (void)setWatched:(BOOL)watched
