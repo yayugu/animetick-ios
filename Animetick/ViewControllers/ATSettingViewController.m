@@ -54,7 +54,27 @@
     return cell;
 }
 
-- (IBAction)tweetOnWatchSwitchToggled:(id)sender {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    if ([cell.reuseIdentifier isEqualToString:@"tweet"]) {
+        
+        // do nothing
+        
+    } else if ([cell.reuseIdentifier isEqualToString:@"website"]) {
+        
+        NSURL *url = [NSURL URLWithString:ATAnimetickURLString];
+        [[UIApplication sharedApplication] openURL:url];
+        
+    } else if ([cell.reuseIdentifier isEqualToString:@"logout"]) {
+        
+    }
+    
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (IBAction)tweetOnWatchSwitchToggled:(id)sender
+{
 }
 
 @end
