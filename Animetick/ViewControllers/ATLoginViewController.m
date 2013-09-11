@@ -50,7 +50,7 @@
     if ([[[request URL] scheme] isEqualToString:@"animetick"]
         && [[[request URL] host] isEqualToString:@"login_session"]) {
         NSString *sessionId
-          = [webView stringByEvaluatingJavaScriptFromString:@"animetick.app.getSesssionForNativeApp();"];
+          = [webView stringByEvaluatingJavaScriptFromString:@"animetick.app.getSessionForNativeApp();"];
         NSString *csrfToken
           = [webView stringByEvaluatingJavaScriptFromString:@"animetick.app.getCSRFTokenForNativeApp();"];
         [[ATServiceLocator sharedLocator].auth setSessionId:sessionId
