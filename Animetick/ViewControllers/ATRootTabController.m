@@ -58,7 +58,11 @@
 {
     ATTicketViewController *ticketViewController = [[ATTicketViewController alloc] init];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:ticketViewController];
-    NSArray *tabs = @[navigationController];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"SettingStoryboard" bundle:nil];
+    UIViewController *settingViewController = [storyboard instantiateInitialViewController];
+    
+    NSArray *tabs = @[navigationController, settingViewController];
     [self setViewControllers:tabs animated:NO];
 }
 
