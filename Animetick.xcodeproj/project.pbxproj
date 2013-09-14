@@ -11,6 +11,10 @@
 		3A07B97917AE130F0043D16E /* ATTicketCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A07B97817AE130F0043D16E /* ATTicketCell.xib */; };
 		3A447F4F17B514E000C38BD0 /* ATAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A447F4E17B514E000C38BD0 /* ATAPI.m */; };
 		3AE6DE3C17E44BC300BA9745 /* NSHTTPCookieStorage+ATAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6DE3B17E44BC300BA9745 /* NSHTTPCookieStorage+ATAdditions.m */; };
+		3AE6DE4317E4BF0800BA9745 /* tabbar-icon-setting-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE6DE4117E4BF0800BA9745 /* tabbar-icon-setting-selected@2x.png */; };
+		3AE6DE4417E4BF0800BA9745 /* tabbar-icon-setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE6DE4217E4BF0800BA9745 /* tabbar-icon-setting@2x.png */; };
+		3AE6DE4B17E4C20400BA9745 /* tabbar-icon-ticket-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE6DE4917E4C20400BA9745 /* tabbar-icon-ticket-selected@2x.png */; };
+		3AE6DE4C17E4C20400BA9745 /* tabbar-icon-ticket@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE6DE4A17E4C20400BA9745 /* tabbar-icon-ticket@2x.png */; };
 		3AEF8DDE17AE0B8F00007E9C /* ATTicketCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEF8DDD17AE0B8F00007E9C /* ATTicketCell.m */; };
 		3AF6DA8C17D1F53E00CA049A /* UIColor+ATAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF6DA8B17D1F53E00CA049A /* UIColor+ATAdditions.m */; };
 		3AF6DA9017DAD72F00CA049A /* ATUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF6DA8F17DAD72F00CA049A /* ATUtils.m */; };
@@ -69,6 +73,10 @@
 		3A447F4E17B514E000C38BD0 /* ATAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAPI.m; sourceTree = "<group>"; };
 		3AE6DE3A17E44BC300BA9745 /* NSHTTPCookieStorage+ATAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSHTTPCookieStorage+ATAdditions.h"; sourceTree = "<group>"; };
 		3AE6DE3B17E44BC300BA9745 /* NSHTTPCookieStorage+ATAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSHTTPCookieStorage+ATAdditions.m"; sourceTree = "<group>"; };
+		3AE6DE4117E4BF0800BA9745 /* tabbar-icon-setting-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-icon-setting-selected@2x.png"; sourceTree = "<group>"; };
+		3AE6DE4217E4BF0800BA9745 /* tabbar-icon-setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-icon-setting@2x.png"; sourceTree = "<group>"; };
+		3AE6DE4917E4C20400BA9745 /* tabbar-icon-ticket-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-icon-ticket-selected@2x.png"; sourceTree = "<group>"; };
+		3AE6DE4A17E4C20400BA9745 /* tabbar-icon-ticket@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-icon-ticket@2x.png"; sourceTree = "<group>"; };
 		3AEF8DDC17AE0B8F00007E9C /* ATTicketCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATTicketCell.h; sourceTree = "<group>"; };
 		3AEF8DDD17AE0B8F00007E9C /* ATTicketCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATTicketCell.m; sourceTree = "<group>"; };
 		3AF6DA8A17D1F53E00CA049A /* UIColor+ATAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ATAdditions.h"; sourceTree = "<group>"; };
@@ -169,6 +177,10 @@
 		47F9F51117AA2FA0007C8A8D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3AE6DE4A17E4C20400BA9745 /* tabbar-icon-ticket@2x.png */,
+				3AE6DE4917E4C20400BA9745 /* tabbar-icon-ticket-selected@2x.png */,
+				3AE6DE4217E4BF0800BA9745 /* tabbar-icon-setting@2x.png */,
+				3AE6DE4117E4BF0800BA9745 /* tabbar-icon-setting-selected@2x.png */,
 				47F9F51217AA2FA0007C8A8D /* Default-568h@2x.png */,
 				47F9F51317AA2FA0007C8A8D /* Default-Landscape@2x~ipad.png */,
 				47F9F51417AA2FA0007C8A8D /* Default-Landscape~ipad.png */,
@@ -398,6 +410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				47F9F52617AA2FA0007C8A8D /* Icon.png in Resources */,
+				3AE6DE4C17E4C20400BA9745 /* tabbar-icon-ticket@2x.png in Resources */,
 				47F9F52017AA2FA0007C8A8D /* Default-Portrait@2x~ipad.png in Resources */,
 				47F9F54B17AA360F007C8A8D /* ATLoginViewController.xib in Resources */,
 				47F9F54217AA35D4007C8A8D /* ATTicketViewController.xib in Resources */,
@@ -407,11 +420,14 @@
 				47F9F51D17AA2FA0007C8A8D /* Default-568h@2x.png in Resources */,
 				47F9F52517AA2FA0007C8A8D /* Icon-72@2x.png in Resources */,
 				47F9F51E17AA2FA0007C8A8D /* Default-Landscape@2x~ipad.png in Resources */,
+				3AE6DE4B17E4C20400BA9745 /* tabbar-icon-ticket-selected@2x.png in Resources */,
+				3AE6DE4417E4BF0800BA9745 /* tabbar-icon-setting@2x.png in Resources */,
 				47F9F52217AA2FA0007C8A8D /* Default.png in Resources */,
 				47F9F52317AA2FA0007C8A8D /* Default@2x.png in Resources */,
 				47F9F52717AA2FA0007C8A8D /* Icon@2x.png in Resources */,
 				47F9F52417AA2FA0007C8A8D /* Icon-72.png in Resources */,
 				47F9F52117AA2FA0007C8A8D /* Default-Portrait~ipad.png in Resources */,
+				3AE6DE4317E4BF0800BA9745 /* tabbar-icon-setting-selected@2x.png in Resources */,
 				3A07B97917AE130F0043D16E /* ATTicketCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

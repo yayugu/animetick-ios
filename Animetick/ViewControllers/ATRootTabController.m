@@ -58,9 +58,15 @@
 {
     ATTicketViewController *ticketViewController = [[ATTicketViewController alloc] init];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:ticketViewController];
+    navigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"チケット"
+                                                                    image:[UIImage imageNamed:@"tabbar-icon-ticket.png"]
+                                                            selectedImage:[UIImage imageNamed:@"tabbar-icon-ticket-selected.png"]];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"SettingStoryboard" bundle:nil];
     UIViewController *settingViewController = [storyboard instantiateInitialViewController];
+    settingViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"設定"
+                                                                     image:[UIImage imageNamed:@"tabbar-icon-setting.png"]
+                                                             selectedImage:[UIImage imageNamed:@"tabbar-icon-setting-selected.png"]];
     
     NSArray *tabs = @[navigationController, settingViewController];
     [self setViewControllers:tabs animated:NO];

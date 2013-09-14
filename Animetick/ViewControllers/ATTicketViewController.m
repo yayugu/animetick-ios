@@ -41,9 +41,7 @@
     self.indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [self.indicator setColor:[UIColor darkGrayColor]];
     [self.indicator setHidesWhenStopped:YES];
-    [self.indicator stopAnimating];
-    
-    self.navigationController.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemRecents tag:0];
+    [self.indicator stopAnimating];    
 }
 
 - (void)viewWillAppear:(BOOL)animated
