@@ -7,6 +7,8 @@
 //
 
 #import "ATSettingViewController.h"
+#import "ATAuth.h"
+#import "NSHTTPCookieStorage+ATAdditions.h"
 
 @interface ATSettingViewController ()
 
@@ -67,6 +69,10 @@
         [[UIApplication sharedApplication] openURL:url];
         
     } else if ([cell.reuseIdentifier isEqualToString:@"logout"]) {
+        
+        [[ATServiceLocator sharedLocator].auth clear];
+        [NSHTTPCookieStorage.sharedHTTPCookieStorage deleteAllCookie];
+        [[NSNotificationCenter defaultCenter] postNotificationName:ATDidReceiveReauthorizeRequired object:nil];
         
     }
     

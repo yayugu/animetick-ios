@@ -30,7 +30,7 @@
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(didReceiveUnauthorizedError:)
-                                                 name:ATDidReceiveUnauthorizedError
+                                                 name:ATDidReceiveReauthorizeRequired
                                                object:nil];
 }
 

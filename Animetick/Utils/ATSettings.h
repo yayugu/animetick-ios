@@ -23,4 +23,4 @@ static NSString *const ATAnimetickURLString = @"http://localhost:3000";
 static NSString *const ATAnimetickDomain = @"http://localhost";
 #endif
 
-static NSString *const ATDidReceiveUnauthorizedError = @"ATDidReceiveUnauthorizedError";
+static NSString *const ATDidReceiveReauthorizeRequired = @"ATDidReceiveReauthorizeRequired";

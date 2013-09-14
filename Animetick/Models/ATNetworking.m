@@ -33,7 +33,7 @@
             int statusCode = ((NSHTTPURLResponse*)response).statusCode;
             if (statusCode == 401) {
                 // Unauthorized
-                [[NSNotificationCenter defaultCenter] postNotificationName:ATDidReceiveUnauthorizedError
+                [[NSNotificationCenter defaultCenter] postNotificationName:ATDidReceiveReauthorizeRequired
                                                                     object:nil];
             }
             completion(nil, error);
