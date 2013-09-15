@@ -38,9 +38,9 @@
 - (void)setWatched:(BOOL)watched
 {
     if (watched) {
-        self.backgroundColor = [UIColor atWatchedCellColor];
+        self.watchedLabel.hidden = NO;
     } else {
-        self.backgroundColor = [UIColor clearColor];
+        self.watchedLabel.hidden = YES;
     }
 }
 
