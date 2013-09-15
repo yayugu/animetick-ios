@@ -38,7 +38,7 @@
                             action:@selector(pullToRefresh)
                   forControlEvents:UIControlEventValueChanged];
     
-    self.indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    self.indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     [self.indicator setColor:[UIColor darkGrayColor]];
     [self.indicator setHidesWhenStopped:YES];
     [self.indicator stopAnimating];    
@@ -102,10 +102,14 @@
 {
     CGFloat contentOffsetWidthWindow = self.tableView.contentOffset.y + self.tableView.bounds.size.height;
     BOOL leachToBottom = contentOffsetWidthWindow >= self.tableView.contentSize.height;
-    if (leachToBottom && ![self.indicator isAnimating] && !self.ticketList.lastFlag) {
-        [self.ticketList loadMore];
-        [self startIndicator];
+    if (self.ticketList.count <= 0
+        || self.ticketList.lastFlag
+        || !leachToBottom
+        || [self.indicator isAnimating]) {
+        return;
     }
+    [self.ticketList loadMore];
+    [self startIndicator];
 }
 
 #pragma mark - Refresh control

@@ -7,9 +7,10 @@
 //
 
 #import "ATAPI.h"
+#import "ATUserConfigurations.h"
 
 static NSString *const ATAPIFormatTicketList = @"/ticket/list/%d.json";
-static NSString *const ATAPIFormatTicketWatch = @"/ticket/%d/%d/watch.json";
+static NSString *const ATAPIFormatTicketWatch = @"/ticket/%d/%d/watch.json?twitter=%@";
 static NSString *const ATAPIFormatTicketUnwatch = @"/ticket/%d/%d/unwatch.json";
 
 @implementation ATAPI
@@ -24,7 +25,12 @@ static NSString *const ATAPIFormatTicketUnwatch = @"/ticket/%d/%d/unwatch.json";
                       episodeCount:(int)episodeCount
                         completion:(ATJSONRequestCompletion)completion
 {
-    NSString *subURL = [NSString stringWithFormat:ATAPIFormatTicketWatch, titleId, episodeCount];
+    BOOL tweet = [ATServiceLocator sharedLocator].userConfigurations.tweetOnWatch;
+    NSString *subURL = [NSString
+                        stringWithFormat:ATAPIFormatTicketWatch,
+                        titleId,
+                        episodeCount,
+                        tweet ? @"true" : @"false"];
     [ATNetworking sendJSONRequestWithSubURL:subURL method:POST completion:completion];
 }
 

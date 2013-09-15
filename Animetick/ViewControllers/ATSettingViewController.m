@@ -8,6 +8,7 @@
 
 #import "ATSettingViewController.h"
 #import "ATAuth.h"
+#import "ATUserConfigurations.h"
 #import "NSHTTPCookieStorage+ATAdditions.h"
 
 @interface ATSettingViewController ()
@@ -32,7 +33,7 @@
 {
     [super viewDidLoad];
     
-    self.tweetOnWatchSwitch.on = NO;
+    self.tweetOnWatchSwitch.on = [ATServiceLocator sharedLocator].userConfigurations.tweetOnWatch;
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -81,6 +82,7 @@
 
 - (IBAction)tweetOnWatchSwitchToggled:(id)sender
 {
+    [ATServiceLocator sharedLocator].userConfigurations.tweetOnWatch = self.tweetOnWatchSwitch.on;
 }
 
 @end

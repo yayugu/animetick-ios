@@ -10,6 +10,7 @@
 
 #import "ATRootTabController.h"
 #import "ATAuth.h"
+#import "ATUserConfigurations.h"
 #import "UIColor+ATAdditions.h"
 
 @implementation ATAppDelegate
@@ -17,6 +18,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [ATServiceLocator sharedLocator].auth = [[ATAuth alloc] init];
+    [ATServiceLocator sharedLocator].userConfigurations = [[ATUserConfigurations alloc] init];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
