@@ -20,6 +20,7 @@
 		3A7FBD4417E5F3B1004F7091 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A7FBD4017E5F3B1004F7091 /* Default-Portrait~ipad.png */; };
 		3A7FBD4517E5F3B1004F7091 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A7FBD4117E5F3B1004F7091 /* Default-Landscape@2x~ipad.png */; };
 		3A7FBD4617E5F3B1004F7091 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A7FBD4217E5F3B1004F7091 /* Default-Landscape~ipad.png */; };
+		3A7FBD4917E6AE71004F7091 /* ATDateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7FBD4817E6AE71004F7091 /* ATDateUtils.m */; };
 		3AE6DE3C17E44BC300BA9745 /* NSHTTPCookieStorage+ATAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6DE3B17E44BC300BA9745 /* NSHTTPCookieStorage+ATAdditions.m */; };
 		3AE6DE4317E4BF0800BA9745 /* tabbar-icon-setting-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE6DE4117E4BF0800BA9745 /* tabbar-icon-setting-selected@2x.png */; };
 		3AE6DE4417E4BF0800BA9745 /* tabbar-icon-setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE6DE4217E4BF0800BA9745 /* tabbar-icon-setting@2x.png */; };
@@ -84,6 +85,8 @@
 		3A7FBD4017E5F3B1004F7091 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		3A7FBD4117E5F3B1004F7091 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		3A7FBD4217E5F3B1004F7091 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		3A7FBD4717E6AE71004F7091 /* ATDateUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDateUtils.h; sourceTree = "<group>"; };
+		3A7FBD4817E6AE71004F7091 /* ATDateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDateUtils.m; sourceTree = "<group>"; };
 		3AE6DE3A17E44BC300BA9745 /* NSHTTPCookieStorage+ATAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSHTTPCookieStorage+ATAdditions.h"; sourceTree = "<group>"; };
 		3AE6DE3B17E44BC300BA9745 /* NSHTTPCookieStorage+ATAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSHTTPCookieStorage+ATAdditions.m"; sourceTree = "<group>"; };
 		3AE6DE4117E4BF0800BA9745 /* tabbar-icon-setting-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-icon-setting-selected@2x.png"; sourceTree = "<group>"; };
@@ -222,6 +225,8 @@
 				3A447F4E17B514E000C38BD0 /* ATAPI.m */,
 				3AE6DE4D17E4C72600BA9745 /* ATUserConfigurations.h */,
 				3AE6DE4E17E4C72600BA9745 /* ATUserConfigurations.m */,
+				3A7FBD4717E6AE71004F7091 /* ATDateUtils.h */,
+				3A7FBD4817E6AE71004F7091 /* ATDateUtils.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -512,6 +517,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				47F9F53E17AA35D4007C8A8D /* ATAppDelegate.m in Sources */,
+				3A7FBD4917E6AE71004F7091 /* ATDateUtils.m in Sources */,
 				47F9F53417AA35C9007C8A8D /* ATNetworking.m in Sources */,
 				47D67CDB17B35F72001A0043 /* ATServiceLocator.m in Sources */,
 				47F9F54117AA35D4007C8A8D /* ATTicketViewController.m in Sources */,

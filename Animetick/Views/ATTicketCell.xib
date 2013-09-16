@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <objects>
@@ -15,10 +15,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Watched" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZY-vS-O60">
-                        <rect key="frame" x="-5" y="-26" width="500" height="93"/>
+                        <rect key="frame" x="-5" y="-26" width="500" height="102"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="90"/>
                         <color key="textColor" red="0.99605029821395874" green="0.82433420419692993" blue="0.755870521068573" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今晩" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnq-Jz-T7X">
+                        <rect key="frame" x="243" y="35" width="82" height="47"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="41"/>
+                        <color key="textColor" red="0.99605029820000002" green="0.82433420420000003" blue="0.75587052109999997" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3" userLabel="icon">
@@ -91,6 +98,8 @@
                     </view>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="hnq-Jz-T7X" secondAttribute="trailing" constant="-5" id="4Va-ro-APL"/>
+                    <constraint firstItem="hnq-Jz-T7X" firstAttribute="top" secondItem="1sw-Kg-ezp" secondAttribute="top" constant="35" id="Hz6-ef-L7e"/>
                     <constraint firstAttribute="bottom" secondItem="7Rw-wt-QTG" secondAttribute="bottom" id="JtT-zx-lLy"/>
                     <constraint firstAttribute="trailing" secondItem="7Rw-wt-QTG" secondAttribute="trailing" constant="15" id="Tdo-8R-mR2"/>
                     <constraint firstAttribute="centerY" secondItem="3" secondAttribute="centerY" id="UR0-mp-Tim"/>
@@ -102,6 +111,7 @@
             <connections>
                 <outlet property="channel" destination="41" id="73"/>
                 <outlet property="icon" destination="3" id="25"/>
+                <outlet property="nearDateLabel" destination="hnq-Jz-T7X" id="gZ7-bd-FpC"/>
                 <outlet property="startAt" destination="48" id="yJE-9m-7nD"/>
                 <outlet property="subTitle" destination="26" id="34"/>
                 <outlet property="title" destination="15" id="24"/>

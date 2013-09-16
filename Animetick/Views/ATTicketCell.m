@@ -33,15 +33,13 @@
     self.startAt.text = ticket.startAtText;
     self.channel.text = ticket.channelText;
     self.watched = ticket.watched;
+    [self updateBackgroundLabels];
 }
 
 - (void)setWatched:(BOOL)watched
 {
-    if (watched) {
-        self.watchedLabel.hidden = NO;
-    } else {
-        self.watchedLabel.hidden = YES;
-    }
+    _watched = watched;
+    [self updateBackgroundLabels];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -49,6 +47,19 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+# pragma mark - Internals
+
+- (void)updateBackgroundLabels
+{
+    if (_watched) {
+        self.watchedLabel.hidden = NO;
+        self.nearDateLabel.text = @"";
+    } else {
+        self.watchedLabel.hidden = YES;
+        self.nearDateLabel.text = self.ticket.nearDateLabelText;
+    }
 }
 
 @end

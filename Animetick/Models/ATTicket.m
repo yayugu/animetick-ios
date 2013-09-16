@@ -9,6 +9,7 @@
 #import "ATTicket.h"
 #import "NSDate+ATAdditions.h"
 #import "ATAPI.h"
+#import "ATDateUtils.h"
 
 @implementation ATTicket
 
@@ -68,6 +69,20 @@
         self.startAt
             ? [formatter stringFromDate:self.startAt]
             : @"";
+}
+
+- (NSString*)nearDateLabelText
+{
+    int daysDifference = [ATDateUtils daysDifferenceConsiderMidnight:[NSDate date] with:self.startAt];
+    if (daysDifference == 1) {
+        return @"明日";
+    } else if (daysDifference == 0) {
+        return @"今晩";
+    } else if (daysDifference == -1) {
+        return @"昨晩";
+    }
+    
+    return @"";
 }
 
 - (void)watch

@@ -24,6 +24,7 @@
 - (NSString*)episondeNumberWithSubTitle;
 - (NSString*)channelText;
 - (NSString*)startAtText;
+- (NSString*)nearDateLabelText;
 - (void)watch;
 - (void)unwatch;
 

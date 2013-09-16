@@ -6,7 +6,7 @@
 //  Copyright (c) 2013年 Kazuki Akamine. All rights reserved.
 //
 
-#define AT_SERVER_NUMBER 1
+#define AT_SERVER_NUMBER 0
 
 #if AT_SERVER_NUMBER == 0
 static NSString *const ATAnimetickURLString = @"http://animetick.net";

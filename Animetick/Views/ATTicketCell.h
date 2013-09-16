@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *channel;
 @property (weak, nonatomic) IBOutlet UILabel *startAt;
 @property (weak, nonatomic) IBOutlet UILabel *watchedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nearDateLabel;
 @property (nonatomic) BOOL watched;
 
 
