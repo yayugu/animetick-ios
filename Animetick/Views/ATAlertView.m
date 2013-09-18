@@ -19,7 +19,7 @@
 - (id)initWithTitle:(NSString*)title
             message:(NSString*)message
   cancelButtonTitle:(NSString*)cancelButtonTitle
-  otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION
+  otherButtonTitles:(NSString*)otherButtonTitles, ...
 {
     self = [super initWithTitle:title message:message delegate:self cancelButtonTitle:cancelButtonTitle otherButtonTitles:nil];
     if (self) {

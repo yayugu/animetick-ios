@@ -15,7 +15,7 @@ typedef void (^ATAlertViewShowCompletion)(NSUInteger buttonIndex);
 - (id)initWithTitle:(NSString*)title
             message:(NSString*)message
   cancelButtonTitle:(NSString*)cancelButtonTitle
-  otherButtonTitles:(NSString *)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION;
+  otherButtonTitles:(NSString*)otherButtonTitles, ... NS_REQUIRES_NIL_TERMINATION;
 
 - (void)showWithCompletion:(ATAlertViewShowCompletion)completion;
 
