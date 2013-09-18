@@ -645,11 +645,13 @@
 			baseConfigurationReference = 171813F272F244428CECCC7C /* Pods.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Animetick/Animetick-Prefix.pch";
 				INFOPLIST_FILE = "Animetick/Animetick-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8DC5317B-0E26-4A7A-BF7C-538E3F14569B";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -659,12 +661,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 171813F272F244428CECCC7C /* Pods.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Yuya Yaguchi (XVG97NLJ56)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Yuya Yaguchi (XVG97NLJ56)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Animetick/Animetick-Prefix.pch";
 				INFOPLIST_FILE = "Animetick/Animetick-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8DC5317B-0E26-4A7A-BF7C-538E3F14569B";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
