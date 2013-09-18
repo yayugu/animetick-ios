@@ -30,7 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+        
     self.ticketList = [[ATTicketList alloc] initWithDelegate:self];
     [self.tableView registerNib:[UINib nibWithNibName:@"ATTicketCell" bundle:nil] forCellReuseIdentifier:@"ATTicketCell"];
     self.refreshControl = [[UIRefreshControl alloc] init];
@@ -41,7 +41,7 @@
     self.indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     [self.indicator setColor:[UIColor darkGrayColor]];
     [self.indicator setHidesWhenStopped:YES];
-    [self.indicator stopAnimating];    
+    [self.indicator stopAnimating];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -124,7 +124,6 @@
 
 - (void)ticketListDidLoad
 {
-    NSLog(@"%d", self.ticketList.count);
     [self.tableView reloadData];
     [self.refreshControl endRefreshing];
     [self endIndicator];
@@ -132,8 +131,6 @@
 
 - (void)ticketListMoreDidLoad
 {
-    NSLog(@"%d", self.ticketList.count);
-    
     NSMutableArray *indexPaths = [NSMutableArray array];
     int i = [self.tableView numberOfRowsInSection:0];
     for (; i < self.ticketList.count; i++) {

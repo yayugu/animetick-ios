@@ -24,3 +24,4 @@ static NSString *const ATAnimetickDomain = @"http://localhost";
 #endif
 
 static NSString *const ATDidReceiveReauthorizeRequired = @"ATDidReceiveReauthorizeRequired";
+static NSString *const ATTicketWatchDidFailed = @"ATTicketWatchDidFailed";

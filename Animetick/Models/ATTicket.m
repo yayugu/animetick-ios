@@ -11,6 +11,9 @@
 #import "ATAPI.h"
 #import "ATDateUtils.h"
 
+// FIXME: 本当にviewを呼んでしまっていいのかよくよくかんがえる
+#import "ATAlertView.h"
+
 @implementation ATTicket
 
 - (id)initWithDictionary:(NSDictionary*)dictionary
@@ -89,8 +92,14 @@
 {
     self.watched = YES;
     [ATAPI postTicketWatchWithTitleId:self.titleId episodeCount:self.count completion:^(NSDictionary *dictionary, NSError *error) {
-        NSLog(@"%@", dictionary);
-        NSLog(@"%@", error);
+        if (error || [dictionary[@"success"] intValue] == 0) {
+            ATAlertView *alertView = [[ATAlertView alloc] initWithTitle:@"送信エラー"
+                                                                message:@"Watchの送信に失敗しました。（まだ放送されていない番組をWatchしようとしていたのであればそれが原因かもしれません）"
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+            [alertView showWithCompletion:^(NSUInteger buttonIndex) {
+            }];
+         };
     }];
 }
 
@@ -98,8 +107,7 @@
 {
     self.watched = NO;
     [ATAPI postTicketUnwatchWithTitleId:self.titleId episodeCount:self.count completion:^(NSDictionary *dictionary, NSError *error) {
-        NSLog(@"%@", dictionary);
-        NSLog(@"%@", error);
+
     }];
 }
 

@@ -44,8 +44,6 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    NSLog(@"webview delegate OK %@", [[request URL] absoluteString]);
-    
     // example: animetick://login_session/
     if ([[[request URL] scheme] isEqualToString:@"animetick"]
         && [[[request URL] host] isEqualToString:@"login_session"]) {

@@ -32,6 +32,10 @@
                                              selector:@selector(didReceiveUnauthorizedError:)
                                                  name:ATDidReceiveReauthorizeRequired
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didReceiveUnauthorizedError:)
+                                                 name:ATDidReceiveReauthorizeRequired
+                                               object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -39,7 +43,6 @@
     [super viewDidAppear:animated];
     
     if ([ATServiceLocator sharedLocator].auth.sessionId == nil) {
-        NSLog(@"session_id: not found.");
         [self presentLoginViewControllerWithCompletion:^{
             [self presentTabs];
         }];
