@@ -32,6 +32,9 @@ static const NSUInteger ATDateUtilsDayStartHourConsiderMidnight = 5;
     NSDateComponents *components = [calendar
                                     components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit
                                     fromDate:date];
+    if (components.hour < ATDateUtilsDayStartHourConsiderMidnight) {
+        components.day -= 1;
+    }
     components.hour = ATDateUtilsDayStartHourConsiderMidnight;
     return [calendar dateFromComponents:components];
 }
