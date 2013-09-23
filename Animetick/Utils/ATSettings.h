@@ -14,11 +14,6 @@ static NSString *const ATAnimetickDomain = @"http://animetick.net";
 #endif
 
 #if AT_SERVER_NUMBER == 1
-static NSString *const ATAnimetickURLString = @"http://kazz187:h8xelpr1@dev.animetick.net";
-static NSString *const ATAnimetickDomain = @"http://dev.animetick.net";
-#endif
-
-#if AT_SERVER_NUMBER == 2
 static NSString *const ATAnimetickURLString = @"http://localhost:3000";
 static NSString *const ATAnimetickDomain = @"http://localhost";
 #endif
