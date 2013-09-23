@@ -62,12 +62,18 @@
              NSLog(@"%@", error);
          } else {
              self.loadedPageIndex++;
+             
              NSArray *tickets = dic[@"list"];
+             if (self.loadedPageIndex == 0) {
+                 self.tickets = [NSMutableArray array];
+             }
              for (NSDictionary *ticket in tickets) {
                  ATTicket *ticketObj = [[ATTicket alloc] initWithDictionary:ticket];
                  [self.tickets addObject:ticketObj];
              }
+             
              self.lastFlag = [(NSNumber*)NSNullToNil(dic[@"last_flag"]) boolValue];
+             
              if (self.loadedPageIndex == 0) {
                  [self.delegate ticketListDidLoad];
              } else {
