@@ -1,11 +1,3 @@
-//
-//  ATAPI.m
-//  Animetick
-//
-//  Created by yayugu on 2013/08/09.
-//  Copyright (c) 2013年 Kazuki Akamine. All rights reserved.
-//
-
 #import "ATAPI.h"
 #import "ATUserConfigurations.h"
 

@@ -1,11 +1,3 @@
-//
-//  NSDate+ATDateFormat.m
-//  Animetick
-//
-//  Created by Yuya Yaguchi on 7/31/13.
-//  Copyright (c) 2013 Kazuki Akamine. All rights reserved.
-//
-
 #import "NSDate+ATAdditions.h"
 
 @implementation NSDate (ATAdditions)

@@ -1,11 +1,3 @@
-//
-//  ATSettingViewController.m
-//  Animetick
-//
-//  Created by yayugu on 2013/09/09.
-//  Copyright (c) 2013年 Kazuki Akamine. All rights reserved.
-//
-
 #import "ATSettingViewController.h"
 #import "ATAuth.h"
 #import "ATUserConfigurations.h"

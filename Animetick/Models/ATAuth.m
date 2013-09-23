@@ -1,11 +1,3 @@
-//
-//  ATAuth.m
-//  Animetick
-//
-//  Created by yayugu on 2013/07/27.
-//  Copyright (c) 2013年 Kazuki Akamine. All rights reserved.
-//
-
 #import "ATAuth.h"
 
 @implementation ATAuth

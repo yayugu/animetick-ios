@@ -1,11 +1,3 @@
-//
-//  ATTicketViewController.m
-//  Animetick
-//
-//  Created by yayugu on 2013/07/28.
-//  Copyright (c) 2013年 Kazuki Akamine. All rights reserved.
-//
-
 #import "ATTicketViewController.h"
 #import "ATTicketList.h"
 #import "ATTicketCell.h"

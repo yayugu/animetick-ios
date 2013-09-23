@@ -1,11 +1,3 @@
-//
-//  UIColor+ATAdditions.m
-//  Animetick
-//
-//  Created by yayugu on 2013/08/31.
-//  Copyright (c) 2013年 Kazuki Akamine. All rights reserved.
-//
-
 #import "UIColor+ATAdditions.h"
 
 @implementation UIColor (ATAdditions)

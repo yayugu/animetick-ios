@@ -1,11 +1,3 @@
-//
-//  ATTicketCell.h
-//  Animetick
-//
-//  Created by yayugu on 2013/08/04.
-//  Copyright (c) 2013年 Kazuki Akamine. All rights reserved.
-//
-
 @class ATTicket;
 
 @interface ATTicketCell : UITableViewCell

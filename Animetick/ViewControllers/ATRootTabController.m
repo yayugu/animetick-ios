@@ -1,11 +1,3 @@
-//
-//  ATRootTabController.m
-//  Animetick
-//
-//  Created by Yuya Yaguchi on 8/1/13.
-//  Copyright (c) 2013 Kazuki Akamine. All rights reserved.
-//
-
 #import "ATRootTabController.h"
 #import "ATTicketViewController.h"
 #import "ATLoginViewController.h"

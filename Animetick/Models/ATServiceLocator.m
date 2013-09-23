@@ -1,11 +1,3 @@
-//
-//  ATServiceLocator.m
-//  Animetick
-//
-//  Created by Yuya Yaguchi on 8/8/13.
-//  Copyright (c) 2013 Kazuki Akamine. All rights reserved.
-//
-
 #import "ATServiceLocator.h"
 
 @implementation ATServiceLocator
