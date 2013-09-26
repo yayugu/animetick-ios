@@ -50,8 +50,7 @@
      getTicketListWithPage:self.loadedPageIndex + 1
      completion:^(NSDictionary *dic, NSError *error) {
          if (error) {
-             // do something
-             NSLog(@"%@", error);
+             [self.delegate ticketListLoadDidFailed];
          } else {
              self.loadedPageIndex++;
              

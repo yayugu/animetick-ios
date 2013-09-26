@@ -134,6 +134,12 @@
     [self endIndicator];
 }
 
+- (void)ticketListLoadDidFailed
+{
+    [self.refreshControl endRefreshing];
+    [self endIndicator];
+}
+
 #pragma mark - Internals
 
 - (void)assignCell:(ATTicketCell*)cell ValuesWithIndexPath:(NSIndexPath*)indexPath

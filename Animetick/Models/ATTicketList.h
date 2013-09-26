@@ -4,6 +4,7 @@
 
 - (void)ticketListDidLoad;
 - (void)ticketListMoreDidLoad;
+- (void)ticketListLoadDidFailed;
 
 @end
 
