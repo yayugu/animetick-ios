@@ -9,7 +9,7 @@
 @property (nonatomic, strong) NSArray *flags;
 @property (nonatomic, strong) NSString *chName;
 @property (nonatomic) int chNumber;
-@property (nonatomic) BOOL watched;
+@property (nonatomic) BOOL watched; // Key-Value Observable
 
 - (id)initWithDictionary:(NSDictionary*)dictionary;
 - (NSURL*)iconURL;

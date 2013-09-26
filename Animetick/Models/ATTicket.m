@@ -91,6 +91,8 @@
                                                       otherButtonTitles:nil];
             [alertView showWithCompletion:^(NSUInteger buttonIndex) {
             }];
+            self.watched = NO;
+            return;
          };
     }];
 }
@@ -99,7 +101,6 @@
 {
     self.watched = NO;
     [ATAPI postTicketUnwatchWithTitleId:self.titleId episodeCount:self.count completion:^(NSDictionary *dictionary, NSError *error) {
-
     }];
 }
 

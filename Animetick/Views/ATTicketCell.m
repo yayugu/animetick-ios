@@ -6,6 +6,8 @@
 
 @implementation ATTicketCell
 
+# pragma mark - Object Lifecycle
+
 - (void)awakeFromNib
 {
     [self.icon layer].borderColor = [[UIColor lightGrayColor] CGColor];
@@ -16,36 +18,44 @@
     self.selectedBackgroundView = selectedBackgroundView;
 }
 
+- (void)dealloc
+{
+    [_ticket removeObserver:self forKeyPath:@"watched"];
+}
+
+# pragma mark - Key-Value Observing
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if ([keyPath isEqualToString:@"watched"]) {
+        [self updateBackgroundLabels];
+    }
+}
+
+# pragma mark -
+
 - (void)setTicket:(ATTicket *)ticket
 {
+    [_ticket removeObserver:self forKeyPath:@"watched"];
+    [ticket addObserver:self forKeyPath:@"watched" options:0 context:nil];
+    
     _ticket = ticket;
     [self.icon setImageWithURL:ticket.iconURL];
     self.title.text = ticket.title;
     self.subTitle.text = ticket.episondeNumberWithSubTitle;
     self.startAt.text = ticket.startAtText;
     self.channel.text = ticket.channelText;
-    self.watched = ticket.watched;
     [self updateBackgroundLabels];
-}
-
-- (void)setWatched:(BOOL)watched
-{
-    _watched = watched;
-    [self updateBackgroundLabels];
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 # pragma mark - Internals
 
 - (void)updateBackgroundLabels
 {
-    if (_watched) {
+    if (self.ticket.watched) {
         self.watchedLabel.hidden = NO;
         self.nearDateLabel.text = @"";
     } else {

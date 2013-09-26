@@ -81,9 +81,6 @@
     } else {
         [ticket watch];
     }
-    
-    // TODO: これ非常にダサい。KVOにしたい
-    ((ATTicketCell*)[self.tableView cellForRowAtIndexPath:indexPath]).watched = ticket.watched;
 
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
