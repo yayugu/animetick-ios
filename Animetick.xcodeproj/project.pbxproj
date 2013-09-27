@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		115F827C60F94EA499E3C1F7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFCD5A7D8710465FA58C06A3 /* libPods.a */; };
 		3A07B97917AE130F0043D16E /* ATTicketCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A07B97817AE130F0043D16E /* ATTicketCell.xib */; };
+		3A40501717F5D6A2008A6997 /* ATDateUtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A40501617F5D6A2008A6997 /* ATDateUtilsTests.m */; };
 		3A447F4F17B514E000C38BD0 /* ATAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A447F4E17B514E000C38BD0 /* ATAPI.m */; };
 		3A7CF14B17E9DF18009A0D1B /* ATAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7CF14A17E9DF18009A0D1B /* ATAlertView.m */; };
 		3A7FBD3917E5EE27004F7091 /* animetick_ios7_512.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A7FBD3317E5EE27004F7091 /* animetick_ios7_512.png */; };
@@ -73,6 +74,7 @@
 /* Begin PBXFileReference section */
 		171813F272F244428CECCC7C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		3A07B97817AE130F0043D16E /* ATTicketCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATTicketCell.xib; sourceTree = "<group>"; };
+		3A40501617F5D6A2008A6997 /* ATDateUtilsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDateUtilsTests.m; sourceTree = "<group>"; };
 		3A447F4D17B514E000C38BD0 /* ATAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAPI.h; sourceTree = "<group>"; };
 		3A447F4E17B514E000C38BD0 /* ATAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAPI.m; sourceTree = "<group>"; };
 		3A7CF14917E9DF18009A0D1B /* ATAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAlertView.h; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 				E26BEDAB177081A80087E0E4 /* AnimetickTests.h */,
 				E26BEDAC177081A80087E0E4 /* AnimetickTests.m */,
 				E26BEDA6177081A80087E0E4 /* Supporting Files */,
+				3A40501617F5D6A2008A6997 /* ATDateUtilsTests.m */,
 			);
 			path = AnimetickTests;
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A40501717F5D6A2008A6997 /* ATDateUtilsTests.m in Sources */,
 				E26BEDAD177081A80087E0E4 /* AnimetickTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
