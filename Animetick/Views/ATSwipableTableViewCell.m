@@ -260,12 +260,30 @@
 {
     targetContentOffset->x = [self utilityButtonsPadding];
     _cellState = kCellStateRight;
+    self.cellScrollView.frame = (CGRect){
+        .origin = self.cellScrollView.frame.origin,
+        .size.width = self.bounds.size.width - [self utilityButtonsPadding],
+        .size.height = _height,
+    };
+    self.cellScrollView.contentSize = (CGSize){
+        .width = self.bounds.size.width,
+        .height = _height,
+    };
 }
 
 - (void)scrollToCenter:(inout CGPoint *)targetContentOffset
 {
     targetContentOffset->x = 0;
     _cellState = kCellStateCenter;
+    self.cellScrollView.frame = (CGRect){
+        .origin = self.cellScrollView.frame.origin,
+        .size.width = self.bounds.size.width,
+        .size.height = _height,
+    };
+    self.cellScrollView.contentSize = (CGSize){
+        .width = self.bounds.size.width + [self utilityButtonsPadding],
+        .height = _height,
+    };
 }
 
 #pragma mark UIScrollViewDelegate
