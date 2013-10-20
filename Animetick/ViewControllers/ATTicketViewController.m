@@ -1,8 +1,9 @@
 #import "ATTicketViewController.h"
 #import "ATTicketList.h"
 #import "ATTicketCell.h"
+#import "UIColor+ATAdditions.h"
 
-@interface ATTicketViewController () <ATTicketListDelegate>
+@interface ATTicketViewController () <ATTicketListDelegate, SWTableViewCellDelegate>
 
 @property (nonatomic, strong) ATTicketList *ticketList;
 @property (nonatomic, strong) UIActivityIndicatorView *indicator;
@@ -24,7 +25,6 @@
     [super viewDidLoad];
         
     self.ticketList = [[ATTicketList alloc] initWithDelegate:self];
-    [self.tableView registerNib:[UINib nibWithNibName:@"ATTicketCell" bundle:nil] forCellReuseIdentifier:@"ATTicketCell"];
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self
                             action:@selector(pullToRefresh)
@@ -65,7 +65,14 @@
     static NSString *CellIdentifier = @"ATTicketCell";
     ATTicketCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[ATTicketCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ATTicketCell"];
+        NSMutableArray *rightUtilityButtons = [[NSMutableArray alloc] init];
+        [rightUtilityButtons addUtilityButtonWithColor:[UIColor atTintColor]
+                                                 title:@"Watch"];
+        cell = [[ATTicketCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                   reuseIdentifier:@"ATTicketCell"
+                               containingTableView:self.tableView
+                               rightUtilityButtons:rightUtilityButtons];
+        cell.delegate = self;
     }
     [self assignCell:cell ValuesWithIndexPath:indexPath];
     return cell;
@@ -75,14 +82,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ATTicket *ticket = [self.ticketList ticketAtIndex:indexPath.row];
-    if (ticket.watched) {
-        [ticket unwatch];
-    } else {
-        [ticket watch];
-    }
-
-    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    ATTicketCell *cell = (ATTicketCell*)[tableView cellForRowAtIndexPath:indexPath];
+    //[cell showRightUtilityButtonsAnimated:YES];
+    //[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - Scroll view delegate
@@ -108,6 +110,24 @@
     if (!self.refreshControl.refreshing) return;
     [self.ticketList reload];
 }
+
+#pragma mark - Swipable table view cell delegate
+
+// unused
+- (void)swippableTableViewCell:(ATTicketCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index
+{
+}
+
+- (void)swippableTableViewCell:(ATTicketCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index
+{
+    ATTicket *ticket = cell.ticket;
+    if (ticket.watched) {
+        [ticket unwatch];
+    } else {
+        [ticket watch];
+    }
+}
+
 
 #pragma mark - Ticket list delegate
 

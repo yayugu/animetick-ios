@@ -1,14 +1,10 @@
-@class ATTicket;
+#import "ATSwipableTableViewCell.h"
 
-@interface ATTicketCell : UITableViewCell
+@class ATTicket, ATTicketContentView;
+
+@interface ATTicketCell : ATSwipableTableViewCell
 
 @property (strong, nonatomic) ATTicket *ticket;
-@property (weak, nonatomic) IBOutlet UIImageView *icon;
-@property (weak, nonatomic) IBOutlet UILabel *title;
-@property (weak, nonatomic) IBOutlet UILabel *subTitle;
-@property (weak, nonatomic) IBOutlet UILabel *channel;
-@property (weak, nonatomic) IBOutlet UILabel *startAt;
-@property (weak, nonatomic) IBOutlet UILabel *watchedLabel;
-@property (weak, nonatomic) IBOutlet UILabel *nearDateLabel;
+@property (strong, nonatomic) ATTicketContentView *frontView;
 
 @end
