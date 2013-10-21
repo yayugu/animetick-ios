@@ -28,6 +28,8 @@
 // Used for row height and selection
 @property (nonatomic, weak) UITableView *containingTableView;
 
+@property (nonatomic) BOOL shrinked;
+
 @end
 
 @implementation ATSwipableTableViewCell
@@ -82,10 +84,6 @@
     
     // Set up scroll view that will host our cell content
     UIScrollView *cellScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), _height)];
-    cellScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.bounds) + [self utilityButtonsPadding], _height);
-    cellScrollView.contentOffset = [self scrollViewContentOffset];
-    cellScrollView.delegate = self;
-    cellScrollView.showsHorizontalScrollIndicator = NO;
     
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewPressed:)];
     [cellScrollView addGestureRecognizer:tapGestureRecognizer];
@@ -102,6 +100,11 @@
                                                    )];
     self.scrollViewButtonViewRight = scrollViewButtonViewRight;
     [self.cellView addSubview:scrollViewButtonViewRight];
+    
+    cellScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.bounds) + [self utilityButtonsPadding], _height);
+    cellScrollView.contentOffset = [self scrollViewContentOffset];
+    cellScrollView.delegate = self;
+    cellScrollView.showsHorizontalScrollIndicator = NO;
     
     // Populate the button views with utility buttons
     [scrollViewButtonViewRight populateUtilityButtons];
@@ -121,6 +124,8 @@
     for (UIView *subview in cellSubviews) {
         [self.scrollViewContentView addSubview:subview];
     }
+    
+    self.shrinked = NO;
 }
 
 #pragma mark Selection
@@ -216,7 +221,9 @@
                          self.cellScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.bounds) + [self utilityButtonsPadding], _height);
                          self.cellScrollView.contentOffset = CGPointMake([self utilityButtonsPadding], 0);
                      }
-                     completion:nil];
+                     completion:^(BOOL finished){
+                         [self shrinkDraggableArea];
+                     }];
 }
 
 #pragma mark - Overriden methods
@@ -260,21 +267,17 @@
 {
     targetContentOffset->x = [self utilityButtonsPadding];
     _cellState = kCellStateRight;
-    self.cellScrollView.frame = (CGRect){
-        .origin = self.cellScrollView.frame.origin,
-        .size.width = self.bounds.size.width - [self utilityButtonsPadding],
-        .size.height = _height,
-    };
-    self.cellScrollView.contentSize = (CGSize){
-        .width = self.bounds.size.width,
-        .height = _height,
-    };
 }
 
 - (void)scrollToCenter:(inout CGPoint *)targetContentOffset
 {
     targetContentOffset->x = 0;
     _cellState = kCellStateCenter;
+}
+
+- (void)expandDraggableArea
+{
+    if (!self.shrinked) return;
     self.cellScrollView.frame = (CGRect){
         .origin = self.cellScrollView.frame.origin,
         .size.width = self.bounds.size.width,
@@ -284,9 +287,33 @@
         .width = self.bounds.size.width + [self utilityButtonsPadding],
         .height = _height,
     };
+    self.cellScrollView.contentOffset = (CGPoint){
+        .x = [self utilityButtonsPadding],
+        .y = 0,
+    };
+    self.shrinked = NO;
+}
+
+- (void)shrinkDraggableArea
+{
+    self.cellScrollView.frame = (CGRect){
+        .origin = self.cellScrollView.frame.origin,
+        .size.width = self.bounds.size.width - [self utilityButtonsPadding],
+        .size.height = _height,
+    };
+    self.cellScrollView.contentSize = (CGSize){
+        .width = self.bounds.size.width,
+        .height = _height,
+    };
+    self.shrinked = YES;
 }
 
 #pragma mark UIScrollViewDelegate
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self expandDraggableArea];
+}
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
     switch (_cellState) {
@@ -318,8 +345,20 @@
     }
 }
 
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    switch (_cellState) {
+        case kCellStateCenter:
+            break;
+        case kCellStateRight:
+            [self shrinkDraggableArea];
+            break;
+    }
+}
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    //[self expandDraggableArea];
     // Expose the right button view
     //self.scrollViewButtonViewRight.frame = CGRectMake(scrollView.contentOffset.x + (CGRectGetWidth(self.bounds) - [self rightUtilityButtonsWidth]), 0.0f, [self rightUtilityButtonsWidth], _height);
 }
