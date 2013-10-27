@@ -183,6 +183,7 @@
 {
     // Scroll back to center
     [self.cellScrollView setContentOffset:CGPointMake(0, 0) animated:animated];
+    [self expandDraggableArea];
     _cellState = kCellStateCenter;
 }
 
