@@ -1,15 +1,20 @@
 #import "ATAPI.h"
 #import "ATUserConfigurations.h"
 
-static NSString *const ATAPIFormatTicketList = @"/ticket/list/%d.json";
+static NSString *const ATAPIFormatTicketList = @"/ticket/list.json?offset=%d&watched=%@";
 static NSString *const ATAPIFormatTicketWatch = @"/ticket/%d/%d/watch.json?twitter=%@";
 static NSString *const ATAPIFormatTicketUnwatch = @"/ticket/%d/%d/unwatch.json";
 
 @implementation ATAPI
 
-+ (void)getTicketListWithPage:(int)page completion:(ATJSONRequestCompletion)completion
++ (void)getTicketListWithOffset:(int)offset
+                        watched:(BOOL)watched
+                     completion:(ATJSONRequestCompletion)completion
 {
-    NSString *subURL = [NSString stringWithFormat:ATAPIFormatTicketList, page];
+    NSString *subURL = [NSString
+                        stringWithFormat:ATAPIFormatTicketList,
+                        offset,
+                        watched ? @"true" : @"false"];
     [ATNetworking sendJSONRequestWithSubURL:subURL method:GET completion:completion];
 }
 

@@ -5,20 +5,20 @@
 
 @property (nonatomic, strong) NSMutableArray *tickets;
 @property (nonatomic, weak) id<ATTicketListDelegate> delegate;
-@property (nonatomic) int loadedPageIndex;
+@property (nonatomic) BOOL watched;
 
 @end
 
 @implementation ATTicketList
 
-- (id)initWithDelegate:(id<ATTicketListDelegate>)delegate
+- (id)initWithWatched:(BOOL)watched delegate:(id<ATTicketListDelegate>)delegate
 {
     self = [super init];
     if (self) {
         self.tickets = [NSMutableArray array];
+        self.watched = watched;
         self.delegate = delegate;
-        self.loadedPageIndex = -1;
-        [self requestPage];
+        [self requestWithOffset:0];
     }
     return self;
 }
@@ -35,37 +35,36 @@
 
 - (void)loadMore
 {
-    [self requestPage];
+    [self requestWithOffset:self.tickets.count];
 }
 
 - (void)reload
 {
-    self.loadedPageIndex = -1;
-    [self requestPage];
+    [self requestWithOffset:0];
 }
 
-- (void)requestPage
+- (void)requestWithOffset:(int)offset
 {
     [ATAPI
-     getTicketListWithPage:self.loadedPageIndex + 1
+     getTicketListWithOffset:offset
+     watched:self.watched
      completion:^(NSDictionary *dic, NSError *error) {
          if (error) {
              [self.delegate ticketListLoadDidFailed];
          } else {
-             self.loadedPageIndex++;
-             
              NSArray *tickets = dic[@"list"];
-             if (self.loadedPageIndex == 0) {
+             if (offset == 0) {
                  self.tickets = [NSMutableArray array];
              }
-             for (NSDictionary *ticket in tickets) {
+             for (NSMutableDictionary *ticket in tickets) {
+                 ticket[@"watched"] = [NSNumber numberWithBool:self.watched];
                  ATTicket *ticketObj = [[ATTicket alloc] initWithDictionary:ticket];
                  [self.tickets addObject:ticketObj];
              }
              
              self.lastFlag = [(NSNumber*)NSNullToNil(dic[@"last_flag"]) boolValue];
              
-             if (self.loadedPageIndex == 0) {
+             if (offset == 0) {
                  [self.delegate ticketListDidLoad];
              } else {
                  [self.delegate ticketListMoreDidLoad];

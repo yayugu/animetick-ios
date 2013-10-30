@@ -32,7 +32,7 @@
             return;
         }
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data
-                                                            options:NSJSONReadingAllowFragments
+                                                            options:NSJSONReadingAllowFragments|NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves
                                                               error:&error];
         if (error) {
             completion(dic, error);

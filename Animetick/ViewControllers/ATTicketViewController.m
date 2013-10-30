@@ -7,15 +7,17 @@
 
 @property (nonatomic, strong) ATTicketList *ticketList;
 @property (nonatomic, strong) UIActivityIndicatorView *indicator;
+@property (nonatomic) BOOL watched;
 
 @end
 
 @implementation ATTicketViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (instancetype)initWithWatched:(BOOL)watched
 {
-    self = [super initWithStyle:style];
+    self = [super init];
     if (self) {
+        self.watched = watched;
     }
     return self;
 }
@@ -24,7 +26,7 @@
 {
     [super viewDidLoad];
         
-    self.ticketList = [[ATTicketList alloc] initWithDelegate:self];
+    self.ticketList = [[ATTicketList alloc] initWithWatched:self.watched delegate:self];
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self
                             action:@selector(pullToRefresh)
@@ -39,8 +41,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    self.navigationController.navigationBarHidden = YES;
 }
 
 - (void)didReceiveMemoryWarning

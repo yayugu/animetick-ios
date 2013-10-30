@@ -12,7 +12,7 @@
 
 @property (nonatomic) BOOL lastFlag;
 
-- (id)initWithDelegate:(id<ATTicketListDelegate>)delegate;
+- (id)initWithWatched:(BOOL)watched delegate:(id<ATTicketListDelegate>)delegate;
 - (ATTicket*)ticketAtIndex:(int)index;
 - (int)count;
 - (void)loadMore;

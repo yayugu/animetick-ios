@@ -51,8 +51,8 @@
 
 - (void)presentTabs
 {
-    ATTicketViewController *ticketViewController = [[ATTicketViewController alloc] init];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:ticketViewController];
+    UIStoryboard *ticketStoryboard = [UIStoryboard storyboardWithName:@"TicketStoryboard" bundle:nil];
+    UIViewController *navigationController = [ticketStoryboard instantiateInitialViewController];
     navigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"チケット"
                                                                     image:[UIImage imageNamed:@"tabbar-icon-ticket.png"]
                                                             selectedImage:[UIImage imageNamed:@"tabbar-icon-ticket-selected.png"]];
