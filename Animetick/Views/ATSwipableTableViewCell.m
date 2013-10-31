@@ -145,8 +145,6 @@
             [[NSRunLoop currentRunLoop] addTimer:endHighlightTimer forMode:NSRunLoopCommonModes];
             [self setHighlighted:YES];
         }
-        
-        [self showRightUtilityButtonsAnimated:YES];
     } else {
         // Scroll back to center
         [self hideUtilityButtonsAnimated:YES];

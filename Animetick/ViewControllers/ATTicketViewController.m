@@ -41,17 +41,17 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-}
-
--(void)viewDidLayoutSubviews
-{
-    [super viewDidLayoutSubviews];
     self.tableView.contentInset = (UIEdgeInsets){
         .top = 20 + 44, // status bar height + navigation bar height
         .bottom = 0,
         .left = 0,
         .right = 0,
     };
+}
+
+-(void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
 }
 
 - (void)didReceiveMemoryWarning
@@ -77,8 +77,9 @@
     ATTicketCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         NSMutableArray *rightUtilityButtons = [[NSMutableArray alloc] init];
+        NSString *utilityButtonTitle = self.watched ? @"Unwatch" : @"Watch";
         [rightUtilityButtons addUtilityButtonWithColor:[UIColor atTintColor]
-                                                 title:@"Watch"];
+                                                 title:utilityButtonTitle];
         cell = [[ATTicketCell alloc] initWithStyle:UITableViewCellStyleDefault
                                    reuseIdentifier:@"ATTicketCell"
                                containingTableView:self.tableView
@@ -94,8 +95,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ATTicketCell *cell = (ATTicketCell*)[tableView cellForRowAtIndexPath:indexPath];
-    //[cell showRightUtilityButtonsAnimated:YES];
-    //[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [cell showRightUtilityButtonsAnimated:YES];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - Scroll view delegate
