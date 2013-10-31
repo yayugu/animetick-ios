@@ -43,6 +43,17 @@
     [super viewWillAppear:animated];
 }
 
+-(void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    self.tableView.contentInset = (UIEdgeInsets){
+        .top = 20 + 44, // status bar height + navigation bar height
+        .bottom = 0,
+        .left = 0,
+        .right = 0,
+    };
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
