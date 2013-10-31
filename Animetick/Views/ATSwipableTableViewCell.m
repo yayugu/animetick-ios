@@ -225,6 +225,20 @@
                      }];
 }
 
+- (void)animateToDisappearContentViewCompletion:(void (^)(BOOL finished))completion
+{
+    [UIView
+     animateWithDuration:0.4
+     animations:^{
+         self.cellScrollView.frame = (CGRect){
+             .origin.x = -self.cellScrollView.frame.size.width,
+             .origin.y = self.cellScrollView.frame.origin.y,
+             .size = self.cellScrollView.frame.size,
+         };
+     }
+     completion:completion];
+}
+
 #pragma mark - Overriden methods
 
 - (void)layoutSubviews

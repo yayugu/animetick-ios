@@ -28,6 +28,11 @@
     return self.tickets[index];
 }
 
+- (void)removeTicketAtIndex:(int)index
+{
+    [self.tickets removeObjectAtIndex:index];
+}
+
 - (int)count
 {
     return self.tickets.count;

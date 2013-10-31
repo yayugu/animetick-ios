@@ -37,6 +37,7 @@ typedef enum {
 - (void)setBackgroundColor:(UIColor *)backgroundColor;
 - (void)hideUtilityButtonsAnimated:(BOOL)animated;
 - (void)showRightUtilityButtonsAnimated:(BOOL)animated;
+- (void)animateToDisappearContentViewCompletion:(void (^)(BOOL finished))completion;
 
 @end
 

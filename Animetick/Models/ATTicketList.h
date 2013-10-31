@@ -14,6 +14,7 @@
 
 - (id)initWithWatched:(BOOL)watched delegate:(id<ATTicketListDelegate>)delegate;
 - (ATTicket*)ticketAtIndex:(int)index;
+- (void)removeTicketAtIndex:(int)index;
 - (int)count;
 - (void)loadMore;
 - (void)reload;

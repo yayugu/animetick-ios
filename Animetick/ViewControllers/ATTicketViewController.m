@@ -125,11 +125,6 @@
 
 #pragma mark - Swipable table view cell delegate
 
-// unused
-- (void)swippableTableViewCell:(ATTicketCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index
-{
-}
-
 - (void)swippableTableViewCell:(ATTicketCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index
 {
     ATTicket *ticket = cell.ticket;
@@ -138,6 +133,12 @@
     } else {
         [ticket watch];
     }
+    
+    [cell animateToDisappearContentViewCompletion:^(BOOL finished) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        [self.ticketList removeTicketAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }];
 }
 
 
