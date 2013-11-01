@@ -1,4 +1,4 @@
-#define AT_SERVER_NUMBER 1
+#define AT_SERVER_NUMBER 0
 
 #if AT_SERVER_NUMBER == 0
 static NSString *const ATAnimetickURLString = @"http://animetick.net";

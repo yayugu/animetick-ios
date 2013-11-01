@@ -43,7 +43,7 @@
     [super viewWillAppear:animated];
     self.tableView.contentInset = (UIEdgeInsets){
         .top = 20 + 44, // status bar height + navigation bar height
-        .bottom = 0,
+        .bottom = 49, // tab bar height
         .left = 0,
         .right = 0,
     };
