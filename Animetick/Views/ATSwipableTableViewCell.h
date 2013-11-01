@@ -32,12 +32,27 @@ typedef enum {
 @property (nonatomic, strong) NSArray *rightUtilityButtons;
 @property (nonatomic) id <SWTableViewCellDelegate> delegate;
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier containingTableView:(UITableView *)containingTableView rightUtilityButtons:(NSArray *)rightUtilityButtons;
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier containingTableView:(UITableView *)containingTableView rightUtilityButtons:(NSArray *)rightUtilityButtons height:(CGFloat)height;
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor;
 - (void)hideUtilityButtonsAnimated:(BOOL)animated;
 - (void)showRightUtilityButtonsAnimated:(BOOL)animated;
 - (void)animateToDisappearContentViewCompletion:(void (^)(BOOL finished))completion;
+
+
+
+// 一時的にこっちに
+- (void)shrinkDraggableArea;
+
+// Scroll view to be added to UITableViewCell
+@property (nonatomic, weak) UIScrollView *cellScrollView;
+
+// The cell's height
+@property (nonatomic) CGFloat height;
+
+// Views that live in the scroll view
+@property (nonatomic, weak) UIView *scrollViewContentView;
+
 
 @end
 

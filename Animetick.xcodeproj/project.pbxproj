@@ -271,17 +271,17 @@
 		47F9F54317AA35E2007C8A8D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3AEF8DDC17AE0B8F00007E9C /* ATTicketCell.h */,
-				3AEF8DDD17AE0B8F00007E9C /* ATTicketCell.m */,
 				3A7CF14917E9DF18009A0D1B /* ATAlertView.h */,
 				3A7CF14A17E9DF18009A0D1B /* ATAlertView.m */,
-				3AA10E8E1812489600D37897 /* ATTicketContentView.xib */,
-				3AA10E9018124DBF00D37897 /* ATTicketContentView.h */,
-				3AA10E9118124DBF00D37897 /* ATTicketContentView.m */,
 				3AA10E931814148200D37897 /* ATTableViewCellButtonView.h */,
 				3AA10E941814148200D37897 /* ATTableViewCellButtonView.m */,
 				3AA10E96181415A900D37897 /* ATSwipableTableViewCell.h */,
 				3AA10E97181415A900D37897 /* ATSwipableTableViewCell.m */,
+				3AEF8DDC17AE0B8F00007E9C /* ATTicketCell.h */,
+				3AEF8DDD17AE0B8F00007E9C /* ATTicketCell.m */,
+				3AA10E8E1812489600D37897 /* ATTicketContentView.xib */,
+				3AA10E9018124DBF00D37897 /* ATTicketContentView.h */,
+				3AA10E9118124DBF00D37897 /* ATTicketContentView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";

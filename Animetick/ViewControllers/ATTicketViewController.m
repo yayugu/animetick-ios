@@ -83,7 +83,8 @@
         cell = [[ATTicketCell alloc] initWithStyle:UITableViewCellStyleDefault
                                    reuseIdentifier:@"ATTicketCell"
                                containingTableView:self.tableView
-                               rightUtilityButtons:rightUtilityButtons];
+                               rightUtilityButtons:rightUtilityButtons
+                                            height:73];
         cell.delegate = self;
     }
     [self assignCell:cell ValuesWithIndexPath:indexPath];
@@ -134,11 +135,11 @@
         [ticket watch];
     }
     
-    [cell animateToDisappearContentViewCompletion:^(BOOL finished) {
+    //[cell animateToDisappearContentViewCompletion:^(BOOL finished) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
         [self.ticketList removeTicketAtIndex:indexPath.row];
-        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-    }];
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+    //}];
 }
 
 

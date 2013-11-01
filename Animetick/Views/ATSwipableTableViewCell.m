@@ -13,16 +13,6 @@
     SWCellState _cellState; // The state of the cell within the scroll view, can be left, right or middle
 }
 
-@property (nonatomic, weak) UIView *cellView;
-
-// Scroll view to be added to UITableViewCell
-@property (nonatomic, weak) UIScrollView *cellScrollView;
-
-// The cell's height
-@property (nonatomic) CGFloat height;
-
-// Views that live in the scroll view
-@property (nonatomic, weak) UIView *scrollViewContentView;
 @property (nonatomic, strong) ATTableViewCellButtonView *scrollViewButtonViewRight;
 
 // Used for row height and selection
@@ -36,12 +26,15 @@
 
 #pragma mark Initializers
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier containingTableView:(UITableView *)containingTableView rightUtilityButtons:(NSArray *)rightUtilityButtons
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier containingTableView:(UITableView *)containingTableView rightUtilityButtons:(NSArray *)rightUtilityButtons height:(CGFloat)height
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        CGRect frame = self.frame;
+        frame.size.height = 73;
+        self.frame = frame;
         self.rightUtilityButtons = rightUtilityButtons;
-        self.height = containingTableView.rowHeight;
+        self.height = height;
         self.containingTableView = containingTableView;
         self.highlighted = NO;
         [self initializer];
@@ -79,17 +72,6 @@
 
 - (void)initializer
 {
-    UIView *cellView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, _height)];
-    self.cellView = cellView;
-    
-    // Set up scroll view that will host our cell content
-    UIScrollView *cellScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), _height)];
-    
-    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewPressed:)];
-    [cellScrollView addGestureRecognizer:tapGestureRecognizer];
-    
-    self.cellScrollView = cellScrollView;
-    
     // Set up the views that will hold the utility buttons
     ATTableViewCellButtonView *scrollViewButtonViewRight = [[ATTableViewCellButtonView alloc] initWithUtilityButtons:_rightUtilityButtons parentCell:self utilityButtonSelector:@selector(rightUtilityButtonHandler:)];
     [scrollViewButtonViewRight setFrame:CGRectMake(
@@ -99,8 +81,18 @@
                                                    _height
                                                    )];
     self.scrollViewButtonViewRight = scrollViewButtonViewRight;
-    [self.cellView addSubview:scrollViewButtonViewRight];
+    [self.contentView addSubview:scrollViewButtonViewRight];
     
+
+    
+    // Set up scroll view that will host our cell content
+    UIScrollView *cellScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), _height)];
+    
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewPressed:)];
+    [cellScrollView addGestureRecognizer:tapGestureRecognizer];
+    
+    self.cellScrollView = cellScrollView;
+
     cellScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.bounds) + [self utilityButtonsPadding], _height);
     cellScrollView.contentOffset = [self scrollViewContentOffset];
     cellScrollView.delegate = self;
@@ -115,15 +107,7 @@
     [self.cellScrollView addSubview:scrollViewContentView];
     self.scrollViewContentView = scrollViewContentView;
     
-    [self.cellView addSubview:cellScrollView];
-    
-    // Add the cell scroll view to the cell
-    UIView *contentViewParent = [self.subviews objectAtIndex:0];
-    NSArray *cellSubviews = [contentViewParent subviews];
-    [self insertSubview:cellView atIndex:0];
-    for (UIView *subview in cellSubviews) {
-        [self.scrollViewContentView addSubview:subview];
-    }
+    [self.contentView addSubview:cellScrollView];
     
     self.shrinked = NO;
 }
