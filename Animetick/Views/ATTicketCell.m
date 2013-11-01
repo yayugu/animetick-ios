@@ -21,7 +21,7 @@
         [self.frontView.icon layer].borderColor = [[UIColor lightGrayColor] CGColor];
         [self.frontView.icon layer].borderWidth = 1.0;
         self.frontView.nearDateLabel.font = [UIFont fontWithName:@".HiraKakuInterface-W1" size:41];
-        [self.contentView addSubview:self.frontView];
+        [self.cellScrollView addSubview:self.frontView];
         
         UIView *selectedBackgroundView = [[UIView alloc] init];
         selectedBackgroundView.backgroundColor = [UIColor atTintColor];

@@ -13,16 +13,6 @@
     SWCellState _cellState; // The state of the cell within the scroll view, can be left, right or middle
 }
 
-@property (nonatomic, weak) UIView *cellView;
-
-// Scroll view to be added to UITableViewCell
-@property (nonatomic, weak) UIScrollView *cellScrollView;
-
-// The cell's height
-@property (nonatomic) CGFloat height;
-
-// Views that live in the scroll view
-@property (nonatomic, weak) UIView *scrollViewContentView;
 @property (nonatomic, strong) ATTableViewCellButtonView *scrollViewButtonViewRight;
 
 // Used for row height and selection
@@ -79,9 +69,6 @@
 
 - (void)initializer
 {
-    UIView *cellView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, _height)];
-    self.cellView = cellView;
-    
     // Set up scroll view that will host our cell content
     UIScrollView *cellScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), _height)];
     
@@ -115,15 +102,7 @@
     [self.cellScrollView addSubview:scrollViewContentView];
     self.scrollViewContentView = scrollViewContentView;
     
-    [self.cellView addSubview:cellScrollView];
-    
-    // Add the cell scroll view to the cell
-    UIView *contentViewParent = [self.subviews objectAtIndex:0];
-    NSArray *cellSubviews = [contentViewParent subviews];
-    [self insertSubview:cellView atIndex:0];
-    for (UIView *subview in cellSubviews) {
-        [self.scrollViewContentView addSubview:subview];
-    }
+    [self.contentView addSubview:cellScrollView];
     
     self.shrinked = NO;
 }

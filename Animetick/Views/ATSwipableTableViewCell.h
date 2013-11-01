@@ -39,6 +39,21 @@ typedef enum {
 - (void)showRightUtilityButtonsAnimated:(BOOL)animated;
 - (void)animateToDisappearContentViewCompletion:(void (^)(BOOL finished))completion;
 
+
+
+// 一時的にこっちに
+@property (nonatomic, weak) UIView *cellView;
+
+// Scroll view to be added to UITableViewCell
+@property (nonatomic, weak) UIScrollView *cellScrollView;
+
+// The cell's height
+@property (nonatomic) CGFloat height;
+
+// Views that live in the scroll view
+@property (nonatomic, weak) UIView *scrollViewContentView;
+
+
 @end
 
 @interface NSMutableArray (SWUtilityButtons)
