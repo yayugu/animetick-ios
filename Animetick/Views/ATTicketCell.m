@@ -30,30 +30,10 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [_ticket removeObserver:self forKeyPath:@"watched"];
-}
-
-# pragma mark - Key-Value Observing
-
-- (void)observeValueForKeyPath:(NSString *)keyPath
-                      ofObject:(id)object
-                        change:(NSDictionary *)change
-                       context:(void *)context
-{
-    if ([keyPath isEqualToString:@"watched"]) {
-        [self updateBackgroundLabels];
-    }
-}
-
 # pragma mark -
 
 - (void)setTicket:(ATTicket *)ticket
 {
-    [_ticket removeObserver:self forKeyPath:@"watched"];
-    [ticket addObserver:self forKeyPath:@"watched" options:0 context:nil];
-    
     _ticket = ticket;
     [self.frontView.icon setImageWithURL:ticket.iconURL];
     self.frontView.title.text = ticket.title;

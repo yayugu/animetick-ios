@@ -9,11 +9,23 @@
 #import "ATSwipableTableViewCell.h"
 #import "ATTableViewCellButtonView.h"
 
-@interface ATSwipableTableViewCell () <UIScrollViewDelegate> {
-    SWCellState _cellState; // The state of the cell within the scroll view, can be left, right or middle
-}
+typedef enum {
+    kCellStateCenter,
+    kCellStateRight
+} SWCellState;
+
+@interface ATSwipableTableViewCell () <UIScrollViewDelegate>
+
+// The state of the cell within the scroll view, can be left, right or middle
+@property (nonatomic) SWCellState cellState;
 
 @property (nonatomic, strong) ATTableViewCellButtonView *scrollViewButtonViewRight;
+
+// Scroll view to be added to UITableViewCell
+@property (nonatomic, weak) UIScrollView *cellScrollView;
+
+// The cell's height
+@property (nonatomic) CGFloat height;
 
 // Used for row height and selection
 @property (nonatomic, weak) UITableView *containingTableView;
@@ -40,33 +52,6 @@
         [self initializer];
     }
     
-    return self;
-}
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        [self initializer];
-    }
-    return self;
-}
-
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        [self initializer];
-    }
-    return self;
-}
-
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        [self initializer];
-    }
     return self;
 }
 
@@ -209,20 +194,6 @@
                      }];
 }
 
-- (void)animateToDisappearContentViewCompletion:(void (^)(BOOL finished))completion
-{
-    [UIView
-     animateWithDuration:0.4
-     animations:^{
-         self.cellScrollView.frame = (CGRect){
-             .origin.x = -self.cellScrollView.frame.size.width,
-             .origin.y = self.cellScrollView.frame.origin.y,
-             .size = self.cellScrollView.frame.size,
-         };
-     }
-     completion:completion];
-}
-
 #pragma mark - Overriden methods
 
 - (void)layoutSubviews
@@ -230,8 +201,6 @@
     [super layoutSubviews];
     
     self.cellScrollView.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), _height);
-    //self.cellScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.bounds) + [self utilityButtonsPadding], _height);
-    //self.cellScrollView.contentOffset = CGPointMake(0, 0);
     self.scrollViewButtonViewRight.frame = CGRectMake(
                                                       CGRectGetWidth(self.bounds) - [self rightUtilityButtonsWidth],
                                                       0,
@@ -351,30 +320,6 @@
             [self shrinkDraggableArea];
             break;
     }
-}
-
-@end
-
-
-#pragma mark NSMutableArray class extension helper
-
-@implementation NSMutableArray (SWUtilityButtons)
-
-- (void)addUtilityButtonWithColor:(UIColor *)color title:(NSString *)title
-{
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.backgroundColor = color;
-    [button setTitle:title forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self addObject:button];
-}
-
-- (void)addUtilityButtonWithColor:(UIColor *)color icon:(UIImage *)icon
-{
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.backgroundColor = color;
-    [button setImage:icon forState:UIControlStateNormal];
-    [self addObject:button];
 }
 
 @end

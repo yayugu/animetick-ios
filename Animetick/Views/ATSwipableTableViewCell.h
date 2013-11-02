@@ -14,11 +14,6 @@
 
 static NSString * const kTableViewCellContentView = @"UITableViewCellContentView";
 
-typedef enum {
-    kCellStateCenter,
-    kCellStateRight
-} SWCellState;
-
 @class ATSwipableTableViewCell;
 
 @protocol SWTableViewCellDelegate <NSObject>
@@ -32,33 +27,13 @@ typedef enum {
 @property (nonatomic, strong) NSArray *rightUtilityButtons;
 @property (nonatomic) id <SWTableViewCellDelegate> delegate;
 
+// Views that live in the scroll view
+@property (nonatomic, weak) UIView *scrollViewContentView;
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier containingTableView:(UITableView *)containingTableView rightUtilityButtons:(NSArray *)rightUtilityButtons height:(CGFloat)height;
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor;
 - (void)hideUtilityButtonsAnimated:(BOOL)animated;
 - (void)showRightUtilityButtonsAnimated:(BOOL)animated;
-- (void)animateToDisappearContentViewCompletion:(void (^)(BOOL finished))completion;
-
-
-
-// 一時的にこっちに
-- (void)shrinkDraggableArea;
-
-// Scroll view to be added to UITableViewCell
-@property (nonatomic, weak) UIScrollView *cellScrollView;
-
-// The cell's height
-@property (nonatomic) CGFloat height;
-
-// Views that live in the scroll view
-@property (nonatomic, weak) UIView *scrollViewContentView;
-
-
-@end
-
-@interface NSMutableArray (SWUtilityButtons)
-
-- (void)addUtilityButtonWithColor:(UIColor *)color title:(NSString *)title;
-- (void)addUtilityButtonWithColor:(UIColor *)color icon:(UIImage *)icon;
 
 @end

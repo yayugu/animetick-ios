@@ -76,10 +76,13 @@
     static NSString *CellIdentifier = @"ATTicketCell";
     ATTicketCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        NSMutableArray *rightUtilityButtons = [[NSMutableArray alloc] init];
-        NSString *utilityButtonTitle = self.watched ? @"Unwatch" : @"Watch";
-        [rightUtilityButtons addUtilityButtonWithColor:[UIColor atTintColor]
-                                                 title:utilityButtonTitle];
+        UIButton *watchButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        watchButton.backgroundColor = [UIColor atTintColor];
+        NSString *watchButtonTitle = self.watched ? @"Unwatch" : @"Watch";
+        [watchButton setTitle:watchButtonTitle forState:UIControlStateNormal];
+        [watchButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        NSArray *rightUtilityButtons = @[watchButton];
+        
         cell = [[ATTicketCell alloc] initWithStyle:UITableViewCellStyleDefault
                                    reuseIdentifier:@"ATTicketCell"
                                containingTableView:self.tableView
@@ -135,11 +138,9 @@
         [ticket watch];
     }
     
-    //[cell animateToDisappearContentViewCompletion:^(BOOL finished) {
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-        [self.ticketList removeTicketAtIndex:indexPath.row];
-        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
-    //}];
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    [self.ticketList removeTicketAtIndex:indexPath.row];
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
 }
 
 
