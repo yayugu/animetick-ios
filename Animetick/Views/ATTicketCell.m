@@ -40,20 +40,7 @@
     self.frontView.subTitle.text = ticket.episondeNumberWithSubTitle;
     self.frontView.startAt.text = ticket.startAtText;
     self.frontView.channel.text = ticket.channelText;
-    [self updateBackgroundLabels];
-}
-
-# pragma mark - Internals
-
-- (void)updateBackgroundLabels
-{
-    if (self.ticket.watched) {
-        self.frontView.watchedLabel.hidden = NO;
-        self.frontView.nearDateLabel.text = @"";
-    } else {
-        self.frontView.watchedLabel.hidden = YES;
-        self.frontView.nearDateLabel.text = self.ticket.nearDateLabelText;
-    }
+    self.frontView.nearDateLabel.text = self.ticket.nearDateLabelText;
 }
 
 @end
