@@ -48,8 +48,11 @@
 - (IBAction)segmentValueChanged:(id)sender
 {
     UISegmentedControl *control = (UISegmentedControl*)sender;
+    ATTicketViewController *from, *to;
     switch (control.selectedSegmentIndex) {
         case 0:
+            from = self.watchedTicketViewContoller;
+            to = self.unwatchedTicketViewContoller;
             [self transitionFromViewController:self.watchedTicketViewContoller
                               toViewController:self.unwatchedTicketViewContoller
                                       duration:0
@@ -58,16 +61,22 @@
                                     completion:nil];
             break;
         case 1:
-            [self transitionFromViewController:self.unwatchedTicketViewContoller
-                              toViewController:self.watchedTicketViewContoller
-                                      duration:0
-                                       options:UIViewAnimationOptionTransitionNone
-                                    animations:nil
-                                    completion:nil];
+            from = self.unwatchedTicketViewContoller;
+            to = self.watchedTicketViewContoller;
+
             break;
         default:
-            break;
+            //wtf!
+            return;
     }
+    to.view.frame = self.view.bounds;
+    [to.view setNeedsLayout];
+    [self transitionFromViewController:from
+                      toViewController:to
+                              duration:0
+                               options:UIViewAnimationOptionTransitionNone
+                            animations:nil
+                            completion:nil];
 }
 
 @end

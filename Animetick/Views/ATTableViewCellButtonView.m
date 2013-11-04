@@ -11,7 +11,7 @@
 
 @implementation ATTableViewCellButtonView
 
-#pragma mark - SWUtilityButonView initializers
+#pragma mark - initializers
 
 - (id)initWithUtilityButtons:(NSArray *)utilityButtons parentCell:(ATSwipableTableViewCell *)parentCell utilityButtonSelector:(SEL)utilityButtonSelector {
     self = [super init];
