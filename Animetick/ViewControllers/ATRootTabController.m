@@ -2,6 +2,7 @@
 #import "ATTicketViewController.h"
 #import "ATLoginViewController.h"
 #import "ATAuth.h"
+#import "UIColor+ATAdditions.h"
 
 @interface ATRootTabController ()
 

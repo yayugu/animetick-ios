@@ -82,6 +82,7 @@ typedef enum {
     cellScrollView.contentOffset = [self scrollViewContentOffset];
     cellScrollView.delegate = self;
     cellScrollView.showsHorizontalScrollIndicator = NO;
+    cellScrollView.scrollsToTop = NO;
     
     // Populate the button views with utility buttons
     [scrollViewButtonViewRight populateUtilityButtons];
