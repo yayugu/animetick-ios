@@ -14,4 +14,13 @@
     return date;
 }
 
+- (BOOL)isBetweenDate:(NSDate*)beginDate andDate:(NSDate*)endDate
+{
+    return
+        beginDate != nil &&
+        endDate != nil &&
+        [self compare:beginDate] != NSOrderedAscending &&
+        [self compare:endDate] != NSOrderedDescending;
+}
+
 @end

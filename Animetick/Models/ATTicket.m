@@ -27,6 +27,8 @@
     
     NSString *startAt = NSNullToNil(dic[@"start_at"]);
     self.startAt = startAt ? [NSDate dateWithATDateFormatString:startAt] : nil;
+    NSString *endAt = NSNullToNil(dic[@"end_at"]);
+    self.endAt = endAt ? [NSDate dateWithATDateFormatString:startAt] : nil;
     
     self.chName = NSNullToNil(dic[@"ch_name"]);
     self.chNumber = [(NSNumber*)NSNullToNil(dic[@"chNumber"]) intValue];
@@ -68,6 +70,10 @@
 
 - (NSString*)nearDateLabelText
 {
+    if ([[NSDate date] isBetweenDate:self.startAt andDate:self.endAt]) {
+        return @"放送中";
+    }
+    
     int daysDifference = [ATDateUtils daysDifferenceConsiderMidnight:[NSDate date] with:self.startAt];
     if (daysDifference == 1) {
         return @"明日";

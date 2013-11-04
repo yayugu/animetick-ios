@@ -6,6 +6,7 @@
 @property (nonatomic, strong) NSString *iconPath;
 @property (nonatomic, strong) NSString *subTitle;
 @property (nonatomic, strong) NSDate *startAt;
+@property (nonatomic, strong) NSDate *endAt;
 @property (nonatomic, strong) NSArray *flags;
 @property (nonatomic, strong) NSString *chName;
 @property (nonatomic) int chNumber;
