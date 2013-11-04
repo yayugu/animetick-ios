@@ -28,7 +28,7 @@
     NSString *startAt = NSNullToNil(dic[@"start_at"]);
     self.startAt = startAt ? [NSDate dateWithATDateFormatString:startAt] : nil;
     NSString *endAt = NSNullToNil(dic[@"end_at"]);
-    self.endAt = endAt ? [NSDate dateWithATDateFormatString:startAt] : nil;
+    self.endAt = endAt ? [NSDate dateWithATDateFormatString:endAt] : nil;
     
     self.chName = NSNullToNil(dic[@"ch_name"]);
     self.chNumber = [(NSNumber*)NSNullToNil(dic[@"chNumber"]) intValue];
