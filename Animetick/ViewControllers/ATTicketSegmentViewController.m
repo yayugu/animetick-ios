@@ -30,6 +30,7 @@
 - (ATTicketViewController*)addTicketViewControllerWithWatched:(BOOL)watched
 {
     ATTicketViewController *ticketViewController = [[ATTicketViewController alloc] initWithWatched:watched];
+    ticketViewController.view.frame = self.view.bounds;
     [self addChildViewController:ticketViewController];
     [self didMoveToParentViewController:self];
     return ticketViewController;
