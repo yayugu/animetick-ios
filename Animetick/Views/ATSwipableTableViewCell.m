@@ -296,9 +296,7 @@ typedef enum {
             }
             break;
         case kCellStateRight:
-            if (velocity.x >= 0.5f) {
-                // No-op
-            } else if (velocity.x <= -0.5f) {
+            if (velocity.x <= -0.5f) {
                 [self scrollToCenter:targetContentOffset];
             } else {
                 if (targetContentOffset->x < ([self utilityButtonsPadding] - [self rightUtilityButtonsWidth] / 2))
