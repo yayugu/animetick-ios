@@ -32,6 +32,8 @@ typedef enum {
 
 @property (nonatomic) BOOL shrinked;
 
+@property (nonatomic) BOOL animating;
+
 @end
 
 @implementation ATSwipableTableViewCell
@@ -89,6 +91,7 @@ typedef enum {
     [self.contentView addSubview:cellScrollView];
     
     self.shrinked = NO;
+    self.animating = NO;
 }
 
 #pragma mark Selection
@@ -158,6 +161,7 @@ typedef enum {
 
 - (void)revealRightUtiliyButtonsWithOverrun:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context
 {
+    self.animating = YES;
     [UIView animateWithDuration:0.5
                           delay:0.0
                         options:0
@@ -185,6 +189,7 @@ typedef enum {
                      }
                      completion:^(BOOL finished){
                          [self shrinkDraggableArea];
+                         self.animating = NO;
                      }];
 }
 
@@ -197,6 +202,13 @@ typedef enum {
     self.cellScrollView.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), _height);
     self.scrollViewButtonViewRight.frame = [self scrollViewButtonViewRightFrame];
     self.scrollViewContentView.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), _height);
+    if (!self.cellScrollView.dragging && !self.cellScrollView.decelerating && !self.animating) {
+        if (_cellState == kCellStateCenter) {
+            [self setCellScrollViewExpandedSize];
+        } else {
+            [self setCellScrollViewShrinkedSize];
+        }
+    }
 }
 
 #pragma mark UIScrollViewDelegate
@@ -281,9 +293,8 @@ typedef enum {
     });
 }
 
-- (void)expandDraggableArea
+- (void)setCellScrollViewExpandedSize
 {
-    if (!self.shrinked) return;
     self.cellScrollView.frame = (CGRect){
         .origin = self.cellScrollView.frame.origin,
         .size.width = self.bounds.size.width,
@@ -293,14 +304,9 @@ typedef enum {
         .width = self.bounds.size.width + [self utilityButtonsPadding],
         .height = _height,
     };
-    self.cellScrollView.contentOffset = (CGPoint){
-        .x = [self utilityButtonsPadding],
-        .y = 0,
-    };
-    self.shrinked = NO;
 }
 
-- (void)shrinkDraggableArea
+- (void)setCellScrollViewShrinkedSize
 {
     self.cellScrollView.frame = (CGRect){
         .origin = self.cellScrollView.frame.origin,
@@ -311,6 +317,22 @@ typedef enum {
         .width = self.bounds.size.width,
         .height = _height,
     };
+}
+
+- (void)expandDraggableArea
+{
+    if (!self.shrinked) return;
+    [self setCellScrollViewExpandedSize];
+    self.cellScrollView.contentOffset = (CGPoint){
+        .x = [self utilityButtonsPadding],
+        .y = 0,
+    };
+    self.shrinked = NO;
+}
+
+- (void)shrinkDraggableArea
+{
+    [self setCellScrollViewShrinkedSize];
     self.shrinked = YES;
 }
 
