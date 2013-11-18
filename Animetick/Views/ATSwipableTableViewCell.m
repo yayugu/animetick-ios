@@ -59,17 +59,10 @@ typedef enum {
 {
     // Set up the views that will hold the utility buttons
     ATTableViewCellButtonView *scrollViewButtonViewRight = [[ATTableViewCellButtonView alloc] initWithUtilityButtons:_rightUtilityButtons parentCell:self utilityButtonSelector:@selector(rightUtilityButtonHandler:)];
-    [scrollViewButtonViewRight setFrame:CGRectMake(
-                                                   CGRectGetWidth(self.bounds) - [self rightUtilityButtonsWidth],
-                                                   0,
-                                                   [self rightUtilityButtonsWidth],
-                                                   _height
-                                                   )];
     self.scrollViewButtonViewRight = scrollViewButtonViewRight;
+    scrollViewButtonViewRight.frame = [self scrollViewButtonViewRightFrame];
     [self.contentView addSubview:scrollViewButtonViewRight];
-    
 
-    
     // Set up scroll view that will host our cell content
     UIScrollView *cellScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), _height)];
     
@@ -202,77 +195,8 @@ typedef enum {
     [super layoutSubviews];
     
     self.cellScrollView.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), _height);
-    self.scrollViewButtonViewRight.frame = CGRectMake(
-                                                      CGRectGetWidth(self.bounds) - [self rightUtilityButtonsWidth],
-                                                      0,
-                                                      [self rightUtilityButtonsWidth],
-                                                      _height
-                                                      );
+    self.scrollViewButtonViewRight.frame = [self scrollViewButtonViewRightFrame];
     self.scrollViewContentView.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), _height);
-}
-
-#pragma mark - Setup helpers
-
-- (CGFloat)rightUtilityButtonsWidth
-{
-    return [_scrollViewButtonViewRight utilityButtonsWidth];
-}
-
-- (CGFloat)utilityButtonsPadding
-{
-    return [_scrollViewButtonViewRight utilityButtonsWidth];
-}
-
-- (CGPoint)scrollViewContentOffset
-{
-    return CGPointMake(0, 0);
-}
-
-#pragma mark UIScrollView helpers
-
-- (void)scrollToRight:(inout CGPoint *)targetContentOffset
-{
-    targetContentOffset->x = [self utilityButtonsPadding];
-    _cellState = kCellStateRight;
-}
-
-- (void)scrollToCenter:(inout CGPoint *)targetContentOffset
-{
-    targetContentOffset->x = 0;
-    _cellState = kCellStateCenter;
-}
-
-- (void)expandDraggableArea
-{
-    if (!self.shrinked) return;
-    self.cellScrollView.frame = (CGRect){
-        .origin = self.cellScrollView.frame.origin,
-        .size.width = self.bounds.size.width,
-        .size.height = _height,
-    };
-    self.cellScrollView.contentSize = (CGSize){
-        .width = self.bounds.size.width + [self utilityButtonsPadding],
-        .height = _height,
-    };
-    self.cellScrollView.contentOffset = (CGPoint){
-        .x = [self utilityButtonsPadding],
-        .y = 0,
-    };
-    self.shrinked = NO;
-}
-
-- (void)shrinkDraggableArea
-{
-    self.cellScrollView.frame = (CGRect){
-        .origin = self.cellScrollView.frame.origin,
-        .size.width = self.bounds.size.width - [self utilityButtonsPadding],
-        .size.height = _height,
-    };
-    self.cellScrollView.contentSize = (CGSize){
-        .width = self.bounds.size.width,
-        .height = _height,
-    };
-    self.shrinked = YES;
 }
 
 #pragma mark UIScrollViewDelegate
@@ -316,6 +240,78 @@ typedef enum {
             [self shrinkDraggableArea];
             break;
     }
+}
+
+#pragma mark - Internal methods
+
+- (void)scrollToRight:(inout CGPoint *)targetContentOffset
+{
+    targetContentOffset->x = [self utilityButtonsPadding];
+    _cellState = kCellStateRight;
+}
+
+- (void)scrollToCenter:(inout CGPoint *)targetContentOffset
+{
+    targetContentOffset->x = 0;
+    _cellState = kCellStateCenter;
+}
+
+- (CGFloat)rightUtilityButtonsWidth
+{
+    return [_scrollViewButtonViewRight utilityButtonsWidth];
+}
+
+- (CGFloat)utilityButtonsPadding
+{
+    return [_scrollViewButtonViewRight utilityButtonsWidth];
+}
+
+- (CGPoint)scrollViewContentOffset
+{
+    return CGPointMake(0, 0);
+}
+
+- (CGRect)scrollViewButtonViewRightFrame
+{
+    return ((CGRect) {
+        .origin.x = CGRectGetWidth(self.bounds) - [self rightUtilityButtonsWidth],
+        .origin.y = 0,
+        .size.width = [self rightUtilityButtonsWidth],
+        .size.height = _height,
+    });
+}
+
+- (void)expandDraggableArea
+{
+    if (!self.shrinked) return;
+    self.cellScrollView.frame = (CGRect){
+        .origin = self.cellScrollView.frame.origin,
+        .size.width = self.bounds.size.width,
+        .size.height = _height,
+    };
+    self.cellScrollView.contentSize = (CGSize){
+        .width = self.bounds.size.width + [self utilityButtonsPadding],
+        .height = _height,
+    };
+    self.cellScrollView.contentOffset = (CGPoint){
+        .x = [self utilityButtonsPadding],
+        .y = 0,
+    };
+    self.shrinked = NO;
+}
+
+- (void)shrinkDraggableArea
+{
+    self.cellScrollView.frame = (CGRect){
+        .origin = self.cellScrollView.frame.origin,
+        .size.width = self.bounds.size.width - [self utilityButtonsPadding],
+        .size.height = _height,
+    };
+    self.cellScrollView.contentSize = (CGSize){
+        .width = self.bounds.size.width,
+        .height = _height,
+    };
+    self.shrinked = YES;
 }
 
 @end
