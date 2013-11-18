@@ -39,6 +39,7 @@
 		3AF6DA9017DAD72F00CA049A /* ATUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF6DA8F17DAD72F00CA049A /* ATUtils.m */; };
 		3AF6DA9217DAD7E800CA049A /* SettingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AF6DA9117DAD7E800CA049A /* SettingStoryboard.storyboard */; };
 		3AF6DA9517DCDF3800CA049A /* ATSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF6DA9417DCDF3800CA049A /* ATSettingViewController.m */; };
+		477D115E183A01DD0040D414 /* ATUtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 477D115D183A01DD0040D414 /* ATUtilsTests.m */; };
 		47D67CDB17B35F72001A0043 /* ATServiceLocator.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D67CDA17B35F72001A0043 /* ATServiceLocator.m */; };
 		47F9F51D17AA2FA0007C8A8D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47F9F51217AA2FA0007C8A8D /* Default-568h@2x.png */; };
 		47F9F52217AA2FA0007C8A8D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 47F9F51717AA2FA0007C8A8D /* Default.png */; };
@@ -123,6 +124,7 @@
 		3AF6DA9117DAD7E800CA049A /* SettingStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingStoryboard.storyboard; sourceTree = "<group>"; };
 		3AF6DA9317DCDF3800CA049A /* ATSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATSettingViewController.h; sourceTree = "<group>"; };
 		3AF6DA9417DCDF3800CA049A /* ATSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATSettingViewController.m; sourceTree = "<group>"; };
+		477D115D183A01DD0040D414 /* ATUtilsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATUtilsTests.m; sourceTree = "<group>"; };
 		47D67CD917B35F72001A0043 /* ATServiceLocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATServiceLocator.h; sourceTree = "<group>"; };
 		47D67CDA17B35F72001A0043 /* ATServiceLocator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATServiceLocator.m; sourceTree = "<group>"; };
 		47F9F51217AA2FA0007C8A8D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 				E26BEDAC177081A80087E0E4 /* AnimetickTests.m */,
 				E26BEDA6177081A80087E0E4 /* Supporting Files */,
 				3A40501617F5D6A2008A6997 /* ATDateUtilsTests.m */,
+				477D115D183A01DD0040D414 /* ATUtilsTests.m */,
 			);
 			path = AnimetickTests;
 			sourceTree = "<group>";
@@ -575,6 +578,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				477D115E183A01DD0040D414 /* ATUtilsTests.m in Sources */,
 				3A40501717F5D6A2008A6997 /* ATDateUtilsTests.m in Sources */,
 				E26BEDAD177081A80087E0E4 /* AnimetickTests.m in Sources */,
 			);

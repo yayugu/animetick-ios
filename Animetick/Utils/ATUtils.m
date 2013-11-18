@@ -2,8 +2,5 @@
 
 id NSNullToNil(id value)
 {
-    if (value == [NSNull null]) {
-        return nil;
-    }
-    return value;
+    return (value != [NSNull null]) ? value : nil;
 }
