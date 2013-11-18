@@ -287,26 +287,23 @@ typedef enum {
         case kCellStateCenter:
             if (velocity.x >= 0.5f) {
                 [self scrollToRight:targetContentOffset];
-            } else {
-                CGFloat rightThreshold = [self utilityButtonsPadding] - ([self rightUtilityButtonsWidth] / 2);
-                if (targetContentOffset->x > rightThreshold)
-                    [self scrollToRight:targetContentOffset];
-                else
-                    [self scrollToCenter:targetContentOffset];
+                return;
             }
             break;
         case kCellStateRight:
             if (velocity.x <= -0.5f) {
                 [self scrollToCenter:targetContentOffset];
-            } else {
-                if (targetContentOffset->x < ([self utilityButtonsPadding] - [self rightUtilityButtonsWidth] / 2))
-                    [self scrollToCenter:targetContentOffset];
-                else
-                    [self scrollToRight:targetContentOffset];
+                return;
             }
             break;
         default:
             break;
+    }
+    CGFloat rightThreshold = [self utilityButtonsPadding] - ([self rightUtilityButtonsWidth] / 2);
+    if (targetContentOffset->x > rightThreshold) {
+        [self scrollToRight:targetContentOffset];
+    } else {
+        [self scrollToCenter:targetContentOffset];
     }
 }
 
