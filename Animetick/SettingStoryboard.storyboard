@@ -138,10 +138,10 @@
             </objects>
             <point key="canvasLocation" x="151" y="-97"/>
         </scene>
-        <!--View Controller-->
+        <!--Lisence View Controller-->
         <scene sceneID="e1e-IA-BO7">
             <objects>
-                <viewController id="RNi-Gs-F9h" sceneMemberID="viewController">
+                <viewController id="RNi-Gs-F9h" customClass="ATLisenceViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Hym-wi-ms5"/>
                         <viewControllerLayoutGuide type="bottom" id="zvz-Hg-yQj"/>
@@ -150,7 +150,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P35-Mm-Olz">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P35-Mm-Olz">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -160,8 +160,17 @@
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="P35-Mm-Olz" firstAttribute="leading" secondItem="bTa-8G-W9d" secondAttribute="leading" id="DhP-Tm-EBM"/>
+                            <constraint firstItem="P35-Mm-Olz" firstAttribute="top" secondItem="bTa-8G-W9d" secondAttribute="top" id="ogW-MH-g1U"/>
+                            <constraint firstAttribute="trailing" secondItem="P35-Mm-Olz" secondAttribute="trailing" id="xqt-1G-McU"/>
+                            <constraint firstItem="zvz-Hg-yQj" firstAttribute="top" secondItem="P35-Mm-Olz" secondAttribute="bottom" id="yjc-ok-mLW"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sRy-TJ-uKF"/>
+                    <connections>
+                        <outlet property="textView" destination="P35-Mm-Olz" id="5dt-xS-Lpq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gtY-XJ-KVe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

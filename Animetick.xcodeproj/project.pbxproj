@@ -39,6 +39,8 @@
 		3AF6DA9017DAD72F00CA049A /* ATUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF6DA8F17DAD72F00CA049A /* ATUtils.m */; };
 		3AF6DA9217DAD7E800CA049A /* SettingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AF6DA9117DAD7E800CA049A /* SettingStoryboard.storyboard */; };
 		3AF6DA9517DCDF3800CA049A /* ATSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF6DA9417DCDF3800CA049A /* ATSettingViewController.m */; };
+		470D11B3183B5C520019B0E1 /* LibraryLicenses.txt in Resources */ = {isa = PBXBuildFile; fileRef = 470D11B2183B5C0B0019B0E1 /* LibraryLicenses.txt */; };
+		470D11B6183B5E040019B0E1 /* ATLisenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 470D11B5183B5E040019B0E1 /* ATLisenceViewController.m */; };
 		477D115E183A01DD0040D414 /* ATUtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 477D115D183A01DD0040D414 /* ATUtilsTests.m */; };
 		47D67CDB17B35F72001A0043 /* ATServiceLocator.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D67CDA17B35F72001A0043 /* ATServiceLocator.m */; };
 		47F9F51D17AA2FA0007C8A8D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47F9F51217AA2FA0007C8A8D /* Default-568h@2x.png */; };
@@ -124,6 +126,9 @@
 		3AF6DA9117DAD7E800CA049A /* SettingStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingStoryboard.storyboard; sourceTree = "<group>"; };
 		3AF6DA9317DCDF3800CA049A /* ATSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATSettingViewController.h; sourceTree = "<group>"; };
 		3AF6DA9417DCDF3800CA049A /* ATSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATSettingViewController.m; sourceTree = "<group>"; };
+		470D11B2183B5C0B0019B0E1 /* LibraryLicenses.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LibraryLicenses.txt; sourceTree = "<group>"; };
+		470D11B4183B5E040019B0E1 /* ATLisenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLisenceViewController.h; sourceTree = "<group>"; };
+		470D11B5183B5E040019B0E1 /* ATLisenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLisenceViewController.m; sourceTree = "<group>"; };
 		477D115D183A01DD0040D414 /* ATUtilsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATUtilsTests.m; sourceTree = "<group>"; };
 		47D67CD917B35F72001A0043 /* ATServiceLocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATServiceLocator.h; sourceTree = "<group>"; };
 		47D67CDA17B35F72001A0043 /* ATServiceLocator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATServiceLocator.m; sourceTree = "<group>"; };
@@ -222,6 +227,7 @@
 				3A7FBD3617E5EE27004F7091 /* animetick_ios7_152.png */,
 				3A7FBD3717E5EE27004F7091 /* animetick_ios7_60.png */,
 				3A7FBD3817E5EE27004F7091 /* animetick_ios7_120.png */,
+				470D11B2183B5C0B0019B0E1 /* LibraryLicenses.txt */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -266,6 +272,8 @@
 				47F9F55117AA42A4007C8A8D /* ATRootTabController.m */,
 				3AF6DA9317DCDF3800CA049A /* ATSettingViewController.h */,
 				3AF6DA9417DCDF3800CA049A /* ATSettingViewController.m */,
+				470D11B4183B5E040019B0E1 /* ATLisenceViewController.h */,
+				470D11B5183B5E040019B0E1 /* ATLisenceViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -460,6 +468,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				470D11B3183B5C520019B0E1 /* LibraryLicenses.txt in Resources */,
 				3AE6DE4C17E4C20400BA9745 /* tabbar-icon-ticket@2x.png in Resources */,
 				3A7FBD4417E5F3B1004F7091 /* Default-Portrait~ipad.png in Resources */,
 				3A7FBD3C17E5EE27004F7091 /* animetick_ios7_152.png in Resources */,
@@ -558,6 +567,7 @@
 				3AE6DE4F17E4C72600BA9745 /* ATUserConfigurations.m in Sources */,
 				3AE6DE3C17E44BC300BA9745 /* NSHTTPCookieStorage+ATAdditions.m in Sources */,
 				E26BED8E177081A80087E0E4 /* main.m in Sources */,
+				470D11B6183B5E040019B0E1 /* ATLisenceViewController.m in Sources */,
 				47F9F53217AA35C9007C8A8D /* ATTicket.m in Sources */,
 				3AF6DA9517DCDF3800CA049A /* ATSettingViewController.m in Sources */,
 				47F9F53317AA35C9007C8A8D /* ATTicketList.m in Sources */,
