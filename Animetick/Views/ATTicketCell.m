@@ -9,8 +9,15 @@
 
 # pragma mark - Object Lifecycle
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier containingTableView:(UITableView *)containingTableView rightUtilityButtons:(NSArray *)rightUtilityButtons height:(CGFloat)height
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier containingTableView:(UITableView *)containingTableView watched:(BOOL)watched height:(CGFloat)height
 {
+    UIButton *watchButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    watchButton.backgroundColor = [UIColor atTintColor];
+    NSString *watchButtonTitle = watched ? @"Unwatch" : @"Watch";
+    [watchButton setTitle:watchButtonTitle forState:UIControlStateNormal];
+    [watchButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    NSArray *rightUtilityButtons = @[watchButton];
+    
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier containingTableView:containingTableView rightUtilityButtons:rightUtilityButtons height:height];
     if (self) {
         NSArray *bundle = [[NSBundle mainBundle] loadNibNamed:@"ATTicketContentView"
