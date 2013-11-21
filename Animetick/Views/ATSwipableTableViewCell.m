@@ -45,7 +45,7 @@ typedef enum {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         CGRect frame = self.frame;
-        frame.size.height = 73;
+        frame.size.height = height;
         self.frame = frame;
         self.rightUtilityButtons = rightUtilityButtons;
         self.height = height;

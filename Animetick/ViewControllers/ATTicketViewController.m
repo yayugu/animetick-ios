@@ -76,18 +76,11 @@
     static NSString *CellIdentifier = @"ATTicketCell";
     ATTicketCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        UIButton *watchButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        watchButton.backgroundColor = [UIColor atTintColor];
-        NSString *watchButtonTitle = self.watched ? @"Unwatch" : @"Watch";
-        [watchButton setTitle:watchButtonTitle forState:UIControlStateNormal];
-        [watchButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        NSArray *rightUtilityButtons = @[watchButton];
-        
         cell = [[ATTicketCell alloc] initWithStyle:UITableViewCellStyleDefault
                                    reuseIdentifier:@"ATTicketCell"
                                containingTableView:self.tableView
-                               rightUtilityButtons:rightUtilityButtons
-                                            height:73];
+                                           watched:self.watched
+                                            height:74];
         cell.delegate = self;
     }
     [self assignCell:cell ValuesWithIndexPath:indexPath];
@@ -184,9 +177,6 @@
 - (void)startIndicator
 {
     [self.indicator startAnimating];
-    CGRect footerFrame = self.tableView.tableFooterView.frame;
-    footerFrame.size.height += 10.0f;
-    [self.indicator setFrame:footerFrame];
     [self.tableView setTableFooterView:self.indicator];
 }
 

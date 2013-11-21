@@ -7,4 +7,6 @@
 @property (strong, nonatomic) ATTicket *ticket;
 @property (strong, nonatomic) ATTicketContentView *frontView;
 
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier containingTableView:(UITableView *)containingTableView watched:(BOOL)watched height:(CGFloat)height;
+
 @end
