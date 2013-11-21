@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="H6H-kZ-ce3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="H6H-kZ-ce3">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
@@ -138,7 +138,7 @@
             </objects>
             <point key="canvasLocation" x="151" y="-97"/>
         </scene>
-        <!--Lisence View Controller-->
+        <!--Lisence View Controller - ライセンス-->
         <scene sceneID="e1e-IA-BO7">
             <objects>
                 <viewController id="RNi-Gs-F9h" customClass="ATLisenceViewController" sceneMemberID="viewController">
@@ -167,7 +167,7 @@
                             <constraint firstItem="zvz-Hg-yQj" firstAttribute="top" secondItem="P35-Mm-Olz" secondAttribute="bottom" id="yjc-ok-mLW"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="sRy-TJ-uKF"/>
+                    <navigationItem key="navigationItem" title="ライセンス" id="sRy-TJ-uKF"/>
                     <connections>
                         <outlet property="textView" destination="P35-Mm-Olz" id="5dt-xS-Lpq"/>
                     </connections>

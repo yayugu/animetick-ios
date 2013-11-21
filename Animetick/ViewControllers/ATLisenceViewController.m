@@ -24,4 +24,11 @@
     self.textView.text = text;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+  [super viewWillAppear:animated];
+  
+  self.navigationController.navigationBarHidden = NO;
+}
+
 @end
