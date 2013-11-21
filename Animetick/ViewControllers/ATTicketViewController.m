@@ -177,9 +177,6 @@
 - (void)startIndicator
 {
     [self.indicator startAnimating];
-    CGRect footerFrame = self.tableView.tableFooterView.frame;
-    footerFrame.size.height += 10.0f;
-    [self.indicator setFrame:footerFrame];
     [self.tableView setTableFooterView:self.indicator];
 }
 
