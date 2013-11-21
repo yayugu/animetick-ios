@@ -80,7 +80,7 @@
                                    reuseIdentifier:@"ATTicketCell"
                                containingTableView:self.tableView
                                            watched:self.watched
-                                            height:73];
+                                            height:74];
         cell.delegate = self;
     }
     [self assignCell:cell ValuesWithIndexPath:indexPath];
