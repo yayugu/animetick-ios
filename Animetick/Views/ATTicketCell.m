@@ -50,6 +50,8 @@
     self.frontView.startAt.text = @"";
     self.frontView.channel.text = @"";
     self.frontView.nearDateLabel.text = @"";
+    
+    [self.frontView setNeedsDisplay];
     //self.frontView.title.text = ticket.title;
     //self.frontView.subTitle.text = ticket.episondeNumberWithSubTitle;
     //self.frontView.startAt.text = ticket.startAtText;

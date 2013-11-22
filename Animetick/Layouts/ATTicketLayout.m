@@ -65,13 +65,13 @@ static const CGFloat ATTicketLayoutRightPadding = 5;
 - (NSAttributedString*)titleAttrString
 {
     return [[NSAttributedString alloc] initWithString:self.ticket.title
-                                           attributes:@{NSFontAttributeName: [UIFont fontWithName:@"HiraKakuProN-W6" size:15.0]}];
+                                           attributes:@{NSFontAttributeName: [self titleFont]}];
 }
 
 - (NSAttributedString*)subTitleAttrString
 {
     return [[NSAttributedString alloc] initWithString:self.ticket.subTitle
-                                           attributes:@{NSFontAttributeName: [UIFont fontWithName:@"HiraKakuProN-W3" size:12.0]}];
+                                           attributes:@{NSFontAttributeName: [self subTitleFont]}];
 }
 
 #pragma mark - Internal methods
@@ -82,6 +82,16 @@ static const CGFloat ATTicketLayoutRightPadding = 5;
         .width = width,
         .height = CGFLOAT_MAX,
     });
+}
+
+- (UIFont*)titleFont
+{
+    return [UIFont fontWithName:@"HiraKakuProN-W6" size:15.0];
+}
+
+- (UIFont*)subTitleFont
+{
+    return [UIFont fontWithName:@"HiraKakuProN-W3" size:12.0];
 }
 
 - (CGFloat)titleWidth
@@ -96,12 +106,12 @@ static const CGFloat ATTicketLayoutRightPadding = 5;
 
 - (CGFloat)titleHeight
 {
-    return [self textHeightWithAttributedString:[self titleAttrString] width:[self titleWidth]];
+    return [self textHeightWithAttributedString:[self titleAttrString] width:[self titleWidth] font:[self titleFont]];
 }
 
 - (CGFloat)subTitleHeight
 {
-    return [self textHeightWithAttributedString:[self subTitleAttrString] width:[self subTitleWidth]];
+    return [self textHeightWithAttributedString:[self subTitleAttrString] width:[self subTitleWidth] font:[self titleFont]];
 }
 
 - (CGFloat)channelHeight
@@ -109,13 +119,12 @@ static const CGFloat ATTicketLayoutRightPadding = 5;
     return 15.0;
 }
 
-- (CGFloat)textHeightWithAttributedString:(NSAttributedString*)attrString width:(CGFloat)width
+- (CGFloat)textHeightWithAttributedString:(NSAttributedString*)attrString width:(CGFloat)width font:(UIFont*)font
 {
     CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((__bridge CFAttributedStringRef)attrString);
     CGSize size = CTFramesetterSuggestFrameSizeWithConstraints(framesetter, CFRangeMake(0, 0), nil, [self constraintSizeWithWidth:width], nil);
     CFRelease(framesetter);
-    //TODO: added decent
-    return size.height; // + ceilf(CTFontGetDescent(self.ctFont);
+    return size.height + ceilf(font.descender);
 }
 
 @end
