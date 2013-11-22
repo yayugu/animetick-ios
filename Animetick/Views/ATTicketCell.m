@@ -43,11 +43,18 @@
 {
     _ticket = ticket;
     [self.frontView.icon setImageWithURL:ticket.iconURL];
-    self.frontView.title.text = ticket.title;
-    self.frontView.subTitle.text = ticket.episondeNumberWithSubTitle;
-    self.frontView.startAt.text = ticket.startAtText;
-    self.frontView.channel.text = ticket.channelText;
-    self.frontView.nearDateLabel.text = self.ticket.nearDateLabelText;
+    self.frontView.ticket = ticket;
+    
+    self.frontView.title.text = @"";
+    self.frontView.subTitle.text = @"";
+    self.frontView.startAt.text = @"";
+    self.frontView.channel.text = @"";
+    self.frontView.nearDateLabel.text = @"";
+    //self.frontView.title.text = ticket.title;
+    //self.frontView.subTitle.text = ticket.episondeNumberWithSubTitle;
+    //self.frontView.startAt.text = ticket.startAtText;
+    //self.frontView.channel.text = ticket.channelText;
+    //self.frontView.nearDateLabel.text = self.ticket.nearDateLabelText;
 }
 
 @end
