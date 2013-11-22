@@ -114,7 +114,8 @@ static const CGFloat ATTicketLayoutRightPadding = 5;
     CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((__bridge CFAttributedStringRef)attrString);
     CGSize size = CTFramesetterSuggestFrameSizeWithConstraints(framesetter, CFRangeMake(0, 0), nil, [self constraintSizeWithWidth:width], nil);
     CFRelease(framesetter);
-    return ceilf(size.height);
+    //TODO: added decent
+    return size.height; // + ceilf(CTFontGetDescent(self.ctFont);
 }
 
 @end

@@ -33,6 +33,7 @@
 
 - (void)drawTextWithContext:(CGContextRef)context Rect:(CGRect)rect attributedString:(NSAttributedString*)attrString
 {
+    rect.size.height = self.bounds.size.height;
     CGPathRef path = CGPathCreateWithRect(rect, &CGAffineTransformIdentity);
     CFAttributedStringRef attrStringRef = (__bridge_retained CFAttributedStringRef)attrString;
     
