@@ -10,12 +10,21 @@
 #import <CoreText/CoreText.h>
 #import "ATTicketContentView.h"
 #import "ATTicket.h"
+#import "ATTicketLayout.h"
 
-static const CGFloat ATTicketContentViewTitleTopMargin = 10;
-static const CGFloat ATTicketContentViewRightPadding = 5;
-static const CGFloat ATTicketContentViewLeftPadding = 5;
+@interface ATTicketContentView ()
+
+@property (nonatomic, strong)ATTicketLayout *layout;
+
+@end
 
 @implementation ATTicketContentView
+
+- (void)setTicket:(ATTicket *)ticket
+{
+    self.ticket = ticket;
+    self.layout = [[ATTicketLayout alloc] initWithTicket:ticket];
+}
 
 - (void)drawRect:(CGRect)rect
 {
@@ -56,38 +65,29 @@ static const CGFloat ATTicketContentViewLeftPadding = 5;
 
 - (void)drawTitleWithContext:(CGContextRef)context;
 {
-    CGMutablePathRef path = CGPathCreateMutable();
-    
-    CGFloat leftPaddingSum = self.icon.frame.origin.x + self.icon.frame.size.width + ATTicketContentViewLeftPadding;
     CGRect bounds = (CGRect) {
-        .origin.x = leftPaddingSum,
-        .origin.y = ATTicketContentViewTitleTopMargin * -1,
-        .size.width = self.bounds.size.width - leftPaddingSum - ATTicketContentViewRightPadding,
+        .origin.x = ATTicketLayoutLeftPadding,
+        .origin.y = ATTicketLayoutTopPadding * -1,
+        .size.width = self.bounds.size.width - ATTicketLayoutLeftPadding - ATTicketLayoutRightPadding,
         .size.height = self.bounds.size.height,
     };
-    CGPathAddRect(path, NULL, bounds);
-    CFStringRef textString = (__bridge CFStringRef)self.ticket.title;
+    CGPathRef path = CGPathCreateWithRect(bounds, &CGAffineTransformIdentity);
     
-    CTFontRef font = CTFontCreateWithName(CFSTR("HiraKakuProN-W6"), 15.0, NULL);
-    CFStringRef keys[] = { kCTFontAttributeName };
-    CFTypeRef values[] = { font };
-    CFDictionaryRef attributes = CFDictionaryCreate(kCFAllocatorDefault, (const void**)&keys,
-                                                    (const void**)&values, sizeof(keys) / sizeof(keys[0]),
-                                                    &kCFTypeDictionaryKeyCallBacks,
-                                                    &kCFTypeDictionaryValueCallBacks);
-    CFAttributedStringRef attrString = CFAttributedStringCreate(kCFAllocatorDefault, textString, attributes);
-    CFRelease(attributes);
+    NSAttributedString *attrString =
+        [[NSAttributedString alloc] initWithString:self.ticket.title
+                                        attributes:@{NSFontAttributeName: [UIFont fontWithName:@"HiraKakuProN-W6" size:15.0]}];
+    CFAttributedStringRef attrStringRef = (__bridge_retained CFAttributedStringRef)attrString;
     
-    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString(attrString);
+    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString(attrStringRef);
     CTFrameRef frame = CTFramesetterCreateFrame(framesetter,
-                                                CFRangeMake(0, CFAttributedStringGetLength(attrString)),
+                                                CFRangeMake(0, CFAttributedStringGetLength(attrStringRef)),
                                                 path,
                                                 NULL);
+    CFRelease(frame);
     
     CTFrameDraw(frame, context);
     
-    CFRelease(attrString);
-    CFRelease(frame);
+    CFRelease(attrStringRef);
     CFRelease(path);
     CFRelease(framesetter);
 }
