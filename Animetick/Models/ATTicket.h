@@ -14,7 +14,8 @@
 
 - (id)initWithDictionary:(NSDictionary*)dictionary;
 - (NSURL*)iconURL;
-- (NSString*)episondeNumberWithSubTitle;
+- (NSString*)titleWithEpisodeNumberText;
+- (NSString*)subTitleText;
 - (NSString*)channelText;
 - (NSString*)startAtText;
 - (NSString*)nearDateLabelText;

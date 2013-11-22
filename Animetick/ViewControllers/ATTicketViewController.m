@@ -2,6 +2,7 @@
 #import "ATTicketList.h"
 #import "ATTicketCell.h"
 #import "UIColor+ATAdditions.h"
+#import "ATTicketLayout.h"
 
 @interface ATTicketViewController () <ATTicketListDelegate, SWTableViewCellDelegate>
 
@@ -79,8 +80,7 @@
         cell = [[ATTicketCell alloc] initWithStyle:UITableViewCellStyleDefault
                                    reuseIdentifier:@"ATTicketCell"
                                containingTableView:self.tableView
-                                           watched:self.watched
-                                            height:74];
+                                           watched:self.watched];
         cell.delegate = self;
     }
     [self assignCell:cell ValuesWithIndexPath:indexPath];
@@ -88,6 +88,12 @@
 }
 
 #pragma mark - Table view delegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ATTicket *ticket = [self.ticketList ticketAtIndex:indexPath.row];
+    return [[[ATTicketLayout alloc] initWithTicket:ticket cellWidth:self.view.bounds.size.width] height];
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -154,7 +160,7 @@
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
         [indexPaths addObject:indexPath];
     }
-    [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
     [self.refreshControl endRefreshing];
     [self endIndicator];
 }

@@ -17,7 +17,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <inset key="separatorInset" minX="69" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="dataSource" destination="-1" id="6"/>
                 <outlet property="delegate" destination="-1" id="7"/>

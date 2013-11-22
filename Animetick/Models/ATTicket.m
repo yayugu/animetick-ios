@@ -42,6 +42,18 @@
     return [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", ATAnimetickURLString, self.iconPath]];
 }
 
+- (NSString*)titleWithEpisodeNumberText
+{
+    return [NSString stringWithFormat:@"%@ #%d",
+            (self.title ? self.title : @""),
+            self.count];
+}
+
+- (NSString*)subTitleText
+{
+    return self.subTitle ? self.subTitle : @"";
+}
+
 - (NSString*)episondeNumberWithSubTitle
 {
     return [NSString stringWithFormat:@"#%d %@", self.count, self.subTitle];
