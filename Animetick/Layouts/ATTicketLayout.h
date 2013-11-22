@@ -8,14 +8,14 @@
 
 @class ATTicket;
 
-static const CGFloat ATTicketLayoutTopPadding = 10;
-static const CGFloat ATTicketLayoutBottomPadding = 5;
-static const CGFloat ATTicketLayoutRightPadding = 65;
-static const CGFloat ATTicketLayoutLeftPadding = 5;
-
 @interface ATTicketLayout : NSObject
 
-- (instancetype)initWithTicket:(ATTicket*)ticket;
-- (CGFloat)heigthWithCellWidth:(CGFloat)cellWidth;
+- (instancetype)initWithTicket:(ATTicket*)ticket cellWidth:(CGFloat)cellWidth;
+- (CGFloat)height;
+
+- (CGRect)titleRect;
+- (CGRect)subTitleRect;
+- (NSAttributedString*)titleAttrString;
+- (NSAttributedString*)subTitleAttrString;
 
 @end

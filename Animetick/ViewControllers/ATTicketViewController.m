@@ -2,6 +2,7 @@
 #import "ATTicketList.h"
 #import "ATTicketCell.h"
 #import "UIColor+ATAdditions.h"
+#import "ATTicketLayout.h"
 
 @interface ATTicketViewController () <ATTicketListDelegate, SWTableViewCellDelegate>
 
@@ -88,6 +89,12 @@
 }
 
 #pragma mark - Table view delegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ATTicket *ticket = [self.ticketList ticketAtIndex:indexPath.row];
+    return [[[ATTicketLayout alloc] initWithTicket:ticket cellWidth:self.view.bounds.size.width] height];
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

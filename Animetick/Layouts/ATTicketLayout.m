@@ -11,48 +11,97 @@
 #import "ATTicketLayout.h"
 #import "ATTicket.h"
 
+static const CGFloat ATTicketLayoutTopPadding = 10;
+static const CGFloat ATTicketLayoutBottomPadding = 5;
+static const CGFloat ATTicketLayoutLeftPadding = 65;
+static const CGFloat ATTicketLayoutRightPadding = 5;
+
 @interface ATTicketLayout()
 @property (nonatomic, strong)ATTicket *ticket;
+@property (nonatomic)CGFloat cellWidth;
 @end
 
 @implementation ATTicketLayout
 
-- (instancetype)initWithTicket:(ATTicket*)ticket
+- (instancetype)initWithTicket:(ATTicket*)ticket cellWidth:(CGFloat)cellWidth
 {
     self = [super init];
     if (self) {
         self.ticket = ticket;
+        self.cellWidth = cellWidth;
     }
     return self;
 }
 
-- (CGFloat)heigthWithCellWidth:(CGFloat)cellWidth
+- (CGFloat)height
 {
     return ATTicketLayoutTopPadding
-        + [self titleHeightWithCellWidth:cellWidth]
-        + [self subTitleHeightWithCellWidth:cellWidth]
+        + [self titleHeight]
+        + [self subTitleHeight]
         + [self channelHeight]
         + ATTicketLayoutBottomPadding;
 }
 
-#pragma mark - Internal methods
-
-- (CGFloat)titleHeightWithCellWidth:(CGFloat)cellWidth
+- (CGRect)titleRect
 {
-    NSAttributedString *attrString =
-    [[NSAttributedString alloc] initWithString:self.ticket.title
-                                    attributes:@{NSFontAttributeName: [UIFont fontWithName:@"HiraKakuProN-W6" size:15.0]}];
-    CGFloat width = cellWidth - ATTicketLayoutLeftPadding - ATTicketLayoutRightPadding;
-    return [self textHeightWithAttributedString:attrString width:width];
+    return ((CGRect) {
+        .origin.x = ATTicketLayoutLeftPadding,
+        .origin.y = ATTicketLayoutTopPadding * -1,
+        .size.width = [self titleWidth],
+        .size.height = [self titleHeight],
+    });
 }
 
-- (CGFloat)subTitleHeightWithCellWidth:(CGFloat)cellWidth
+- (CGRect)subTitleRect
 {
-    NSAttributedString *attrString =
-    [[NSAttributedString alloc] initWithString:self.ticket.title
-                                    attributes:@{NSFontAttributeName: [UIFont fontWithName:@"HiraKakuProN-W3" size:12.0]}];
-    CGFloat width = cellWidth - ATTicketLayoutLeftPadding - ATTicketLayoutRightPadding;
-    return [self textHeightWithAttributedString:attrString width:width];
+    return ((CGRect) {
+        .origin.x = ATTicketLayoutLeftPadding,
+        .origin.y = (ATTicketLayoutTopPadding + [self titleHeight]) * -1,
+        .size.width = [self subTitleWidth],
+        .size.height = [self subTitleHeight],
+    });
+}
+
+- (NSAttributedString*)titleAttrString
+{
+    return [[NSAttributedString alloc] initWithString:self.ticket.title
+                                           attributes:@{NSFontAttributeName: [UIFont fontWithName:@"HiraKakuProN-W6" size:15.0]}];
+}
+
+- (NSAttributedString*)subTitleAttrString
+{
+    return [[NSAttributedString alloc] initWithString:self.ticket.subTitle
+                                           attributes:@{NSFontAttributeName: [UIFont fontWithName:@"HiraKakuProN-W3" size:12.0]}];
+}
+
+#pragma mark - Internal methods
+
+- (CGSize)constraintSizeWithWidth:(CGFloat)width
+{
+    return ((CGSize) {
+        .width = width,
+        .height = CGFLOAT_MAX,
+    });
+}
+
+- (CGFloat)titleWidth
+{
+    return self.cellWidth - ATTicketLayoutLeftPadding - ATTicketLayoutRightPadding;
+}
+
+- (CGFloat)subTitleWidth
+{
+    return self.cellWidth - ATTicketLayoutLeftPadding - ATTicketLayoutRightPadding;
+}
+
+- (CGFloat)titleHeight
+{
+    return [self textHeightWithAttributedString:[self titleAttrString] width:[self titleWidth]];
+}
+
+- (CGFloat)subTitleHeight
+{
+    return [self textHeightWithAttributedString:[self subTitleAttrString] width:[self subTitleWidth]];
 }
 
 - (CGFloat)channelHeight
@@ -60,21 +109,12 @@
     return 15.0;
 }
 
-- (void)drawTitleWithContext:(CGContextRef)context
-{
-    
-}
-
 - (CGFloat)textHeightWithAttributedString:(NSAttributedString*)attrString width:(CGFloat)width
 {
     CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((__bridge CFAttributedStringRef)attrString);
-    CGSize constraint = (CGSize) {
-        .width = width,
-        .height = CGFLOAT_MAX,
-    };
-    CGSize size = CTFramesetterSuggestFrameSizeWithConstraints(framesetter, CFRangeMake(0, 0), nil, constraint, nil);
+    CGSize size = CTFramesetterSuggestFrameSizeWithConstraints(framesetter, CFRangeMake(0, 0), nil, [self constraintSizeWithWidth:width], nil);
     CFRelease(framesetter);
-    return size.height;
+    return ceilf(size.height);
 }
 
 @end
