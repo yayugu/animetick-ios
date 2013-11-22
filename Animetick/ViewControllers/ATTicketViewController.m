@@ -80,8 +80,7 @@
         cell = [[ATTicketCell alloc] initWithStyle:UITableViewCellStyleDefault
                                    reuseIdentifier:@"ATTicketCell"
                                containingTableView:self.tableView
-                                           watched:self.watched
-                                            height:74];
+                                           watched:self.watched];
         cell.delegate = self;
     }
     [self assignCell:cell ValuesWithIndexPath:indexPath];
