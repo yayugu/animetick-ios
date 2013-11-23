@@ -39,6 +39,13 @@
 
 # pragma mark -
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    self.frontView.frame = self.scrollViewContentView.bounds;
+}
+
 - (void)setTicket:(ATTicket *)ticket
 {
     _ticket = ticket;
