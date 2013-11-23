@@ -21,25 +21,11 @@
         self.utilityButtonWidth = [self calculateUtilityButtonWidth];
         self.parentCell = parentCell;
         self.utilityButtonSelector = utilityButtonSelector;
+        self.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     }
     
     return self;
 }
-
-- (id)initWithFrame:(CGRect)frame utilityButtons:(NSArray *)utilityButtons parentCell:(ATSwipableTableViewCell *)parentCell utilityButtonSelector:(SEL)utilityButtonSelector {
-    self = [super initWithFrame:frame];
-    
-    if (self) {
-        self.utilityButtons = utilityButtons;
-        self.utilityButtonWidth = [self calculateUtilityButtonWidth];
-        self.parentCell = parentCell;
-        self.utilityButtonSelector = utilityButtonSelector;
-    }
-    
-    return self;
-}
-
-#pragma mark Populating utility buttons
 
 - (CGFloat)calculateUtilityButtonWidth {
     CGFloat buttonWidth = kUtilityButtonWidthDefault;
@@ -60,6 +46,7 @@
         CGFloat utilityButtonXCord = 0;
         if (utilityButtonsCounter >= 1) utilityButtonXCord = _utilityButtonWidth * utilityButtonsCounter;
         [utilityButton setFrame:CGRectMake(utilityButtonXCord, 0, _utilityButtonWidth, CGRectGetHeight(self.bounds))];
+        utilityButton.autoresizingMask = UIViewAutoresizingFlexibleHeight;
         [utilityButton setTag:utilityButtonsCounter];
         [utilityButton addTarget:_parentCell action:_utilityButtonSelector forControlEvents:UIControlEventTouchDown];
         [self addSubview: utilityButton];

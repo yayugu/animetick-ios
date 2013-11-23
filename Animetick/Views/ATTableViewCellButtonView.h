@@ -16,7 +16,6 @@
 @property (nonatomic) SEL utilityButtonSelector;
 
 - (id)initWithUtilityButtons:(NSArray *)utilityButtons parentCell:(ATSwipableTableViewCell *)parentCell utilityButtonSelector:(SEL)utilityButtonSelector;
-- (id)initWithFrame:(CGRect)frame utilityButtons:(NSArray *)utilityButtons parentCell:(ATSwipableTableViewCell *)parentCell utilityButtonSelector:(SEL)utilityButtonSelector;
 - (CGFloat)utilityButtonsWidth;
 - (void)populateUtilityButtons;
 
