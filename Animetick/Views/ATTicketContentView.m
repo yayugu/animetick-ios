@@ -26,12 +26,10 @@
     CGContextTranslateCTM(context, 0, self.bounds.size.height);
     CGContextScaleCTM(context, 1.0, -1.0);
 
-
-
     self.layout = [[ATTicketLayout alloc] initWithTicket:self.ticket cellWidth:self.bounds.size.width];
     [self drawTextWithContext:context Rect:[self.layout titleRect] attributedString:[self.layout titleAttrString]];
     [self drawTextWithContext:context Rect:[self.layout subTitleRect] attributedString:[self.layout subTitleAttrString]];
-    
+    [self drawTextWithContext:context Rect:[self.layout channelRect] attributedString:[self.layout channelAttrString]];
 }
 
 - (void)drawTextWithContext:(CGContextRef)context Rect:(CGRect)rect attributedString:(NSAttributedString*)attrString

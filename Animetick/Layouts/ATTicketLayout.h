@@ -15,7 +15,9 @@
 
 - (CGRect)titleRect;
 - (CGRect)subTitleRect;
+- (CGRect)channelRect;
 - (NSAttributedString*)titleAttrString;
 - (NSAttributedString*)subTitleAttrString;
+- (NSAttributedString*)channelAttrString;
 
 @end
