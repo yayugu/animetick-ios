@@ -196,7 +196,11 @@ typedef enum {
     
     self.cellScrollView.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), self.bounds.size.height);
     self.scrollViewButtonViewRight.frame = [self scrollViewButtonViewRightFrame];
+    
+    // FIXME: きたねえし、なんでこれやらないと正しく動かないかわからねえ
     self.scrollViewContentView.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), self.bounds.size.height);
+    ((UIView*)(self.scrollViewContentView.subviews[0])).frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), self.bounds.size.height);
+    
     if (!self.cellScrollView.dragging && !self.cellScrollView.decelerating && !self.animating) {
         if (_cellState == kCellStateCenter) {
             [self setCellScrollViewExpandedSize];
