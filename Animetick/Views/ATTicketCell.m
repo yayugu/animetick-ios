@@ -25,9 +25,6 @@
                                                         owner:self
                                                       options:nil];
         self.frontView = bundle[0];
-        [self.frontView.icon layer].borderColor = [[UIColor lightGrayColor] CGColor];
-        [self.frontView.icon layer].borderWidth = 1.0;
-        self.frontView.nearDateLabel.font = [UIFont fontWithName:@".HiraKakuInterface-W1" size:41];
         [self.scrollViewContentView addSubview:self.frontView];
         
         UIView *selectedBackgroundView = [[UIView alloc] init];
@@ -52,10 +49,7 @@
     [self.frontView.icon setImageWithURL:ticket.iconURL];
     self.frontView.ticket = ticket;
     
-    self.frontView.title.text = @"";
-    self.frontView.subTitle.text = @"";
-    self.frontView.startAt.text = @"";
-    self.frontView.channel.text = @"";
+    //self.frontView.nearDateLabel.text = self.ticket.nearDateLabelText;
     self.frontView.nearDateLabel.text = @"";
     
     CGRect frame = self.frame;
@@ -65,11 +59,6 @@
     [self setNeedsLayout];
     [self.frontView setNeedsLayout];
     [self.frontView setNeedsDisplay];
-    //self.frontView.title.text = ticket.title;
-    //self.frontView.subTitle.text = ticket.episondeNumberWithSubTitle;
-    //self.frontView.startAt.text = ticket.startAtText;
-    //self.frontView.channel.text = ticket.channelText;
-    //self.frontView.nearDateLabel.text = self.ticket.nearDateLabelText;
 }
 
 @end

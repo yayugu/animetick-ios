@@ -160,7 +160,7 @@
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
         [indexPaths addObject:indexPath];
     }
-    [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
     [self.refreshControl endRefreshing];
     [self endIndicator];
 }

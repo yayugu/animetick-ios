@@ -13,11 +13,14 @@
 - (instancetype)initWithTicket:(ATTicket*)ticket cellWidth:(CGFloat)cellWidth;
 - (CGFloat)height;
 
+- (CGRect)channelRect;
+- (CGRect)startAtRect;
 - (CGRect)titleRect;
 - (CGRect)subTitleRect;
-- (CGRect)channelRect;
+
+- (NSAttributedString*)channelAttrString;
+- (NSAttributedString*)startAtAttrString;
 - (NSAttributedString*)titleAttrString;
 - (NSAttributedString*)subTitleAttrString;
-- (NSAttributedString*)channelAttrString;
 
 @end
