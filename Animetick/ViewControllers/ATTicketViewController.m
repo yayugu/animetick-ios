@@ -3,11 +3,13 @@
 #import "ATTicketCell.h"
 #import "UIColor+ATAdditions.h"
 #import "ATTicketLayout.h"
+#import "ATPaddingIndicator.h"
+
 
 @interface ATTicketViewController () <ATTicketListDelegate, SWTableViewCellDelegate>
 
 @property (nonatomic, strong) ATTicketList *ticketList;
-@property (nonatomic, strong) UIActivityIndicatorView *indicator;
+@property (nonatomic, strong) ATPaddingIndicator *indicator;
 @property (nonatomic) BOOL watched;
 
 @end
@@ -33,10 +35,13 @@
                             action:@selector(pullToRefresh)
                   forControlEvents:UIControlEventValueChanged];
     
-    self.indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-    [self.indicator setColor:[UIColor darkGrayColor]];
-    [self.indicator setHidesWhenStopped:YES];
-    [self.indicator stopAnimating];
+    
+    NSArray *bundle = [[NSBundle mainBundle] loadNibNamed:@"ATPaddingIndicator"
+                                                    owner:self
+                                                  options:nil];
+    self.indicator = bundle[0];
+    [self.indicator.indicator setHidesWhenStopped:YES];
+    [self.indicator.indicator stopAnimating];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -111,7 +116,7 @@
     if (self.ticketList.count <= 0
         || self.ticketList.lastFlag
         || !leachToBottom
-        || [self.indicator isAnimating]) {
+        || [self.indicator.indicator isAnimating]) {
         return;
     }
     [self.ticketList loadMore];
@@ -182,13 +187,18 @@
 
 - (void)startIndicator
 {
-    [self.indicator startAnimating];
+    self.indicator.frame = (CGRect) {
+        .origin = {0, 0},
+        .size.width = self.view.bounds.size.width,
+        .size.height = 40,
+    };
+    [self.indicator.indicator startAnimating];
     [self.tableView setTableFooterView:self.indicator];
 }
 
 - (void)endIndicator
 {
-    [self.indicator stopAnimating];
+    [self.indicator.indicator stopAnimating];
     [self.indicator removeFromSuperview];
     [self.tableView setTableFooterView:nil];
 }

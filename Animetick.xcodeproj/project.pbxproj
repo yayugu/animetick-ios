@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		115F827C60F94EA499E3C1F7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFCD5A7D8710465FA58C06A3 /* libPods.a */; };
+		3A3462311843A729002A5E57 /* ATPaddingIndicator.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3462301843A729002A5E57 /* ATPaddingIndicator.xib */; };
+		3A3462341843A886002A5E57 /* ATPaddingIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3462331843A886002A5E57 /* ATPaddingIndicator.m */; };
 		3A40501717F5D6A2008A6997 /* ATDateUtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A40501617F5D6A2008A6997 /* ATDateUtilsTests.m */; };
 		3A447F4F17B514E000C38BD0 /* ATAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A447F4E17B514E000C38BD0 /* ATAPI.m */; };
 		3A7CF14B17E9DF18009A0D1B /* ATAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7CF14A17E9DF18009A0D1B /* ATAlertView.m */; };
@@ -82,6 +84,9 @@
 
 /* Begin PBXFileReference section */
 		171813F272F244428CECCC7C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		3A3462301843A729002A5E57 /* ATPaddingIndicator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATPaddingIndicator.xib; sourceTree = "<group>"; };
+		3A3462321843A886002A5E57 /* ATPaddingIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATPaddingIndicator.h; sourceTree = "<group>"; };
+		3A3462331843A886002A5E57 /* ATPaddingIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATPaddingIndicator.m; sourceTree = "<group>"; };
 		3A40501617F5D6A2008A6997 /* ATDateUtilsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDateUtilsTests.m; sourceTree = "<group>"; };
 		3A447F4D17B514E000C38BD0 /* ATAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAPI.h; sourceTree = "<group>"; };
 		3A447F4E17B514E000C38BD0 /* ATAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAPI.m; sourceTree = "<group>"; };
@@ -304,6 +309,9 @@
 				3AA10E8E1812489600D37897 /* ATTicketContentView.xib */,
 				3AA10E9018124DBF00D37897 /* ATTicketContentView.h */,
 				3AA10E9118124DBF00D37897 /* ATTicketContentView.m */,
+				3A3462301843A729002A5E57 /* ATPaddingIndicator.xib */,
+				3A3462321843A886002A5E57 /* ATPaddingIndicator.h */,
+				3A3462331843A886002A5E57 /* ATPaddingIndicator.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -500,6 +508,7 @@
 				3A7FBD4617E5F3B1004F7091 /* Default-Landscape~ipad.png in Resources */,
 				47F9F52217AA2FA0007C8A8D /* Default.png in Resources */,
 				47F9F52317AA2FA0007C8A8D /* Default@2x.png in Resources */,
+				3A3462311843A729002A5E57 /* ATPaddingIndicator.xib in Resources */,
 				3A7FBD4517E5F3B1004F7091 /* Default-Landscape@2x~ipad.png in Resources */,
 				3AE6DE4317E4BF0800BA9745 /* tabbar-icon-setting-selected@2x.png in Resources */,
 				3ACB7C2918202312007E981D /* TicketStoryboard.storyboard in Resources */,
@@ -595,6 +604,7 @@
 				3AA10E951814148200D37897 /* ATTableViewCellButtonView.m in Sources */,
 				3AA10E9218124DBF00D37897 /* ATTicketContentView.m in Sources */,
 				3AEF8DDE17AE0B8F00007E9C /* ATTicketCell.m in Sources */,
+				3A3462341843A886002A5E57 /* ATPaddingIndicator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
