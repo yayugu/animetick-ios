@@ -24,9 +24,6 @@ typedef enum {
 // Scroll view to be added to UITableViewCell
 @property (nonatomic, weak) UIScrollView *cellScrollView;
 
-// The cell's height
-@property (nonatomic) CGFloat height;
-
 // Used for row height and selection
 @property (nonatomic, weak) UITableView *containingTableView;
 
@@ -40,15 +37,13 @@ typedef enum {
 
 #pragma mark Initializers
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier containingTableView:(UITableView *)containingTableView rightUtilityButtons:(NSArray *)rightUtilityButtons height:(CGFloat)height
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier containingTableView:(UITableView *)containingTableView rightUtilityButtons:(NSArray *)rightUtilityButtons
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         CGRect frame = self.frame;
-        frame.size.height = height;
         self.frame = frame;
         self.rightUtilityButtons = rightUtilityButtons;
-        self.height = height;
         self.containingTableView = containingTableView;
         self.highlighted = NO;
         [self initializer];
@@ -66,14 +61,14 @@ typedef enum {
     [self.contentView addSubview:scrollViewButtonViewRight];
 
     // Set up scroll view that will host our cell content
-    UIScrollView *cellScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), _height)];
+    UIScrollView *cellScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), self.bounds.size.height)];
     
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewPressed:)];
     [cellScrollView addGestureRecognizer:tapGestureRecognizer];
     
     self.cellScrollView = cellScrollView;
 
-    cellScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.bounds) + [self utilityButtonsPadding], _height);
+    cellScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.bounds) + [self utilityButtonsPadding], self.bounds.size.height);
     cellScrollView.contentOffset = [self scrollViewContentOffset];
     cellScrollView.delegate = self;
     cellScrollView.showsHorizontalScrollIndicator = NO;
@@ -83,7 +78,7 @@ typedef enum {
     [scrollViewButtonViewRight populateUtilityButtons];
     
     // Create the content view that will live in our scroll view
-    UIView *scrollViewContentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), _height)];
+    UIView *scrollViewContentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), self.bounds.size.height)];
     scrollViewContentView.backgroundColor = [UIColor whiteColor];
     [self.cellScrollView addSubview:scrollViewContentView];
     self.scrollViewContentView = scrollViewContentView;
@@ -184,7 +179,7 @@ typedef enum {
                           delay:0.0
                         options:0
                      animations:^{
-                         self.cellScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.bounds) + [self utilityButtonsPadding], _height);
+                         self.cellScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.bounds) + [self utilityButtonsPadding], self.bounds.size.height);
                          self.cellScrollView.contentOffset = CGPointMake([self utilityButtonsPadding], 0);
                      }
                      completion:^(BOOL finished){
@@ -199,9 +194,9 @@ typedef enum {
 {
     [super layoutSubviews];
     
-    self.cellScrollView.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), _height);
+    self.cellScrollView.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), self.bounds.size.height);
     self.scrollViewButtonViewRight.frame = [self scrollViewButtonViewRightFrame];
-    self.scrollViewContentView.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), _height);
+    self.scrollViewContentView.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), self.bounds.size.height);
     if (!self.cellScrollView.dragging && !self.cellScrollView.decelerating && !self.animating) {
         if (_cellState == kCellStateCenter) {
             [self setCellScrollViewExpandedSize];
@@ -289,7 +284,7 @@ typedef enum {
         .origin.x = CGRectGetWidth(self.bounds) - [self rightUtilityButtonsWidth],
         .origin.y = 0,
         .size.width = [self rightUtilityButtonsWidth],
-        .size.height = _height,
+        .size.height = self.bounds.size.height,
     });
 }
 
@@ -298,11 +293,11 @@ typedef enum {
     self.cellScrollView.frame = (CGRect){
         .origin = self.cellScrollView.frame.origin,
         .size.width = self.bounds.size.width,
-        .size.height = _height,
+        .size.height = self.bounds.size.height,
     };
     self.cellScrollView.contentSize = (CGSize){
         .width = self.bounds.size.width + [self utilityButtonsPadding],
-        .height = _height,
+        .height = self.bounds.size.height,
     };
 }
 
@@ -311,11 +306,11 @@ typedef enum {
     self.cellScrollView.frame = (CGRect){
         .origin = self.cellScrollView.frame.origin,
         .size.width = self.bounds.size.width - [self utilityButtonsPadding],
-        .size.height = _height,
+        .size.height = self.bounds.size.height,
     };
     self.cellScrollView.contentSize = (CGSize){
         .width = self.bounds.size.width,
-        .height = _height,
+        .height = self.bounds.size.height,
     };
 }
 
