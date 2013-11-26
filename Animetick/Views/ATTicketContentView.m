@@ -25,8 +25,8 @@
     // call drawRect: when the bounds change.
     self.contentMode = UIViewContentModeRedraw;
     
-    [self.icon layer].borderColor = [[UIColor lightGrayColor] CGColor];
-    [self.icon layer].borderWidth = 1.0;
+    self.icon.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.icon.layer.borderWidth = 0.5;
     //self.icon.layer.masksToBounds = YES;
     //self.icon.layer.cornerRadius = 3.0;
     self.nearDateLabel.font = [UIFont fontWithName:@".HiraKakuInterface-W1" size:41];
