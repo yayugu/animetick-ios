@@ -34,8 +34,8 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    CGContextRef context = UIGraphicsGetCurrentContext();
     self.layout = [[ATTicketLayout alloc] initWithTicket:self.ticket cellWidth:self.bounds.size.width];
+    CGContextRef context = UIGraphicsGetCurrentContext();
     
     CGContextSaveGState(context);
     
