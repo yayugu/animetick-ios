@@ -22,6 +22,9 @@
 
 - (void)awakeFromNib
 {
+    // call drawRect: when the bounds change.
+    self.contentMode = UIViewContentModeRedraw;
+    
     [self.icon layer].borderColor = [[UIColor lightGrayColor] CGColor];
     [self.icon layer].borderWidth = 1.0;
     //self.icon.layer.masksToBounds = YES;
