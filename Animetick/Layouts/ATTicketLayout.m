@@ -10,6 +10,7 @@
 #import <CoreGraphics/CoreGraphics.h>
 #import "ATTicketLayout.h"
 #import "ATTicket.h"
+#import "UIColor+ATAdditions.h"
 
 static const CGFloat ATTicketLayoutTopPadding = 12;
 static const CGFloat ATTicketLayoutBottomPadding = 14;
@@ -95,7 +96,8 @@ static const CGFloat ATTicketLayoutTitleAndSubTitleSpace = 5;
     return [[NSAttributedString alloc]
             initWithString:self.ticket.startAtText
             attributes:@{NSFontAttributeName: [self channelFont],
-                         NSParagraphStyleAttributeName: (id)[self paragraphStyleWithSpacing:1.0 align:kCTTextAlignmentRight]}];
+                         NSParagraphStyleAttributeName: (id)[self paragraphStyleWithSpacing:1.0 align:kCTTextAlignmentRight],
+                         NSForegroundColorAttributeName: [UIColor colorWithHex:0x000000FF]}];
 }
 
 - (NSAttributedString*)titleAttrString
@@ -103,7 +105,8 @@ static const CGFloat ATTicketLayoutTitleAndSubTitleSpace = 5;
     return [[NSAttributedString alloc]
             initWithString:self.ticket.titleWithEpisodeNumberText
             attributes:@{NSFontAttributeName: [self titleFont],
-                         NSParagraphStyleAttributeName: (id)[self paragraphStyleWithSpacing:1.0 align:kCTTextAlignmentLeft]}];
+                         NSParagraphStyleAttributeName: (id)[self paragraphStyleWithSpacing:1.0 align:kCTTextAlignmentLeft],
+                         NSForegroundColorAttributeName: [UIColor colorWithHex:0x555555FF]}];
 }
 
 - (NSAttributedString*)subTitleAttrString
@@ -111,7 +114,8 @@ static const CGFloat ATTicketLayoutTitleAndSubTitleSpace = 5;
     return [[NSAttributedString alloc]
             initWithString:self.ticket.subTitleText
             attributes:@{NSFontAttributeName: [self subTitleFont],
-                         NSParagraphStyleAttributeName: (id)[self paragraphStyleWithSpacing:1.0 align:kCTTextAlignmentLeft]}];
+                         NSParagraphStyleAttributeName: (id)[self paragraphStyleWithSpacing:1.0 align:kCTTextAlignmentLeft],
+                         NSForegroundColorAttributeName: [UIColor colorWithHex:0x222222FF]}];
 }
 
 #pragma mark - Internal methods
