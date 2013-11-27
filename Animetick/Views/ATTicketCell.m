@@ -3,8 +3,8 @@
 #import "ATTicket.h"
 #import "ATTicketContentView.h"
 #import "ATTicketLayout.h"
+#import "ATImageLoader.h"
 #import <QuartzCore/QuartzCore.h>
-#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation ATTicketCell
 
@@ -46,7 +46,16 @@
 - (void)setTicket:(ATTicket *)ticket
 {
     _ticket = ticket;
-    [self.frontView.icon setImageWithURL:ticket.iconURL];
+    
+    [ATImageLoader
+     loadProcessedImageForAnimeIconWithUrl:ticket.iconURL
+     completion:^(UIImage *image, NSError *error) {
+         if (error) {
+             return;
+         }
+         self.frontView.icon.image = image;
+     }];
+    
     self.frontView.ticket = ticket;
     
     //self.frontView.nearDateLabel.text = self.ticket.nearDateLabelText;
