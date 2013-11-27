@@ -44,6 +44,8 @@
 		470D11B3183B5C520019B0E1 /* LibraryLicenses.txt in Resources */ = {isa = PBXBuildFile; fileRef = 470D11B2183B5C0B0019B0E1 /* LibraryLicenses.txt */; };
 		470D11B6183B5E040019B0E1 /* ATLisenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 470D11B5183B5E040019B0E1 /* ATLisenceViewController.m */; };
 		470D11BA183F4BA50019B0E1 /* ATTicketLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 470D11B9183F4BA50019B0E1 /* ATTicketLayout.m */; };
+		470D11BD1845C9100019B0E1 /* ATImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 470D11BC1845C9100019B0E1 /* ATImageLoader.m */; };
+		475A5AE91845F55F001062CC /* UIImage+ATAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 475A5AE81845F55F001062CC /* UIImage+ATAdditions.m */; };
 		477D115E183A01DD0040D414 /* ATUtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 477D115D183A01DD0040D414 /* ATUtilsTests.m */; };
 		47D67CDB17B35F72001A0043 /* ATServiceLocator.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D67CDA17B35F72001A0043 /* ATServiceLocator.m */; };
 		47F9F51D17AA2FA0007C8A8D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47F9F51217AA2FA0007C8A8D /* Default-568h@2x.png */; };
@@ -137,6 +139,10 @@
 		470D11B5183B5E040019B0E1 /* ATLisenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLisenceViewController.m; sourceTree = "<group>"; };
 		470D11B8183F4BA50019B0E1 /* ATTicketLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATTicketLayout.h; path = Layouts/ATTicketLayout.h; sourceTree = "<group>"; };
 		470D11B9183F4BA50019B0E1 /* ATTicketLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATTicketLayout.m; path = Layouts/ATTicketLayout.m; sourceTree = "<group>"; };
+		470D11BB1845C9100019B0E1 /* ATImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATImageLoader.h; sourceTree = "<group>"; };
+		470D11BC1845C9100019B0E1 /* ATImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATImageLoader.m; sourceTree = "<group>"; };
+		475A5AE71845F55F001062CC /* UIImage+ATAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ATAdditions.h"; sourceTree = "<group>"; };
+		475A5AE81845F55F001062CC /* UIImage+ATAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ATAdditions.m"; sourceTree = "<group>"; };
 		477D115D183A01DD0040D414 /* ATUtilsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATUtilsTests.m; sourceTree = "<group>"; };
 		47D67CD917B35F72001A0043 /* ATServiceLocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATServiceLocator.h; sourceTree = "<group>"; };
 		47D67CDA17B35F72001A0043 /* ATServiceLocator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATServiceLocator.m; sourceTree = "<group>"; };
@@ -268,6 +274,8 @@
 				3AE6DE4E17E4C72600BA9745 /* ATUserConfigurations.m */,
 				3A7FBD4717E6AE71004F7091 /* ATDateUtils.h */,
 				3A7FBD4817E6AE71004F7091 /* ATDateUtils.m */,
+				470D11BB1845C9100019B0E1 /* ATImageLoader.h */,
+				470D11BC1845C9100019B0E1 /* ATImageLoader.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -325,6 +333,8 @@
 				3AE6DE3B17E44BC300BA9745 /* NSHTTPCookieStorage+ATAdditions.m */,
 				3AF6DA8A17D1F53E00CA049A /* UIColor+ATAdditions.h */,
 				3AF6DA8B17D1F53E00CA049A /* UIColor+ATAdditions.m */,
+				475A5AE71845F55F001062CC /* UIImage+ATAdditions.h */,
+				475A5AE81845F55F001062CC /* UIImage+ATAdditions.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -597,12 +607,14 @@
 				47F9F55217AA42A4007C8A8D /* ATRootTabController.m in Sources */,
 				47F9F54A17AA360F007C8A8D /* ATLoginViewController.m in Sources */,
 				47F9F54F17AA364F007C8A8D /* NSDate+ATAdditions.m in Sources */,
+				475A5AE91845F55F001062CC /* UIImage+ATAdditions.m in Sources */,
 				3A447F4F17B514E000C38BD0 /* ATAPI.m in Sources */,
 				3AF6DA9017DAD72F00CA049A /* ATUtils.m in Sources */,
 				47F9F53117AA35C9007C8A8D /* ATAuth.m in Sources */,
 				470D11BA183F4BA50019B0E1 /* ATTicketLayout.m in Sources */,
 				3AA10E951814148200D37897 /* ATTableViewCellButtonView.m in Sources */,
 				3AA10E9218124DBF00D37897 /* ATTicketContentView.m in Sources */,
+				470D11BD1845C9100019B0E1 /* ATImageLoader.m in Sources */,
 				3AEF8DDE17AE0B8F00007E9C /* ATTicketCell.m in Sources */,
 				3A3462341843A886002A5E57 /* ATPaddingIndicator.m in Sources */,
 			);
