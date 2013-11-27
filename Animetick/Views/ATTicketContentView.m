@@ -11,6 +11,7 @@
 #import "ATTicketContentView.h"
 #import "ATTicket.h"
 #import "ATTicketLayout.h"
+#import "ATImageLoader.h"
 
 @interface ATTicketContentView ()
 
@@ -94,6 +95,20 @@
     CGContextClosePath(context);
     //CGContextDrawPath(context, kCGPathFillStroke);
     CGContextDrawPath(context, kCGPathStroke);
+}
+
+- (void)setTicket:(ATTicket *)ticket
+{
+    _ticket = ticket;
+    
+    [ATImageLoader
+     loadProcessedImageForAnimeIconWithUrl:ticket.iconURL
+     completion:^(UIImage *image, NSError *error) {
+         if (error) {
+             return;
+         }
+         self.icon.image = image;
+     }];
 }
 
 @end

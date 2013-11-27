@@ -141,8 +141,8 @@ typedef enum {
 - (void)hideUtilityButtonsAnimated:(BOOL)animated
 {
     // Scroll back to center
-    [self.cellScrollView setContentOffset:CGPointMake(0, 0) animated:animated];
     [self expandDraggableArea];
+    [self.cellScrollView setContentOffset:CGPointMake(0, 0) animated:animated];
     _cellState = kCellStateCenter;
 }
 
@@ -210,6 +210,7 @@ typedef enum {
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
+    if (!self.shrinked) return;
     [self expandDraggableArea];
 }
 
@@ -316,7 +317,6 @@ typedef enum {
 
 - (void)expandDraggableArea
 {
-    if (!self.shrinked) return;
     [self setCellScrollViewExpandedSize];
     self.cellScrollView.contentOffset = (CGPoint){
         .x = [self utilityButtonsPadding],
