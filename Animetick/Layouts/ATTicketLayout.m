@@ -93,29 +93,38 @@ static const CGFloat ATTicketLayoutTitleAndSubTitleSpace = 5;
 
 - (NSAttributedString*)startAtAttrString
 {
-    return [[NSAttributedString alloc]
-            initWithString:self.ticket.startAtText
-            attributes:@{NSFontAttributeName: [self channelFont],
-                         NSParagraphStyleAttributeName: (id)[self paragraphStyleWithSpacing:1.0 align:kCTTextAlignmentRight],
-                         NSForegroundColorAttributeName: [UIColor colorWithHex:0x000000FF]}];
+    CTParagraphStyleRef paragraphStyle = [self createParagraphStyleWithSpacing:1.0 align:kCTTextAlignmentRight];
+    NSAttributedString *attrString = [[NSAttributedString alloc]
+                                      initWithString:self.ticket.startAtText
+                                      attributes:@{NSFontAttributeName: [self channelFont],
+                                                   NSParagraphStyleAttributeName: (__bridge id)paragraphStyle,
+                                                   NSForegroundColorAttributeName: [UIColor colorWithHex:0x000000FF]}];
+    CFRelease(paragraphStyle);
+    return attrString;
 }
 
 - (NSAttributedString*)titleAttrString
 {
-    return [[NSAttributedString alloc]
-            initWithString:self.ticket.titleWithEpisodeNumberText
-            attributes:@{NSFontAttributeName: [self titleFont],
-                         NSParagraphStyleAttributeName: (id)[self paragraphStyleWithSpacing:1.0 align:kCTTextAlignmentLeft],
-                         NSForegroundColorAttributeName: [UIColor colorWithHex:0x555555FF]}];
+    CTParagraphStyleRef paragraphStyle = [self createParagraphStyleWithSpacing:1.0 align:kCTTextAlignmentLeft];
+    NSAttributedString *attrString = [[NSAttributedString alloc]
+                                      initWithString:self.ticket.titleWithEpisodeNumberText
+                                      attributes:@{NSFontAttributeName: [self titleFont],
+                                                   NSParagraphStyleAttributeName: (__bridge id)paragraphStyle,
+                                                   NSForegroundColorAttributeName: [UIColor colorWithHex:0x555555FF]}];
+    CFRelease(paragraphStyle);
+    return attrString;
 }
 
 - (NSAttributedString*)subTitleAttrString
 {
-    return [[NSAttributedString alloc]
-            initWithString:self.ticket.subTitleText
-            attributes:@{NSFontAttributeName: [self subTitleFont],
-                         NSParagraphStyleAttributeName: (id)[self paragraphStyleWithSpacing:1.0 align:kCTTextAlignmentLeft],
-                         NSForegroundColorAttributeName: [UIColor colorWithHex:0x222222FF]}];
+    CTParagraphStyleRef paragraphStyle = [self createParagraphStyleWithSpacing:1.0 align:kCTTextAlignmentLeft];
+    NSAttributedString *attrString = [[NSAttributedString alloc]
+                                      initWithString:self.ticket.subTitleText
+                                      attributes:@{NSFontAttributeName: [self subTitleFont],
+                                                   NSParagraphStyleAttributeName: (__bridge id)paragraphStyle,
+                                                   NSForegroundColorAttributeName: [UIColor colorWithHex:0x222222FF]}];
+    CFRelease(paragraphStyle);
+    return attrString;
 }
 
 #pragma mark - Internal methods
@@ -154,7 +163,7 @@ static const CGFloat ATTicketLayoutTitleAndSubTitleSpace = 5;
     return [UIFont fontWithName:@"HiraKakuProN-W3" size:14.0];
 }
 
-- (CTParagraphStyleRef)paragraphStyleWithSpacing:(CGFloat)spacing align:(CTTextAlignment)align
+- (CTParagraphStyleRef)createParagraphStyleWithSpacing:(CGFloat)spacing align:(CTTextAlignment)align
 {
     CGFloat floatValue[5];
     floatValue[0] = 0.0;
