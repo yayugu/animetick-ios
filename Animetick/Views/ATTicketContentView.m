@@ -25,8 +25,6 @@
 {
     // call drawRect: when the bounds change.
     self.contentMode = UIViewContentModeRedraw;
-    
-    self.nearDateLabel.font = [UIFont fontWithName:@".HiraKakuInterface-W1" size:41];
 }
 
 - (void)drawRect:(CGRect)rect

@@ -46,8 +46,6 @@
     _ticket = ticket;
     
     self.frontView.ticket = ticket;
-    //self.frontView.nearDateLabel.text = self.ticket.nearDateLabelText;
-    self.frontView.nearDateLabel.text = @"";
     
     [self hideUtilityButtonsAnimated:NO];
     

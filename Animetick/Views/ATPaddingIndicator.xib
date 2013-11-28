@@ -15,7 +15,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </activityIndicatorView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="centerY" secondItem="Ltu-P4-i2N" secondAttribute="centerY" id="7FT-U6-1qd"/>
                 <constraint firstAttribute="centerX" secondItem="Ltu-P4-i2N" secondAttribute="centerX" id="YFM-aD-FUW"/>

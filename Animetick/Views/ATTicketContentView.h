@@ -12,6 +12,5 @@
 
 @property (strong, nonatomic) ATTicket *ticket;
 @property (weak, nonatomic) IBOutlet UIImageView *icon;
-@property (weak, nonatomic) IBOutlet UILabel *nearDateLabel;
 
 @end

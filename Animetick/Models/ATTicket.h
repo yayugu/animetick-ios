@@ -18,7 +18,7 @@
 - (NSString*)subTitleText;
 - (NSString*)channelText;
 - (NSString*)startAtText;
-- (NSString*)nearDateLabelText;
+- (NSString*)nearDateText;
 - (void)watch;
 - (void)unwatch;
 

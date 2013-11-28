@@ -5,12 +5,12 @@
 #import "ATTicketLayout.h"
 #import "ATPaddingIndicator.h"
 
-
 @interface ATTicketViewController () <ATTicketListDelegate, SWTableViewCellDelegate>
 
 @property (nonatomic, strong) ATTicketList *ticketList;
 @property (nonatomic, strong) ATPaddingIndicator *indicator;
 @property (nonatomic) BOOL watched;
+@property (nonatomic) BOOL firstTimeLayout;
 
 @end
 
@@ -21,6 +21,7 @@
     self = [super init];
     if (self) {
         self.watched = watched;
+        self.firstTimeLayout = YES;
     }
     return self;
 }
@@ -28,13 +29,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-        
+    
+    UITableViewStyle style = self.watched ? UITableViewStylePlain : UITableViewStyleGrouped;
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:style];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
     self.ticketList = [[ATTicketList alloc] initWithWatched:self.watched delegate:self];
+    
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self
                             action:@selector(pullToRefresh)
                   forControlEvents:UIControlEventValueChanged];
-    
     
     NSArray *bundle = [[NSBundle mainBundle] loadNibNamed:@"ATPaddingIndicator"
                                                     owner:self
@@ -42,39 +49,51 @@
     self.indicator = bundle[0];
     [self.indicator.indicator setHidesWhenStopped:YES];
     [self.indicator.indicator stopAnimating];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    self.tableView.contentInset = (UIEdgeInsets){
-        .top = 20 + 44, // status bar height + navigation bar height
-        .bottom = 49, // tab bar height
-        .left = 0,
+    
+    self.tableView.separatorInset = (UIEdgeInsets) {
+        .top = 0,
+        .bottom = 0,
+        .left = 69,
         .right = 0,
     };
 }
 
--(void)viewDidLayoutSubviews
+- (void)viewWillLayoutSubviews
 {
-    [super viewDidLayoutSubviews];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
+    [super viewWillLayoutSubviews];
+    
+    if (self.firstTimeLayout) {
+        CGFloat topInsets = 20 + self.navigationController.navigationBar.frame.size.height; // status bar height + navigation bar height
+        CGFloat bottomInsets = self.tabBarController.tabBar.frame.size.height; // tab bar height
+        if (self.tableView.contentOffset.y == 0) {
+            self.tableView.contentOffset = (CGPoint) {
+                .x = 0,
+                .y = - topInsets,
+            };
+        }
+        UIEdgeInsets contentInsets = (UIEdgeInsets){
+            .top = topInsets,
+            .bottom = bottomInsets,
+            .left = 0,
+            .right = 0,
+        };
+        self.tableView.contentInset = contentInsets;
+        self.tableView.scrollIndicatorInsets = contentInsets;
+        
+        self.firstTimeLayout = NO;
+    }
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return self.ticketList.numberOfSections;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.ticketList.count;
+    return [self.ticketList numberOfTicketsInSection:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -92,11 +111,16 @@
     return cell;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [self.ticketList titleForSection:section];
+}
+
 #pragma mark - Table view delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ATTicket *ticket = [self.ticketList ticketAtIndex:indexPath.row];
+    ATTicket *ticket = [self.ticketList ticketAtIndexPath:indexPath];
     return [[[ATTicketLayout alloc] initWithTicket:ticket cellWidth:self.view.bounds.size.width] height];
 }
 
@@ -113,7 +137,7 @@
 {
     CGFloat contentOffsetWidthWindow = self.tableView.contentOffset.y + self.tableView.bounds.size.height;
     BOOL leachToBottom = contentOffsetWidthWindow >= self.tableView.contentSize.height;
-    if (self.ticketList.count <= 0
+    if (self.ticketList.numberOfSections <= 0
         || self.ticketList.lastFlag
         || !leachToBottom
         || [self.indicator.indicator isAnimating]) {
@@ -143,8 +167,13 @@
     }
     
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    [self.ticketList removeTicketAtIndex:indexPath.row];
-    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+    if ([self.ticketList numberOfTicketsInSection:indexPath.section] > 1) {
+        [self.ticketList removeTicketAtIndexPath:indexPath];
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+    } else {
+        [self.ticketList removeTicketAtIndexPath:indexPath];
+        [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationLeft];
+    }
 }
 
 
@@ -159,13 +188,7 @@
 
 - (void)ticketListMoreDidLoad
 {
-    NSMutableArray *indexPaths = [NSMutableArray array];
-    int i = [self.tableView numberOfRowsInSection:0];
-    for (; i < self.ticketList.count; i++) {
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
-        [indexPaths addObject:indexPath];
-    }
-    [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
+    [self.tableView reloadData];
     [self.refreshControl endRefreshing];
     [self endIndicator];
 }
@@ -180,8 +203,7 @@
 
 - (void)assignCell:(ATTicketCell*)cell ValuesWithIndexPath:(NSIndexPath*)indexPath
 {
-    int index = indexPath.row;
-    ATTicket *ticket = [self.ticketList ticketAtIndex:index];
+    ATTicket *ticket = [self.ticketList ticketAtIndexPath:indexPath];
     cell.ticket = ticket;
 }
 

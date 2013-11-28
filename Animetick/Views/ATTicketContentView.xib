@@ -10,13 +10,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今晩" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03U-vq-oB7">
-                    <rect key="frame" x="243" y="35" width="82" height="47"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="41"/>
-                    <color key="textColor" red="0.99605029820000002" green="0.82433420420000003" blue="0.75587052109999997" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tc2-ye-61g" userLabel="text_info_container">
                     <rect key="frame" x="67" y="0.0" width="248" height="73"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -36,15 +29,12 @@
                 <constraint firstAttribute="bottom" secondItem="Tc2-ye-61g" secondAttribute="bottom" id="GYP-5v-6It"/>
                 <constraint firstAttribute="centerY" secondItem="H9S-Hl-sZw" secondAttribute="centerY" id="JQB-Cg-nS4"/>
                 <constraint firstItem="Tc2-ye-61g" firstAttribute="top" secondItem="1" secondAttribute="top" id="VG2-xL-Qu7"/>
-                <constraint firstAttribute="trailing" secondItem="03U-vq-oB7" secondAttribute="trailing" constant="-5" id="o4C-Co-sC9"/>
-                <constraint firstItem="03U-vq-oB7" firstAttribute="top" secondItem="1" secondAttribute="top" constant="35" id="thl-9y-5Ki"/>
                 <constraint firstItem="Tc2-ye-61g" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="67" id="vsE-L5-ehK"/>
                 <constraint firstAttribute="trailing" secondItem="Tc2-ye-61g" secondAttribute="trailing" constant="5" id="yn1-yp-S4X"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="icon" destination="H9S-Hl-sZw" id="ABU-tj-e33"/>
-                <outlet property="nearDateLabel" destination="03U-vq-oB7" id="8Qj-Fa-PJc"/>
             </connections>
         </view>
     </objects>

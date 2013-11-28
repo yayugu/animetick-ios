@@ -80,22 +80,24 @@
             : @"";
 }
 
-- (NSString*)nearDateLabelText
+- (NSString*)nearDateText
 {
     if ([[NSDate date] isBetweenDate:self.startAt andDate:self.endAt]) {
         return @"放送中";
     }
     
     int daysDifference = [ATDateUtils daysDifferenceConsiderMidnight:[NSDate date] with:self.startAt];
-    if (daysDifference == 1) {
+    if (daysDifference > 1) {
+        return @"";
+    } else if (daysDifference == 1) {
         return @"明日";
     } else if (daysDifference == 0) {
         return @"今晩";
     } else if (daysDifference == -1) {
         return @"昨晩";
+    } else {
+        return @"";
     }
-    
-    return @"";
 }
 
 - (void)watch

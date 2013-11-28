@@ -58,7 +58,6 @@
 		47F9F53417AA35C9007C8A8D /* ATNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F9F53017AA35C9007C8A8D /* ATNetworking.m */; };
 		47F9F53E17AA35D4007C8A8D /* ATAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F9F53717AA35D4007C8A8D /* ATAppDelegate.m */; };
 		47F9F54117AA35D4007C8A8D /* ATTicketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F9F53C17AA35D4007C8A8D /* ATTicketViewController.m */; };
-		47F9F54217AA35D4007C8A8D /* ATTicketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47F9F53D17AA35D4007C8A8D /* ATTicketViewController.xib */; };
 		47F9F54A17AA360F007C8A8D /* ATLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F9F54817AA360F007C8A8D /* ATLoginViewController.m */; };
 		47F9F54B17AA360F007C8A8D /* ATLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47F9F54917AA360F007C8A8D /* ATLoginViewController.xib */; };
 		47F9F54F17AA364F007C8A8D /* NSDate+ATAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F9F54E17AA364F007C8A8D /* NSDate+ATAdditions.m */; };
@@ -163,7 +162,6 @@
 		47F9F53717AA35D4007C8A8D /* ATAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAppDelegate.m; sourceTree = "<group>"; };
 		47F9F53B17AA35D4007C8A8D /* ATTicketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATTicketViewController.h; sourceTree = "<group>"; };
 		47F9F53C17AA35D4007C8A8D /* ATTicketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATTicketViewController.m; sourceTree = "<group>"; };
-		47F9F53D17AA35D4007C8A8D /* ATTicketViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATTicketViewController.xib; sourceTree = "<group>"; };
 		47F9F54717AA360F007C8A8D /* ATLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLoginViewController.h; sourceTree = "<group>"; };
 		47F9F54817AA360F007C8A8D /* ATLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLoginViewController.m; sourceTree = "<group>"; };
 		47F9F54917AA360F007C8A8D /* ATLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATLoginViewController.xib; sourceTree = "<group>"; };
@@ -293,7 +291,6 @@
 				47F9F54917AA360F007C8A8D /* ATLoginViewController.xib */,
 				47F9F53B17AA35D4007C8A8D /* ATTicketViewController.h */,
 				47F9F53C17AA35D4007C8A8D /* ATTicketViewController.m */,
-				47F9F53D17AA35D4007C8A8D /* ATTicketViewController.xib */,
 				3ACB7C2A182026A0007E981D /* ATTicketSegmentViewController.h */,
 				3ACB7C2B182026A0007E981D /* ATTicketSegmentViewController.m */,
 				47F9F55017AA42A4007C8A8D /* ATRootTabController.h */,
@@ -508,7 +505,6 @@
 				3A7FBD4417E5F3B1004F7091 /* Default-Portrait~ipad.png in Resources */,
 				3A7FBD3C17E5EE27004F7091 /* animetick_ios7_152.png in Resources */,
 				47F9F54B17AA360F007C8A8D /* ATLoginViewController.xib in Resources */,
-				47F9F54217AA35D4007C8A8D /* ATTicketViewController.xib in Resources */,
 				E26BED8C177081A80087E0E4 /* InfoPlist.strings in Resources */,
 				3A7FBD4317E5F3B1004F7091 /* Default-Portrait@2x~ipad.png in Resources */,
 				3AF6DA9217DAD7E800CA049A /* SettingStoryboard.storyboard in Resources */,

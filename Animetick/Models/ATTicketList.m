@@ -4,6 +4,7 @@
 @interface ATTicketList()
 
 @property (nonatomic, strong) NSMutableArray *tickets;
+@property (nonatomic, strong) NSMutableArray *sectionedTickets;
 @property (nonatomic, weak) id<ATTicketListDelegate> delegate;
 @property (nonatomic) BOOL watched;
 
@@ -23,19 +24,32 @@
     return self;
 }
 
-- (ATTicket*)ticketAtIndex:(int)index
+- (NSInteger)numberOfSections
 {
+    return [self.sectionedTickets count];
+}
+
+- (NSInteger)numberOfTicketsInSection:(NSInteger)section
+{
+    return [self.sectionedTickets[section][@"tickets"] count];
+}
+
+- (ATTicket*)ticketAtIndexPath:(NSIndexPath*)path
+{
+    NSUInteger index = [self.sectionedTickets[path.section][@"tickets"][path.row] unsignedIntegerValue];
     return self.tickets[index];
 }
 
-- (void)removeTicketAtIndex:(int)index
+- (void)removeTicketAtIndexPath:(NSIndexPath*)path
 {
+    NSUInteger index = [self.sectionedTickets[path.section][@"tickets"][path.row] unsignedIntegerValue];
     [self.tickets removeObjectAtIndex:index];
+    self.sectionedTickets = [self generateSectionedTickets];
 }
 
-- (int)count
+- (NSString*)titleForSection:(NSInteger)section
 {
-    return self.tickets.count;
+    return self.sectionedTickets[section][@"title"];
 }
 
 - (void)loadMore
@@ -46,6 +60,46 @@
 - (void)reload
 {
     [self requestWithOffset:0];
+}
+
+#pragma mark - Internal methods
+
+- (NSMutableArray*)generateSectionedTickets
+{
+    return self.watched
+        ? [self generateSectionedTicketsWatched]
+        : [self generateSectionedTicketsUnwatched];
+}
+
+- (NSMutableArray*)generateSectionedTicketsWatched
+{
+    NSMutableArray *sections = [NSMutableArray array];
+    [sections addObject:@{@"title": @"",
+                          @"tickets": [NSMutableArray array]}];
+    NSUInteger i = 0;
+    for (ATTicket *ticket in self.tickets) {
+        [sections[0][@"tickets"] addObject:[NSNumber numberWithUnsignedInteger:i]];
+        i++;
+    }
+    return sections;
+}
+
+- (NSMutableArray*)generateSectionedTicketsUnwatched
+{
+    NSMutableArray *sections = [NSMutableArray array];
+    NSUInteger i = 0;
+    int lastSectionIndex = -1;
+    for (ATTicket *ticket in self.tickets) {
+        if (lastSectionIndex != -1 && [ticket.nearDateText isEqualToString:sections[lastSectionIndex][@"title"]]) {
+            [sections[lastSectionIndex][@"tickets"] addObject:[NSNumber numberWithUnsignedInteger:i]];
+        } else {
+            [sections addObject:@{@"title": ticket.nearDateText,
+                                  @"tickets": [NSMutableArray arrayWithObject:[NSNumber numberWithUnsignedInteger:i]]}];
+            lastSectionIndex++;
+        }
+        i++;
+    }
+    return sections;
 }
 
 - (void)requestWithOffset:(int)offset
@@ -66,6 +120,7 @@
                  ATTicket *ticketObj = [[ATTicket alloc] initWithDictionary:ticket];
                  [self.tickets addObject:ticketObj];
              }
+             self.sectionedTickets = [self generateSectionedTickets];
              
              self.lastFlag = [(NSNumber*)NSNullToNil(dic[@"last_flag"]) boolValue];
              
