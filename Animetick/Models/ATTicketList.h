@@ -13,9 +13,11 @@
 @property (nonatomic) BOOL lastFlag;
 
 - (id)initWithWatched:(BOOL)watched delegate:(id<ATTicketListDelegate>)delegate;
-- (ATTicket*)ticketAtIndex:(int)index;
-- (void)removeTicketAtIndex:(int)index;
-- (int)count;
+- (NSInteger)numberOfSections;
+- (NSInteger)numberOfTicketsInSection:(NSInteger)section;
+- (ATTicket*)ticketAtIndexPath:(NSIndexPath*)path;
+- (void)removeTicketAtIndexPath:(NSIndexPath*)path;
+- (NSString*)titleInSection:(NSInteger)section;
 - (void)loadMore;
 - (void)reload;
 

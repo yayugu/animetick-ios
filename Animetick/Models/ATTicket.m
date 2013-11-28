@@ -80,7 +80,7 @@
             : @"";
 }
 
-- (NSString*)nearDateLabelText
+- (NSString*)nearDateText
 {
     if ([[NSDate date] isBetweenDate:self.startAt andDate:self.endAt]) {
         return @"放送中";
@@ -95,7 +95,10 @@
         return @"昨晩";
     }
     
-    return @"";
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.locale = [NSLocale currentLocale];
+    formatter.dateFormat = @"MM/dd";
+    return [formatter stringFromDate:self.startAt];
 }
 
 - (void)watch

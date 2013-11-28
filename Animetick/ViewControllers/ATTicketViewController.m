@@ -76,12 +76,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return self.ticketList.numberOfSections;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.ticketList.count;
+    return [self.ticketList numberOfTicketsInSection:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -99,11 +99,16 @@
     return cell;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [self.ticketList titleInSection:section];
+}
+
 #pragma mark - Table view delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ATTicket *ticket = [self.ticketList ticketAtIndex:indexPath.row];
+    ATTicket *ticket = [self.ticketList ticketAtIndexPath:indexPath];
     return [[[ATTicketLayout alloc] initWithTicket:ticket cellWidth:self.view.bounds.size.width] height];
 }
 
@@ -120,7 +125,7 @@
 {
     CGFloat contentOffsetWidthWindow = self.tableView.contentOffset.y + self.tableView.bounds.size.height;
     BOOL leachToBottom = contentOffsetWidthWindow >= self.tableView.contentSize.height;
-    if (self.ticketList.count <= 0
+    if (self.ticketList.numberOfSections <= 0
         || self.ticketList.lastFlag
         || !leachToBottom
         || [self.indicator.indicator isAnimating]) {
@@ -150,8 +155,13 @@
     }
     
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    [self.ticketList removeTicketAtIndex:indexPath.row];
-    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+    if ([self.ticketList numberOfTicketsInSection:indexPath.section] > 1) {
+        [self.ticketList removeTicketAtIndexPath:indexPath];
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+    } else {
+        [self.ticketList removeTicketAtIndexPath:indexPath];
+        [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationLeft];
+    }
 }
 
 
@@ -166,6 +176,7 @@
 
 - (void)ticketListMoreDidLoad
 {
+    /*
     NSMutableArray *indexPaths = [NSMutableArray array];
     int i = [self.tableView numberOfRowsInSection:0];
     for (; i < self.ticketList.count; i++) {
@@ -173,6 +184,8 @@
         [indexPaths addObject:indexPath];
     }
     [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
+     */
+    [self.tableView reloadData];
     [self.refreshControl endRefreshing];
     [self endIndicator];
 }
@@ -187,8 +200,7 @@
 
 - (void)assignCell:(ATTicketCell*)cell ValuesWithIndexPath:(NSIndexPath*)indexPath
 {
-    int index = indexPath.row;
-    ATTicket *ticket = [self.ticketList ticketAtIndex:index];
+    ATTicket *ticket = [self.ticketList ticketAtIndexPath:indexPath];
     cell.ticket = ticket;
 }
 
