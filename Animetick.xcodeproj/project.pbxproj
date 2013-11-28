@@ -47,6 +47,7 @@
 		470D11BD1845C9100019B0E1 /* ATImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 470D11BC1845C9100019B0E1 /* ATImageLoader.m */; };
 		475A5AE91845F55F001062CC /* UIImage+ATAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 475A5AE81845F55F001062CC /* UIImage+ATAdditions.m */; };
 		477D115E183A01DD0040D414 /* ATUtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 477D115D183A01DD0040D414 /* ATUtilsTests.m */; };
+		47B99F54184704720004E799 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47B99F53184704720004E799 /* CoreText.framework */; };
 		47D67CDB17B35F72001A0043 /* ATServiceLocator.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D67CDA17B35F72001A0043 /* ATServiceLocator.m */; };
 		47F9F51D17AA2FA0007C8A8D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47F9F51217AA2FA0007C8A8D /* Default-568h@2x.png */; };
 		47F9F52217AA2FA0007C8A8D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 47F9F51717AA2FA0007C8A8D /* Default.png */; };
@@ -144,6 +145,7 @@
 		475A5AE71845F55F001062CC /* UIImage+ATAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ATAdditions.h"; sourceTree = "<group>"; };
 		475A5AE81845F55F001062CC /* UIImage+ATAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ATAdditions.m"; sourceTree = "<group>"; };
 		477D115D183A01DD0040D414 /* ATUtilsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATUtilsTests.m; sourceTree = "<group>"; };
+		47B99F53184704720004E799 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		47D67CD917B35F72001A0043 /* ATServiceLocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATServiceLocator.h; sourceTree = "<group>"; };
 		47D67CDA17B35F72001A0043 /* ATServiceLocator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATServiceLocator.m; sourceTree = "<group>"; };
 		47F9F51217AA2FA0007C8A8D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47B99F54184704720004E799 /* CoreText.framework in Frameworks */,
 				E244C985179577E300F1D203 /* libsqlite3.0.dylib in Frameworks */,
 				E26BED82177081A80087E0E4 /* UIKit.framework in Frameworks */,
 				E26BED84177081A80087E0E4 /* Foundation.framework in Frameworks */,
@@ -362,6 +365,7 @@
 		E26BED80177081A80087E0E4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				47B99F53184704720004E799 /* CoreText.framework */,
 				E244C984179577E300F1D203 /* libsqlite3.0.dylib */,
 				E26BED81177081A80087E0E4 /* UIKit.framework */,
 				E26BED83177081A80087E0E4 /* Foundation.framework */,
