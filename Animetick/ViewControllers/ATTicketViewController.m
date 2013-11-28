@@ -11,6 +11,7 @@
 @property (nonatomic, strong) ATTicketList *ticketList;
 @property (nonatomic, strong) ATPaddingIndicator *indicator;
 @property (nonatomic) BOOL watched;
+@property (nonatomic) BOOL firstTimeLayout;
 
 @end
 
@@ -21,6 +22,7 @@
     self = [super init];
     if (self) {
         self.watched = watched;
+        self.firstTimeLayout = YES;
     }
     return self;
 }
@@ -44,20 +46,30 @@
     [self.indicator.indicator stopAnimating];
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewWillLayoutSubviews
 {
-    [super viewWillAppear:animated];
-    self.tableView.contentInset = (UIEdgeInsets){
-        .top = 20 + 44, // status bar height + navigation bar height
-        .bottom = 49, // tab bar height
-        .left = 0,
-        .right = 0,
-    };
-}
-
--(void)viewDidLayoutSubviews
-{
-    [super viewDidLayoutSubviews];
+    [super viewWillLayoutSubviews];
+    
+    if (self.firstTimeLayout) {
+        CGFloat topInsets = 20 + self.navigationController.navigationBar.frame.size.height; // status bar height + navigation bar height
+        CGFloat bottomInsets = self.tabBarController.tabBar.frame.size.height; // tab bar height
+        if (self.tableView.contentOffset.y == 0) {
+            self.tableView.contentOffset = (CGPoint) {
+                .x = 0,
+                .y = - topInsets,
+            };
+        }
+        UIEdgeInsets contentInsets = (UIEdgeInsets){
+            .top = topInsets,
+            .bottom = bottomInsets,
+            .left = 0,
+            .right = 0,
+        };
+        self.tableView.contentInset = contentInsets;
+        self.tableView.scrollIndicatorInsets = contentInsets;
+        
+        self.firstTimeLayout = NO;
+    }
 }
 
 - (void)didReceiveMemoryWarning
