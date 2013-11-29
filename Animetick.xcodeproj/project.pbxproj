@@ -62,7 +62,6 @@
 		47F9F54B17AA360F007C8A8D /* ATLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47F9F54917AA360F007C8A8D /* ATLoginViewController.xib */; };
 		47F9F54F17AA364F007C8A8D /* NSDate+ATAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F9F54E17AA364F007C8A8D /* NSDate+ATAdditions.m */; };
 		47F9F55217AA42A4007C8A8D /* ATRootTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F9F55117AA42A4007C8A8D /* ATRootTabController.m */; };
-		E244C985179577E300F1D203 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E244C984179577E300F1D203 /* libsqlite3.0.dylib */; };
 		E26BED82177081A80087E0E4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26BED81177081A80087E0E4 /* UIKit.framework */; };
 		E26BED84177081A80087E0E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26BED83177081A80087E0E4 /* Foundation.framework */; };
 		E26BED86177081A80087E0E4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26BED85177081A80087E0E4 /* CoreGraphics.framework */; };
@@ -191,11 +190,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A34623618466C50002A5E57 /* CoreText.framework in Frameworks */,
-				E244C985179577E300F1D203 /* libsqlite3.0.dylib in Frameworks */,
 				E26BED82177081A80087E0E4 /* UIKit.framework in Frameworks */,
 				E26BED84177081A80087E0E4 /* Foundation.framework in Frameworks */,
 				E26BED86177081A80087E0E4 /* CoreGraphics.framework in Frameworks */,
+				3A34623618466C50002A5E57 /* CoreText.framework in Frameworks */,
 				115F827C60F94EA499E3C1F7 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
