@@ -110,24 +110,28 @@
          if (error) {
              [self.delegate ticketListLoadDidFailed];
          } else {
-             NSArray *tickets = dic[@"list"];
-             if (offset == 0) {
-                 self.tickets = [NSMutableArray array];
-             }
-             for (NSMutableDictionary *ticket in tickets) {
-                 ticket[@"watched"] = [NSNumber numberWithBool:self.watched];
-                 ATTicket *ticketObj = [[ATTicket alloc] initWithDictionary:ticket];
-                 [self.tickets addObject:ticketObj];
-             }
-             self.sectionedTickets = [self generateSectionedTickets];
-             
-             self.lastFlag = [(NSNumber*)NSNullToNil(dic[@"last_flag"]) boolValue];
-             
-             if (offset == 0) {
-                 [self.delegate ticketListDidLoad];
-             } else {
-                 [self.delegate ticketListMoreDidLoad];
-             }
+             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+                 NSArray *tickets = dic[@"list"];
+                 if (offset == 0) {
+                     self.tickets = [NSMutableArray array];
+                 }
+                 for (NSMutableDictionary *ticket in tickets) {
+                     ticket[@"watched"] = [NSNumber numberWithBool:self.watched];
+                     ATTicket *ticketObj = [[ATTicket alloc] initWithDictionary:ticket];
+                     [self.tickets addObject:ticketObj];
+                 }
+                 self.sectionedTickets = [self generateSectionedTickets];
+                 
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     self.lastFlag = [(NSNumber*)NSNullToNil(dic[@"last_flag"]) boolValue];
+                     
+                     if (offset == 0) {
+                         [self.delegate ticketListDidLoad];
+                     } else {
+                         [self.delegate ticketListMoreDidLoad];
+                     }
+                 });
+             });
          }
      }];
 }
