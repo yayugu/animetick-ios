@@ -26,6 +26,7 @@
         [self.scrollViewContentView addSubview:self.frontView];
         
         UIView *selectedBackgroundView = [[UIView alloc] init];
+        self.contentView.backgroundColor = [UIColor whiteColor];
         selectedBackgroundView.backgroundColor = [UIColor atTintColor];
         self.selectedBackgroundView = selectedBackgroundView;
     }
