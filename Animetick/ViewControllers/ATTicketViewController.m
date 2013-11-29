@@ -11,6 +11,7 @@
 @property (nonatomic, strong) ATPaddingIndicator *indicator;
 @property (nonatomic) BOOL watched;
 @property (nonatomic) BOOL firstTimeLayout;
+@property (nonatomic) CFAbsoluteTime loadMoreStartTime;
 
 @end
 
@@ -146,6 +147,7 @@
     }
     [self.ticketList loadMore];
     [self startIndicator];
+    self.loadMoreStartTime = CFAbsoluteTimeGetCurrent();
 }
 
 #pragma mark - Refresh control
@@ -182,18 +184,19 @@
 
 - (void)ticketListDidLoad
 {
-    [self calculateHeightsForTicketCells];
-    [self.tableView reloadData];
-    [self.refreshControl endRefreshing];
-    [self endIndicator];
+    [self reload];
 }
 
 - (void)ticketListMoreDidLoad
 {
-    [self calculateHeightsForTicketCells];
-    [self.tableView reloadData];
-    [self.refreshControl endRefreshing];
-    [self endIndicator];
+    // load時間が短すぎると不自然なので、一定時間は待つようにしてloadしてる感を出す
+    static const NSTimeInterval loadTimeMin = 0.5;
+    NSTimeInterval interval = CFAbsoluteTimeGetCurrent() - self.loadMoreStartTime;
+    if (interval < loadTimeMin) {
+        [self performSelector:@selector(reload) withObject:nil afterDelay:(loadTimeMin - interval)];
+        return;
+    }
+    [self reload];
 }
 
 - (void)ticketListLoadDidFailed
@@ -203,6 +206,14 @@
 }
 
 #pragma mark - Internals
+
+- (void)reload
+{
+    [self calculateHeightsForTicketCells];
+    [self.tableView reloadData];
+    [self.refreshControl endRefreshing];
+    [self endIndicator];
+}
 
 - (void)assignCell:(ATTicketCell*)cell ValuesWithIndexPath:(NSIndexPath*)indexPath
 {
