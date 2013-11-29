@@ -8,8 +8,9 @@
 
 @end
 
-@interface ATTicketList : NSObject
+@interface ATTicketList : NSEnumerator
 
+@property (nonatomic, strong) NSMutableArray *tickets;
 @property (nonatomic) BOOL lastFlag;
 
 - (id)initWithWatched:(BOOL)watched delegate:(id<ATTicketListDelegate>)delegate;
