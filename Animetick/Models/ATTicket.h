@@ -11,7 +11,6 @@
 @property (nonatomic, strong) NSString *chName;
 @property (nonatomic) int chNumber;
 @property (nonatomic) BOOL watched; // Key-Value Observable
-@property (nonatomic) CGFloat height;
 
 - (id)initWithDictionary:(NSDictionary*)dictionary;
 - (NSURL*)iconURL;

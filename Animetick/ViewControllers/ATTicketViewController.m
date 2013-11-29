@@ -122,8 +122,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ATTicket *ticket = [self.ticketList ticketAtIndexPath:indexPath];
-    //return [[[ATTicketLayout alloc] initWithTicket:ticket cellWidth:self.view.bounds.size.width] height];
-    return ticket.height;
+    return [[[ATTicketLayout alloc] initWithTicket:ticket cellWidth:self.view.bounds.size.width] height];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -209,7 +208,6 @@
 
 - (void)reload
 {
-    [self calculateHeightsForTicketCells];
     [self.tableView reloadData];
     [self.refreshControl endRefreshing];
     [self endIndicator];
@@ -237,14 +235,6 @@
     [self.indicator.indicator stopAnimating];
     [self.indicator removeFromSuperview];
     [self.tableView setTableFooterView:nil];
-}
-
-- (void)calculateHeightsForTicketCells
-{
-    for (ATTicket *ticket in self.ticketList.tickets) {
-        if (ticket.height != 0) continue;
-        ticket.height = [[[ATTicketLayout alloc] initWithTicket:ticket cellWidth:self.view.bounds.size.width] height];
-    }
 }
 
 @end
