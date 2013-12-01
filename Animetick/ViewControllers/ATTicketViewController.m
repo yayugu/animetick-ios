@@ -36,6 +36,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.tableView.rowHeight = 75; // value for zero rows
     
     self.ticketList = [[ATTicketList alloc] initWithWatched:self.watched delegate:self];
     
