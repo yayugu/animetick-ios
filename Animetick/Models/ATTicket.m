@@ -35,6 +35,8 @@
     
     NSNumber *watched = NSNullToNil(dic[@"watched"]);
     self.watched = watched ? [watched boolValue] : NO;
+    
+    _nearDateText = [self createNearDateText];
 }
 
 - (NSURL*)iconURL
@@ -80,7 +82,7 @@
             : @"";
 }
 
-- (NSString*)nearDateText
+- (NSString*)createNearDateText
 {
     if ([[NSDate date] isBetweenDate:self.startAt andDate:self.endAt]) {
         return @"放送中";

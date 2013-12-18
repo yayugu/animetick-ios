@@ -10,6 +10,7 @@
 @property (nonatomic, strong) NSArray *flags;
 @property (nonatomic, strong) NSString *chName;
 @property (nonatomic) int chNumber;
+@property (nonatomic, strong, readonly) NSString *nearDateText;
 @property (nonatomic) BOOL watched; // Key-Value Observable
 
 - (id)initWithDictionary:(NSDictionary*)dictionary;
@@ -18,7 +19,6 @@
 - (NSString*)subTitleText;
 - (NSString*)channelText;
 - (NSString*)startAtText;
-- (NSString*)nearDateText;
 - (void)watch;
 - (void)unwatch;
 
