@@ -3,7 +3,6 @@
 
 @interface ATTicketList()
 
-@property (nonatomic, strong) NSMutableArray *sectionedTickets;
 @property (nonatomic, weak) id<ATTicketListDelegate> delegate;
 @property (nonatomic) BOOL watched;
 @property (nonatomic) BOOL requesting;

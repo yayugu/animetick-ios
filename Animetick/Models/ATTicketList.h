@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSMutableArray *tickets;
 @property (nonatomic) BOOL lastFlag;
+@property (nonatomic, strong) NSMutableArray *sectionedTickets;
 
 - (id)initWithWatched:(BOOL)watched delegate:(id<ATTicketListDelegate>)delegate;
 - (NSInteger)numberOfSections;

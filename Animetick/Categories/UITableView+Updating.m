@@ -406,22 +406,22 @@ typedef struct _NSMutableDictionaryRuntimeInfo {
     if (updates.deleteSections.count > 0)
     {
         [self deleteSections:updates.deleteSections
-            withRowAnimation:UITableViewRowAnimationAutomatic];
+            withRowAnimation:UITableViewRowAnimationLeft];
     }
     if (updates.deleteRows.count > 0)
     {
         [self deleteRowsAtIndexPaths:updates.deleteRows
-                    withRowAnimation:UITableViewRowAnimationAutomatic];
+                    withRowAnimation:UITableViewRowAnimationLeft];
     }
     if (updates.reloadSections.count > 0)
     {
         [self reloadSections:updates.reloadSections
-            withRowAnimation:UITableViewRowAnimationAutomatic];
+            withRowAnimation:UITableViewRowAnimationLeft];
     }
     if (updates.reloadRows.count > 0)
     {
         [self reloadRowsAtIndexPaths:updates.reloadRows
-                    withRowAnimation:UITableViewRowAnimationAutomatic];
+                    withRowAnimation:UITableViewRowAnimationLeft];
     }
     if (updates.insertSections.count > 0)
     {

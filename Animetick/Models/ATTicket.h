@@ -22,4 +22,6 @@
 - (void)watch;
 - (void)unwatch;
 
+- (NSString*)hashString;
+
 @end
