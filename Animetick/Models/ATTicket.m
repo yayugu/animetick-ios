@@ -17,6 +17,11 @@
     return self;
 }
 
+- (NSUInteger)hash
+{
+    return (NSUInteger)self.titleId ^ self.title.hash ^ self.startAt.hash ^ self.chName.hash;
+}
+
 - (void)assignValuesWithDictionary:(NSDictionary*)dic
 {
     self.titleId = [(NSNumber*)NSNullToNil(dic[@"title_id"]) intValue];
