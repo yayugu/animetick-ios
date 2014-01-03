@@ -14,6 +14,16 @@
     return date;
 }
 
+- (BOOL)isEalryThanDate:(NSDate*)date
+{
+    return [self compare:date] == NSOrderedAscending;
+}
+
+- (BOOL)isLaterThanDate:(NSDate*)date
+{
+    return [self compare:date] == NSOrderedDescending;
+}
+
 - (BOOL)isBetweenDate:(NSDate*)beginDate andDate:(NSDate*)endDate
 {
     return

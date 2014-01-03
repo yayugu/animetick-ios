@@ -45,7 +45,7 @@
 {
     NSUInteger index = [((NSArray*)[self.ticketSections[path.section] tickets])[path.row] unsignedIntegerValue];
     [self.tickets removeObjectAtIndex:index];
-    self.sectionedTickets = [self generateSectionedTicketsWithTickets:self.tickets];
+    self.ticketSections = [self generateSectionedTicketsWithTickets:self.tickets];
 }
 
 - (NSString*)titleForSection:(NSInteger)section
@@ -91,11 +91,14 @@
 - (NSMutableArray*)generateSectionedTicketsWatchedWithTickets:(NSArray*)tickets
 {
     NSMutableArray *sections = [NSMutableArray array];
-    [sections addObject:@{@"title": @"",
-                          @"tickets": [NSMutableArray array]}];
+    ATTicketSection *section = [[ATTicketSection alloc] init];
+    section.title = @"";
+    section.hashCode = 0;
+    section.tickets = [NSMutableArray array];
+    [sections addObject:section];
     NSUInteger i = 0;
     for (ATTicket *ticket in tickets) {
-        [sections[0][@"tickets"] addObject:[NSNumber numberWithUnsignedInteger:i]];
+        [[sections[0] tickets] addObject:[NSNumber numberWithUnsignedInteger:i]];
         i++;
     }
     return sections;
@@ -107,11 +110,14 @@
     NSUInteger i = 0;
     int lastSectionIndex = -1;
     for (ATTicket *ticket in tickets) {
-        if (lastSectionIndex != -1 && [ticket.nearDateText isEqualToString:sections[lastSectionIndex][@"title"]]) {
-            [sections[lastSectionIndex][@"tickets"] addObject:[NSNumber numberWithUnsignedInteger:i]];
+        if (lastSectionIndex != -1 && [ticket.nearDateText isEqualToString:[sections[lastSectionIndex] title]]) {
+            [[sections[lastSectionIndex] tickets] addObject:[NSNumber numberWithUnsignedInteger:i]];
         } else {
-            [sections addObject:@{@"title": ticket.nearDateText,
-                                  @"tickets": [NSMutableArray arrayWithObject:[NSNumber numberWithUnsignedInteger:i]]}];
+            ATTicketSection *section = [[ATTicketSection alloc] init];
+            section.title = ticket.nearDateText;
+            section.hashCode = ticket.sectionHash;
+            section.tickets = [NSMutableArray arrayWithObject:@(i)];
+            [sections addObject:section];
             lastSectionIndex++;
         }
         i++;
@@ -138,7 +144,7 @@
                  NSMutableArray *tmpSectionedTickets = [self generateSectionedTicketsWithTickets:tmpTickets];
                  dispatch_async(dispatch_get_main_queue(), ^{
                      self.tickets = tmpTickets;
-                     self.sectionedTickets = tmpSectionedTickets;
+                     self.ticketSections = tmpSectionedTickets;
                      self.lastFlag = [(NSNumber*)NSNullToNil(dic[@"last_flag"]) boolValue];
                      
                      if (offset == 0) {

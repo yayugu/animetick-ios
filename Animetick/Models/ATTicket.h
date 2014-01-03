@@ -11,6 +11,7 @@
 @property (nonatomic, strong) NSString *chName;
 @property (nonatomic) int chNumber;
 @property (nonatomic, strong, readonly) NSString *nearDateText;
+@property (nonatomic, readonly) NSUInteger sectionHash;
 @property (nonatomic) BOOL watched; // Key-Value Observable
 
 - (id)initWithDictionary:(NSDictionary*)dictionary;
@@ -19,7 +20,6 @@
 - (NSString*)subTitleText;
 - (NSString*)channelText;
 - (NSString*)startAtText;
-- (NSUInteger)sectionHash;
 - (NSString*)hashString;
 - (void)watch;
 - (void)unwatch;

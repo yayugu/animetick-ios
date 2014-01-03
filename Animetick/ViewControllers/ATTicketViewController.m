@@ -15,8 +15,6 @@
 @property (nonatomic) CFAbsoluteTime loadMoreStartTime;
 @property (nonatomic, strong) NSArray *previousSections;
 @property (nonatomic, strong) NSArray *previousTickets;
-@property (nonatomic) BOOL previousToNightFlag;
-@property (nonatomic) BOOL toNightFlag;
 
 @end
 
@@ -133,42 +131,28 @@
 
 - (NSInteger) tableView:(UITableView*)tableView numberOfRowsInPreviousSection:(NSInteger)section
 {
-    return [self.previousSections[section][@"tickets"] count];
+    return [[self.previousSections[section] tickets] count];
 }
 
 - (NSObject*) tableView:(UITableView*)tableView objectForPreviousSection:(NSInteger)section
 {
-    NSString *title = self.previousSections[section][@"title"];
-//    if ([title isEqualToString:@"今晩"]) {
-//        if (self.previousToNightFlag) {
-//            return @"今晩2";
-//        }
-//        self.previousToNightFlag = YES;
-//    }
-    return title;
+    return self.previousSections[section];
 }
 
 - (NSObject*) tableView:(UITableView*)tableView objectForSection:(NSInteger)section
 {
-    NSString *title = self.ticketList.sectionedTickets[section][@"title"];
-//    if ([title isEqualToString:@"今晩"]) {
-//        if (self.toNightFlag) {
-//            return @"今晩2";
-//        }
-//        self.toNightFlag = YES;
-//    }
-    return title;
+    return self.ticketList.ticketSections[section];
 }
 
 - (NSObject*) tableView:(UITableView*)tableView objectAtPreviousIndexPath:(NSIndexPath*)indexPath
 {
-    int idx = [self.previousSections[indexPath.section][@"tickets"][indexPath.row] intValue];
+    int idx = [((NSArray*)[self.previousSections[indexPath.section] tickets])[indexPath.row] intValue];
     return self.previousTickets[idx];
 }
 
 - (NSObject*) tableView:(UITableView*)tableView objectAtIndexPath:(NSIndexPath*)indexPath
 {
-    int idx = [self.ticketList.sectionedTickets[indexPath.section][@"tickets"][indexPath.row] intValue];
+    int idx = [((NSArray*)[self.ticketList.ticketSections[indexPath.section] tickets])[indexPath.row] intValue];
     return self.ticketList.tickets[idx];
 }
 
@@ -236,9 +220,7 @@
     }
     
     self.previousTickets = [self.ticketList.tickets copy];
-    self.previousSections = [self.ticketList.sectionedTickets copy];
-    self.toNightFlag = NO;
-    self.previousToNightFlag = NO;
+    self.previousSections = [self.ticketList.ticketSections copy];
     
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     if ([self.ticketList numberOfTicketsInSection:indexPath.section] > 1) {

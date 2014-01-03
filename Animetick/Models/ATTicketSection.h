@@ -8,7 +8,7 @@
 
 @interface ATTicketSection : NSObject <NSCopying>
 
-@property (nonatomic, strong) NSArray *tickets;
+@property (nonatomic, strong) NSMutableArray *tickets;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic) NSUInteger hashCode;
 
