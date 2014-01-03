@@ -94,11 +94,13 @@
 
 - (NSString*)createNearDateText
 {
-    if ([[NSDate date] isBetweenDate:self.startAt andDate:self.endAt]) {
+    NSDate *date = [NSDate dateWithATDateFormatString:@"2013-12-29T00:26:47+09:00"];
+    
+    if ([date isBetweenDate:self.startAt andDate:self.endAt]) {
         return @"放送中";
     }
     
-    int daysDifference = [ATDateUtils daysDifferenceConsiderMidnight:[NSDate date] with:self.startAt];
+    int daysDifference = [ATDateUtils daysDifferenceConsiderMidnight:date with:self.startAt];
     if (daysDifference > 1) {
         return @"";
     } else if (daysDifference == 1) {

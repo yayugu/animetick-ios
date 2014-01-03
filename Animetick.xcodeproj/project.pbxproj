@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		115F827C60F94EA499E3C1F7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFCD5A7D8710465FA58C06A3 /* libPods.a */; };
+		3A0289EA18763A2700C041F7 /* ATUpdatableTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0289E918763A2700C041F7 /* ATUpdatableTableView.m */; };
+		3A0289ED187690EC00C041F7 /* ATTicketSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0289EC187690EC00C041F7 /* ATTicketSection.m */; };
 		3A3462311843A729002A5E57 /* ATPaddingIndicator.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3462301843A729002A5E57 /* ATPaddingIndicator.xib */; };
 		3A3462341843A886002A5E57 /* ATPaddingIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3462331843A886002A5E57 /* ATPaddingIndicator.m */; };
 		3A34623618466C50002A5E57 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A34623518466C50002A5E57 /* CoreText.framework */; };
@@ -86,6 +88,10 @@
 
 /* Begin PBXFileReference section */
 		171813F272F244428CECCC7C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		3A0289E818763A2700C041F7 /* ATUpdatableTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATUpdatableTableView.h; path = Animetick/Views/ATUpdatableTableView.h; sourceTree = SOURCE_ROOT; };
+		3A0289E918763A2700C041F7 /* ATUpdatableTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATUpdatableTableView.m; path = Animetick/Views/ATUpdatableTableView.m; sourceTree = SOURCE_ROOT; };
+		3A0289EB187690EC00C041F7 /* ATTicketSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATTicketSection.h; sourceTree = "<group>"; };
+		3A0289EC187690EC00C041F7 /* ATTicketSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATTicketSection.m; sourceTree = "<group>"; };
 		3A3462301843A729002A5E57 /* ATPaddingIndicator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATPaddingIndicator.xib; sourceTree = "<group>"; };
 		3A3462321843A886002A5E57 /* ATPaddingIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATPaddingIndicator.h; sourceTree = "<group>"; };
 		3A3462331843A886002A5E57 /* ATPaddingIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATPaddingIndicator.m; sourceTree = "<group>"; };
@@ -262,6 +268,8 @@
 			children = (
 				47F9F52917AA35C9007C8A8D /* ATAuth.h */,
 				47F9F52A17AA35C9007C8A8D /* ATAuth.m */,
+				3A0289EB187690EC00C041F7 /* ATTicketSection.h */,
+				3A0289EC187690EC00C041F7 /* ATTicketSection.m */,
 				47F9F52B17AA35C9007C8A8D /* ATTicket.h */,
 				47F9F52C17AA35C9007C8A8D /* ATTicket.m */,
 				47F9F52D17AA35C9007C8A8D /* ATTicketList.h */,
@@ -321,6 +329,8 @@
 				3A3462301843A729002A5E57 /* ATPaddingIndicator.xib */,
 				3A3462321843A886002A5E57 /* ATPaddingIndicator.h */,
 				3A3462331843A886002A5E57 /* ATPaddingIndicator.m */,
+				3A0289E818763A2700C041F7 /* ATUpdatableTableView.h */,
+				3A0289E918763A2700C041F7 /* ATUpdatableTableView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -605,6 +615,7 @@
 				470D11B6183B5E040019B0E1 /* ATLisenceViewController.m in Sources */,
 				47F9F53217AA35C9007C8A8D /* ATTicket.m in Sources */,
 				3AF6DA9517DCDF3800CA049A /* ATSettingViewController.m in Sources */,
+				3A0289EA18763A2700C041F7 /* ATUpdatableTableView.m in Sources */,
 				47F9F53317AA35C9007C8A8D /* ATTicketList.m in Sources */,
 				3AF6DA8C17D1F53E00CA049A /* UIColor+ATAdditions.m in Sources */,
 				47F9F55217AA42A4007C8A8D /* ATRootTabController.m in Sources */,
@@ -616,6 +627,7 @@
 				3AF6DA9017DAD72F00CA049A /* ATUtils.m in Sources */,
 				47F9F53117AA35C9007C8A8D /* ATAuth.m in Sources */,
 				470D11BA183F4BA50019B0E1 /* ATTicketLayout.m in Sources */,
+				3A0289ED187690EC00C041F7 /* ATTicketSection.m in Sources */,
 				3AA10E951814148200D37897 /* ATTableViewCellButtonView.m in Sources */,
 				3AA10E9218124DBF00D37897 /* ATTicketContentView.m in Sources */,
 				470D11BD1845C9100019B0E1 /* ATImageLoader.m in Sources */,

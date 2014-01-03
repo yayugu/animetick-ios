@@ -4,7 +4,7 @@
 #import "UIColor+ATAdditions.h"
 #import "ATTicketLayout.h"
 #import "ATPaddingIndicator.h"
-#import "UITableView+Updating.h"
+#import "ATUpdatableTableView.h"
 
 @interface ATTicketViewController () <ATTicketListDelegate, SWTableViewCellDelegate, UITableViewUpdatingDataSource>
 
@@ -15,6 +15,8 @@
 @property (nonatomic) CFAbsoluteTime loadMoreStartTime;
 @property (nonatomic, strong) NSArray *previousSections;
 @property (nonatomic, strong) NSArray *previousTickets;
+@property (nonatomic) BOOL previousToNightFlag;
+@property (nonatomic) BOOL toNightFlag;
 
 @end
 
@@ -35,9 +37,10 @@
     [super viewDidLoad];
     
     UITableViewStyle style = self.watched ? UITableViewStylePlain : UITableViewStyleGrouped;
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:style];
+    self.tableView = [[ATUpdatableTableView alloc] initWithFrame:self.view.bounds style:style];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    ((ATUpdatableTableView*)self.tableView).updatingDataSource = self;
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.tableView.rowHeight = 75; // value for zero rows
     
@@ -135,12 +138,26 @@
 
 - (NSObject*) tableView:(UITableView*)tableView objectForPreviousSection:(NSInteger)section
 {
-    return self.previousSections[section];
+    NSString *title = self.previousSections[section][@"title"];
+//    if ([title isEqualToString:@"今晩"]) {
+//        if (self.previousToNightFlag) {
+//            return @"今晩2";
+//        }
+//        self.previousToNightFlag = YES;
+//    }
+    return title;
 }
 
 - (NSObject*) tableView:(UITableView*)tableView objectForSection:(NSInteger)section
 {
-    return self.ticketList.sectionedTickets[section];
+    NSString *title = self.ticketList.sectionedTickets[section][@"title"];
+//    if ([title isEqualToString:@"今晩"]) {
+//        if (self.toNightFlag) {
+//            return @"今晩2";
+//        }
+//        self.toNightFlag = YES;
+//    }
+    return title;
 }
 
 - (NSObject*) tableView:(UITableView*)tableView objectAtPreviousIndexPath:(NSIndexPath*)indexPath
@@ -157,7 +174,9 @@
 
 - (NSObject<NSCopying>*) tableView:(UITableView*)tableView keyForSectionObject:(NSObject*)object
 {
-    return ((NSDictionary*)object)[@"title"];
+    return object;
+    //return [NSString stringWithFormat:@"%@%d", (NSString*)object, rand()];
+    //return ((NSDictionary*)object)[@"title"];
 }
 
 - (NSObject<NSCopying>*) tableView:(UITableView*)tableView keyForRowObject:(NSObject*)object
@@ -216,8 +235,10 @@
         [ticket watch];
     }
     
-    self.previousTickets = self.ticketList.tickets;
-    self.previousSections = self.ticketList.sectionedTickets;
+    self.previousTickets = [self.ticketList.tickets copy];
+    self.previousSections = [self.ticketList.sectionedTickets copy];
+    self.toNightFlag = NO;
+    self.previousToNightFlag = NO;
     
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     if ([self.ticketList numberOfTicketsInSection:indexPath.section] > 1) {
@@ -227,7 +248,7 @@
         [self.ticketList removeTicketAtIndexPath:indexPath];
         //[self.tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationLeft];
     }
-    [self.tableView updateData];
+    [(ATUpdatableTableView*)self.tableView updateData];
 }
 
 

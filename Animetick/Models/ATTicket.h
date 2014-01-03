@@ -19,9 +19,9 @@
 - (NSString*)subTitleText;
 - (NSString*)channelText;
 - (NSString*)startAtText;
+- (NSUInteger)sectionHash;
+- (NSString*)hashString;
 - (void)watch;
 - (void)unwatch;
-
-- (NSString*)hashString;
 
 @end

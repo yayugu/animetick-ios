@@ -1,4 +1,5 @@
 #import "ATTicketList.h"
+#import "ATTicketSection.h"
 #import "ATAPI.h"
 
 @interface ATTicketList()
@@ -26,30 +27,30 @@
 
 - (NSInteger)numberOfSections
 {
-    return [self.sectionedTickets count];
+    return [self.ticketSections count];
 }
 
 - (NSInteger)numberOfTicketsInSection:(NSInteger)section
 {
-    return [self.sectionedTickets[section][@"tickets"] count];
+    return [[self.ticketSections[section] tickets] count];
 }
 
 - (ATTicket*)ticketAtIndexPath:(NSIndexPath*)path
 {
-    NSUInteger index = [self.sectionedTickets[path.section][@"tickets"][path.row] unsignedIntegerValue];
+    NSUInteger index = [((NSArray*)[self.ticketSections[path.section] tickets])[path.row] unsignedIntegerValue];
     return self.tickets[index];
 }
 
 - (void)removeTicketAtIndexPath:(NSIndexPath*)path
 {
-    NSUInteger index = [self.sectionedTickets[path.section][@"tickets"][path.row] unsignedIntegerValue];
+    NSUInteger index = [((NSArray*)[self.ticketSections[path.section] tickets])[path.row] unsignedIntegerValue];
     [self.tickets removeObjectAtIndex:index];
     self.sectionedTickets = [self generateSectionedTicketsWithTickets:self.tickets];
 }
 
 - (NSString*)titleForSection:(NSInteger)section
 {
-    return self.sectionedTickets[section][@"title"];
+    return [self.ticketSections[section] title];
 }
 
 - (void)loadMore
