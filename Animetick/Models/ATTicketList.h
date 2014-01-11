@@ -1,5 +1,7 @@
 #import "ATTicket.h"
 
+@class ATTicketSection;
+
 @protocol ATTicketListDelegate
 
 - (void)ticketListDidLoad;
@@ -8,15 +10,14 @@
 
 @end
 
-@interface ATTicketList : NSEnumerator
+@interface ATTicketList : NSEnumerator <NSCopying>
 
-@property (nonatomic, strong) NSMutableArray *tickets;
 @property (nonatomic) BOOL lastFlag;
-@property (nonatomic, strong) NSMutableArray *ticketSections;
 
 - (id)initWithWatched:(BOOL)watched delegate:(id<ATTicketListDelegate>)delegate;
 - (NSInteger)numberOfSections;
 - (NSInteger)numberOfTicketsInSection:(NSInteger)section;
+- (ATTicketSection*)sectionAtIndex:(NSInteger)index;
 - (ATTicket*)ticketAtIndexPath:(NSIndexPath*)path;
 - (void)removeTicketAtIndexPath:(NSIndexPath*)path;
 - (NSString*)titleForSection:(NSInteger)section;

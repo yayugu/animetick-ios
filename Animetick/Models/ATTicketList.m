@@ -7,6 +7,8 @@
 @property (nonatomic, weak) id<ATTicketListDelegate> delegate;
 @property (nonatomic) BOOL watched;
 @property (nonatomic) BOOL requesting;
+@property (nonatomic, strong) NSMutableArray *tickets;
+@property (nonatomic, strong) NSMutableArray *ticketSections;
 
 @end
 
@@ -25,6 +27,18 @@
     return self;
 }
 
+- (instancetype)copyWithZone:(NSZone *)zone
+{
+    ATTicketList *clone = [[[self class] alloc] init];
+    clone.tickets = [self.tickets mutableCopy];
+    clone.ticketSections = [self.ticketSections mutableCopy];
+    clone.lastFlag = self.lastFlag;
+    clone.delegate = self.delegate;
+    clone.watched = self.watched;
+    clone.requesting = self.requesting;
+    return clone;
+}
+
 - (NSInteger)numberOfSections
 {
     return [self.ticketSections count];
@@ -33,6 +47,11 @@
 - (NSInteger)numberOfTicketsInSection:(NSInteger)section
 {
     return [[self.ticketSections[section] tickets] count];
+}
+
+- (ATTicketSection*)sectionAtIndex:(NSInteger)index
+{
+    return self.ticketSections[index];
 }
 
 - (ATTicket*)ticketAtIndexPath:(NSIndexPath*)path

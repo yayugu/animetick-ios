@@ -94,19 +94,12 @@
 
 - (void)createSectionTextAndHash
 {
-    NSDate *date = [NSDate dateWithATDateFormatString:@"2013-12-29T00:26:47+09:00"];
-    
-//    if ([date isBetweenDate:self.startAt andDate:self.endAt]) {
-//        return @"放送中";
-//    }
+    NSDate *date = [NSDate date];
     
     int daysDifference = [ATDateUtils daysDifferenceConsiderMidnight:date with:self.startAt];
     if (daysDifference > 1) {
         _nearDateText = @"";
         _sectionHash = @"before more than 1 day".hash;
-        
-        
-        // この辺から放送中の可能性ありになってくる?
     } else if (daysDifference == 1) {
         if ([date isEalryThanDate:_startAt]) {
             _nearDateText = @"明日";

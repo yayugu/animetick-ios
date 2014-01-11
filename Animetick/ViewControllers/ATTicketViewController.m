@@ -5,16 +5,16 @@
 #import "ATTicketLayout.h"
 #import "ATPaddingIndicator.h"
 #import "ATUpdatableTableView.h"
+#import "ATTicketSection.h"
 
 @interface ATTicketViewController () <ATTicketListDelegate, SWTableViewCellDelegate, UITableViewUpdatingDataSource>
 
 @property (nonatomic, strong) ATTicketList *ticketList;
+@property (nonatomic, strong) ATTicketList* previousTicketList;
 @property (nonatomic, strong) ATPaddingIndicator *indicator;
 @property (nonatomic) BOOL watched;
 @property (nonatomic) BOOL firstTimeLayout;
 @property (nonatomic) CFAbsoluteTime loadMoreStartTime;
-@property (nonatomic, strong) NSArray *previousSections;
-@property (nonatomic, strong) NSArray *previousTickets;
 
 @end
 
@@ -126,41 +126,37 @@
 
 - (NSInteger) numberOfPreviousSectionsInTableView:(UITableView*)tableView
 {
-    return self.previousSections.count;
+    return self.previousTicketList.numberOfSections;
 }
 
 - (NSInteger) tableView:(UITableView*)tableView numberOfRowsInPreviousSection:(NSInteger)section
 {
-    return [[self.previousSections[section] tickets] count];
+    return [self.previousTicketList numberOfTicketsInSection:section];
 }
 
 - (NSObject*) tableView:(UITableView*)tableView objectForPreviousSection:(NSInteger)section
 {
-    return self.previousSections[section];
+    return [self.previousTicketList sectionAtIndex:section];
 }
 
 - (NSObject*) tableView:(UITableView*)tableView objectForSection:(NSInteger)section
 {
-    return self.ticketList.ticketSections[section];
+    return [self.ticketList sectionAtIndex:section];
 }
 
 - (NSObject*) tableView:(UITableView*)tableView objectAtPreviousIndexPath:(NSIndexPath*)indexPath
 {
-    int idx = [((NSArray*)[self.previousSections[indexPath.section] tickets])[indexPath.row] intValue];
-    return self.previousTickets[idx];
+    return [self.previousTicketList ticketAtIndexPath:indexPath];
 }
 
 - (NSObject*) tableView:(UITableView*)tableView objectAtIndexPath:(NSIndexPath*)indexPath
 {
-    int idx = [((NSArray*)[self.ticketList.ticketSections[indexPath.section] tickets])[indexPath.row] intValue];
-    return self.ticketList.tickets[idx];
+    return [self.ticketList ticketAtIndexPath:indexPath];
 }
 
 - (NSObject<NSCopying>*) tableView:(UITableView*)tableView keyForSectionObject:(NSObject*)object
 {
-    return object;
-    //return [NSString stringWithFormat:@"%@%d", (NSString*)object, rand()];
-    //return ((NSDictionary*)object)[@"title"];
+    return (NSObject<NSCopying>*)object;
 }
 
 - (NSObject<NSCopying>*) tableView:(UITableView*)tableView keyForRowObject:(NSObject*)object
@@ -218,17 +214,14 @@
     } else {
         [ticket watch];
     }
-    
-    self.previousTickets = [self.ticketList.tickets copy];
-    self.previousSections = [self.ticketList.ticketSections copy];
+
+    self.previousTicketList = [self.ticketList copy];
     
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     if ([self.ticketList numberOfTicketsInSection:indexPath.section] > 1) {
         [self.ticketList removeTicketAtIndexPath:indexPath];
-        //[self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
     } else {
         [self.ticketList removeTicketAtIndexPath:indexPath];
-        //[self.tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationLeft];
     }
     [(ATUpdatableTableView*)self.tableView updateData];
 }
