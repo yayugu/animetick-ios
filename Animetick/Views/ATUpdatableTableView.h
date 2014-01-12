@@ -6,15 +6,17 @@
 //  Copyright (c) 2014年 yayugu. All rights reserved.
 //
 
-@protocol UITableViewUpdatingDataSource;
+@protocol ATTableViewUpdatingDataSource;
 
 @interface ATUpdatableTableView : UITableView
+
 - (void) updateData;
-@property (nonatomic, weak) id<UITableViewUpdatingDataSource>updatingDataSource;
+@property (nonatomic, weak) id <ATTableViewUpdatingDataSource> updatingDataSource;
+
 @end
 
 
-@protocol UITableViewUpdatingDataSource <UITableViewDataSource>
+@protocol ATTableViewUpdatingDataSource <UITableViewDataSource>
 
 @required
 

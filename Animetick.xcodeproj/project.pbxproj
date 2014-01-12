@@ -10,6 +10,7 @@
 		115F827C60F94EA499E3C1F7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFCD5A7D8710465FA58C06A3 /* libPods.a */; };
 		3A0289EA18763A2700C041F7 /* ATUpdatableTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0289E918763A2700C041F7 /* ATUpdatableTableView.m */; };
 		3A0289ED187690EC00C041F7 /* ATTicketSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0289EC187690EC00C041F7 /* ATTicketSection.m */; };
+		3A0289F018824E9900C041F7 /* ATTableViewUpdates.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0289EF18824E9900C041F7 /* ATTableViewUpdates.m */; };
 		3A3462311843A729002A5E57 /* ATPaddingIndicator.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3462301843A729002A5E57 /* ATPaddingIndicator.xib */; };
 		3A3462341843A886002A5E57 /* ATPaddingIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3462331843A886002A5E57 /* ATPaddingIndicator.m */; };
 		3A34623618466C50002A5E57 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A34623518466C50002A5E57 /* CoreText.framework */; };
@@ -49,7 +50,6 @@
 		470D11BA183F4BA50019B0E1 /* ATTicketLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 470D11B9183F4BA50019B0E1 /* ATTicketLayout.m */; };
 		470D11BD1845C9100019B0E1 /* ATImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 470D11BC1845C9100019B0E1 /* ATImageLoader.m */; };
 		475A5AE91845F55F001062CC /* UIImage+ATAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 475A5AE81845F55F001062CC /* UIImage+ATAdditions.m */; };
-		475DB704186965C000E2DA7E /* UITableView+Updating.m in Sources */ = {isa = PBXBuildFile; fileRef = 475DB703186965C000E2DA7E /* UITableView+Updating.m */; };
 		477D115E183A01DD0040D414 /* ATUtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 477D115D183A01DD0040D414 /* ATUtilsTests.m */; };
 		47D67CDB17B35F72001A0043 /* ATServiceLocator.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D67CDA17B35F72001A0043 /* ATServiceLocator.m */; };
 		47F9F51D17AA2FA0007C8A8D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47F9F51217AA2FA0007C8A8D /* Default-568h@2x.png */; };
@@ -92,6 +92,8 @@
 		3A0289E918763A2700C041F7 /* ATUpdatableTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATUpdatableTableView.m; path = Animetick/Views/ATUpdatableTableView.m; sourceTree = SOURCE_ROOT; };
 		3A0289EB187690EC00C041F7 /* ATTicketSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATTicketSection.h; sourceTree = "<group>"; };
 		3A0289EC187690EC00C041F7 /* ATTicketSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATTicketSection.m; sourceTree = "<group>"; };
+		3A0289EE18824E9900C041F7 /* ATTableViewUpdates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATTableViewUpdates.h; sourceTree = "<group>"; };
+		3A0289EF18824E9900C041F7 /* ATTableViewUpdates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATTableViewUpdates.m; sourceTree = "<group>"; };
 		3A3462301843A729002A5E57 /* ATPaddingIndicator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATPaddingIndicator.xib; sourceTree = "<group>"; };
 		3A3462321843A886002A5E57 /* ATPaddingIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATPaddingIndicator.h; sourceTree = "<group>"; };
 		3A3462331843A886002A5E57 /* ATPaddingIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATPaddingIndicator.m; sourceTree = "<group>"; };
@@ -150,8 +152,6 @@
 		470D11BC1845C9100019B0E1 /* ATImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATImageLoader.m; sourceTree = "<group>"; };
 		475A5AE71845F55F001062CC /* UIImage+ATAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ATAdditions.h"; sourceTree = "<group>"; };
 		475A5AE81845F55F001062CC /* UIImage+ATAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ATAdditions.m"; sourceTree = "<group>"; };
-		475DB702186965C000E2DA7E /* UITableView+Updating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Updating.h"; sourceTree = "<group>"; };
-		475DB703186965C000E2DA7E /* UITableView+Updating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Updating.m"; sourceTree = "<group>"; };
 		477D115D183A01DD0040D414 /* ATUtilsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATUtilsTests.m; sourceTree = "<group>"; };
 		47D67CD917B35F72001A0043 /* ATServiceLocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATServiceLocator.h; sourceTree = "<group>"; };
 		47D67CDA17B35F72001A0043 /* ATServiceLocator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATServiceLocator.m; sourceTree = "<group>"; };
@@ -286,6 +286,8 @@
 				3A7FBD4817E6AE71004F7091 /* ATDateUtils.m */,
 				470D11BB1845C9100019B0E1 /* ATImageLoader.h */,
 				470D11BC1845C9100019B0E1 /* ATImageLoader.m */,
+				3A0289EE18824E9900C041F7 /* ATTableViewUpdates.h */,
+				3A0289EF18824E9900C041F7 /* ATTableViewUpdates.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -346,8 +348,6 @@
 				3AF6DA8B17D1F53E00CA049A /* UIColor+ATAdditions.m */,
 				475A5AE71845F55F001062CC /* UIImage+ATAdditions.h */,
 				475A5AE81845F55F001062CC /* UIImage+ATAdditions.m */,
-				475DB702186965C000E2DA7E /* UITableView+Updating.h */,
-				475DB703186965C000E2DA7E /* UITableView+Updating.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -623,7 +623,6 @@
 				47F9F54F17AA364F007C8A8D /* NSDate+ATAdditions.m in Sources */,
 				475A5AE91845F55F001062CC /* UIImage+ATAdditions.m in Sources */,
 				3A447F4F17B514E000C38BD0 /* ATAPI.m in Sources */,
-				475DB704186965C000E2DA7E /* UITableView+Updating.m in Sources */,
 				3AF6DA9017DAD72F00CA049A /* ATUtils.m in Sources */,
 				47F9F53117AA35C9007C8A8D /* ATAuth.m in Sources */,
 				470D11BA183F4BA50019B0E1 /* ATTicketLayout.m in Sources */,
@@ -631,6 +630,7 @@
 				3AA10E951814148200D37897 /* ATTableViewCellButtonView.m in Sources */,
 				3AA10E9218124DBF00D37897 /* ATTicketContentView.m in Sources */,
 				470D11BD1845C9100019B0E1 /* ATImageLoader.m in Sources */,
+				3A0289F018824E9900C041F7 /* ATTableViewUpdates.m in Sources */,
 				3AEF8DDE17AE0B8F00007E9C /* ATTicketCell.m in Sources */,
 				3A3462341843A886002A5E57 /* ATPaddingIndicator.m in Sources */,
 			);

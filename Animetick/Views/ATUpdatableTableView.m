@@ -7,15 +7,7 @@
 //
 
 #import "ATUpdatableTableView.h"
-
-@interface UITableViewUpdates : NSObject
-@property (nonatomic, readonly) NSMutableIndexSet* deleteSections;
-@property (nonatomic, readonly) NSMutableIndexSet* reloadSections;
-@property (nonatomic, readonly) NSMutableIndexSet* insertSections;
-@property (nonatomic, readonly) NSMutableArray* deleteRows;
-@property (nonatomic, readonly) NSMutableArray* reloadRows;
-@property (nonatomic, readonly) NSMutableArray* insertRows;
-@end
+#import "ATTableViewUpdates.h"
 
 @implementation ATUpdatableTableView
 
@@ -60,7 +52,7 @@
             return;
         }
         
-        UITableViewUpdates* updates = [[UITableViewUpdates alloc] init];
+        ATTableViewUpdates* updates = [[ATTableViewUpdates alloc] init];
             
         BOOL reload = [self _detectSectionUpdates:updates
                            withUpdatingDataSource:_updatingDataSource
@@ -92,8 +84,8 @@
     }
 }
 
-- (BOOL) _detectSectionUpdates:(UITableViewUpdates*)updates
-        withUpdatingDataSource:(id<UITableViewUpdatingDataSource>)updatingDataSource
+- (BOOL) _detectSectionUpdates:(ATTableViewUpdates*)updates
+        withUpdatingDataSource:(id<ATTableViewUpdatingDataSource>)updatingDataSource
                  oldSectionMap:(NSDictionary*)oldSectionMap
                  newSectionMap:(NSDictionary*)newSectionMap
 {
@@ -192,7 +184,7 @@
     return NO;
 }
 
-- (void) _applyUpdates:(UITableViewUpdates*)updates
+- (void) _applyUpdates:(ATTableViewUpdates*)updates
 {
     [self beginUpdates];
     if (updates.deleteSections.count > 0)
@@ -228,8 +220,8 @@
     [self endUpdates];
 }
 
-- (BOOL) _detectRowUpdates:(UITableViewUpdates*)updates
-            withDataSource:(id<UITableViewUpdatingDataSource>)updatingDataSource
+- (BOOL) _detectRowUpdates:(ATTableViewUpdates*)updates
+            withDataSource:(id<ATTableViewUpdatingDataSource>)updatingDataSource
         forPreviousSection:(NSInteger)oldSection
                    section:(NSInteger)newSection
 {
@@ -350,7 +342,7 @@
     return NO;
 }
 
-- (void)rowReloadWithUpdates:(UITableViewUpdates*)updates
+- (void)rowReloadWithUpdates:(ATTableViewUpdates*)updates
                      deletes:(NSInteger)deletes
                      inserts:(NSInteger)inserts
                      reloads:(NSInteger)reloads

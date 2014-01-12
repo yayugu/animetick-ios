@@ -7,7 +7,7 @@
 #import "ATUpdatableTableView.h"
 #import "ATTicketSection.h"
 
-@interface ATTicketViewController () <ATTicketListDelegate, SWTableViewCellDelegate, UITableViewUpdatingDataSource>
+@interface ATTicketViewController () <ATTicketListDelegate, SWTableViewCellDelegate, ATTableViewUpdatingDataSource>
 
 @property (nonatomic, strong) ATTicketList *ticketList;
 @property (nonatomic, strong) ATTicketList* previousTicketList;
@@ -122,7 +122,7 @@
     return [self.ticketList titleForSection:section];
 }
 
-#pragma mark - UITableViewUpdatingDataSource
+#pragma mark - ATTableViewUpdatingDataSource
 
 - (NSInteger) numberOfPreviousSectionsInTableView:(UITableView*)tableView
 {
