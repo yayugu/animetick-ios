@@ -32,6 +32,8 @@
 		3AA10E9218124DBF00D37897 /* ATTicketContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA10E9118124DBF00D37897 /* ATTicketContentView.m */; };
 		3AA10E951814148200D37897 /* ATTableViewCellButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA10E941814148200D37897 /* ATTableViewCellButtonView.m */; };
 		3AA10E98181415A900D37897 /* ATSwipableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA10E97181415A900D37897 /* ATSwipableTableViewCell.m */; };
+		3AB46FAE19D6D96E00F50694 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AB46FAD19D6D96E00F50694 /* Images.xcassets */; };
+		3AB46FB019D6E01700F50694 /* ATLaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AB46FAF19D6E01700F50694 /* ATLaunchScreen.xib */; };
 		3ACB7C2918202312007E981D /* TicketStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ACB7C2818202312007E981D /* TicketStoryboard.storyboard */; };
 		3ACB7C2C182026A0007E981D /* ATTicketSegmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACB7C2B182026A0007E981D /* ATTicketSegmentViewController.m */; };
 		3AE6DE3C17E44BC300BA9745 /* NSHTTPCookieStorage+ATAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6DE3B17E44BC300BA9745 /* NSHTTPCookieStorage+ATAdditions.m */; };
@@ -122,6 +124,8 @@
 		3AA10E941814148200D37897 /* ATTableViewCellButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATTableViewCellButtonView.m; sourceTree = "<group>"; };
 		3AA10E96181415A900D37897 /* ATSwipableTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATSwipableTableViewCell.h; sourceTree = "<group>"; };
 		3AA10E97181415A900D37897 /* ATSwipableTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATSwipableTableViewCell.m; sourceTree = "<group>"; };
+		3AB46FAD19D6D96E00F50694 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3AB46FAF19D6E01700F50694 /* ATLaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATLaunchScreen.xib; sourceTree = "<group>"; };
 		3ACB7C2818202312007E981D /* TicketStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TicketStoryboard.storyboard; sourceTree = "<group>"; };
 		3ACB7C2A182026A0007E981D /* ATTicketSegmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATTicketSegmentViewController.h; sourceTree = "<group>"; };
 		3ACB7C2B182026A0007E981D /* ATTicketSegmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATTicketSegmentViewController.m; sourceTree = "<group>"; };
@@ -333,6 +337,7 @@
 				3A3462331843A886002A5E57 /* ATPaddingIndicator.m */,
 				3A0289E818763A2700C041F7 /* ATUpdatableTableView.h */,
 				3A0289E918763A2700C041F7 /* ATUpdatableTableView.m */,
+				3AB46FAF19D6E01700F50694 /* ATLaunchScreen.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -397,6 +402,7 @@
 				47F9F54317AA35E2007C8A8D /* Views */,
 				47F9F53517AA35D4007C8A8D /* ViewControllers */,
 				47F9F51117AA2FA0007C8A8D /* Resources */,
+				3AB46FAD19D6D96E00F50694 /* Images.xcassets */,
 				E26BED88177081A80087E0E4 /* Supporting Files */,
 			);
 			path = Animetick;
@@ -514,9 +520,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				470D11B3183B5C520019B0E1 /* LibraryLicenses.txt in Resources */,
+				3AB46FAE19D6D96E00F50694 /* Images.xcassets in Resources */,
 				3AE6DE4C17E4C20400BA9745 /* tabbar-icon-ticket@2x.png in Resources */,
 				3A7FBD4417E5F3B1004F7091 /* Default-Portrait~ipad.png in Resources */,
 				3A7FBD3C17E5EE27004F7091 /* animetick_ios7_152.png in Resources */,
+				3AB46FB019D6E01700F50694 /* ATLaunchScreen.xib in Resources */,
 				47F9F54B17AA360F007C8A8D /* ATLoginViewController.xib in Resources */,
 				E26BED8C177081A80087E0E4 /* InfoPlist.strings in Resources */,
 				3A7FBD4317E5F3B1004F7091 /* Default-Portrait@2x~ipad.png in Resources */,
@@ -738,6 +746,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 171813F272F244428CECCC7C /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -755,7 +765,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 171813F272F244428CECCC7C /* Pods.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Yuya Yaguchi (XVG97NLJ56)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Yuya Yaguchi (XVG97NLJ56)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Animetick/Animetick-Prefix.pch";
