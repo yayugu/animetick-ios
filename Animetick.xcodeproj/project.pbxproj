@@ -28,6 +28,7 @@
 		3A7FBD4517E5F3B1004F7091 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A7FBD4117E5F3B1004F7091 /* Default-Landscape@2x~ipad.png */; };
 		3A7FBD4617E5F3B1004F7091 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A7FBD4217E5F3B1004F7091 /* Default-Landscape~ipad.png */; };
 		3A7FBD4917E6AE71004F7091 /* ATDateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7FBD4817E6AE71004F7091 /* ATDateUtils.m */; };
+		3A88C8CB19D8071700D4B00A /* animetick_ios7_180.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A88C8CA19D8071700D4B00A /* animetick_ios7_180.png */; };
 		3AA10E8F1812489600D37897 /* ATTicketContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AA10E8E1812489600D37897 /* ATTicketContentView.xib */; };
 		3AA10E9218124DBF00D37897 /* ATTicketContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA10E9118124DBF00D37897 /* ATTicketContentView.m */; };
 		3AA10E951814148200D37897 /* ATTableViewCellButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA10E941814148200D37897 /* ATTableViewCellButtonView.m */; };
@@ -117,6 +118,7 @@
 		3A7FBD4217E5F3B1004F7091 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		3A7FBD4717E6AE71004F7091 /* ATDateUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATDateUtils.h; sourceTree = "<group>"; };
 		3A7FBD4817E6AE71004F7091 /* ATDateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATDateUtils.m; sourceTree = "<group>"; };
+		3A88C8CA19D8071700D4B00A /* animetick_ios7_180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = animetick_ios7_180.png; sourceTree = "<group>"; };
 		3AA10E8E1812489600D37897 /* ATTicketContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATTicketContentView.xib; sourceTree = "<group>"; };
 		3AA10E9018124DBF00D37897 /* ATTicketContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATTicketContentView.h; sourceTree = "<group>"; };
 		3AA10E9118124DBF00D37897 /* ATTicketContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATTicketContentView.m; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 		47F9F51117AA2FA0007C8A8D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3A88C8CA19D8071700D4B00A /* animetick_ios7_180.png */,
 				3AE6DE4A17E4C20400BA9745 /* tabbar-icon-ticket@2x.png */,
 				3AE6DE4917E4C20400BA9745 /* tabbar-icon-ticket-selected@2x.png */,
 				3AE6DE4217E4BF0800BA9745 /* tabbar-icon-setting@2x.png */,
@@ -531,6 +534,7 @@
 				3AF6DA9217DAD7E800CA049A /* SettingStoryboard.storyboard in Resources */,
 				47F9F51D17AA2FA0007C8A8D /* Default-568h@2x.png in Resources */,
 				3AE6DE4B17E4C20400BA9745 /* tabbar-icon-ticket-selected@2x.png in Resources */,
+				3A88C8CB19D8071700D4B00A /* animetick_ios7_180.png in Resources */,
 				3A7FBD3A17E5EE27004F7091 /* animetick_ios7_1024.png in Resources */,
 				3A7FBD3917E5EE27004F7091 /* animetick_ios7_512.png in Resources */,
 				3AA10E8F1812489600D37897 /* ATTicketContentView.xib in Resources */,
