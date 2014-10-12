@@ -74,7 +74,7 @@
 
 - (void)loadMore
 {
-    [self requestWithOffset:self.tickets.count];
+    [self requestWithOffset:(int)self.tickets.count];
 }
 
 - (void)reload
@@ -116,7 +116,7 @@
     section.tickets = [NSMutableArray array];
     [sections addObject:section];
     NSUInteger i = 0;
-    for (ATTicket *ticket in tickets) {
+    for (__unused ATTicket *ticket in tickets) {
         [[sections[0] tickets] addObject:[NSNumber numberWithUnsignedInteger:i]];
         i++;
     }

@@ -45,8 +45,8 @@
         
         if (oldSectionCount != oldSectionMap.count || newSectionCount != newSectionMap.count) {
             NSLog(@"something wrong: sectionCount");
-            NSLog(@"oldcount: %d != %d", oldSectionCount, oldSectionMap.count);
-            NSLog(@"newcount: %d != %d", newSectionCount, newSectionMap.count);
+            NSLog(@"oldcount: %ld != %lu", (long)oldSectionCount, (unsigned long)oldSectionMap.count);
+            NSLog(@"newcount: %ld != %lu", (long)newSectionCount, (unsigned long)newSectionMap.count);
             [self reloadData];
             [self didUpdate];
             return;

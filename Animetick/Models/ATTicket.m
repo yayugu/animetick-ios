@@ -24,7 +24,7 @@
 
 - (NSString*)hashString
 {
-    return [NSString stringWithFormat:@"%d", [self hash]];
+    return [NSString stringWithFormat:@"%lu", (unsigned long)[self hash]];
 }
 
 - (void)assignValuesWithDictionary:(NSDictionary*)dic
@@ -96,7 +96,7 @@
 {
     NSDate *date = [NSDate date];
     
-    int daysDifference = [ATDateUtils daysDifferenceConsiderMidnight:date with:self.startAt];
+    NSInteger daysDifference = [ATDateUtils daysDifferenceConsiderMidnight:date with:self.startAt];
     if (daysDifference > 1) {
         _nearDateText = @"";
         _sectionHash = @"before more than 1 day".hash;

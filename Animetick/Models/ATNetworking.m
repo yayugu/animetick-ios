@@ -22,7 +22,7 @@
 {
     ATRequestCompletion wrapCompletion = ^(NSURLResponse *response, NSData *data, NSError *error) {
         if (error) {
-            int statusCode = ((NSHTTPURLResponse*)response).statusCode;
+            NSInteger statusCode = ((NSHTTPURLResponse*)response).statusCode;
             if (statusCode == 401) {
                 // Unauthorized
                 [[NSNotificationCenter defaultCenter] postNotificationName:ATDidReceiveReauthorizeRequired
