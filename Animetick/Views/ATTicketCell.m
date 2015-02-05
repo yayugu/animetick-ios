@@ -59,4 +59,10 @@
     [self.frontView setNeedsDisplay];
 }
 
+- (CGSize)sizeThatFits:(CGSize)size
+{
+    ATTicketLayout *layout = [[ATTicketLayout alloc] initWithTicket:_ticket cellWidth:self.bounds.size.width];
+    return (CGSize){self.frame.size.width, [layout height]};
+}
+
 @end

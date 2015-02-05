@@ -40,7 +40,8 @@
     self.tableView.dataSource = self;
     ((ATUpdatableTableView*)self.tableView).updatingDataSource = self;
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.tableView.rowHeight = 75; // value for zero rows
+    self.tableView.estimatedRowHeight = 70;
+    self.tableView.rowHeight = UITableViewAutomaticDimension; // value for zero rows
     
     self.ticketList = [[ATTicketList alloc] initWithWatched:self.watched delegate:self];
     
@@ -165,12 +166,6 @@
 }
 
 #pragma mark - Table view delegate
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    ATTicket *ticket = [self.ticketList ticketAtIndexPath:indexPath];
-    return [[[ATTicketLayout alloc] initWithTicket:ticket cellWidth:self.view.bounds.size.width] height];
-}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
