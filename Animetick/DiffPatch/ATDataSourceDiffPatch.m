@@ -33,84 +33,37 @@ typedef NS_ENUM(NSUInteger, ATPatchType) {
 
 - (void)update:(UITableView*)tableview from:(id<ATDataSource>)d1 to:(id<ATDataSource>)d2
 {
-    
+    ATTableViewUpdates* patch = [[ATTableViewUpdates alloc] init];
+    BOOL reload = [self diffFrom:d1 to:d2 patch:patch];
+    [self applyPatch:patch reloadFlag:reload];
 }
 
-- (void)diffFrom:(id<ATDataSource>)d1 to:(id<ATDataSource>)d2
+- (BOOL)diffFrom:(id<ATDataSource>)d1 to:(id<ATDataSource>)d2 patch:(ATTableViewUpdates*)patch;
 {
-    NSInteger oldSectionCount = [d1 numberOfSectionsInTableView:_tableView];
+    NSInteger oldSectionCount = [d1 numberOfSections];
     NSMutableDictionary* oldSectionMap = [[NSMutableDictionary alloc] initWithCapacity:oldSectionCount];
-    
-    // ここまで
-    
     for (NSInteger i = 0; i < oldSectionCount; i++)
     {
-        NSObject *obj = [_updatingDataSource tableView:self objectForPreviousSection:i];
-        NSObject<NSCopying> *key = [_updatingDataSource tableView:self keyForSectionObject:obj];
-        oldSectionMap[key] = @(i);
+        NSUInteger hash = [d1 hashForSection:i];
+        oldSectionMap[@(hash)] = @(i);
     }
     
-    NSInteger newSectionCount = [_updatingDataSource numberOfSectionsInTableView:self];
+    NSInteger newSectionCount = [d2 numberOfSections];
     NSMutableDictionary* newSectionMap = [[NSMutableDictionary alloc] initWithCapacity:newSectionCount];
-    
     for (NSInteger i = 0; i < newSectionCount; i++)
     {
-        NSObject *obj = [_updatingDataSource tableView:self objectForSection:i];
-        NSObject<NSCopying> *key = [_updatingDataSource tableView:self keyForSectionObject:obj];
-        newSectionMap[key] = @(i);
+        NSUInteger hash = [d2 hashForSection:i];
+        newSectionMap[@(hash)] = @(i);
     }
     
-    ATTableViewUpdates* updates = [[ATTableViewUpdates alloc] init];
     
-    BOOL reload = [self _detectSectionUpdates:updates
-                       withUpdatingDataSource:_updatingDataSource
-                                oldSectionMap:oldSectionMap
-                                newSectionMap:newSectionMap];
+    return [self _detectSectionUpdates:patch from:d1 to:d2 oldSectionMap:oldSectionMap newSectionMap:newSectionMap];
 }
 
-- (void)updateData
-{
-    @autoreleasepool
-    {
-        [self willUpdate];
-        
-        if (!self.window) {
-            [self reloadData];
-            [self didUpdate];
-            return;
-        }
-        
-
-        
-        // diff
-        
-        if (reload) {
-            NSLog(@"something wrong: detectSectionUpdates");
-            [self reloadData];
-            [self didUpdate];
-            return;
-        }
-        
-        @try
-        {
-            // NSLog(@"%@", updates);
-            [self _applyUpdates:updates];
-        }
-        @catch (NSException *exception)
-        {
-            NSLog(@"Exception: %@", exception);
-            
-            [self reloadData];
-            [self didUpdate];
-            return;
-        }
-        
-        [self didUpdate];
-    }
-}
 
 - (BOOL) _detectSectionUpdates:(ATTableViewUpdates*)updates
-        withUpdatingDataSource:(id<ATTableViewUpdatingDataSource>)updatingDataSource
+                          from:(id<ATDataSource>)d1
+                            to:(id<ATDataSource>)d2
                  oldSectionMap:(NSDictionary*)oldSectionMap
                  newSectionMap:(NSDictionary*)newSectionMap
 {
@@ -118,9 +71,8 @@ typedef NS_ENUM(NSUInteger, ATPatchType) {
     NSUInteger newSectionCount = newSectionMap.count;
     NSInteger oldIndex = 0;
     NSInteger newIndex = 0;
-    NSObject* oldObj, *newObj;
-    NSObject<NSCopying>* oldKey, *newKey;
-    
+    NSUInteger oldHash, newHash;
+
     // Optimize redundant object retrieval
     BOOL repeatOld = NO;
     BOOL repeatNew = NO;
@@ -128,26 +80,22 @@ typedef NS_ENUM(NSUInteger, ATPatchType) {
     while (true)
     {
         if (!repeatOld)
-            oldObj = oldKey = nil;
+            oldHash = 0;
         if (!repeatNew)
-            newObj = newKey = nil;
-        if (!oldObj && oldIndex < oldSectionCount)
-            oldObj = [_updatingDataSource tableView:self objectForPreviousSection:oldIndex];
-        if (!newObj && newIndex < newSectionCount)
-            newObj = [_updatingDataSource tableView:self objectForSection:newIndex];
-        if (!oldKey && oldObj)
-            oldKey = [_updatingDataSource tableView:self keyForSectionObject:oldObj];
-        if (!newKey && newObj)
-            newKey = [_updatingDataSource tableView:self keyForSectionObject:newObj];
+            newHash = 0;
+        if (!oldHash && oldIndex < oldSectionCount)
+            oldHash = [d1 hashForSection:oldIndex];
+        if (!newHash && newIndex < newSectionCount)
+            newHash = [d2 hashForSection:newIndex];
         
         repeatOld = repeatNew = NO;
         
-        if (!oldKey && !newKey)
+        if (!oldHash && !newHash)
             break;
         
-        if (oldKey)
+        if (oldHash)
         {
-            NSNumber *newIndexToMatchNewId = [newSectionMap objectForKey:oldKey];
+            NSNumber *newIndexToMatchNewId = [newSectionMap objectForKey:@(oldHash)];
             if (!newIndexToMatchNewId)
             {
                 [updates.deleteSections addIndex:oldIndex];
@@ -157,9 +105,9 @@ typedef NS_ENUM(NSUInteger, ATPatchType) {
             }
         }
         
-        if (newKey)
+        if (newHash)
         {
-            NSNumber *oldIndexToMatchNewId = [oldSectionMap objectForKey:newKey];
+            NSNumber *oldIndexToMatchNewId = [oldSectionMap objectForKey:@(oldHash)];
             if (!oldIndexToMatchNewId)
             {
                 [updates.insertSections addIndex:newIndex];
@@ -169,23 +117,9 @@ typedef NS_ENUM(NSUInteger, ATPatchType) {
             }
         }
         
-        if (newKey && oldKey)
+        if (newHash && oldHash)
         {
-            // The order of items was manipulated beyond just additions and removals
-            // Bail
-            if (![oldKey isEqual:newKey])
-            {
-                NSLog(@"something wrong: section key equality broken");
-                return YES;
-            }
-            
-            BOOL didChange = NO;
-            if ([_updatingDataSource respondsToSelector:@selector(tableView:isPreviousSectionObject:equalToSectionObject:)]) {
-                didChange = ![_updatingDataSource tableView:self isPreviousSectionObject:oldObj equalToSectionObject:newObj];
-            } else {
-                didChange = ![oldObj isEqual:newObj];
-            }
-            
+            BOOL didChange = (oldHash != newHash);
             if (didChange)
             {
                 [updates.reloadSections addIndex:oldIndex];
@@ -194,7 +128,8 @@ typedef NS_ENUM(NSUInteger, ATPatchType) {
             {
                 // check row changes
                 if ([self _detectRowUpdates:updates
-                             withDataSource:updatingDataSource
+                                       from:d1
+                                         to:d2
                          forPreviousSection:oldIndex
                                     section:newIndex])
                 {
@@ -209,44 +144,11 @@ typedef NS_ENUM(NSUInteger, ATPatchType) {
     return NO;
 }
 
-- (void) _applyUpdates:(ATTableViewUpdates*)updates
-{
-    [self beginUpdates];
-    if (updates.deleteSections.count > 0)
-    {
-        [self deleteSections:updates.deleteSections
-            withRowAnimation:UITableViewRowAnimationLeft];
-    }
-    if (updates.deleteRows.count > 0)
-    {
-        [self deleteRowsAtIndexPaths:updates.deleteRows
-                    withRowAnimation:UITableViewRowAnimationLeft];
-    }
-    if (updates.reloadSections.count > 0)
-    {
-        [self reloadSections:updates.reloadSections
-            withRowAnimation:UITableViewRowAnimationLeft];
-    }
-    if (updates.reloadRows.count > 0)
-    {
-        [self reloadRowsAtIndexPaths:updates.reloadRows
-                    withRowAnimation:UITableViewRowAnimationLeft];
-    }
-    if (updates.insertSections.count > 0)
-    {
-        [self insertSections:updates.insertSections
-            withRowAnimation:UITableViewRowAnimationAutomatic];
-    }
-    if (updates.insertRows.count > 0)
-    {
-        [self insertRowsAtIndexPaths:updates.insertRows
-                    withRowAnimation:UITableViewRowAnimationAutomatic];
-    }
-    [self endUpdates];
-}
+
 
 - (BOOL) _detectRowUpdates:(ATTableViewUpdates*)updates
-            withDataSource:(id<ATTableViewUpdatingDataSource>)updatingDataSource
+                      from:(id<ATDataSource>)d1
+                        to:(id<ATDataSource>)d2
         forPreviousSection:(NSInteger)oldSection
                    section:(NSInteger)newSection
 {
@@ -255,22 +157,20 @@ typedef NS_ENUM(NSUInteger, ATPatchType) {
     NSInteger inserts = 0;
     @autoreleasepool
     {
-        NSInteger oldRowCount = [updatingDataSource tableView:self numberOfRowsInPreviousSection:oldSection];
+        NSInteger oldRowCount = [d1 numberOfRowsInSection:oldSection];
         NSMutableDictionary* oldRowMap = [[NSMutableDictionary alloc] initWithCapacity:oldRowCount];
         for (NSInteger i = 0; i < oldRowCount; i++)
         {
-            NSObject *obj = [_updatingDataSource tableView:self objectAtPreviousIndexPath:[NSIndexPath indexPathForRow:i inSection:oldSection]];
-            NSObject<NSCopying> *key = [_updatingDataSource tableView:self keyForRowObject:obj];
-            oldRowMap[key] = @(i);
+            NSUInteger hash = [d1 hashAtIndexPath:[NSIndexPath indexPathForRow:i inSection:oldSection]];
+            oldRowMap[@(hash)] = @(i);
         }
         
-        NSInteger newRowCount = [updatingDataSource tableView:self numberOfRowsInSection:newSection];
+        NSInteger newRowCount = [d2 numberOfRowsInSection:newSection];
         NSMutableDictionary* newRowMap = [[NSMutableDictionary alloc] initWithCapacity:newRowCount];
         for (NSInteger i = 0; i < newRowCount; i++)
         {
-            NSObject *obj = [_updatingDataSource tableView:self objectAtIndexPath:[NSIndexPath indexPathForRow:i inSection:newSection]];
-            NSObject<NSCopying> *key = [_updatingDataSource tableView:self keyForRowObject:obj];
-            newRowMap[key] = @(i);
+            NSUInteger hash = [d2 hashAtIndexPath:[NSIndexPath indexPathForRow:i inSection:newSection]];
+            newRowMap[@(hash)] = @(i);
         }
         
         if (oldRowCount != oldRowMap.count || newRowCount != newRowMap.count) {
@@ -280,8 +180,7 @@ typedef NS_ENUM(NSUInteger, ATPatchType) {
         
         NSInteger oldIndex = 0;
         NSInteger newIndex = 0;
-        NSObject* oldObj, *newObj;
-        NSObject<NSCopying>* oldKey, *newKey;
+        NSUInteger oldHash, newHash;
         
         // Optimize redundant object retrieval
         BOOL repeatOld = NO;
@@ -292,26 +191,22 @@ typedef NS_ENUM(NSUInteger, ATPatchType) {
             NSIndexPath* oldPath = [NSIndexPath indexPathForRow:oldIndex inSection:oldSection];
             NSIndexPath* newPath = [NSIndexPath indexPathForRow:newIndex inSection:newSection];
             if (!repeatOld)
-                oldObj = oldKey = nil;
+                oldHash = 0;
             if (!repeatNew)
-                newObj = newKey = nil;
-            if (!oldObj && oldIndex < oldRowCount)
-                oldObj = [_updatingDataSource tableView:self objectAtPreviousIndexPath:oldPath];
-            if (!newObj && newIndex < newRowCount)
-                newObj = [_updatingDataSource tableView:self objectAtIndexPath:newPath];
-            if (!oldKey && oldObj)
-                oldKey = [_updatingDataSource tableView:self keyForRowObject:oldObj];
-            if (!newKey && newObj)
-                newKey = [_updatingDataSource tableView:self keyForRowObject:newObj];
+                oldHash = 0;
+            if (!oldHash && oldIndex < oldRowCount)
+                oldHash = [d1 hashAtIndexPath:oldPath];
+            if (!newHash && newIndex < newRowCount)
+                newHash = [d2 hashAtIndexPath:newPath];
             
             repeatOld = repeatNew = NO;
             
-            if (!oldKey && !newKey)
+            if (!oldHash && !newHash)
                 break;
             
-            if (oldKey)
+            if (oldHash)
             {
-                NSNumber* newIndexToMatchOldId = newRowMap[oldKey];
+                NSNumber* newIndexToMatchOldId = newRowMap[@(oldHash)];
                 if (!newIndexToMatchOldId)
                 {
                     [updates.deleteRows addObject:oldPath];
@@ -322,9 +217,9 @@ typedef NS_ENUM(NSUInteger, ATPatchType) {
                 }
             }
             
-            if (newKey)
+            if (newHash)
             {
-                NSNumber* oldIndexToMatchNewId = oldRowMap[newKey];
+                NSNumber* oldIndexToMatchNewId = oldRowMap[@(newHash)];
                 if (!oldIndexToMatchNewId)
                 {
                     [updates.insertRows addObject:newPath];
@@ -335,24 +230,9 @@ typedef NS_ENUM(NSUInteger, ATPatchType) {
                 }
             }
             
-            if (newKey && oldKey)
+            if (newHash && oldHash)
             {
-                // The order of items was manipulated beyond just additions and removals
-                // Bail
-                if (![oldKey isEqual:newKey])
-                {
-                    NSLog(@"something wrong: row key equality");
-                    [self rowReloadWithUpdates:updates deletes:deletes inserts:inserts reloads:reloads];
-                    return YES;
-                }
-                
-                BOOL didChange = NO;
-                if ([_updatingDataSource respondsToSelector:@selector(tableView:isPreviousRowObject:equalToRowObject:)]) {
-                    didChange = ![_updatingDataSource tableView:self isPreviousRowObject:oldObj equalToRowObject:newObj];
-                } else {
-                    didChange = ![oldObj isEqual:newObj];
-                }
-                
+                BOOL didChange = (oldHash != newHash);
                 if (didChange)
                 {
                     [updates.reloadRows addObject:oldPath];
@@ -365,6 +245,42 @@ typedef NS_ENUM(NSUInteger, ATPatchType) {
         }
     }
     return NO;
+}
+
+- (void) _applyUpdates:(ATTableViewUpdates*)updates
+{
+    [_tableView beginUpdates];
+    if (updates.deleteSections.count > 0)
+    {
+        [_tableView deleteSections:updates.deleteSections
+            withRowAnimation:UITableViewRowAnimationLeft];
+    }
+    if (updates.deleteRows.count > 0)
+    {
+        [_tableView deleteRowsAtIndexPaths:updates.deleteRows
+                    withRowAnimation:UITableViewRowAnimationLeft];
+    }
+    if (updates.reloadSections.count > 0)
+    {
+        [_tableView reloadSections:updates.reloadSections
+            withRowAnimation:UITableViewRowAnimationLeft];
+    }
+    if (updates.reloadRows.count > 0)
+    {
+        [_tableView reloadRowsAtIndexPaths:updates.reloadRows
+                    withRowAnimation:UITableViewRowAnimationLeft];
+    }
+    if (updates.insertSections.count > 0)
+    {
+        [_tableView insertSections:updates.insertSections
+            withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+    if (updates.insertRows.count > 0)
+    {
+        [_tableView insertRowsAtIndexPaths:updates.insertRows
+                    withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+    [_tableView endUpdates];
 }
 
 - (void)rowReloadWithUpdates:(ATTableViewUpdates*)updates
@@ -389,19 +305,60 @@ typedef NS_ENUM(NSUInteger, ATPatchType) {
 
 - (void)willUpdate
 {
+    /*
     if ([_updatingDataSource respondsToSelector:@selector(tableViewWillUpdate::)])
     {
         [_updatingDataSource tableViewWillUpdate:self];
     }
+     */
 }
 
 - (void)didUpdate
 {
+    /*
     if ([_updatingDataSource respondsToSelector:@selector(tableViewDidUpate:)])
     {
         [_updatingDataSource tableViewDidUpate:self];
+    }*/
+}
+
+- (void)applyPatch:(ATTableViewUpdates*)patch reloadFlag:(BOOL)reload
+{
+    @autoreleasepool
+    {
+        [self willUpdate];
+        
+        if (!_tableView.window) {
+            [_tableView reloadData];
+            [self didUpdate];
+            return;
+        }
+        
+        if (reload) {
+            NSLog(@"something wrong: detectSectionUpdates");
+            [_tableView reloadData];
+            [self didUpdate];
+            return;
+        }
+        
+        @try
+        {
+            // NSLog(@"%@", updates);
+            [self _applyUpdates:patch];
+        }
+        @catch (NSException *exception)
+        {
+            NSLog(@"Exception: %@", exception);
+            
+            [_tableView reloadData];
+            [self didUpdate];
+            return;
+        }
+        
+        [self didUpdate];
     }
 }
+
 
 
 @end
