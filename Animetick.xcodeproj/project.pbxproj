@@ -43,6 +43,7 @@
 		3AE6DE4B17E4C20400BA9745 /* tabbar-icon-ticket-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE6DE4917E4C20400BA9745 /* tabbar-icon-ticket-selected@2x.png */; };
 		3AE6DE4C17E4C20400BA9745 /* tabbar-icon-ticket@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE6DE4A17E4C20400BA9745 /* tabbar-icon-ticket@2x.png */; };
 		3AE6DE4F17E4C72600BA9745 /* ATUserConfigurations.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6DE4E17E4C72600BA9745 /* ATUserConfigurations.m */; };
+		3AE9816D1A8702D7000AB4E1 /* ATDataSourceDiffPatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9816C1A8702D7000AB4E1 /* ATDataSourceDiffPatch.m */; };
 		3AEF8DDE17AE0B8F00007E9C /* ATTicketCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEF8DDD17AE0B8F00007E9C /* ATTicketCell.m */; };
 		3AF6DA8C17D1F53E00CA049A /* UIColor+ATAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF6DA8B17D1F53E00CA049A /* UIColor+ATAdditions.m */; };
 		3AF6DA9017DAD72F00CA049A /* ATUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF6DA8F17DAD72F00CA049A /* ATUtils.m */; };
@@ -90,7 +91,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		171813F272F244428CECCC7C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		3A0289E818763A2700C041F7 /* ATUpdatableTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATUpdatableTableView.h; path = Animetick/Views/ATUpdatableTableView.h; sourceTree = SOURCE_ROOT; };
 		3A0289E918763A2700C041F7 /* ATUpdatableTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATUpdatableTableView.m; path = Animetick/Views/ATUpdatableTableView.m; sourceTree = SOURCE_ROOT; };
 		3A0289EB187690EC00C041F7 /* ATTicketSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATTicketSection.h; sourceTree = "<group>"; };
@@ -139,6 +139,9 @@
 		3AE6DE4A17E4C20400BA9745 /* tabbar-icon-ticket@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-icon-ticket@2x.png"; sourceTree = "<group>"; };
 		3AE6DE4D17E4C72600BA9745 /* ATUserConfigurations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATUserConfigurations.h; sourceTree = "<group>"; };
 		3AE6DE4E17E4C72600BA9745 /* ATUserConfigurations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATUserConfigurations.m; sourceTree = "<group>"; };
+		3AE9816A1A870166000AB4E1 /* ATProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATProtocols.h; sourceTree = "<group>"; };
+		3AE9816B1A8702D7000AB4E1 /* ATDataSourceDiffPatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATDataSourceDiffPatch.h; path = DiffPatch/ATDataSourceDiffPatch.h; sourceTree = "<group>"; };
+		3AE9816C1A8702D7000AB4E1 /* ATDataSourceDiffPatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATDataSourceDiffPatch.m; path = DiffPatch/ATDataSourceDiffPatch.m; sourceTree = "<group>"; };
 		3AEF8DDC17AE0B8F00007E9C /* ATTicketCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATTicketCell.h; sourceTree = "<group>"; };
 		3AEF8DDD17AE0B8F00007E9C /* ATTicketCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATTicketCell.m; sourceTree = "<group>"; };
 		3AF6DA8A17D1F53E00CA049A /* UIColor+ATAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ATAdditions.h"; sourceTree = "<group>"; };
@@ -183,6 +186,8 @@
 		47F9F54E17AA364F007C8A8D /* NSDate+ATAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+ATAdditions.m"; sourceTree = "<group>"; };
 		47F9F55017AA42A4007C8A8D /* ATRootTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATRootTabController.h; sourceTree = "<group>"; };
 		47F9F55117AA42A4007C8A8D /* ATRootTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATRootTabController.m; sourceTree = "<group>"; };
+		88230E1957BB0728CBD8A307 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		BDF5CAB3F371228444E7B669 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CFCD5A7D8710465FA58C06A3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E244C984179577E300F1D203 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		E26BED7E177081A80087E0E4 /* Animetick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Animetick.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,6 +238,16 @@
 				3AF6DA8F17DAD72F00CA049A /* ATUtils.m */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		3AE981691A870056000AB4E1 /* DiffPatch */ = {
+			isa = PBXGroup;
+			children = (
+				3AE9816A1A870166000AB4E1 /* ATProtocols.h */,
+				3AE9816B1A8702D7000AB4E1 /* ATDataSourceDiffPatch.h */,
+				3AE9816C1A8702D7000AB4E1 /* ATDataSourceDiffPatch.m */,
+			);
+			name = DiffPatch;
 			sourceTree = "<group>";
 		};
 		470D11B7183F4B350019B0E1 /* Layouts */ = {
@@ -360,6 +375,15 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		681436A616B552E2E447735C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				88230E1957BB0728CBD8A307 /* Pods.debug.xcconfig */,
+				BDF5CAB3F371228444E7B669 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E26BED75177081A80087E0E4 = {
 			isa = PBXGroup;
 			children = (
@@ -367,7 +391,7 @@
 				E26BEDA5177081A80087E0E4 /* AnimetickTests */,
 				E26BED80177081A80087E0E4 /* Frameworks */,
 				E26BED7F177081A80087E0E4 /* Products */,
-				171813F272F244428CECCC7C /* Pods.xcconfig */,
+				681436A616B552E2E447735C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -396,6 +420,7 @@
 		E26BED87177081A80087E0E4 /* Animetick */ = {
 			isa = PBXGroup;
 			children = (
+				3AE981691A870056000AB4E1 /* DiffPatch */,
 				3ACB7C2818202312007E981D /* TicketStoryboard.storyboard */,
 				3AF6DA9117DAD7E800CA049A /* SettingStoryboard.storyboard */,
 				3AE3DD4717AD7F13005C8688 /* Utils */,
@@ -575,7 +600,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AF2A74979C924443AA623345 /* Check Pods Manifest.lock */ = {
@@ -626,6 +651,7 @@
 				E26BED8E177081A80087E0E4 /* main.m in Sources */,
 				470D11B6183B5E040019B0E1 /* ATLisenceViewController.m in Sources */,
 				47F9F53217AA35C9007C8A8D /* ATTicket.m in Sources */,
+				3AE9816D1A8702D7000AB4E1 /* ATDataSourceDiffPatch.m in Sources */,
 				3AF6DA9517DCDF3800CA049A /* ATSettingViewController.m in Sources */,
 				3A0289EA18763A2700C041F7 /* ATUpdatableTableView.m in Sources */,
 				47F9F53317AA35C9007C8A8D /* ATTicketList.m in Sources */,
@@ -748,7 +774,7 @@
 		};
 		E26BEDB1177081A80087E0E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 171813F272F244428CECCC7C /* Pods.xcconfig */;
+			baseConfigurationReference = 88230E1957BB0728CBD8A307 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -768,19 +794,19 @@
 		};
 		E26BEDB2177081A80087E0E4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 171813F272F244428CECCC7C /* Pods.xcconfig */;
+			baseConfigurationReference = BDF5CAB3F371228444E7B669 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Yuya Yaguchi (XVG97NLJ56)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Animetick/Animetick-Prefix.pch";
 				INFOPLIST_FILE = "Animetick/Animetick-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8DC5317B-0E26-4A7A-BF7C-538E3F14569B";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
