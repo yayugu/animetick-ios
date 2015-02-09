@@ -38,8 +38,10 @@ typedef NS_ENUM(NSUInteger, ATPatchType) {
 
 - (void)diffFrom:(id<ATDataSource>)d1 to:(id<ATDataSource>)d2
 {
-    NSInteger oldSectionCount = [_updatingDataSource numberOfPreviousSectionsInTableView:self];
+    NSInteger oldSectionCount = [d1 numberOfSectionsInTableView:_tableView];
     NSMutableDictionary* oldSectionMap = [[NSMutableDictionary alloc] initWithCapacity:oldSectionCount];
+    
+    // ここまで
     
     for (NSInteger i = 0; i < oldSectionCount; i++)
     {
