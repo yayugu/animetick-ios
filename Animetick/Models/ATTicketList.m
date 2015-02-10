@@ -128,7 +128,7 @@
     NSMutableArray *sections = [NSMutableArray array];
     ATTicketSection *section = [[ATTicketSection alloc] init];
     section.title = @"";
-    section.hashCode = 0;
+    section.hashCode = 1;
     section.tickets = [NSMutableArray array];
     [sections addObject:section];
     NSUInteger i = 0;
