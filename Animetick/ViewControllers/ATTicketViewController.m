@@ -10,6 +10,7 @@
 @interface ATTicketViewController () <ATTicketListDelegate, SWTableViewCellDelegate>
 
 @property (nonatomic, strong) ATTicketList *ticketList;
+@property (nonatomic, strong) ATTicketList *previousTicketList;
 @property (nonatomic, strong) ATDataSourceDiffPatch* diffPatch;
 @property (nonatomic, strong) ATPaddingIndicator *indicator;
 @property (nonatomic) BOOL watched;
@@ -169,15 +170,13 @@
         [ticket watch];
     }
 
-    ATTicketList *previousTicketList = [self.ticketList copy];
-    
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     if ([self.ticketList numberOfTicketsInSection:indexPath.section] > 1) {
         [self.ticketList removeTicketAtIndexPath:indexPath];
     } else {
         [self.ticketList removeTicketAtIndexPath:indexPath];
     }
-    [ATDataSourceDiffPatch updateTableView:self.tableView from:previousTicketList to:self.ticketList];
+    [self update];
 }
 
 
@@ -185,7 +184,7 @@
 
 - (void)ticketListDidLoad
 {
-    [self reload];
+    [self update];
 }
 
 - (void)ticketListMoreDidLoad
@@ -194,23 +193,32 @@
     static const NSTimeInterval loadTimeMin = 0.5;
     NSTimeInterval interval = CFAbsoluteTimeGetCurrent() - self.loadMoreStartTime;
     if (interval < loadTimeMin) {
-        [self performSelector:@selector(reload) withObject:nil afterDelay:(loadTimeMin - interval)];
+        [self performSelector:@selector(ticketListMoreDidLoad) withObject:nil afterDelay:(loadTimeMin - interval)];
         return;
     }
-    [self reload];
+    [self update];
 }
 
 - (void)ticketListLoadDidFailed
 {
-    [self.refreshControl endRefreshing];
-    [self endIndicator];
+    [self endLoading];
 }
 
 #pragma mark - Internals
 
-- (void)reload
+- (void)update
 {
-    [self.tableView reloadData];
+    if (self.previousTicketList) {
+        [ATDataSourceDiffPatch updateTableView:self.tableView from:self.previousTicketList to:self.ticketList];
+    } else {
+        [self.tableView reloadData];
+    }
+    self.previousTicketList = [self.ticketList copy];
+    [self endLoading];
+}
+
+- (void)endLoading
+{
     [self.refreshControl endRefreshing];
     [self endIndicator];
 }

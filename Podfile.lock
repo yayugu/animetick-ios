@@ -1,10 +1,15 @@
 PODS:
+  - AsyncDisplayKit (1.1.1):
+    - AsyncDisplayKit/ASDealloc2MainObject (= 1.1.1)
+  - AsyncDisplayKit/ASDealloc2MainObject (1.1.1)
   - TMCache (1.2.0)
 
 DEPENDENCIES:
+  - AsyncDisplayKit
   - TMCache
 
 SPEC CHECKSUMS:
-  TMCache: 4b05e1b124d9f7e8d449640e059cff4cda17ed27
+  AsyncDisplayKit: 897b28140c6c73fbe8d6168f19ce7cbd87c94ee8
+  TMCache: ea1c509badaf9a1245422aabf3c975b3277ab138
 
 COCOAPODS: 0.35.0

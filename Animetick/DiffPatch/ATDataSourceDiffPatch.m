@@ -33,7 +33,8 @@ typedef NS_ENUM(NSUInteger, ATPatchType) {
 
 + (void)updateTableView:(UITableView*)tableview from:(id<ATDataSource>)d1 to:(id<ATDataSource>)d2;
 {
-    [[[ATDataSourceDiffPatch alloc] init] update:tableview from:d1 to:d2];
+    ATDataSourceDiffPatch *diffPatch = [[ATDataSourceDiffPatch alloc] init];
+    [diffPatch update:tableview from:d1 to:d2];
 }
 
 - (void)update:(UITableView*)tableview from:(id<ATDataSource>)d1 to:(id<ATDataSource>)d2
