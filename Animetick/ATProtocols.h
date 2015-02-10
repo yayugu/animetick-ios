@@ -2,12 +2,13 @@
 
 @required
 
-- (NSInteger)numberOfRowsInSection:(NSInteger)section;
-
 /**
  @return the number of sections in the current data.
  */
 - (NSInteger)numberOfSections; /**< promote to be a required method */
+
+
+- (NSInteger)numberOfRowsInSection:(NSInteger)section;
 
 /**
  @param section the section of the current data.

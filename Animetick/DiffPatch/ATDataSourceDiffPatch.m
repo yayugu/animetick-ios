@@ -33,6 +33,8 @@ typedef NS_ENUM(NSUInteger, ATPatchType) {
 
 - (void)update:(UITableView*)tableview from:(id<ATDataSource>)d1 to:(id<ATDataSource>)d2
 {
+    _tableView = tableview;
+    
     ATTableViewUpdates* patch = [[ATTableViewUpdates alloc] init];
     BOOL reload = [self diffFrom:d1 to:d2 patch:patch];
     [self applyPatch:patch reloadFlag:reload];
@@ -193,7 +195,7 @@ typedef NS_ENUM(NSUInteger, ATPatchType) {
             if (!repeatOld)
                 oldHash = 0;
             if (!repeatNew)
-                oldHash = 0;
+                newHash = 0;
             if (!oldHash && oldIndex < oldRowCount)
                 oldHash = [d1 hashAtIndexPath:oldPath];
             if (!newHash && newIndex < newRowCount)

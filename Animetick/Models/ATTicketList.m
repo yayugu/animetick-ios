@@ -72,6 +72,22 @@
     return [self.ticketSections[section] title];
 }
 
+- (NSInteger)numberOfRowsInSection:(NSInteger)section
+{
+    return [[self.ticketSections[section] tickets] count];
+}
+
+- (NSUInteger)hashForSection:(NSInteger)section
+{
+    return [self.ticketSections[section] hash];
+}
+
+- (NSUInteger)hashAtIndexPath:(NSIndexPath*)path
+{
+    NSUInteger index = [((NSArray*)[self.ticketSections[path.section] tickets])[path.row] unsignedIntegerValue];
+    return [self.tickets[index] hash];
+}
+
 - (void)loadMore
 {
     [self requestWithOffset:(int)self.tickets.count];

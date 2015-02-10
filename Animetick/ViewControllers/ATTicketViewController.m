@@ -4,13 +4,14 @@
 #import "UIColor+ATAdditions.h"
 #import "ATTicketLayout.h"
 #import "ATPaddingIndicator.h"
-#import "ATUpdatableTableView.h"
 #import "ATTicketSection.h"
+#import "ATDataSourceDiffPatch.h"
 
-@interface ATTicketViewController () <ATTicketListDelegate, SWTableViewCellDelegate, ATTableViewUpdatingDataSource>
+@interface ATTicketViewController () <ATTicketListDelegate, SWTableViewCellDelegate>
 
 @property (nonatomic, strong) ATTicketList *ticketList;
-@property (nonatomic, strong) ATTicketList* previousTicketList;
+@property (nonatomic, strong) ATTicketList *previousTicketList;
+@property (nonatomic, strong) ATDataSourceDiffPatch* diffPatch;
 @property (nonatomic, strong) ATPaddingIndicator *indicator;
 @property (nonatomic) BOOL watched;
 @property (nonatomic) BOOL firstTimeLayout;
@@ -35,10 +36,9 @@
     [super viewDidLoad];
     
     UITableViewStyle style = self.watched ? UITableViewStylePlain : UITableViewStyleGrouped;
-    self.tableView = [[ATUpdatableTableView alloc] initWithFrame:self.view.bounds style:style];
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:style];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    ((ATUpdatableTableView*)self.tableView).updatingDataSource = self;
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.tableView.estimatedRowHeight = 70;
     self.tableView.rowHeight = UITableViewAutomaticDimension; // value for zero rows
@@ -63,6 +63,8 @@
         .left = 69,
         .right = 0,
     };
+    
+    self.diffPatch = [[ATDataSourceDiffPatch alloc] init];
 }
 
 - (void)viewWillLayoutSubviews
@@ -123,48 +125,6 @@
     return [self.ticketList titleForSection:section];
 }
 
-#pragma mark - ATTableViewUpdatingDataSource
-
-- (NSInteger) numberOfPreviousSectionsInTableView:(UITableView*)tableView
-{
-    return self.previousTicketList.numberOfSections;
-}
-
-- (NSInteger) tableView:(UITableView*)tableView numberOfRowsInPreviousSection:(NSInteger)section
-{
-    return [self.previousTicketList numberOfTicketsInSection:section];
-}
-
-- (NSObject*) tableView:(UITableView*)tableView objectForPreviousSection:(NSInteger)section
-{
-    return [self.previousTicketList sectionAtIndex:section];
-}
-
-- (NSObject*) tableView:(UITableView*)tableView objectForSection:(NSInteger)section
-{
-    return [self.ticketList sectionAtIndex:section];
-}
-
-- (NSObject*) tableView:(UITableView*)tableView objectAtPreviousIndexPath:(NSIndexPath*)indexPath
-{
-    return [self.previousTicketList ticketAtIndexPath:indexPath];
-}
-
-- (NSObject*) tableView:(UITableView*)tableView objectAtIndexPath:(NSIndexPath*)indexPath
-{
-    return [self.ticketList ticketAtIndexPath:indexPath];
-}
-
-- (NSObject<NSCopying>*) tableView:(UITableView*)tableView keyForSectionObject:(NSObject*)object
-{
-    return (NSObject<NSCopying>*)object;
-}
-
-- (NSObject<NSCopying>*) tableView:(UITableView*)tableView keyForRowObject:(NSObject*)object
-{
-    return [(ATTicket*)object hashString];
-}
-
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -218,7 +178,8 @@
     } else {
         [self.ticketList removeTicketAtIndexPath:indexPath];
     }
-    [(ATUpdatableTableView*)self.tableView updateData];
+    [self.diffPatch update:self.tableView from:self.previousTicketList to:self.ticketList];
+    //[(ATUpdatableTableView*)self.tableView updateData];
 }
 
 

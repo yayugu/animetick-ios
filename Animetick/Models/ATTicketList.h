@@ -1,4 +1,5 @@
 #import "ATTicket.h"
+#import "ATProtocols.h"
 
 @class ATTicketSection;
 
@@ -10,7 +11,7 @@
 
 @end
 
-@interface ATTicketList : NSEnumerator <NSCopying>
+@interface ATTicketList : NSEnumerator <NSCopying, ATDataSource>
 
 @property (nonatomic) BOOL lastFlag;
 
@@ -23,6 +24,11 @@
 - (NSString*)titleForSection:(NSInteger)section;
 - (void)loadMore;
 - (void)reload;
+
+
+- (NSInteger)numberOfRowsInSection:(NSInteger)section;
+- (NSUInteger)hashForSection:(NSInteger)section;
+- (NSUInteger)hashAtIndexPath:(NSIndexPath*)indexPath;
 
 @end
 
