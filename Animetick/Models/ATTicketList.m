@@ -72,6 +72,18 @@
     return [self.ticketSections[section] title];
 }
 
+- (void)loadMore
+{
+    [self requestWithOffset:(int)self.tickets.count];
+}
+
+- (void)reload
+{
+    [self requestWithOffset:0];
+}
+
+#pragma mark - ATDataSource delegates
+
 - (NSInteger)numberOfRowsInSection:(NSInteger)section
 {
     return [[self.ticketSections[section] tickets] count];
@@ -86,16 +98,6 @@
 {
     NSUInteger index = [((NSArray*)[self.ticketSections[path.section] tickets])[path.row] unsignedIntegerValue];
     return [self.tickets[index] hash];
-}
-
-- (void)loadMore
-{
-    [self requestWithOffset:(int)self.tickets.count];
-}
-
-- (void)reload
-{
-    [self requestWithOffset:0];
 }
 
 #pragma mark - Internal methods

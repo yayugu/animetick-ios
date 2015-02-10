@@ -25,11 +25,6 @@
 - (void)loadMore;
 - (void)reload;
 
-
-- (NSInteger)numberOfRowsInSection:(NSInteger)section;
-- (NSUInteger)hashForSection:(NSInteger)section;
-- (NSUInteger)hashAtIndexPath:(NSIndexPath*)indexPath;
-
 @end
 
 

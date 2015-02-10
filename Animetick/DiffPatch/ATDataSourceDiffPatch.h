@@ -13,6 +13,6 @@
 
 @property(nonatomic, strong) UITableView *tableView;
 
-- (void)update:(UITableView*)tableview from:(id<ATDataSource>)d1 to:(id<ATDataSource>)d2;
++ (void)updateTableView:(UITableView*)tableview from:(id<ATDataSource>)d1 to:(id<ATDataSource>)d2;
 
 @end

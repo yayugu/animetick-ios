@@ -10,7 +10,6 @@
 @interface ATTicketViewController () <ATTicketListDelegate, SWTableViewCellDelegate>
 
 @property (nonatomic, strong) ATTicketList *ticketList;
-@property (nonatomic, strong) ATTicketList *previousTicketList;
 @property (nonatomic, strong) ATDataSourceDiffPatch* diffPatch;
 @property (nonatomic, strong) ATPaddingIndicator *indicator;
 @property (nonatomic) BOOL watched;
@@ -170,7 +169,7 @@
         [ticket watch];
     }
 
-    self.previousTicketList = [self.ticketList copy];
+    ATTicketList *previousTicketList = [self.ticketList copy];
     
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     if ([self.ticketList numberOfTicketsInSection:indexPath.section] > 1) {
@@ -178,8 +177,7 @@
     } else {
         [self.ticketList removeTicketAtIndexPath:indexPath];
     }
-    [self.diffPatch update:self.tableView from:self.previousTicketList to:self.ticketList];
-    //[(ATUpdatableTableView*)self.tableView updateData];
+    [ATDataSourceDiffPatch updateTableView:self.tableView from:previousTicketList to:self.ticketList];
 }
 
 
